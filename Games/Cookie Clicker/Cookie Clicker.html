@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" initial-scale="1.0", maximum-scale="1.0", user-scalable="no">
+    <title>Cookie Clicker by itsmarian</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <div class="overlay" id="overlay">
+        <div class="overlay-content" id="overlayabout" style="display: none">
+            <div class="overlay-head">
+                <h1>Über Cookie Clicker</h1>
+            </div>
+            <div class="overlay-main">
+                <a>Cookie Clicker ist ein weit verbreitetes und bekanntes Spiel, bei dem man bei dem Drücken auf einen Cookie einen Cookie erhält. Mit den verdienten Cookies kannst du Upgrades und automatische Produktionsgebäude wie Omas oder Roboter kaufen, um noch schneller Cookies zu generieren.</a>
+                <br>
+                <a>
+                    <strong>Was bewirken die jeweiligen Upgrades?</strong>
+                </a>
+                <ul>
+                    <li>
+                        <a><strong>Handschuhe:</strong>&nbsp;Deine gesammelten Cookies, Upgrades und anderen Spielfortschritte werden in deinem Browser gespeichert. So kannst du beim nächsten Laden der Seite dort weitermachen, wo du aufgehört hast, ohne den Fortschritt zu verlieren.</a>
+                    </li>
+                    <li>
+                        <a><strong>Cookie Roboter:</strong>&nbsp;Ein Cookie Roboter gibt dir jeweils 1 automatischen Cookie pro Sekunde</a>
+                    </li>
+                    <li>
+                        <a><strong>Oma:</strong>&nbsp;Eine Oma gibt dir jeweils 5 automatische Cookies pro Sekunde, also 4 Stück mehr als ein Roboter und ist damit auch teurer. Je mehr Omas du hast, desto mehr automatisches Einkommen hast du!</a>
+                    </li>
+                    <li>
+                        <a><strong>Prestige:</strong>&nbsp;Prestige setzt deinen aktuellen Fortschritt zurück und gibt dir einen Prestige-Stern. Je höher die Anzahl der Prestige-Sterne desto besser ist dein Cookie.</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="overlay-foot">
+                <div class="btn" id="closeAbout" style="background-color: #ccc; margin: 0 auto;">
+                    <div class="btn-inner">
+                        <div class="btn-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+                            </svg>
+                        </div>
+                        <div class="btntext">
+                            <a>Verstanden</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay-content" id="cookieConsent" style="display: none;">
+            <div class="overlay-head">
+                <h1>Information</h1>
+            </div>
+            <div class="overlay-main">
+                <a>
+                    <strong>Diese Seite verwendet Cookies,</strong>
+                </a>
+                <a>um deinen Fortschritt im Spiel zu speichern, dieses Spiel anzubieten, die Services von W3SCHOOLS anzubieten und damit diese Seite korrekt funktioniert.</a>
+                <a>Was machen die Cookies genau?</a>
+                <ul>
+                    <li><strong>Speichern des Spielstands:</strong>&nbsp;Deine gesammelten Cookies, Upgrades und andere Spielfortschritte werden in deinem Browser-Cache gespeichert. So kannst du beim nächsten Laden der Seite dort weitermachen, wo du aufgehört hast, ohne den Fortschritt zu verlieren (automatisches Speichern alle 10 Sekunden).</li>
+                    <li><strong>Speichern deiner Einstellungen:</strong>&nbsp;Cookies ermöglichen es uns, deine Spielpräferenzen und Einstellungen zu speichern, sodass du die Seite immer nach deinen Wünschen nutzen kannst.</li>
+                    <li><strong>Schnelligkeit der Seite:</strong>&nbsp;Die Cache-Dateien ermöglichen ein schnelleres Laden der Seite, sodass die Seite bei jedem Laden nicht erneut die Daten der Server abrufen muss.</li>
+                </ul>
+                <a><strong>Datenschutz und Sicherheit:</strong>&nbsp;Diese Seite wird über den Anbieter "W3SCHOOLS" gehostet, welche auf dieser Seite Daten gemäß ihrer&nbsp;</a><a href="https://www.w3schools.com/about/about_privacy.asp" style="color: #000" target="_blank">Datenschutzrichtlinie</a><a>&nbsp;sammelt, verwendet und auswertet. Ich kann keine Daten, die über deinen Fortschritt hinausgehen, speichern und will dies auch nicht machen. Du kannst jederzeit die gespeicherten Cookies über die Einstellungen deines Browsers löschen, wenn du das möchtest.</a>
+                <a>Indem du diese Seite spielst, stimmst du der Verwendung von Cookies zu, um deinen Spielstand und deine Einstellungen zu speichern und die Services von W3SCHOOLS bereitzustellen.</a>
+            </div>
+            <div class="overlay-foot">
+                <div class="btn" id="acceptCookiesBtn" style="background-color: #ccc; margin: 0 auto;">
+                    <div class="btn-inner">
+                        <div class="btn-svg">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+                            </svg>
+                        </div>
+                        <div class="btntext">
+                            <a>Verstanden</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <top class="top">
+        <div class="navbar">
+            <div class="navigation">
+                <div class="element" id="home">
+                    <div class="element-inner">
+                        <a>Cookie Clicker</a>
+                    </div>
+                </div>
+                <div class="element" id="about">
+                    <div class="element-inner">
+                        <a>About</a>
+                    </div>
+                </div>
+                <div class="element" id="cookiecache">
+                    <div class="element-inner">
+                        <a>Cookies und Cache</a>
+                    </div>
+                </div>
+                <div class="element" id="github">
+                    <div class="element-inner">
+                        <a>GitHub</a>
+                    </div>
+                </div>
+                <div class="element" id="changelog">
+                    <div class="element-inner">
+                        <a>ChangeLog</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </top>
+    <!-- Main Content -->
+    <content id="content">
+        <h1>Simple Cookie Clicker v1.2</h1>
+        <a>by itsmarian</a>
+        <div class="stats">
+            <h2>Cookies: <span id="cookies">0</span></h2>
+            <hr>
+            <h3>🍪 Pro Klick: <span id="clickValue">1</span></h3>
+            <h3>⚡ Pro Sekunde: <span id="cps">0</span></h3>
+            <h3>📈 Prestige: <span id="prestige">0</span></h3>
+            <div style="margin: 0 auto; width: 300px;">
+                <hr>
+            </div>
+            <h3>🤖 Roboter: <span id="autoCount">0</span></h3>
+            <h3>👵 Omas: <span id="grandmaCount">0</span></h3>
+        </div>
+        <img id="cookie" src="https://cdn-icons-png.flaticon.com/512/1047/1047711.png" alt="Cookie">
+        <div class="container">
+            <div class="stats">
+                <h2>🏭 Upgrades</h2>
+                <button class="shop-button" onclick="buyUpgrade('click')">
+                    <a>🧤 Bessere Handschuhe (+2/Klick)</a>
+                    <br>
+                    <a>🏷️ Kosten: <span id="clickCost">10</span> Cookies</a>
+                </button>
+                <button class="shop-button" onclick="buyUpgrade('auto')">
+                    <a>🤖 Cookie-Roboter (+1/Sekunde)</a>
+                    <br>
+                    <a>🏷️ Kosten: <span id="autoCost">50</span> Cookies</a>
+                </button>
+                <button class="shop-button" onclick="buyUpgrade('grandma')">
+                    <a>👵 Oma (+5/Sekunde)</a>
+                    <br>
+                    <a>🏷️ Kosten: <span id="grandmaCost">200</span> Cookies</a>
+                </button>
+                <button class="shop-button" onclick="buyPrestige()">
+                    <a>📈 Prestige (+1 Prestige-Stern)</a>
+                    <br>
+                    <a>🏷️ Kosten: <span id="prestigeCost">25000</span> Cookies</a>
+                </button>
+            </div>
+        </div>
+        <div class="container">
+            <div class="stats">
+                <div class="save-info">
+                    <div id="save" style="display: none; margin-bottom: 20px;">
+                        <div id="gamesave" style="height: 13.6px;">
+                            <span>Spiel gespeichert!</span>
+                        </div>
+                    </div>
+                    <div class="btn" style="background-color: #3C9136; margin: 0 auto;" onclick="saveGame()">
+                        <div class="btn-inner">
+                            <div class="btn-svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                    <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+                                </svg>
+                            </div>
+                            <div class="btntext">
+                                <a>Manuell speichern</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 20px; width: 280px;"></div>
+                    <!-- Formular zum Hochladen einer JSON-Datei -->
+                    <div class="btn" id="loadbtn" style="background-color: #3C9136; margin: 0 auto;" onclick="openLoader()">
+                        <div class="btn-inner">
+                            <div class="btn-svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                    <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+                                </svg>
+                            </div>
+                            <div class="btntext">
+                                <a>Fortschritt laden</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fileLoader" style="display: none;">
+                        <div class="loadInput">
+                            <input type="file" id="fileInput" accept=".json" style="width: 230px;">
+                        </div>
+                        <div class="loadCancel" onclick="stopLoad()" style="margin: 5px;">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                <path d="m336-280 144-144 144 144 56-56-144-144 144-144-56-56-144 144-144-144-56 56 144 144-144 144 56 56ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div style="height: 20px; width: 280px;"></div>
+                    <div id="loadButton">
+                        <div class="btn" style="background-color: #3C9136; margin: 0 auto;">
+                            <div class="btn-inner">
+                                <div class="btn-svg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                        <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+                                    </svg>
+                                </div>
+                                <div class="btntext">
+                                    <a>Laden bestätigen</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height: 20px; width: 280px;"></div>
+                    </div>
+                    <div class="btn" onclick="resetGame()" style="margin: 0 auto;">
+                        <div class="btn-inner">
+                            <div class="btn-svg">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                    <path d="M480-160q-134 0-227-93t-93-227q0-134 93-227t227-93q69 0 132 28.5T720-690v-110h80v280H520v-80h168q-32-56-87.5-88T480-720q-100 0-170 70t-70 170q0 100 70 170t170 70q77 0 139-44t87-116h84q-28 106-114 173t-196 67Z"/>
+                                </svg>
+                            </div>
+                            <div class="btntext">
+                                <a>Spiel zurücksetzen</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </content>
+    <footer style="margin-top: 20px;">
+        <a>Made, supported, edited and modified using Artificial Intelligence.</a>
+        <br>
+        <br>
+        <a href="https://www.w3schools.com/about/about_privacy.asp" style="color: #000;" target="_blank">Datenschutz & Cookies</a>
+        <a>•</a>
+        <a href="https://www.w3schools.com/about/about_copyright.asp" style="color: #000;" target="_blank">Nutzungsbedingungen</a>
+        <br>
+        <br>
+        <a>&copy; 2025 itsmarian | All rights reserved!</a>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
