@@ -10,6 +10,11 @@ let autoClickerCost = 50;
 let grandmaCost = 200;
 let prestigeCost = 25000;
 
+// Mobile Navbar
+document.getElementById("mobile-header-svg").addEventListener("click", function(){
+    document.getElementById("mobile-overlay").style.display = "block";
+});
+
 // Navbar
 document.getElementById("home").addEventListener("click", function(){
     location.reload();

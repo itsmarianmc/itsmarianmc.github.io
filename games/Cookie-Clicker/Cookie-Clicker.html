@@ -250,23 +250,53 @@
             <div style="height: 20px; width: 100%;"></div>
         </footer>
     </div>
-    <div id="mobile" style="display: block;">
-        <div id="mobile-overlay" style="align-items: center; background-color: rgba(0, 0, 0, 0.5); display: block; height: 100%; justify-content: center; left: 0; position: fixed; top: 0; width: 100%; z-index: 9999;">
-            <div id="mobile-overlay-content" style="background-color: #fff; border-radius: 10px; color: black; font-size: 24px; margin: 0 auto; max-width: 600px; min-width: 215px; overflow-x: hidden; overflow-y: scroll; padding: 20px; text-align: center;">
+    <div id="mobile" style="display: block; overlay: hidden;">
+        <div id="mobile-overlay" style="align-items: center; background-color: rgba(0, 0, 0, 0.5); display: none; height: 100%; justify-content: center; left: 0; position: fixed; top: 0; width: 100%; z-index: 9999;">
+            <div id="mobile-overlay-content" style="background-color: #fff; border-radius: 10px; color: black; font-size: 24px; height: 335px; margin: 0 auto; max-width: 600px; min-width: 215px; overflow-x: hidden; overflow-y: scroll; padding: 20px; text-align: center;">
                 <div id="mobile-overlay-head" style="width: 100%;">
-                    <h1 style="font-size: 20px;">Cookie Clicker</h1>
+                    <h1 style="font-size: 60px;">Cookie Clicker</h1>
                 </div>
-                <div id="mobile-overlay-main" style="width: 100%;">
-                    <a>Hello World!</a>
-                </div>
-                <div id="mobile-overlay-foot" style="margin-top: 20px;">
-                    <a>Hello World!</a>
-                </div>    
+                <hr>
+                <div id="mobile-navbar" style="background-color: #fff; display: block; height: 200px; position: sticky; width: 600px;">
+                    <div id="mobile-navigaton" style="display: flex; flex-direction: column; justify-content: space-around; margin: 0 auto; width: 600px;">
+                        <div id="mobile-element" style="background-color: #f3f3f3; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 5px; cursor: pointer; height: 40px; margin-bottom: 10px; margin-top: 10px; width: 600px;">
+                            <div class="mobile-element-inner" style="height: 28px; margin-bottom: 6px; margin-top: 6px;">
+                                <a>Cookie Clicker</a>
+                            </div>
+                        </div>
+                        <div id="mobile-element" style="background-color: #f3f3f3; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 5px; cursor: pointer; height: 40px; margin-bottom: 10px; margin-top: 10px; width: 600px;">
+                            <div class="mobile-element-inner" style="height: 28px; margin-bottom: 6px; margin-top: 6px;">
+                                <a>GitHub</a>
+                            </div>
+                        </div>
+                        <div id="mobile-element" style="background-color: #f3f3f3; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 5px; cursor: pointer; height: 40px; margin-bottom: 10px; margin-top: 10px; width: 600px;">
+                            <div class="mobile-element-inner" style="height: 28px; margin-bottom: 6px; margin-top: 6px;">
+                                <a>ChangeLog</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>   
             </div>
         </div>
-        <a style="font-size: 30px;">Cookie Clicker is not supportet on mobile devices yet.</a>
-        <br>
-        <a style="font-size: 30px;">Switch to a dekstop or tablet to play Cookie Clicker.</a>
+        <div id="mobile-header" style="float: left; width: 100%;">
+            <div id="mobile-header-inner" style="display: flex; margin: 0 auto;">
+                <div id="mobile-header-svg" style="float: left;">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50" fill="#000">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                    </svg>
+                </div>
+                <div class="mobile-header-text">
+                    <div class="mobile-header-text-inner" style="height: 40px; margin: 5px;">
+                        <a style="font-size: 35px;">Cookie Clicker by itsmarian</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-content" style="margin: 0 auto; width: 625px;">
+            <a style="font-size: 30px;">Cookie Clicker is not supportet on mobile devices yet.</a>
+            <br>
+            <a style="font-size: 30px;">Switch to a dekstop or tablet to play Cookie Clicker.</a>
+        </div>
     </div>
     <script src="Script.js"></script>
     <script src="/assests/universal/universal-device.js"></script>
