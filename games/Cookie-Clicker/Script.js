@@ -24,7 +24,8 @@ document.getElementById("about").addEventListener("click", function() {
 document.getElementById("closeAbout").addEventListener("click", function() { 
     document.getElementById("overlay").style.display = "none";
     document.getElementById("overlayabout").style.display = "none";
-    document.getElementById("body").style.overflow = "scroll";
+    document.getElementById("body").style.overflowX = "hidden";
+    document.getElementById("body").style.overflowY = "scroll";
 });
 
 document.getElementById("cookiecache").addEventListener("click", function() { 
@@ -36,7 +37,8 @@ document.getElementById("cookiecache").addEventListener("click", function() {
 document.getElementById("acceptCookiesBtn").addEventListener("click", function() { 
     document.getElementById("cookieConsent").style.display = "none";
     document.getElementById("overlay").style.display = "none";
-    document.getElementById("body").style.overflow = "scroll";
+    document.getElementById("body").style.overflowX = "hidden";
+    document.getElementById("body").style.overflowY = "scroll";
 });
 
 document.getElementById("github").addEventListener("click", function(){
