@@ -2,6 +2,7 @@ body {
     background-color: #FFF3E0;
     font-family: 'Arial', sans-serif;
     overflow-y: scroll;
+    overflow-x: hidden;
     text-align: center;
     touch-action: manipulation;
     margin: 0px;
@@ -32,10 +33,9 @@ li {
     width: 1200px;
 }
 
-/* Change it! */
 .navbar {
     background-color: #FFF3E0;
-    display: block;
+    display: flex;
     height: 40px;
     position: sticky;
     width: 1200px;
