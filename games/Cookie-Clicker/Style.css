@@ -266,3 +266,32 @@ li {
     background: #707070;
     width: 5px;
 }
+
+/* Mobile Navbar */
+.mobile-navbar {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between; 
+    margin: 0 auto;
+    max-width: 300px;
+    min-width: 200px;
+}
+
+.mobile-element {
+    background-color: #f3f3f3;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    height: 40px;
+    flex-grow: 1; 
+    max-width: calc(33.33% - 5px);
+    min-width: 50px;
+    text-align: center;
+}
+
+
+.mobile-element-inner {
+    height: 20px;
+    min-width: 50px;
+    margin-top: 10px;
+}
