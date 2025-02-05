@@ -36,7 +36,7 @@ li {
     background-color: #FFF3E0;
     display: block;
     height: 40px;
-    position: fixed;
+    position: sticky;
     width: 1200px;
 }
 
