@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const deviceType = detectDevice();
     
     document.getElementById("mobile").style.display = deviceType === "mobile" ? "block" : "none";
-    document.getElementById("tablet").style.display = deviceType === "tablet" ? "block" : "none";
+    document.getElementById("desktop").style.display = deviceType === "tablet" ? "block" : "none";
     document.getElementById("desktop").style.display = deviceType === "desktop" ? "block" : "none";
 });
 
