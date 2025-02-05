@@ -9,15 +9,21 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e6e6e6;
         }
         .container {
-            max-width: 800px;
+            max-width: 950px;
+            min-width: 800px;
             margin: 50px auto;
-            background: white;
+            background: #fff;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            width: 100%;
         }
 
         .btn {
@@ -48,24 +54,67 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Willkommen auf der Seite von itsmarian</h1>
-        <a>Meine Spiele:</a>
-        <div class="btn" style="background-color: #3C9136; margin: 0 auto;" onclick="OpenLink()">
-            <div class="btn-inner">
-                <div class="btn-svg">
-                    <img height="30" src="https://cdn-icons-png.flaticon.com/512/1047/1047711.png" width="30">
+    <div id="desktop" style="display: none;">
+        <div class="container">
+            <div class="header">
+                <h1>Willkommen auf der Seite von itsmarian</h1>
+            </div>
+            <div class="about-me">
+                <h2>Über mich</h2>
+                <a>Ich bin itsmarian, ein Webseite-Developer, -Entwickler und -Designer. Ich entwickle Spiele für mich und meine Freunde und teste dadurch auch gerne die Limits von Künstlicher Intelligenz. Ich habe außerdem mein eigenes Minecraft Projekt, welches ich aktiv weiterentwickle.</a>
+            </div>
+            <div class="gameoverview">
+                <div class="btn" style="background-color: #3C9136; margin: 0 auto;" onclick="OpenLink()">
+                    <div class="btn-inner">
+                        <div class="btn-svg">
+                            <img height="30" src="https://cdn-icons-png.flaticon.com/512/1047/1047711.png" width="30">
+                        </div>
+                        <div class="btntext">
+                            <a>Meine Spiele</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="btntext">
-                    <a>Cookie Clicker</a>
-                </div>
+            </div>
+            <div class="projektcity">
+
             </div>
         </div>
     </div>
+        <div id="mobile" style="display: none;">
+            <a>This site is currently not supportet on mobile devices! Please check back later or contact an admin.</a>
+        </div>
+        <div id="tablet" style="display: none;">
+            <a>This site is currently not supportet on mobile devices! Please check back later or contact an admin.</a>
+        </div>    
     <script>
         function OpenLink() {
-            open("/Games/Cookie-Clicker/Cookie-Clicker.html", target="_parent")
+            open("/games", target="_parent")
         }; 
+
+        function detectDevice() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobile = /iphone|ipod|android.*mobile|windows phone/.test(userAgent);
+            const isTablet = /ipad|android(?!.*mobile)/.test(userAgent);
+            
+            if (isMobile) {
+                return "mobile";
+            } else if (isTablet) {
+                return "tablet";
+            } else {
+                return "desktop";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const deviceType = detectDevice();
+            
+            document.getElementById("mobile").style.display = deviceType === "mobile" ? "block" : "none";
+            document.getElementById("tablet").style.display = deviceType === "tablet" ? "block" : "none";
+            document.getElementById("desktop").style.display = deviceType === "desktop" ? "block" : "none";
+        });
+
+        console.log("Device: " + detectDevice());
+
     </script>
 </body>
 </html>
