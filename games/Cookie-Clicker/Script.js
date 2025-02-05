@@ -18,27 +18,30 @@ document.getElementById("home").addEventListener("click", function(){
 document.getElementById("about").addEventListener("click", function() {
     document.getElementById("overlay").style.display = "flex";
     document.getElementById("overlayabout").style.display = "block";
-    document.getElementById("body").style.overflow = "hidden";
+    document.getElementById("body").classList.remove("scroll");
+    document.getElementById("body").classList.add("noScroll");
 });
 
 document.getElementById("closeAbout").addEventListener("click", function() { 
     document.getElementById("overlay").style.display = "none";
     document.getElementById("overlayabout").style.display = "none";
-    document.getElementById("body").style.overflowX = "hidden";
-    document.getElementById("body").style.overflowY = "scroll";
+    document.getElementById("body").classList.add("scroll");
+    document.getElementById("body").classList.remove("noScroll");
 });
 
 document.getElementById("cookiecache").addEventListener("click", function() { 
     document.getElementById("cookieConsent").style.display = "block";
     document.getElementById("overlay").style.display = "flex";
-    document.getElementById("body").style.overflow = "hidden";
+    document.getElementById("body").classList.remove("scroll");
+    document.getElementById("body").classList.add("noScroll");
 });
 
 document.getElementById("acceptCookiesBtn").addEventListener("click", function() { 
     document.getElementById("cookieConsent").style.display = "none";
     document.getElementById("overlay").style.display = "none";
-    document.getElementById("body").style.overflowX = "hidden";
-    document.getElementById("body").style.overflowY = "scroll";
+    document.getElementById("body").classList.add("scroll");
+    document.getElementById("body").classList.remove("noScroll");
+
 });
 
 document.getElementById("github").addEventListener("click", function(){
@@ -46,7 +49,7 @@ document.getElementById("github").addEventListener("click", function(){
 });
 
 document.getElementById("changelog").addEventListener("click", function(){
-    open("/Cookie-Clicker-ChangeLog.html", target="_parent")
+    open("/games/Cookie-Clicker//Cookie-Clicker-ChangeLog.html", target="_parent")
 });
 
 // Load progress
