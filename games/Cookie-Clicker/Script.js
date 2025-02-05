@@ -40,7 +40,7 @@ document.getElementById("acceptCookiesBtn").addEventListener("click", function()
 });
 
 document.getElementById("github").addEventListener("click", function(){
-    open("https://github.com/itsmarianmc/", target="_blank")
+    open("https://github.com/itsmarianmc/itsmarianmc.github.io", target="_blank")
 });
 
 document.getElementById("changelog").addEventListener("click", function(){
