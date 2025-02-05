@@ -6,6 +6,7 @@ body {
     text-align: center;
     touch-action: manipulation;
     margin: 0px;
+    overflow-x: hidden;
     user-select: none;
 }
 
