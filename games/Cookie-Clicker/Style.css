@@ -34,7 +34,7 @@ li {
 
 .navbar {
     background-color: #FFF3E0;
-    display: flex;
+    display: block;
     height: 40px;
     position: fixed;
     width: 1200px;
