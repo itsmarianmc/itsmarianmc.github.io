@@ -1,5 +1,5 @@
 body {
-    background-color: #FFF3E0;
+    background-color: #f4f4f4;
     font-family: 'Arial', sans-serif;
     margin: 0px;
     overflow-y: scroll;
@@ -31,7 +31,7 @@ li {
 
 /* Navbar */
 .top {
-    background-color: #FFF3E0;
+    background-color: #f4f4f4;
     display: block;
     margin: 0 auto;
     position: sticky;
@@ -43,7 +43,7 @@ li {
 }
 
 .navbar {
-    background-color: #FFF3E0;
+    background-color: #f4f4f4;
     display: block;
     height: 40px;
     position: sticky;
@@ -125,7 +125,7 @@ li {
 .cookie-animation {
     animation: floatNumber 1s forwards;
     position: absolute;
-    color: #FF9800;
+    color: #ff7b00;
     font-weight: bold;
     pointer-events: none;
 }
@@ -139,7 +139,7 @@ li {
 .shop-button {
     padding: 15px;
     margin: 10px;
-    background: #FF9800;
+    background: #f79e4b;
     color: white;
     border: none;
     border-radius: 25px;
@@ -151,7 +151,7 @@ li {
 
 .shop-button:hover:not(:disabled) {
     transform: scale(1.05);
-    background: #F57C00;
+    background: #ff8c19;
 }
 
 .shop-button:disabled {
@@ -186,7 +186,7 @@ li {
 
 /* Button with SVG */
 .btn {
-    background-color: #ff0000;
+    background-color: #b83c26;
     border-radius: 5px;
     cursor: pointer;
     height: 40px;
@@ -225,7 +225,7 @@ li {
 #fileLoader {
     border-radius: 5px;
     height: 40px;
-    background-color: #3C9136;
+    background-color: #8bbe51;
 }
 
 .loadCancel {
