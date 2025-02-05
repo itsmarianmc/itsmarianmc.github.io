@@ -272,7 +272,7 @@ li {
     font-size: 25px;
 }
 
-.mobile-overlay {
+#mobile-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -285,7 +285,7 @@ li {
     align-items: center;
 }
 
-.mobile-overlay-content {
+#mobile-overlay-content {
     padding: 20px;
     background-color: #fff;
     color: black;
@@ -299,14 +299,14 @@ li {
     min-width: 215px;
 }
 
-.mobile-overlay-head {
+#mobile-overlay-head {
     width: 100%;
 }
 
-.mobile-overlay-main {
+#mobile-overlay-main {
     width: 100%;
 }
 
-.overlay-foot {
+#overlay-foot {
     margin-top: 20px;
 }
