@@ -336,9 +336,9 @@
             const deviceType = detectDevice();
             
             if (deviceType === "mobile") {
-                document.getElementById("mobile").style.display = deviceType === "mobile" ? "block" : "none";
+                window.location.href = "Cookie-Clicker-Mobile.html";
             } else {
-                window.location.href = "Cookie-Clicker.html";
+                document.getElementById("desktop").style.display = deviceType === "desktop" ? "block" : "none";
             }
         });
 
