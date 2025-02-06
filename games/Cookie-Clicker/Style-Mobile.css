@@ -63,7 +63,7 @@ li {
     border-radius: 5px;
     cursor: pointer;
     height: 40px;
-    width: 200px;
+    width: 175px;
 }
 
 .element-inner {
@@ -94,7 +94,7 @@ li {
     font-size: 24px;
     overflow-x: hidden;
     overflow-y: scroll;
-    max-width: 70%;
+    max-width: 950px;
     max-height: 75%;
 }
 
