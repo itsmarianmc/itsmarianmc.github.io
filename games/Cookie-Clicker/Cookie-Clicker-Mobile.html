@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8" initial-scale="1.0", maximum-scale="1.0", user-scalable="no">
     <title>Cookie Clicker by itsmarian</title>
-    <link rel="stylesheet" href="Style-Mobile.css"></link>
+    <!-- <link rel="stylesheet" href="Style-Mobile.css"></link> -->
     <style>
-        body {
+body {
     background-color: #f4f4f4;
     font-family: 'Arial', sans-serif;
     margin: 0px;
@@ -45,23 +45,28 @@ li {
     top: 0;
     padding-bottom: 15px;
     padding-top: 15px;
-    height: 40px;
+    height: 140px;
     width: 975px;
 }
 
 .navbar {
     background-color: #f4f4f4;
     display: block;
-    height: 40px;
+    height: 150px;
     position: sticky;
     width: 975px;
 }
 
 .navigation {
     display: flex;
-    justify-content: space-around;
+    gap: 10px;
+    justify-content: center;
     margin: 0 auto;
     width: 975px;
+}
+
+.navigation .element {
+  flex: 1;
 }
 
 .element {
@@ -69,13 +74,16 @@ li {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     cursor: pointer;
-    height: 40px;
-    width: 175px;
+    height: 60px;
+    width: auto;
 }
 
 .element-inner {
-    height: 20px;
-    margin-top: 10px;
+    font-size: 30px;
+    height: 33.75px;
+    margin-bottom: 13.125px;
+    margin-top: 13.125px;
+    vertical-align: middle;
 }
 
 /* Overlay */
@@ -101,7 +109,7 @@ li {
     font-size: 24px;
     overflow-x: hidden;
     overflow-y: scroll;
-    max-width: 950px;
+    max-width: 910px;
     max-height: 75%;
 }
 
@@ -167,6 +175,9 @@ li {
 }
 
 /* Basic Container Design */
+#content {
+    margin-top: 120px;
+}
 .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -364,6 +375,7 @@ li {
         <!-- Navbar -->
         <top class="top">
             <div class="navbar">
+                <div style="height: 10px; width: 100%;"></div>
                 <div class="navigation">
                     <div class="element" id="home">
                         <div class="element-inner">
@@ -375,6 +387,9 @@ li {
                             <a>Spieleanleitung</a>
                         </div>
                     </div>
+                </div>
+                <div style="height: 10px; width: 100%;"></div>
+                <div class="navigation">
                     <div class="element" id="cookiecache">
                         <div class="element-inner">
                             <a>Cookies und Cache</a>
@@ -391,10 +406,11 @@ li {
                         </div>
                     </div>
                 </div>
+                <div style="height: 10px; width: 100%;"></div>
             </div>
         </top>
         <!-- Main Content -->
-        <content id="content">
+        <div id="content">
             <h1>Simple Cookie Clicker v1.3</h1>
             <a>by itsmarian</a>
             <div class="stats">
@@ -510,7 +526,7 @@ li {
                     </div>
                 </div>
             </div>
-        </content>
+        </div>
         <footer style="margin-top: 20px;">
             <a>Made, supported, edited and modified using Artificial Intelligence.</a>
             <br>
@@ -613,7 +629,8 @@ li {
             if (deviceType === "mobile") {
                 document.getElementById("mobile").style.display = deviceType === "mobile" ? "block" : "none";
             } else {
-                window.location.href = "Cookie-Clicker-Mobile.html";
+                document.getElementById("mobile").style.display = deviceType === "desktop" ? "block" : "none";
+                // window.location.href = "Cookie-Clicker-Mobile.html";
             }
         });
 
