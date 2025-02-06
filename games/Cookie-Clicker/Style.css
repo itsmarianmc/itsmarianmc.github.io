@@ -212,6 +212,9 @@ li {
 
 /* Buttons */
 #fileLoader {
+    background-color: #8bbe51;
+    border-radius: 5px;
+    height: 40px;
     margin: 0 auto;
     width: 280px;
 }
@@ -220,12 +223,6 @@ li {
     color: #fff;
     margin: 5px;
     margin-top: 10px;
-}
-
-#fileLoader {
-    border-radius: 5px;
-    height: 40px;
-    background-color: #8bbe51;
 }
 
 .loadCancel {
@@ -271,44 +268,3 @@ li {
 #mobile {
     font-size: 25px;
 }
-
-/*
-#mobile-overlay {
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: block;
-    height: 100%;
-    justify-content: center;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 9999;
-}
-
-#mobile-overlay-content {
-    background-color: #fff;
-    border-radius: 10px;
-    color: black;
-    font-size: 24px;
-    margin: 0 auto;
-    max-width: 300px;
-    min-width: 215px;
-    overflow-x: hidden;
-    overflow-y: scroll;
-    padding: 20px;
-    text-align: center;
-}
-
-#mobile-overlay-head {
-    width: 100%;
-}
-
-#mobile-overlay-main {
-    width: 100%;
-}
-
-#overlay-foot {
-    margin-top: 20px;
-}
-*/

@@ -81,7 +81,7 @@ document.getElementById("loadButton").addEventListener("click", function() {
     fileInput.value = "";
 
     if (!file) {
-        alert("Keine Datei ausgewählt. Bitte wähle eine Datei zum Laden aus!");
+        alert("Es wurde keine Datei ausgewählt. Bitte wähle eine Datei zum Laden aus!");
         return;
     }
 
@@ -117,7 +117,7 @@ document.getElementById("loadButton").addEventListener("click", function() {
                 fileInput.value = "";
             }
         } catch (error) {
-            alert("Fehler beim Laden der Datei. Stelle sicher, dass die Datei im richtigen Format vorliegt und die Datei keine Fehler enthält.");
+            alert("Fehler beim Laden der Datei. Die ausgewählte Datei hat ein ungeeignetes Dateiformat oder ist beschädigt. Stelle sicher, dass die Datei im richtigen Format vorliegt und die Datei keine Fehler enthält.");
         }
     };
     reader.readAsText(file);
