@@ -42,6 +42,9 @@ function changeToDarkMode() {
     document.querySelectorAll(".header-a").forEach(el => {
         el.style.color = "#fff";
     });
+    document.querySelectorAll(".section").forEach(el => {
+        el.style.color = "#fff";
+    });
 }
 
 function changeToLightMode() {
@@ -53,6 +56,9 @@ function changeToLightMode() {
     document.querySelector(".header").style.color = "#000";
     document.querySelector(".header").style.border = "1px solid #aeaeae";
     document.querySelectorAll(".header-a").forEach(el => {
+        el.style.color = "#000";
+    });
+    document.querySelectorAll(".section").forEach(el => {
         el.style.color = "#000";
     });
 }
