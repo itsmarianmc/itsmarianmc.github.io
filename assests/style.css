@@ -16,8 +16,7 @@ section {
 
 footer {
     margin: 0 auto;
-    max-width: 1000px;
-    min-width: 300px;
+    width: 100%;
 }
 
 h1 {
@@ -73,6 +72,7 @@ h3 {
 }
 
 .nodecoration {
+    color: #000;
     text-decoration: none;
 }
 
@@ -80,6 +80,55 @@ h3 {
     text-decoration: underline;
 }
 
+.footer-lines {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 .footer-line {
     text-align: center;
+}
+
+.footer-copy {
+    font-size: 2em;
+    font-weight: 400;
+    width: 100%;
+}
+
+
+/* Scrollbar / Source: https://community.hubspot.com/t5/CMS-Development/CSS-for-Scrollbar-in-iOS-devices/m-p/293889 [03/20/2024]*/
+::-webkit-scrollbar{
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: transparent; 
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #707070;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #646464;
+}
+
+::-webkit-overflow-scrolling:touch {
+    background: #707070;
+    width: 5px;
 }

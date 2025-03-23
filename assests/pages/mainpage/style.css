@@ -5,3 +5,69 @@
 .mainpage-container {
     font-size: 20px;
 }
+
+.project-container {
+    display: flex;
+    height: auto;
+}
+
+.project-image {
+    height: 100px;
+    width: 100px;
+}
+
+.project-img {
+    border-radius: 10px;
+    height: 90px;
+    margin: 5px;
+    width: 90px;
+}
+
+.project-contents {
+    height: auto;
+    padding: 10px;
+}
+
+.project-name {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.project-description {
+    font-size: 18px;
+}
+
+.project-opener {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.opener-btn {
+    align-items: center;
+    background-color: #1b1d1e;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    width: 100%;          /* Nimmt so viel Platz wie möglich */
+    max-width: 300px;     /* Aber nicht mehr als 222px */
+}
+
+.opener-btn:hover {
+    background-color: #1f2121;
+}
+
+.opener-icon {
+    height: 24px;
+    width: 24px;
+}
+
+.opener-text a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}

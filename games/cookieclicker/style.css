@@ -69,6 +69,7 @@ li {
 
 .element-inner {
     height: 20px;
+    margin-bottom: 10px;
     margin-top: 10px;
 }
 
@@ -228,41 +229,6 @@ li {
 
 .loadCancel {
     margin: 5px;
-}
-
-/* Scrollbar / Source: https://community.hubspot.com/t5/CMS-Development/CSS-for-Scrollbar-in-iOS-devices/m-p/293889 [03/20/2024]*/
-::-webkit-scrollbar{
-    -webkit-appearance: none;
-    width: 7px;
-}
-
-::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: transparent; 
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
-}
-
-::-webkit-scrollbar {
-    width: 5px;
-}
-
-::-webkit-scrollbar-track {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #707070;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #646464;
-}
-
-::-webkit-overflow-scrolling:touch {
-    background: #707070;
-    width: 5px;
 }
 
 /* Mobile Navbar */

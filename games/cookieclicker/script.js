@@ -45,7 +45,7 @@ document.getElementById("acceptCookiesBtn").addEventListener("click", function()
 });
 
 document.getElementById("github").addEventListener("click", function(){
-    open("https://github.com/itsmarianmc/itsmarianmc.github.io", target="_blank")
+    open("https://github.com/itsmarianmc", target="_blank")
 });
 
 document.getElementById("changelog").addEventListener("click", function(){
@@ -81,14 +81,14 @@ document.getElementById("loadButton").addEventListener("click", function() {
     fileInput.value = "";
 
     if (!file) {
-        alert("Es wurde keine Datei ausgewählt. Bitte wähle eine Datei zum Laden aus!");
+        alert("No file selected! Please select a file.");
         return;
     }
 
     const reader = new FileReader();
     reader.onload = function(event) {
         try {
-            if (confirm("Möchtest du die aktuelle Sitzung wirklich überschreiben? Dies kann nicht rückgängig gemacht werden! Drücke 'OK' zum fortfahren.")) {
+            if (confirm("Are you sure want to overwrite the current session? This cannot be undone! Press 'OK' to continue.")) {
                 const gameData = JSON.parse(event.target.result);
                 cookies = gameData.cookies || 0;
                 clickValue = gameData.clickValue || 1;
@@ -107,7 +107,7 @@ document.getElementById("loadButton").addEventListener("click", function() {
                 document.getElementById("loadbtn").style.display = "block";
                 document.getElementById("loadButton").style.display = "none";
                 document.getElementById("fileLoader").style.display = "none";
-                alert("Fortschritt erfolgreich geladen! Drücke auf 'OK' zum fortfahren.");
+                alert("Progress loaded successfully! Press 'OK' to continue.");
                 updateDisplay();
                 fileInput.value = "";
             } else {
@@ -117,12 +117,11 @@ document.getElementById("loadButton").addEventListener("click", function() {
                 fileInput.value = "";
             }
         } catch (error) {
-            alert("Fehler beim Laden der Datei. Die ausgewählte Datei hat ein ungeeignetes Dateiformat oder ist beschädigt. Stelle sicher, dass die Datei im richtigen Format vorliegt und die Datei keine Fehler enthält.");
+            alert("Error loading the file. The selected file has an unsuitable file format or is damaged. Make sure that the file is in the correct format and that the file does not contain any errors.");
         }
     };
     reader.readAsText(file);
 });
-
 
 // Save progress as file
 function saveGame() {
@@ -197,14 +196,14 @@ function buyPrestige() {
         applyPrestigeBonus();
 
         if (prestige === 20) {
-            if (confirm("Du hast das Spiel beendet. Möchtest du weiter spielen?")) {
+            if (confirm("You have finished the game. Would you like to continue playing?")) {
                 gameFinished();
             } else {
                 resetGame(true);
             }
         }
     } else {
-        alert("Du hast nicht genug Cookies für Prestige!");
+        alert("You don't have enough cookies for Prestige!");
     }
 }
 
@@ -229,9 +228,9 @@ function resetGame(isPrestige) {
         clickUpgradeCost = 10;
         autoClickerCost = 50;
         grandmaCost = 200;
-        alert("Dein Spiel wurde zurückgesetzt!");
+        alert("Your game has been reset!");
     } else {
-        if (confirm("Willst du das Spiel wirklich zurücksetzen? Alle deine Fortschritte gehen dabei verloren. Dies kann nicht rückgängig gemacht werden, außer wenn du eine gültige 'cookie_clicker.json' heruntergeladen hast!")) {
+        if (confirm("Do you really want to reset the game? All your progress will be lost. This cannot be undone unless you have downloaded a valid 'cookie_clicker.json'!")) {
         localStorage.clear();
         location.reload();
         }
@@ -250,7 +249,7 @@ function hardReset() {
     autoClickerCost = 50;
     grandmaCost = 200;
     prestige = 0;
-    alert("Du hast das Spiel beendet! Vielen Dank fürs Spielen ~itsmarian");
+    alert("You have finished the game! Thank you for playing ~itsmarian");
     updateDisplay();
 }
 
