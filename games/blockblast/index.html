@@ -112,10 +112,8 @@
             if (deviceType === "desktop") {
                 document.getElementById("desktop").style.display = deviceType === "desktop" ? "block" : "none";
             } else {
-                window.onload = function() {
-                    alert("This site is not supported on mobile devices yet! Check back later or switch to a desktop device.");
-                    window.location.href = "https://itsmarianmc.github.io/";
-                };
+                alert("This site is not supported on mobile devices yet! Check back later or switch to a desktop device.");
+                window.location.href = "https://itsmarianmc.github.io/";
             }
         });
 
