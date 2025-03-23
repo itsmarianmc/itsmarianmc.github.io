@@ -1,11 +1,3 @@
-body {
-    height: 100vh;
-    background-image: url("https://itsmarianmc.github.io/assests/images/Socials%20Background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
 .social-tree-container {
     min-width: none;
 }
