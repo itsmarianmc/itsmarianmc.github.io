@@ -52,7 +52,14 @@
         </div>
     </header>
     <main>
-        <section class="section"></section>
+        <section class="section">
+            <h1>Block Blast</h1>
+            <p>Score: <span id="score">0</span></p>
+            <div id="game-container">
+                <canvas id="board-canvas" width="400" height="400"></canvas>
+                <div id="pieces-container"></div>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="footer-lines">
@@ -85,6 +92,7 @@
     </footer>
     <script src="../../assests/script.js"></script>
     <script src="../../assests/header.js"></script>
+    <script src="script.js"></script>
     <script>
         function detectDevice() {
             const userAgent = navigator.userAgent.toLowerCase();

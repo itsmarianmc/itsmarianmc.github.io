@@ -442,8 +442,6 @@ for (let y = 0; y < boardSize; y++) {
             if (progress < duration) {
                 requestAnimationFrame(step);
             } else {
-                const replayX = boardCanvas.width / 2;
-                const replayY = boardCanvas.height / 2 + 60;
                 boardCtx.clearRect(0, 0, boardCanvas.width, boardCanvas.height);
                 boardCtx.save();
                 boardCtx.fillStyle = '#7f7f7f';
@@ -451,7 +449,6 @@ for (let y = 0; y < boardSize; y++) {
                 boardCtx.textAlign = "center";
                 boardCtx.fillText("No space left!", boardCanvas.width / 2, boardCanvas.height / 2 - 20);
                 boardCtx.fillText("Score: " + score, boardCanvas.width / 2, boardCanvas.height / 2 + 20);
-                boardCtx.fillText("Replay", replayX, replayY);
                 boardCtx.restore();
             }
         }
