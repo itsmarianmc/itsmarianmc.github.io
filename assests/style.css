@@ -80,6 +80,10 @@ h3 {
     text-decoration: underline;
 }
 
+.linkout {
+    text-decoration: underline;
+}
+
 .footer-lines {
     padding-bottom: 15px;
     padding-top: 15px;
@@ -88,6 +92,8 @@ h3 {
 }
 
 .footer-line {
+    margin: 0 auto;
+    max-width: 1000px;
     text-align: center;
 }
 

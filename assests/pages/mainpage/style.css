@@ -47,7 +47,7 @@
     align-items: center;
     background-color: #1b1d1e;
     border: 1px solid #fff;
-    border-radius: 5px;
+    border-radius: 7.5px;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -70,4 +70,8 @@
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+.mainpage-special-information {
+    font-size: 10px;
 }

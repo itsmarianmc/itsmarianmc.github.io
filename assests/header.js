@@ -29,9 +29,6 @@ function changeToDarkMode() {
     document.getElementById("changetolightmode").style.display = "block";
     document.getElementById("changetodarkmode").style.display = "none";
     document.documentElement.style.background = "#1B1D1E";
-    document.querySelectorAll(".section").forEach(el => {
-        el.color = "#fff";
-    });
     document.getElementById("reload-header").style.fill = "#fff"
     document.querySelector(".header").style.background = "#1B1D1E";
     document.querySelector(".header").style.color = "#fff";
@@ -40,6 +37,9 @@ function changeToDarkMode() {
     document.querySelector(".header").style.borderRight = "1px solid #555";
     document.querySelector(".header").style.borderTop = "1px solid #555";
     document.querySelector(".footer-lines").style.color = "#fff"
+    document.querySelectorAll(".linkout").forEach(el => {
+        el.style.color = "#fff";
+    });
     document.querySelectorAll(".header-a").forEach(el => {
         el.style.color = "#fff";
     });
@@ -60,6 +60,9 @@ function changeToLightMode() {
     document.querySelector(".header").style.color = "#000";
     document.querySelector(".header").style.border = "1px solid #aeaeae";
     document.querySelector(".footer-lines").style.color = "#000"
+    document.querySelectorAll(".linkout").forEach(el => {
+        el.style.color = "#000";
+    });
     document.querySelectorAll(".header-a").forEach(el => {
         el.style.color = "#000";
     });

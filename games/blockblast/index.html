@@ -94,5 +94,35 @@
     <script src="script.js"></script>
     <script src="../../assests/script.js"></script>
     <script src="../../assests/header.js"></script>
+    <script>
+        
+        // Get user device
+        function detectDevice() {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobile = /iphone|ipod|android.*mobile|windows phone/.test(userAgent);
+            
+            if (isMobile) {
+                window.onload = function() {
+                    alert("Achtung! Du wirst gleich weitergeleitet.");
+                    window.location.href = "https://itsmarianmc.github.io/";
+                };
+                return "mobile";
+            } else {
+                return "desktop";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const deviceType = detectDevice();
+            
+            if (deviceType === "desktop") {
+                document.getElementById("desktop").style.display = deviceType === "desktop" ? "block" : "none";
+            } else {
+                window.location.href = "/games/cookieclicker/mobile.html";
+            }
+        });
+
+        console.log("set-userdevice=" + detectDevice());
+    </script>
 </body>
 </html>
