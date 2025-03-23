@@ -4,6 +4,9 @@ document.addEventListener("DOMContentLoaded", function() {
         changeToLightMode();
     } else if (theme === 'dark') {
         changeToDarkMode();
+    } else {
+        localStorage.setItem('theme', 'dark');
+        changeToDarkMode();
     }
 
     const darkModeButton = document.getElementById("changetodarkmode");

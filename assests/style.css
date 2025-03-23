@@ -97,6 +97,12 @@ h3 {
     text-align: center;
 }
 
+.footer-special-information {
+    font-size: 10px;
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
 .footer-copy {
     font-size: 2em;
     font-weight: 400;

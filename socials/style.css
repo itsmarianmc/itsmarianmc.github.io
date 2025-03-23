@@ -1,0 +1,129 @@
+body {
+    height: 100vh;
+    background-image: url("https://itsmarianmc.github.io/assests/images/Socials%20Background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.social-tree-container {
+    min-width: none;
+}
+
+.social-tree-header {
+
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.header-img {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.header-img img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.header-name {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.header-name a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.header-description {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.header-description a {
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 5px;
+}
+
+/* Main Content */
+.social-tree-maincontent {
+    height: 100%;
+    width: 100%;
+}
+
+.social-tree-maincontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0 auto;
+    max-width: 580px;
+}
+
+.st-element {
+    background-color: #000;
+    border: 1px solid #000;
+    border-radius: 7.5px;
+    cursor: pointer;
+    font-size: 20px;
+    height: 64px;
+    text-align: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    will-change: transform;
+}
+
+.st-element:hover {
+    transform: scale(1.05); /* leicht vergrößern */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* optional: Schatten für 3D-Effekt */
+}
+
+.st-header-element {
+    border-radius: 7.5px;
+    font-size: 20px;
+    height: 40px;
+    text-align: center;
+}
+
+.st-element-header {
+    font-weight: 800;
+    margin-top: 16px;
+}
+
+.st-element-container {
+    display: flex;
+    padding: 8px;
+}
+
+.st-logo {
+    border-radius: 5px;
+    height: 48px;
+    width: 48px;
+}
+
+.st-logo img {
+    border-radius: 5px;
+}
+
+.st-application {
+    align-items: center;
+    width: 100%;
+}
+
+.st-application a {
+    position: relative;
+    bottom: 12px;
+    top: 12px;
+}
