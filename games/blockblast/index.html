@@ -95,17 +95,11 @@
     <script src="../../assests/script.js"></script>
     <script src="../../assests/header.js"></script>
     <script>
-        
-        // Get user device
         function detectDevice() {
             const userAgent = navigator.userAgent.toLowerCase();
             const isMobile = /iphone|ipod|android.*mobile|windows phone/.test(userAgent);
             
             if (isMobile) {
-                window.onload = function() {
-                    alert("Achtung! Du wirst gleich weitergeleitet.");
-                    window.location.href = "https://itsmarianmc.github.io/";
-                };
                 return "mobile";
             } else {
                 return "desktop";
@@ -118,7 +112,10 @@
             if (deviceType === "desktop") {
                 document.getElementById("desktop").style.display = deviceType === "desktop" ? "block" : "none";
             } else {
-                window.location.href = "/games/cookieclicker/mobile.html";
+                window.onload = function() {
+                    alert("This site is not supported on mobile devices yet! Check back later or switch to a desktop device.");
+                    window.location.href = "https://itsmarianmc.github.io/";
+                };
             }
         });
 
