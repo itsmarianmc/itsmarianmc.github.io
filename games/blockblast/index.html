@@ -107,14 +107,13 @@
             const deviceType = detectDevice();
             
             if (deviceType === "desktop") {
-                document.getElementById("desktop").style.display = deviceType === "desktop" ? "block" : "none";
+                console.log("set-playablestatus=true")
             } else {
+                console.log("set-playablestatus=false")
                 alert("This site is not supported on mobile devices yet! Check back later or switch to a desktop device.");
                 window.location.href = "https://itsmarianmc.github.io/";
             }
         });
-
-        console.log("set-userdevice=" + detectDevice());
     </script>
 </body>
 </html>
