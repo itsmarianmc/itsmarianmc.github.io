@@ -14,6 +14,12 @@ section {
     min-width: 300px;
 }
 
+footer {
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 300px;
+}
+
 h1 {
     font-size: 40px;
     margin-block-start: 0.2em;
@@ -60,4 +66,20 @@ h3 {
     color: #fff;
     font-size: 26px;
     width: 180px;
+}
+
+.placeholder {
+    margin: 0 auto;
+}
+
+.nodecoration {
+    text-decoration: none;
+}
+
+.nodecoration:hover {
+    text-decoration: underline;
+}
+
+.footer-line {
+    text-align: center;
 }

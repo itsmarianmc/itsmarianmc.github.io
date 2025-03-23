@@ -39,10 +39,14 @@ function changeToDarkMode() {
     document.querySelector(".header").style.borderLeft = "1px solid #555";
     document.querySelector(".header").style.borderRight = "1px solid #555";
     document.querySelector(".header").style.borderTop = "1px solid #555";
+    document.querySelector(".footer-lines").style.color = "#fff"
     document.querySelectorAll(".header-a").forEach(el => {
         el.style.color = "#fff";
     });
     document.querySelectorAll(".section").forEach(el => {
+        el.style.color = "#fff";
+    });
+    document.querySelectorAll(".nodecoration").forEach(el => {
         el.style.color = "#fff";
     });
 }
@@ -55,10 +59,14 @@ function changeToLightMode() {
     document.querySelector(".header").style.background = "#F8F8F8";
     document.querySelector(".header").style.color = "#000";
     document.querySelector(".header").style.border = "1px solid #aeaeae";
+    document.querySelector(".footer-lines").style.color = "#000"
     document.querySelectorAll(".header-a").forEach(el => {
         el.style.color = "#000";
     });
     document.querySelectorAll(".section").forEach(el => {
+        el.style.color = "#000";
+    });
+    document.querySelectorAll(".nodecoration").forEach(el => {
         el.style.color = "#000";
     });
 }
