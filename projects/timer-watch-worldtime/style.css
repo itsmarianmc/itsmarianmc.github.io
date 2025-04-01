@@ -395,8 +395,8 @@ button.secondary {
         display: none;
     }
 
-    .laps-header {
-        justify-content: normal;
+    .sort-buttons {
+        justify-content: space-around;
     }
 }
 
@@ -409,6 +409,10 @@ button.secondary {
     .sort-buttons button {
         padding: 10px 30px;
         width: 90%;
+    }
+
+    .sort-buttons {
+        justify-content: space-around;
     }
 }
 
