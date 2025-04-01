@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Clock Tools</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="stopwatch-card">
+            <div class="segmented-control" data-active-index="1">
+                <button class="tab-button" data-tab="world-clock">World Clock</button>
+                <button class="tab-button active" data-tab="stopwatch">Stopwatch</button>
+                <button class="tab-button" data-tab="timer">Timer</button>
+            </div>
+            <div class="tab-content world-clock" id="world-clock">
+                <ul id="world-clock-list">
+                    <li data-timezone="Europe/Berlin">
+                        <div class="region-div">
+                            <span class="region">Berlin</span>
+                        </div>
+                        <span>+0 hr</span>
+                        <span class="time">Loading...</span>
+                    </li>
+                    <li data-timezone="America/New_York">
+                        <div class="region-div">
+                            <span class="region">New York</span>
+                        </div>
+                        <span>-6 hr</span>
+                        <span class="time">Loading...</span>
+                    </li>
+                    <li data-timezone="Europe/London">
+                        <div class="region-div">
+                            <span class="region">London</span>
+                        </div>
+                        <span>-1 hr</span>
+                        <span class="time">Loading...</span>
+                    </li>
+                    <li data-timezone="Asia/Tokyo">
+                        <div class="region-div">
+                            <span class="region">Tokyo</span>
+                        </div>
+                        <span>+7 hr</span>
+                        <span class="time">Loading...</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content stopwatch active" id="stopwatch">
+                <div class="top-box">
+                    <svg class="progress-ring">
+                        <circle class="progress-ring__circle" stroke="#6366f1" stroke-width="4" fill="transparent" r="148" cx="150" cy="150"/>
+                    </svg>
+                    <div class="ring-items">
+                        <div class="time-display">00:00:00.00</div>
+                        <div class="placeholder" style="height: 10px; width: 100%;"></div>
+                        <div class="controls">
+                            <button class="btn btn-primary" id="startStop" onclick="startStop()">
+                                <i class="fas fa-play"></i>
+                            </button>
+                            <button class="btn" id="lap" onclick="addLap()">
+                                <i class="fas fa-flag"></i>
+                            </button>
+                            <button class="btn btn-danger" id="reset" onclick="reset()">
+                                <i class="fas fa-undo"></i>
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="laps-header">
+                    <h3 id="rounds-header">Rounds</h3>
+                    <div class="sort-buttons">
+                        <h3 id="sortby-header">Sort by</h3>
+                        <button onclick="sortLaps('number')">
+                            <div class="sort-button">
+                                <i class="fas fa-sort-numeric-down"></i>
+                                <p style="font-size: 10px;">Number</p>
+                            </div>
+                        </button>
+                        <button onclick="sortLaps('time')">
+                            <div class="sort-button">
+                                <i class="fas fa-clock"></i>
+                                <p style="font-size: 10px;">Time</p>
+                            </div>
+                        </button>
+                        <button onclick="sortLaps('duration')">
+                            <div class="sort-button">
+                                <i class="fas fa-stopwatch"></i>
+                                <p style="font-size: 10px;">Duration</p>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+                <div class="laps-container" id="laps"></div>
+            </div>
+            <div class="tab-content timer" id="timer">
+                <div class="time-display" id="timer-display">00:00:00.00</div>
+                <div class="placeholder" style="height: 20px; width: 100%;"></div>
+                <div class="timer-inputs">
+                    <input class="input-field" type="number" id="timer-hours" placeholder="Hours">
+                    <input class="input-field" type="number" id="timer-minutes" placeholder="Minutes">
+                    <input class="input-field" type="number" id="timer-seconds" placeholder="Seconds">
+                </div>
+                <div class="controls" style="margin-bottom: 10px; margin-top: 10px;">
+                    <button id="start-timer" style="background: rgba(255, 255, 255, 0.1);">Start Timer</button>
+                    <button id="reset-timer" style="background: rgba(255, 255, 255, 0.1);" class="secondary">Reset Timer</button>
+                </div>
+                <div style="margin-bottom: 10px; margin-top: 10px;">
+                    <a id="timer-error"></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

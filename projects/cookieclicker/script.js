@@ -49,7 +49,7 @@ document.getElementById("github").addEventListener("click", function(){
 });
 
 document.getElementById("changelog").addEventListener("click", function(){
-    open("/games/cookieclicker/changelog.html", target="_parent")
+    open("/projects/cookieclicker/changelog.html", target="_parent")
 });
 
 // Load progress
