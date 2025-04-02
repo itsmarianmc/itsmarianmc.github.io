@@ -41,6 +41,10 @@ h3 {
     text-decoration: double;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .btn {
     background-color: #545454;
     border-radius: 5px;
@@ -73,11 +77,11 @@ h3 {
 
 .nodecoration {
     color: #000;
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .nodecoration:hover {
-    text-decoration: underline;
+    text-decoration: underline !important;
 }
 
 .linkout {
