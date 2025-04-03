@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../assests/style.css">
     <link rel="stylesheet" href="../assests/header.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assests/iframes/reddit/style.css">
 </head>
 <body>
     <main>
@@ -236,9 +237,6 @@
                 </div>
             </div>
         </section>
-        <div class="placeholder w300 h40"></div>
-        <section class="section">
-        </section>
     </main>
     <footer>
         <div class="footer-lines">
@@ -277,6 +275,9 @@
             <div class="placeholder w300 h20"></div>
         </div>
     </footer>
+    <div class="popup-background"></div>
+    <div class="popup">
+    </div>
     <script src="../assests/universal/universal-device.js"></script>
     <script src="../assests/script.js"></script>
     <script>
@@ -321,7 +322,15 @@
         });
 
         document.getElementById("linkid=Xuz0niaI").addEventListener("click", function() {
-            window.open("https://www.reddit.com/user/itsmarian_mc/", "_parent")
+            document.querySelector(".popup").style.display = "block";
+            document.querySelector(".popup").innerHTML = `<iframe height="424px" src="../assests/iframes/reddit/reddit.html" style="border-radius: 10px; border-width: 0px; overflow: hidden; width: 100%;"></iframe><div style="background-color: #ccc; height: 0.5px; width: 100%; margin-top: 10px; margin-bottom: 10px;"></div><div style="margin-left: 10px; margin-right: 10px;"><div class="sc-bdfBwQ gYzXwr" id="close-banner"><a class="sc-bdfBwQ izHhhY sc-gsTCUz iKuzMk" href="#">Close Preview</a></div></div>`;document.querySelector(".popup-background").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("close-banner")?.addEventListener("click", function() {
+                    document.querySelector(".popup").style.display = "none";
+                    document.querySelector(".popup").innerHTML = '';
+                    document.querySelector(".popup-background").style.display = "none";
+                });
+            }, 100);
         });
         
         document.getElementById("linkid=sS7hJnkH").addEventListener("click", function() {
