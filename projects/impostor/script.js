@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelector(".initialision").style.display = "none";
             document.getElementById("setup-screen").classList.remove("hidden");
         document.getElementById("footer-placeholder").classList.remove("h555");
-            document.getElementById("footer-placeholder").classList.add("h200");
+            document.getElementById("footer-placeholder").classList.add("h400");
         }, 750);
         document.getElementById("initialision-text").style.display = "block";
     }, 6000);
