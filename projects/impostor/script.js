@@ -298,6 +298,8 @@ function shuffle(a) {
 
 // Information
 document.querySelector(".information").addEventListener("click", function(){
+    document.documentElement.style.overflowY = "hidden";
+    document.documentElement.style.overflowX = "hidden";
     document.getElementById("overlay-background").style.display = "block";
     document.getElementById("overlay").style.display = "block";
     
@@ -312,6 +314,8 @@ document.getElementById("done-btn").addEventListener("click", function(){
     document.getElementById("overlay").style.top = "100%";
     document.getElementById("overlay").style.height = "100%";
     document.getElementById("overlay").style.transform = "translate(-50%, 0%)";
+    document.documentElement.style.overflowY = "auto";
+    document.documentElement.style.overflowX = "hidden";
 
     setTimeout(function() {
         document.getElementById("overlay-background").style.display = "none";
