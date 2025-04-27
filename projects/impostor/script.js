@@ -211,4 +211,16 @@ document.addEventListener("DOMContentLoaded", function() {
     styleTag.type = 'text/css';
     styleTag.appendChild(document.createTextNode(styles));
     document.head.appendChild(styleTag);
+    
+    document.querySelector(".initialision").style.display = "block";
+    document.getElementById("setup-screen").classList.add("hidden");
+    setTimeout(() => {
+        setTimeout(() => {
+            document.querySelector(".initialision").style.display = "none";
+            document.getElementById("setup-screen").classList.remove("hidden");
+        document.getElementById("footer-placeholder").classList.remove("h555");
+            document.getElementById("footer-placeholder").classList.add("h200");
+        }, 1000);
+        document.getElementById("initialision-text").style.display = "block";
+    }, 6000);
 });

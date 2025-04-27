@@ -1,6 +1,9 @@
 .header-frame {
+    font-family: "National Park", sans-serif;
+    font-weight: 200 !important;
     margin: 0 auto;
     max-width: 1010px;
+    width: 100%;
 }
 
 .header {

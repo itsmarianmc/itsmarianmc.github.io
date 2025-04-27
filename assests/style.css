@@ -17,6 +17,7 @@ section {
 
 footer {
     margin: 0 auto;
+    text-align: center;
     width: 100%;
 }
 
@@ -111,6 +112,7 @@ h3 {
 .footer-copy {
     font-size: 2em;
     font-weight: 400;
+    text-align: center;
     width: 100%;
 }
 
