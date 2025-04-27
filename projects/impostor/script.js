@@ -257,11 +257,19 @@ function revealImpostors() {
     pauseBtn.classList.add('hidden');
     resumeBtn.classList.add('hidden');
     revealImpostorBtn.classList.add('hidden');
+    newGameBtn.classList.remove('hidden');
 
     impostors.forEach(index => {
         const li = document.createElement('a');
-        li.textContent = players[index] + "; ";
-        impostorList.appendChild(li);
+        const value = parseInt(impostorCount.value, 10);
+        console.log("Current Impostor Count:", value);
+        if (value === 1) {
+            li.textContent = players[index];
+            impostorList.appendChild(li);
+        } else if (value >= 2) {
+            li.textContent = players[index] + "; ";
+            impostorList.appendChild(li);
+        }
     });
 
     finalWord.textContent = word;
@@ -321,4 +329,8 @@ document.getElementById("done-btn").addEventListener("click", function(){
         document.getElementById("overlay-background").style.display = "none";
         document.getElementById("overlay").style.display = "none";
     }, 150);
+});
+
+document.getElementById("startnewgame").addEventListener("click", function() {
+    location.reload();
 });
