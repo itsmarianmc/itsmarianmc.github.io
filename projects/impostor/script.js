@@ -16,6 +16,9 @@ const nextBtn = document.getElementById('next-btn');
 
 const pauseBtn = document.getElementById('pause-btn');
 const resumeBtn = document.getElementById('resume-btn');
+const revealImpostorBtn = document.getElementById("reveal-impostors");
+const newGameBtn = document.getElementById("new-game");
+
 let isPaused = false;
 
 let startY;
@@ -110,7 +113,8 @@ function startTimer(mins) {
             clearInterval(timer);
             display.textContent = '00:00';
             finish.classList.remove('hidden');
-        } else update();
+            revealImpostors();
+        } else update();        
     }, 1000);
 
     function update() {
@@ -122,12 +126,42 @@ function pauseTimer() {
     isPaused = true;
     pauseBtn.classList.add('hidden');
     resumeBtn.classList.remove('hidden');
+    revealImpostorBtn.classList.remove('hidden');
 }
 
 function resumeTimer() {
     isPaused = false;
     pauseBtn.classList.remove('hidden');
     resumeBtn.classList.add('hidden');
+    revealImpostorBtn.classList.add('hidden');
+}
+
+revealImpostorBtn.addEventListener("click", function() {
+    revealImpostors()
+});
+
+function revealImpostors() {
+    const impostorWordReveal = document.getElementById('impostor-word-reveal');
+    const impostorList = document.getElementById('impostor-list');
+    const finalWord = document.getElementById('final-word');
+    const display = document.getElementById('timer-display');
+
+    impostorList.innerHTML = '';
+
+    display.classList.add('hidden');
+    pauseBtn.classList.add('hidden');
+    resumeBtn.classList.add('hidden');
+    revealImpostorBtn.classList.add('hidden');
+
+    impostors.forEach(index => {
+        const li = document.createElement('a');
+        li.textContent = players[index] + "; ";
+        impostorList.appendChild(li);
+    });
+
+    finalWord.textContent = word;
+
+    impostorWordReveal.classList.remove('hidden');
 }
 
 pauseBtn.addEventListener('click', pauseTimer);
@@ -212,6 +246,7 @@ document.addEventListener("DOMContentLoaded", function() {
     styleTag.appendChild(document.createTextNode(styles));
     document.head.appendChild(styleTag);
     
+    // Initialise
     document.querySelector(".initialision").style.display = "block";
     document.getElementById("setup-screen").classList.add("hidden");
     setTimeout(() => {
@@ -220,7 +255,53 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("setup-screen").classList.remove("hidden");
         document.getElementById("footer-placeholder").classList.remove("h555");
             document.getElementById("footer-placeholder").classList.add("h200");
-        }, 1000);
+        }, 750);
         document.getElementById("initialision-text").style.display = "block";
     }, 6000);
+
+    const words = [
+            "Verbinde zu Server",
+            "Verbinde zu GitHub",
+            "Überprüfe auf Updates",
+            "Rufe Database ab...",
+            "Rufe Database ab...",
+            "Initialisiere Spielesystem",
+            "Initialisiere Grafikschnittstelle",
+            "Lade Texturen",
+            "Erzeuge Spielfiguren",
+            "Berechne Spielwelt",
+            "Initialisiere Audio-System",
+            "Lade dynamische Objekte",
+            "Authentifiziere Benutzer...",
+            "Hole Benutzerprofil...",
+            "Starte Serversynchronisation",
+            "Überprüfe Serverstatus",
+            "Analysiere Datenbankstruktur...",
+            "Synchronisiere Cloud-Daten",
+            "Leere temporäre Caches",
+            "Baue Index neu auf",
+            "Validiere lokale Daten",
+            "Optimierung läuft...",
+            "Konfiguriere Module...",
+            "Sammle Debug-Informationen...",
+            "Kalibriere Netzwerkeinstellungen",
+            "Überprüfe Kompatibilität",
+            "Letzte Optimierungen...",
+            "Bereite Spielstart vor...",
+            "Verifiziere Sicherheitseinstellungen",
+            "Starte Benutzeroberfläche",
+            "Schließe ab",
+            "Starte Spiel",
+        ];
+    const wordDisplay = document.getElementById('startprogress');
+    let index = 0;
+    const intervall = setInterval(() => {
+        if (index < words.length) {
+            wordDisplay.textContent = words[index];
+            index++;
+        } else {
+            clearInterval(intervall);
+            wordDisplay.textContent = "Fertig, das Spiel startet gleich.";
+        }
+    }, 150);
 });

@@ -18,8 +18,9 @@
 </head>
 <body style="overflow-x: hidden;">
     <div class="initialision">
-        <div>
+        <div style="text-align: center;">
             <h1>Initialisiere...</h1>
+            <a id="startprogress"></a>
             <div class="loader_container">
                 <div class="loader">
                 <div class="loader__item loader__item-1"></div>
@@ -82,10 +83,26 @@
     </div>
     <div class="container hidden" id="timer-screen">
         <div class="timer" id="timer-display"></div>
-        <div id="finished-text" class="hidden"><h2>Zeit abgelaufen!</h2></div>
+        <div id="finished-text" class="hidden">
+            <h2>Zeit abgelaufen!</h2>
+        </div>
+        <div id="impostor-word-reveal" class="hidden">
+            <a>
+                <b>Impostor/en:</b>
+            </a>
+            <br>
+            <a id="impostor-list"></a>
+            <div class="placeholder w100 h10"></div>
+            <a>
+                <b>Das Wort war:</b>
+            </a>
+            <a id="final-word"></a>
+        </div>        
         <div class="timer-controls">
           <button id="pause-btn">Pause</button>
+          <button id="reveal-impostors" class="hidden">Impostor auflösen</button>
           <button id="resume-btn" class="hidden">Fortsetzen</button>
+          <button id="new-game" class="hidden">Neues Spiel</button>
         </div>
     </div>
     <div id="overlay-background"></div>
