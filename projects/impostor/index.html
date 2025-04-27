@@ -9,198 +9,196 @@
 <link href="https://fonts.googleapis.com/css2?family=National+Park:wght@200..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body style="overflow-x: hidden;">
-    <div style="overflow-x: hidden;">
-        <div class="information">
-            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
-                <path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
-            </svg>
-        </div>
-        <div class="container" id="setup-screen">
-            <h1>Impostor Setup</h1>
-            <label>Spielernamen (je Zeile):</label>
-            <textarea id="names-input" rows="5" placeholder="Füge hier die Spielernamen ein; jeden Namen in eine neue Zeile"></textarea>
-            <label>Anzahl Impostoren:</label>
-            <input type="number" id="impostor-count" min="1" value="1">
-            <label>Timer Minuten:</label>
-            <input type="number" id="timer-minutes" min="1" value="5">
-            <label>Thema/Kategorie:</label>
-            <select id="category-select">
-                <option value="all">Alle</option>
-                <option value="entertainment">Unterhaltung</option>
-                <option value="daily">Alltag</option>
-                <option value="animalsnature">Tiere & Natur</option>
-                <option value="sports">Sport & Freizeit</option>
-                <option value="school">Wissen & Schule</option>
-                <option value="festivals">Feste & Feiern</option>
-                <option value="stars">Stars & Promis</option>
-                <option value="fruits">Obstsorten</option>
-                <option value="countries">Länder</option>
-            </select>
-            <button id="start-btn">Start</button>
-        </div>
-        <div class="container hidden" id="card-screen">
-            <div class="card" id="card">
-            <div class="card-content front" id="card-front">Zum Aufdecken nach oben swipen</div>
-            <div class="card-content back" id="card-back"></div>
-            </div>
-            <button id="next-btn" disabled>Weiter</button>
-        </div>
-        <div class="container hidden" id="timer-screen">
-            <div class="timer" id="timer-display"></div>
-            <div id="finished-text" class="hidden"><h2>Zeit abgelaufen!</h2></div>
-            <div class="timer-controls">
-            <button id="pause-btn">Pause</button>
-            <button id="resume-btn" class="hidden">Fortsetzen</button>
-            </div>
-        </div>
-        <div id="overlay-background"></div>
-        <overlay id="overlay">
-            <div class="overlay-ui">
-                <div class="overlay-ui-done" id="done-btn">
-                    <a>Fertig</a>
-                </div>
-            </div>
-            <div class="overlay-content">
-                <h2>Wie funktioniert das Spiel?</h2>
-                <div class="overlay-card">
-                    <div class="overlay-card-head">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
-                            <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm-20 200h80v-400H380v80h80v320Z"/>
-                        </svg>
-                    </div>
-                    <div class="overlay-card-content">
-                        <div>
-                            <img draggable="false" src="card-img/input.png" style="margin: 0 auto; width: 75%;">
-                        </div>
-                        <div>
-                            <a>Füge alle Mitspieler hinzu. Jeder Name muss in eine neue Zeile geschrieben werden.</a>
-                            <div class="placeholder w100 h5"></div>
-                            <a>Lege fest, wie lange die Runde gehen soll und wie viele Impostoren es geben soll. Achte dabei darauf, dass du nicht zu viele Impostoren festlegst!</a>
-                            <div class="placeholder w100 h5"></div>
-                            <a>Die festgelegten Spieler und Einstellungen werden bei Spielstart gespeichert und werden bei der nächsten Runde wieder automatisch abgerufen.</a></a>
-                            <div class="placeholder w100 h5"></div>
-                            <a>Jetzt kannst du das Spiel starten</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="placeholder w100 h10"></div>
-                <div class="overlay-card">
-                    <div class="overlay-card-head">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
-                            <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320ZM360-280h240v-80H440v-80h80q33 0 56.5-23.5T600-520v-80q0-33-23.5-56.5T520-680H360v80h160v80h-80q-33 0-56.5 23.5T360-440v160Z"/>
-                        </svg>
-                    </div>
-                    <div class="overlay-card-content">
-                        <div>
-                            <cards style="display: flex; gap: 5px; justify-content: center;">
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ccc; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">☝️</a>
-                                </card>
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ccc; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">☝️</a>
-                                </card>
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ff0000; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">🕵️</a>
-                                </card>
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ccc; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">☝️</a>
-                                </card>
-                            </cards>
-                        </div>
-                        <div>
-                            <a>Füge alle Mitspieler hinzu. Jeder Name muss in eine neue Zeile geschrieben werden. Die Spieler werden bei Spielstart gespeichert und werden bei der nächsten Runde wieder automatisch eingefügt.</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="placeholder w100 h10"></div>
-                <div class="overlay-card">
-                    <div class="overlay-card-head">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
-                            <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320ZM360-280h160q33 0 56.5-23.5T600-360v-60q0-26-17-43t-43-17q26 0 43-17t17-43v-60q0-33-23.5-56.5T520-680H360v80h160v80h-80v80h80v80H360v80Z"/>
-                        </svg>
-                    </div>
-                    <div class="overlay-card-content">
-                        <div>
-                            <countdown style="background-color: #3e3e3e; border-radius: 10px; display: block; height: 50px; margin: 0 auto; width: 100px;">
-                                <countdown-time style="font-size: 25px; position: relative; top: calc(50% - 15.2px);">
-                                    <a>4:54</a>
-                                </countdown-time>
-                            </countdown>
-                        </div>
-                        <div>
-                            <a>
-                                <b>Hinweise geben</b>
-                            </a>
-                            <div class="placeholder w100 h10"></div>
-                            <a>Der Timer wird gestartet. Reihum sagt jede Person genau ein Wort, das mit dem geheimen Wort zu tun hat.</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="placeholder w100 h10"></div>
-                <div class="overlay-card">
-                    <div class="overlay-card-head">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
-                            <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm40 200h80v-400h-80v160h-80v-160h-80v240h160v160Z"/>
-                        </svg>
-                    </div>
-                    <div class="overlay-card-content">
-                        <div>
-                            <cards style="display: flex; align-items: center; justify-content: center;">
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid rgb(128, 128, 128); border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">👉</a>
-                                </card>
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid rgb(128, 128, 128); border-radius: 15px; height: 75px; justify-content: center; margin-left: -10px; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">👉</a>
-                                </card>
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid rgb(128, 128, 128); border-radius: 15px; height: 75px; justify-content: center; margin-left: -10px; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">👉</a>
-                                </card>
-                                <div style="height: 25px; margin: 0 10px; width: 25px;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
-                                        <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
-                                    </svg>
-                                </div>
-                                <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ff0000; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
-                                    <a style="position: relative; top: calc(50% - 9.665px);">🕵️</a>
-                                </card>
-                            </cards>
-                        </div>
-                        <div>
-                            <a>
-                                <b>Ziel</b>
-                            </a>
-                            <div class="placeholder w100 h10"></div>
-                            <a>Die Gruppe versucht, den Impostor zu enttarnen. Der Impostor versucht das geheime Wort zu erraten, ohne entdeckt zu werden.</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="placeholder w100 h10"></div>
-                <div class="overlay-card">
-                    <div class="overlay-card-head">
-                        <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
-                            <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320ZM360-280h160q33 0 56.5-23.5T600-360v-80q0-33-23.5-56.5T520-520h-80v-80h160v-80H360v240h160v80H360v80Z"/>
-                        </svg>
-                    </div>
-                    <div class="overlay-card-content">
-                        <div>
-                            <countdown style="background-color: #3e3e3e; border-radius: 10px; display: block; height: 50px; margin: 0 auto; width: 125px;">
-                                <countdown-time style="font-size: 25px; position: relative; top: calc(50% - 15.2px);">
-                                    <a>The End</a>
-                                </countdown-time>
-                            </countdown>
-                        </div>
-                        <div>
-                            <a>
-                                <b>Spielende</b>
-                            </a>
-                            <div class="placeholder w100 h10"></div>
-                            <a>Das Spiel endet, wenn der Impostor das Wort errät, die anderen sich auf ihn einigen oder die Zeit abläuft</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </overlay>
+    <div class="information">
+        <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+            <path d="M440-280h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-640q0-17-11.5-28.5T480-680q-17 0-28.5 11.5T440-640q0 17 11.5 28.5T480-600Zm0 520q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/>
+        </svg>
     </div>
+    <div class="container" id="setup-screen">
+        <h1>Impostor Setup</h1>
+        <label>Spielernamen (je Zeile):</label>
+        <textarea id="names-input" rows="5" placeholder="Füge hier die Spielernamen ein; jeden Namen in eine neue Zeile"></textarea>
+        <label>Anzahl Impostoren:</label>
+        <input type="number" id="impostor-count" min="1" value="1">
+        <label>Timer Minuten:</label>
+        <input type="number" id="timer-minutes" min="1" value="5">
+        <label>Thema/Kategorie:</label>
+        <select id="category-select">
+            <option value="all">Alle</option>
+            <option value="entertainment">Unterhaltung</option>
+            <option value="daily">Alltag</option>
+            <option value="animalsnature">Tiere & Natur</option>
+            <option value="sports">Sport & Freizeit</option>
+            <option value="school">Wissen & Schule</option>
+            <option value="festivals">Feste & Feiern</option>
+            <option value="stars">Stars & Promis</option>
+            <option value="fruits">Obstsorten</option>
+            <option value="countries">Länder</option>
+        </select>
+        <button id="start-btn">Start</button>
+    </div>
+    <div class="container hidden" id="card-screen">
+        <div class="card" id="card">
+        <div class="card-content front" id="card-front">Zum Aufdecken nach oben swipen</div>
+        <div class="card-content back" id="card-back"></div>
+        </div>
+        <button id="next-btn" disabled>Weiter</button>
+    </div>
+    <div class="container hidden" id="timer-screen">
+        <div class="timer" id="timer-display"></div>
+        <div id="finished-text" class="hidden"><h2>Zeit abgelaufen!</h2></div>
+        <div class="timer-controls">
+          <button id="pause-btn">Pause</button>
+          <button id="resume-btn" class="hidden">Fortsetzen</button>
+        </div>
+    </div>
+    <div id="overlay-background"></div>
+    <overlay id="overlay">
+        <div class="overlay-ui">
+            <div class="overlay-ui-done" id="done-btn">
+                <a>Fertig</a>
+            </div>
+        </div>
+        <div class="overlay-content">
+            <h2>Wie funktioniert das Spiel?</h2>
+            <div class="overlay-card">
+                <div class="overlay-card-head">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
+                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm-20 200h80v-400H380v80h80v320Z"/>
+                    </svg>
+                </div>
+                <div class="overlay-card-content">
+                    <div>
+                        <img draggable="false" src="card-img/input.png" style="margin: 0 auto; width: 75%;">
+                    </div>
+                    <div>
+                        <a>Füge alle Mitspieler hinzu. Jeder Name muss in eine neue Zeile geschrieben werden.</a>
+                        <div class="placeholder w100 h5"></div>
+                        <a>Lege fest, wie lange die Runde gehen soll und wie viele Impostoren es geben soll. Achte dabei darauf, dass du nicht zu viele Impostoren festlegst!</a>
+                        <div class="placeholder w100 h5"></div>
+                        <a>Die festgelegten Spieler und Einstellungen werden bei Spielstart gespeichert und werden bei der nächsten Runde wieder automatisch abgerufen.</a></a>
+                        <div class="placeholder w100 h5"></div>
+                        <a>Jetzt kannst du das Spiel starten</a>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder w100 h10"></div>
+            <div class="overlay-card">
+                <div class="overlay-card-head">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
+                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320ZM360-280h240v-80H440v-80h80q33 0 56.5-23.5T600-520v-80q0-33-23.5-56.5T520-680H360v80h160v80h-80q-33 0-56.5 23.5T360-440v160Z"/>
+                    </svg>
+                </div>
+                <div class="overlay-card-content">
+                    <div>
+                        <cards style="display: flex; gap: 5px; justify-content: center;">
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ccc; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">☝️</a>
+                            </card>
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ccc; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">☝️</a>
+                            </card>
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ff0000; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">🕵️</a>
+                            </card>
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ccc; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">☝️</a>
+                            </card>
+                        </cards>
+                    </div>
+                    <div>
+                        <a>Füge alle Mitspieler hinzu. Jeder Name muss in eine neue Zeile geschrieben werden. Die Spieler werden bei Spielstart gespeichert und werden bei der nächsten Runde wieder automatisch eingefügt.</a>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder w100 h10"></div>
+            <div class="overlay-card">
+                <div class="overlay-card-head">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
+                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320ZM360-280h160q33 0 56.5-23.5T600-360v-60q0-26-17-43t-43-17q26 0 43-17t17-43v-60q0-33-23.5-56.5T520-680H360v80h160v80h-80v80h80v80H360v80Z"/>
+                    </svg>
+                </div>
+                <div class="overlay-card-content">
+                    <div>
+                        <countdown style="background-color: #3e3e3e; border-radius: 10px; display: block; height: 50px; margin: 0 auto; width: 100px;">
+                            <countdown-time style="font-size: 25px; position: relative; top: calc(50% - 15.2px);">
+                                <a>4:54</a>
+                            </countdown-time>
+                        </countdown>
+                    </div>
+                    <div>
+                        <a>
+                            <b>Hinweise geben</b>
+                        </a>
+                        <div class="placeholder w100 h10"></div>
+                        <a>Der Timer wird gestartet. Reihum sagt jede Person genau ein Wort, das mit dem geheimen Wort zu tun hat.</a>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder w100 h10"></div>
+            <div class="overlay-card">
+                <div class="overlay-card-head">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
+                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Zm40 200h80v-400h-80v160h-80v-160h-80v240h160v160Z"/>
+                    </svg>
+                </div>
+                <div class="overlay-card-content">
+                    <div>
+                        <cards style="display: flex; align-items: center; justify-content: center;">
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid rgb(128, 128, 128); border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">👉</a>
+                            </card>
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid rgb(128, 128, 128); border-radius: 15px; height: 75px; justify-content: center; margin-left: -10px; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">👉</a>
+                            </card>
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid rgb(128, 128, 128); border-radius: 15px; height: 75px; justify-content: center; margin-left: -10px; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">👉</a>
+                            </card>
+                            <div style="height: 25px; margin: 0 10px; width: 25px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
+                                    <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                                </svg>
+                            </div>
+                            <card data-type="inoccent" style="background-color: #fff; border: 1px solid #ff0000; border-radius: 15px; height: 75px; justify-content: center; width: 60px;">
+                                <a style="position: relative; top: calc(50% - 9.665px);">🕵️</a>
+                            </card>
+                        </cards>
+                    </div>
+                    <div>
+                        <a>
+                            <b>Ziel</b>
+                        </a>
+                        <div class="placeholder w100 h10"></div>
+                        <a>Die Gruppe versucht, den Impostor zu enttarnen. Der Impostor versucht das geheime Wort zu erraten, ohne entdeckt zu werden.</a>
+                    </div>
+                </div>
+            </div>
+            <div class="placeholder w100 h10"></div>
+            <div class="overlay-card">
+                <div class="overlay-card-head">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
+                        <path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320ZM360-280h160q33 0 56.5-23.5T600-360v-80q0-33-23.5-56.5T520-520h-80v-80h160v-80H360v240h160v80H360v80Z"/>
+                    </svg>
+                </div>
+                <div class="overlay-card-content">
+                    <div>
+                        <countdown style="background-color: #3e3e3e; border-radius: 10px; display: block; height: 50px; margin: 0 auto; width: 125px;">
+                            <countdown-time style="font-size: 25px; position: relative; top: calc(50% - 15.2px);">
+                                <a>The End</a>
+                            </countdown-time>
+                        </countdown>
+                    </div>
+                    <div>
+                        <a>
+                            <b>Spielende</b>
+                        </a>
+                        <div class="placeholder w100 h10"></div>
+                        <a>Das Spiel endet, wenn der Impostor das Wort errät, die anderen sich auf ihn einigen oder die Zeit abläuft</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </overlay>
     <script src="script.js"></script>
 </body>
 </html>
