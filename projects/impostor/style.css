@@ -60,7 +60,7 @@ body {
     transform: translate(-50%, 0%);
     transition: top 0.1s ease-in, transform 0.1s ease-in;
     z-index: 100001;
-    width: calc(100% - 20px);
+    width: 100%;
 }
 
 .overlay-ui {
