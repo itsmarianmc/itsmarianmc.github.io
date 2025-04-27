@@ -73,15 +73,15 @@ nextBtn.addEventListener('click', () => {
 function showCard() {
     card.classList.remove('revealed');
     cardBack.textContent = '';
-    cardFront.innerHTML = `<div style="top: 0; position: relative;"><a>${players[current]}</a></div><div style="height: calc(100% - 50px - 50px - 50px)"></div><div style="bottom: 0;position: relative;"><a>↑</a><br><a>Karte aufdecken</a></div>`;
+    cardFront.innerHTML = `<div style="top: 0; position: relative;"><a>${players[current]}</a></div><div style="height: calc(100% - 52.5px - 52.5px - 52.5px)"></div><div style="bottom: 0;position: relative;"><a>↑</a><br><a>Karte aufdecken</a></div>`;
     nextBtn.disabled = true;
 }
 
 function revealCard() {
     const isImp = impostors.includes(current);
     cardBack.innerHTML = isImp
-                         ? '<div style="top: 0; position: relative;"><a style="color: #ff0000">Impostor</a></div><div style="height: calc(100% - 50px - 50px - 50px)"></div><div style="bottom: 0;position: relative;"><a>↓</a><br><a>Karte umdrehen</a></div>'
-                         : `<div style="top: 0; position: relative;"><a>${word}</a></div><div style="height: calc(100% - 50px - 50px - 50px)"></div><div style="bottom: 0;position: relative;"><a>↓</a><br><a>Karte umdrehen</a></div>`;
+                         ? '<div style="top: 0; position: relative;"><a style="color: #ff0000">Impostor</a></div><div style="height: calc(100% - 52.5px - 52.5px - 52.5px)"></div><div style="bottom: 0;position: relative;"><a>↓</a><br><a>Karte umdrehen</a></div>'
+                         : `<div style="top: 0; position: relative;"><a>${word}</a></div><div style="height: calc(100% - 52.5px - 52.5px - 52.5px)"></div><div style="bottom: 0;position: relative;"><a>↓</a><br><a>Karte umdrehen</a></div>`;
     card.classList.add('revealed');
     nextBtn.disabled = false;
 }
