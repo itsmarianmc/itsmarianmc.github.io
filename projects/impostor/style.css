@@ -209,10 +209,6 @@ h1 {
     }
 }
 
-#setup-screen {
-    margin: 20px 20px;
-}
-
 #impostor-word-reveal {
     margin-top: 50px;
     font-size: 30px;
@@ -338,7 +334,7 @@ button:disabled {
 }
 
 .timer {
-    font-size: 2rem;
+    font-size: 4rem;
     text-align: center;
     margin-top: 32px;
 }
