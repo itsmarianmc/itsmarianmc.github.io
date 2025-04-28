@@ -1,3 +1,4 @@
+// Script für Splash mit Multi-Select-Kategorien
 const storage = localStorage;
 const setupScreen = document.getElementById('setup-screen');
 const cardScreen = document.getElementById('card-screen');
@@ -6,7 +7,6 @@ const timerScreen = document.getElementById('timer-screen');
 const namesInput = document.getElementById('names-input');
 const impostorCount = document.getElementById('impostor-count');
 const timerMinutes = document.getElementById('timer-minutes');
-const categorySelect = document.getElementById('category-select');
 const startBtn = document.getElementById('start-btn');
 
 const card = document.getElementById('card');
@@ -16,147 +16,112 @@ const nextBtn = document.getElementById('next-btn');
 
 const pauseBtn = document.getElementById('pause-btn');
 const resumeBtn = document.getElementById('resume-btn');
-const revealImpostorBtn = document.getElementById("reveal-impostors");
-const newGameBtn = document.getElementById("new-game");
+const revealImpostorBtn = document.getElementById('reveal-impostors');
 
+// Spiel-Variablen
+let players = [],
+    impostors = [],
+    word = '',
+    current = 0,
+    timer;
+let isPaused = false;
+let startY;
+const threshold = 80;
+
+// Hilfsfunktion: alle möglichen Kategorien (ohne "all")
+const allCategories = ['entertainment', 'daily', 'animalsnature', 'sports', 'school', 'festivals', 'stars', 'fruits', 'countries'];
+
+// Liest die angehakten Kategorien aus und behandelt "all"-Auswahl
+function getSelectedCategories() {
+    const checked = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(el => el.value);
+    if (checked.includes('all')) {
+        return [...allCategories];
+    }
+    return checked;
+}
+
+// Lädt gespeicherte Settings aus localStorage und setzt Formularwerte.
+function loadSettings() {
+    if (storage.names) namesInput.value = storage.names;
+    if (storage.impostors) impostorCount.value = storage.impostors;
+    if (storage.timer) timerMinutes.value = storage.timer;
+    if (storage.categories) {
+        let cats = JSON.parse(storage.categories);
+        document.querySelectorAll('input[name="category"]').forEach(el => {
+            el.checked = cats.includes(el.value);
+        });
+    }
+}
+loadSettings();
+
+// Initialisierungstext und Loader
 document.addEventListener("DOMContentLoaded", function() {
     function generateStyles() {
         const elements = document.querySelectorAll('*');
         const styles = new Set();
-
         elements.forEach(element => {
-            const classList = element.classList;
-
-            classList.forEach(cls => {
-                if (cls.startsWith('w') || cls.startsWith('h')) {
+            element.classList.forEach(cls => {
+                if (/^[wh]\d/.test(cls)) {
+                    const prop = cls[0] === 'w' ? 'width' : 'height';
                     const parts = cls.substring(1).split('-');
-                    const value = parts[0];
-                    const decimal = parts[1] ? '.' + parts[1] : ''; 
-                    const finalValue = value + decimal;
-                    const property = cls.charAt(0) === 'w' ? 'width' : 'height';
-
-                    if (!isNaN(finalValue)) {
-                        styles.add(`.${cls} { ${property}: ${finalValue}px; }`);
-                    }
+                    const val = parts[0] + (parts[1] ? '.' + parts[1] : '');
+                    if (!isNaN(val)) styles.add(`.${cls} { ${prop}: ${val}px; }`);
                 }
             });
         });
-
         return Array.from(styles).join('\n');
     }
-
-    const styles = generateStyles();
     const styleTag = document.createElement('style');
     styleTag.type = 'text/css';
-    styleTag.appendChild(document.createTextNode(styles));
+    styleTag.appendChild(document.createTextNode(generateStyles()));
     document.head.appendChild(styleTag);
-    
-    // Initialise
+
+    // Loader-Animation
     document.querySelector(".initialision").style.display = "block";
     document.getElementById("setup-screen").classList.add("hidden");
     setTimeout(() => {
         setTimeout(() => {
             document.querySelector(".initialision").style.display = "none";
             document.getElementById("setup-screen").classList.remove("hidden");
-        document.getElementById("footer-placeholder").classList.remove("h555");
-            document.getElementById("footer-placeholder").classList.add("h400");
+            document.getElementById("footer-placeholder").classList.replace('h555', 'h400');
         }, 750);
         document.getElementById("initialision-text").style.display = "block";
     }, 6000);
 
-    const words = [
-            "Verbinde zu Server",
-            "Verbinde zu GitHub",
-            "Überprüfe auf Updates",
-            "Rufe Database ab...",
-            "Rufe Database ab...",
-            "Initialisiere Spielesystem",
-            "Initialisiere Grafikschnittstelle",
-            "Lade Texturen",
-            "Erzeuge Spielfiguren",
-            "Berechne Spielwelt",
-            "Initialisiere Audio-System",
-            "Lade dynamische Objekte",
-            "Authentifiziere Benutzer...",
-            "Hole Benutzerprofil...",
-            "Starte Serversynchronisation",
-            "Überprüfe Serverstatus",
-            "Analysiere Datenbankstruktur...",
-            "Synchronisiere Cloud-Daten",
-            "Leere temporäre Caches",
-            "Baue Index neu auf",
-            "Validiere lokale Daten",
-            "Optimierung läuft...",
-            "Konfiguriere Module...",
-            "Sammle Debug-Informationen...",
-            "Kalibriere Netzwerkeinstellungen",
-            "Überprüfe Kompatibilität",
-            "Letzte Optimierungen...",
-            "Bereite Spielstart vor...",
-            "Verifiziere Sicherheitseinstellungen",
-            "Starte Benutzeroberfläche",
-            "Schließe ab",
-            "Starte Spiel",
-        ];
-    const wordDisplay = document.getElementById('startprogress');
-    let index = 0;
-    const intervall = setInterval(() => {
-        if (index < words.length) {
-            wordDisplay.textContent = words[index];
-            index++;
-        } else {
-            clearInterval(intervall);
-            wordDisplay.textContent = "Fertig, das Spiel startet gleich.";
+    // Fortschrittswörter
+    const words = ["Verbinde zu Server", "Verbinde zu GitHub", "Überprüfe auf Updates", "Rufe Database ab...", "Rufe Database ab...", "Initialisiere Spielesystem", "Initialisiere Grafikschnittstelle", "Lade Texturen", "Erzeuge Spielfiguren", "Berechne Spielwelt", "Initialisiere Audio-System", "Lade dynamische Objekte", "Authentifiziere Benutzer...", "Hole Benutzerprofil...", "Starte Serversynchronisation", "Überprüfe Serverstatus", "Analysiere Datenbankstruktur...", "Synchronisiere Cloud-Daten", "Leere temporäre Caches", "Baue Index neu auf", "Validiere lokale Daten", "Optimierung läuft...", "Konfiguriere Module...", "Sammle Debug-Informationen...", "Kalibriere Netzwerkeinstellungen", "Überprüfe Kompatibilität", "Letzte Optimierungen...", "Bereite Spielstart vor...", "Verifiziere Sicherheitseinstellungen", "Starte Benutzeroberfläche", "Schließe ab", "Starte Spiel"];
+    const display = document.getElementById('startprogress');
+    let idx = 0;
+    const interv = setInterval(() => {
+        if (idx < words.length) display.textContent = words[idx++];
+        else {
+            clearInterval(interv);
+            display.textContent = "Fertig, das Spiel startet gleich.";
         }
     }, 150);
 
+    // Impostor-Label anpassen
     impostorCount.addEventListener('input', checkImpostorInput);
 });
 
-function checkImpostorInput() {
-    const value = parseInt(impostorCount.value, 10);
-    console.log("Current Impostor Count:", value);
-    if (value === 1) {
-        document.getElementById("impostor-sp").innerText = `Der Impostor ist: `;
-    } else if (value >= 2) {
-        document.getElementById("impostor-sp").innerText = `Die Impostoren sind: `;
-    }
-}
-
-let isPaused = false;
-
-let startY;
-const threshold = 80;
-
-let players = [],
-    impostors = [],
-    word = '',
-    current = 0,
-    timer;
-
-function loadSettings() {
-    if (storage.names) namesInput.value = storage.names;
-    if (storage.impostors) impostorCount.value = storage.impostors;
-    if (storage.timer) timerMinutes.value = storage.timer;
-    if (storage.category) categorySelect.value = storage.category;
-}
-loadSettings();
-
+// Start-Button-Logik: Spieler-, Impostor- und Kategorien-Setup
 startBtn.addEventListener('click', async () => {
     players = namesInput.value.split('\n').map(n => n.trim()).filter(n => n);
     const impCount = parseInt(impostorCount.value, 10);
     const tmin = parseInt(timerMinutes.value, 10);
-    const cat = categorySelect.value;
+    const selectedCats = getSelectedCategories();
+
     if (players.length < 2) return alert('Mindestens 2 Spieler!');
     if (impCount >= players.length) return alert('Zu viele Impostoren!');
+    if (selectedCats.length === 0) return alert('Bitte mindestens eine Kategorie auswählen!');
 
     storage.names = namesInput.value;
     storage.impostors = impCount;
     storage.timer = tmin;
-    storage.category = cat;
+    storage.categories = JSON.stringify(selectedCats);
 
     impostors = shuffle([...Array(players.length).keys()]).slice(0, impCount);
-    word = await loadWord(cat);
+    word = await loadWord(selectedCats);
 
     setupScreen.classList.add('hidden');
     cardScreen.classList.remove('hidden');
@@ -165,65 +130,85 @@ startBtn.addEventListener('click', async () => {
     showCard();
 });
 
+
+// Karten-Interaktionen
 card.addEventListener('pointerdown', e => startY = e.clientY);
 card.addEventListener('pointerup', e => {
     const dy = startY - e.clientY;
     if (dy > threshold) revealCard();
     else if (dy < -threshold) hideCard();
 });
-
 nextBtn.addEventListener('click', () => {
     current++;
     if (current < players.length) showCard();
     else startTimerPhase();
 });
 
+// Aktualisiert das Impostor-Label
+function checkImpostorInput() {
+    const v = parseInt(impostorCount.value, 10);
+    document.getElementById("impostor-sp").innerText = v === 1 ? 'Der Impostor ist: ' : 'Die Impostoren sind: ';
+}
+
+// Zeigt die nächste Karte (Name)
 function showCard() {
     card.classList.remove('revealed');
     cardBack.textContent = '';
-    cardFront.innerHTML = `<div style="top: 0; position: relative;"><a>${players[current]}</a></div><div style="height: calc(100% - 52.5px - 52.5px - 52.5px)"></div><div style="bottom: 0;position: relative;"><a>↑</a><br><a>Karte aufdecken</a></div>`;
+    cardFront.innerHTML = `<div style="position:relative;top:0"><a>${players[current]}</a></div><div style="height:calc(100% - 157.5px)"></div><div style="position:relative; bottom:0"><a>↑</a><br><a>Karte aufdecken</a></div>`;
     nextBtn.disabled = true;
 }
 
+// Dreht Karte um und zeigt Rolle/Wort
 function revealCard() {
     const isImp = impostors.includes(current);
-    cardBack.innerHTML = isImp
-                         ? '<div style="top: 0; position: relative;"><a style="color: #ff0000">Impostor</a></div><div style="height: calc(100% - 52.5px - 52.5px - 52.5px)"></div><div style="bottom: 0;position: relative;"><a>↓</a><br><a>Karte umdrehen</a></div>'
-                         : `<div style="top: 0; position: relative;"><a>${word}</a></div><div style="height: calc(100% - 52.5px - 52.5px - 52.5px)"></div><div style="bottom: 0;position: relative;"><a>↓</a><br><a>Karte umdrehen</a></div>`;
+    cardBack.innerHTML = isImp ?
+        `<div style="position:relative;top:0"><a style="color:#f00">Impostor</a></div><div style="height:calc(100% - 157.5px)"></div><div style="position:relative;bottom:0"><a>↓</a><br><a>Karte umdrehen</a></div>` :
+        `<div style="position:relative;top:0"><a>${word}</a></div><div style="height:calc(100% - 157.5px)"></div><div style="position:relative;bottom:0"><a>↓</a><br><a>Karte umdrehen</a></div>`;
     card.classList.add('revealed');
     nextBtn.disabled = false;
 }
 
+// Verbirgt Karte wieder
 function hideCard() {
     card.classList.remove('revealed');
     nextBtn.disabled = false;
 }
 
+// Wechsel zur Timer-Phase */
 function startTimerPhase() {
     cardScreen.classList.add('hidden');
     timerScreen.classList.remove('hidden');
     startTimer(parseInt(timerMinutes.value, 10));
+
+    const randomPlayer = getRandomPlayer();
+    console.log('Zufälliger Spieler:', randomPlayer);
+
+    function getRandomPlayer() {
+        if (players.length === 0) return null;
+        const randomIndex = Math.floor(Math.random() * players.length);
+        return players[randomIndex];
+    }
 }
 
 function startTimer(mins) {
-    let sec = mins * 60;
+    let remaining = mins * 60;
     const display = document.getElementById('timer-display');
     const finish = document.getElementById('finished-text');
-    remainingTime = sec;
     update();
     timer = setInterval(() => {
-        if (isPaused) return;
-        remainingTime--;
-        if (remainingTime < 0) {
-            clearInterval(timer);
-            display.textContent = '00:00';
-            finish.classList.remove('hidden');
-            revealImpostors();
-        } else update();        
+        if (!isPaused) {
+            remaining--;
+            if (remaining < 0) {
+                clearInterval(timer);
+                display.textContent = '00:00';
+                finish.classList.remove('hidden');
+                revealImpostors();
+            } else update();
+        }
     }, 1000);
 
     function update() {
-        display.textContent = `${String(Math.floor(remainingTime / 60)).padStart(2, '0')}:${String(remainingTime % 60).padStart(2, '0')}`;
+        display.textContent = `${String(Math.floor(remaining/60)).padStart(2,'0')}:${String(remaining%60).padStart(2,'0')}`;
     }
 }
 
@@ -240,71 +225,31 @@ function resumeTimer() {
     resumeBtn.classList.add('hidden');
     revealImpostorBtn.classList.add('hidden');
 }
+pauseBtn.addEventListener('click', pauseTimer);
+resumeBtn.addEventListener('click', resumeTimer);
+revealImpostorBtn.addEventListener('click', revealImpostors);
 
-revealImpostorBtn.addEventListener("click", function() {
-    revealImpostors()
-});
-
+// Zeigt nach Ende die Impostoren und das Wort
 function revealImpostors() {
-    const impostorWordReveal = document.getElementById('impostor-word-reveal');
-    const impostorList = document.getElementById('impostor-list');
-    const finalWord = document.getElementById('final-word');
-    const display = document.getElementById('timer-display');
-
-    impostorList.innerHTML = '';
-
-    display.classList.add('hidden');
+    document.getElementById('timer-display').classList.add('hidden');
     pauseBtn.classList.add('hidden');
     resumeBtn.classList.add('hidden');
     revealImpostorBtn.classList.add('hidden');
-    newGameBtn.classList.remove('hidden');
-
-    impostors.forEach(index => {
-        const li = document.createElement('a');
-        const value = parseInt(impostorCount.value, 10);
-        console.log("Current Impostor Count:", value);
-        if (value === 1) {
-            li.textContent = players[index];
-            impostorList.appendChild(li);
-        } else if (value >= 2) {
-            li.textContent = players[index] + "; ";
-            impostorList.appendChild(li);
-        }
+    document.getElementById('new-game').classList.remove('hidden');
+    const list = document.getElementById('impostor-list');
+    const finalWord = document.getElementById('final-word');
+    impostors.forEach(i => {
+        const a = document.createElement('a');
+        a.textContent = players[i] + (impostors.length > 1 ? '; ' : '');
+        list.appendChild(a);
     });
-
     finalWord.textContent = word;
-
-    impostorWordReveal.classList.remove('hidden');
+    document.getElementById('impostor-word-reveal').classList.remove('hidden');
 }
 
-pauseBtn.addEventListener('click', pauseTimer);
-resumeBtn.addEventListener('click', resumeTimer);
+document.getElementById('startnewgame').addEventListener('click', () => location.reload());
 
-async function loadWord(cat) {
-    const options = Array.from(categorySelect.options).map(o => o.value).filter(v => v !== 'all');
-    const c = cat === 'all' ? options[Math.floor(Math.random() * options.length)] : cat;
-    return randomFrom(await fetchWords(c));
-}
-
-async function fetchWords(c) {
-    const res = await fetch(`words/${c}.json`);
-    if (!res.ok) throw new Error('Wörter nicht gefunden');
-    return res.json();
-}
-
-function randomFrom(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
-}
-
-function shuffle(a) {
-    for (let i = a.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [a[i], a[j]] = [a[j], a[i]];
-    }
-    return a;
-}
-
-// Information
+// Overlay-Infos
 document.querySelector(".information").addEventListener("click", function(){
     document.documentElement.style.overflowY = "hidden";
     document.documentElement.style.overflowX = "hidden";
@@ -331,6 +276,25 @@ document.getElementById("done-btn").addEventListener("click", function(){
     }, 150);
 });
 
-document.getElementById("startnewgame").addEventListener("click", function() {
-    location.reload();
-});
+// Wort-Ladefunktionen
+async function loadWord(cats) {
+    const cat = cats[Math.floor(Math.random() * cats.length)];
+    return randomFrom(await fetchWords(cat));
+}
+async function fetchWords(c) {
+    const res = await fetch(`words/${c}.json`);
+    if (!res.ok) throw new Error('Wörter nicht gefunden für ' + c);
+    return res.json();
+}
+
+function randomFrom(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+}

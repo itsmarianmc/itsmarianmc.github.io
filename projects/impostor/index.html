@@ -59,19 +59,152 @@
         <input type="number" id="impostor-count" min="1" value="1">
         <label>Timer Minuten:</label>
         <input type="number" id="timer-minutes" min="1" value="5">
-        <label>Thema/Kategorie:</label>
-        <select id="category-select">
-            <option value="all">Alle</option>
-            <option value="entertainment">Unterhaltung</option>
-            <option value="daily">Alltag</option>
-            <option value="animalsnature">Tiere & Natur</option>
-            <option value="sports">Sport & Freizeit</option>
-            <option value="school">Wissen & Schule</option>
-            <option value="festivals">Feste & Feiern</option>
-            <option value="stars">Stars & Promis</option>
-            <option value="fruits">Obstsorten</option>
-            <option value="countries">Länder</option>
-        </select>
+        <label>Kategorien auswählen:</label>
+        <div class="dropdown" id="category-dropdown">
+            <button type="button" class="dropdown-toggle">Alle auswählen ▼</button>
+            <div class="dropdown-menu">
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="all" checked>
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Alle</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Umfasst alle Kategorien. Es wird eine zufällige Kategorie aus der Liste ausgewählt und daraus ein Wort.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="entertainment">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Unterhaltung</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Alles rund um Filme, Serien, Musik und Freizeitaktivitäten.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="daily">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Alltag</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Begriffe aus dem täglichen Leben und typischen Situationen.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="animalsnature">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Tiere & Natur</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Alles aus der Welt der Tiere, Pflanzen und Naturphänomene.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="sports">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Sport & Freizeit</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Begriffe aus Sportarten, Fitness und Freizeitbeschäftigungen.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="school">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Wissen & Schule</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Schulwissen, Bildung und allgemeines Sachwissen.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="festivals">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Feste & Feiern</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Traditionen, Feste und besondere Anlässe weltweit.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="stars">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Stars & Promis</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Bekannte Persönlichkeiten aus Film, Musik und Gesellschaft.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="fruits">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Obstsorten</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Alle möglichen Früchte und Obstsorten weltweit.</a>
+                        </div>
+                    </div>
+                </label>
+                <label>
+                    <div>
+                        <input type="checkbox" name="category" value="countries">
+                    </div>
+                    <div>
+                        <div>
+                            <a class="dropdown-header">Länder</a>
+                        </div>
+                        <div class="placeholder w100 h5"></div>
+                        <div>
+                            <a>Staaten, Nationen und geographische Begriffe aus aller Welt.</a>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </div>
         <button id="start-btn">Start</button>
     </div>
     <div class="container hidden" id="card-screen">
@@ -111,7 +244,9 @@
     <overlay id="overlay">
         <div class="overlay-ui">
             <div class="overlay-ui-done" id="done-btn">
-                <a>Fertig</a>
+                <a>
+                    <b>Fertig</b>
+                </a>
             </div>
         </div>
         <div class="overlay-content">
@@ -284,5 +419,6 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="dropdown.js"></script>
 </body>
 </html>
