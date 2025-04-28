@@ -15,7 +15,6 @@ const cardBack = document.getElementById('card-back');
 const nextBtn = document.getElementById('next-btn');
 
 const pauseBtn = document.getElementById('pause-btn');
-const resumeBtn = document.getElementById('resume-btn');
 const revealImpostorBtn = document.getElementById('reveal-impostors');
 
 // Spiel-Variablen
@@ -84,12 +83,60 @@ document.addEventListener("DOMContentLoaded", function() {
             document.querySelector(".initialision").style.display = "none";
             document.getElementById("setup-screen").classList.remove("hidden");
             document.getElementById("footer-placeholder").classList.replace('h555', 'h400');
-        }, 750);
+        }, 500);
         document.getElementById("initialision-text").style.display = "block";
     }, 6000);
 
     // Fortschrittswörter
-    const words = ["Verbinde zu Server", "Verbinde zu GitHub", "Überprüfe auf Updates", "Rufe Database ab...", "Rufe Database ab...", "Initialisiere Spielesystem", "Initialisiere Grafikschnittstelle", "Lade Texturen", "Erzeuge Spielfiguren", "Berechne Spielwelt", "Initialisiere Audio-System", "Lade dynamische Objekte", "Authentifiziere Benutzer...", "Hole Benutzerprofil...", "Starte Serversynchronisation", "Überprüfe Serverstatus", "Analysiere Datenbankstruktur...", "Synchronisiere Cloud-Daten", "Leere temporäre Caches", "Baue Index neu auf", "Validiere lokale Daten", "Optimierung läuft...", "Konfiguriere Module...", "Sammle Debug-Informationen...", "Kalibriere Netzwerkeinstellungen", "Überprüfe Kompatibilität", "Letzte Optimierungen...", "Bereite Spielstart vor...", "Verifiziere Sicherheitseinstellungen", "Starte Benutzeroberfläche", "Schließe ab", "Starte Spiel"];
+    const words = [ "Verbinde zu Server",
+                    "Verbinde zu Server",
+                    "Verbinde zu Server",
+                    "Verbinde zu Server",
+                    "Verbinde zu Server",
+                    "Verbinde zu Server",
+                    "Verbinde zu Server",
+                    "Verbinde zu Server",
+                    "Verbinde zu GitHub",
+                    "Verbinde zu GitHub",
+                    "Überprüfe auf Updates",
+                    "Überprüfe auf Updates",
+                    "Überprüfe auf Updates",
+                    "Überprüfe auf Updates",
+                    "Überprüfe auf Updates",
+                    "Überprüfe auf Updates",
+                    "Rufe Database ab...",
+                    "Rufe Database ab...",
+                    "Rufe Database ab...",
+                    "Rufe Database ab...",
+                    "Initialisiere Spielesystem",
+                    "Initialisiere Grafikschnittstelle",
+                    "Lade Texturen",
+                    "Lade dynamische Objekte",
+                    "Authentifiziere Benutzer...",
+                    "Hole Benutzerprofil...",
+                    "Starte Serversynchronisation",
+                    "Überprüfe Serverstatus",
+                    "Analysiere Datenbankstruktur...",
+                    "Synchronisiere Cloud-Daten",
+                    "Leere temporäre Caches",
+                    "Baue Index neu auf",
+                    "Validiere lokale Daten",
+                    "Optimierung läuft...",
+                    "Konfiguriere Module...",
+                    "Sammle Debug-Informationen...",
+                    "Kalibriere Netzwerkeinstellungen",
+                    "Überprüfe Kompatibilität",
+                    "Letzte Optimierungen...",
+                    "Bereite Spielstart vor...",
+                    "Verifiziere Sicherheitseinstellungen",
+                    "Starte Benutzeroberfläche",
+                    "Schließe ab",
+                    "Schließe ab",
+                    "Schließe ab",
+                    "Starte Spiel",
+                    "Starte Spiel",
+                    "Starte Spiel",
+                    "Starte Spiel"];
     const display = document.getElementById('startprogress');
     let idx = 0;
     const interv = setInterval(() => {
@@ -98,9 +145,8 @@ document.addEventListener("DOMContentLoaded", function() {
             clearInterval(interv);
             display.textContent = "Fertig, das Spiel startet gleich.";
         }
-    }, 150);
+    }, 100);
 
-    // Impostor-Label anpassen
     impostorCount.addEventListener('input', checkImpostorInput);
 });
 
@@ -176,12 +222,20 @@ function hideCard() {
 
 // Wechsel zur Timer-Phase */
 function startTimerPhase() {
+    const displayContainer = document.getElementById('randomplayer');
+
     cardScreen.classList.add('hidden');
     timerScreen.classList.remove('hidden');
     startTimer(parseInt(timerMinutes.value, 10));
 
+
+    displayContainer.classList.remove('hidden');
+    setTimeout(() => {
+        displayContainer.classList.add('hidden');
+    }, 5000);
+
     const randomPlayer = getRandomPlayer();
-    console.log('Zufälliger Spieler:', randomPlayer);
+    displayContainer.innerHTML = `<a><b>${randomPlayer} fängt an</b></a><div class="placeholder w100 h10></div>`;
 
     function getRandomPlayer() {
         if (players.length === 0) return null;
@@ -213,27 +267,43 @@ function startTimer(mins) {
 }
 
 function pauseTimer() {
-    isPaused = true;
-    pauseBtn.classList.add('hidden');
-    resumeBtn.classList.remove('hidden');
+    revealImpostorBtn.classList.add('expand');
     revealImpostorBtn.classList.remove('hidden');
+    setTimeout(() => {
+        revealImpostorBtn.innerText = "Impostor auflösen";
+        pauseBtn.classList.add('paused');
+    }, 200);
+
+    isPaused = true;
 }
 
 function resumeTimer() {
+    pauseBtn.classList.remove('paused');
+    revealImpostorBtn.classList.remove('expand');
+    setTimeout(() => {
+        revealImpostorBtn.innerText = "";
+        revealImpostorBtn.classList.add('hidden');
+    }, 500);
     isPaused = false;
-    pauseBtn.classList.remove('hidden');
-    resumeBtn.classList.add('hidden');
-    revealImpostorBtn.classList.add('hidden');
 }
-pauseBtn.addEventListener('click', pauseTimer);
-resumeBtn.addEventListener('click', resumeTimer);
+
+pauseBtn.addEventListener('click', function() {
+    if (isPaused) {
+        resumeTimer();
+        pauseBtn.classList.remove('paused');
+        pauseBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff"><path d="M320-200v-560h80v560h-80Zm240 0v-560h80v560h-80Z"/></svg>`;
+    } else {
+        pauseTimer();
+        pauseBtn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff"><path d="M320-200v-560l440 280-440 280Zm80-280Zm0 134 210-134-210-134v268Z"/></svg>`;
+    }
+});
+
 revealImpostorBtn.addEventListener('click', revealImpostors);
 
 // Zeigt nach Ende die Impostoren und das Wort
 function revealImpostors() {
     document.getElementById('timer-display').classList.add('hidden');
     pauseBtn.classList.add('hidden');
-    resumeBtn.classList.add('hidden');
     revealImpostorBtn.classList.add('hidden');
     document.getElementById('new-game').classList.remove('hidden');
     const list = document.getElementById('impostor-list');
