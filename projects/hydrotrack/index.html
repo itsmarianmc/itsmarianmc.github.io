@@ -72,40 +72,15 @@
                 <a>History</a></h2>
             <div id="history-list"></div>
         </div>
-        <button onclick="sendNotification()">Send Notification</button>
-        <button id="installBtn" style="display: block;">App installieren</button>
     </div>
     <script src="script.js"></script>
     <script src="push.js"></script>
-    <script src="notification.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
             .then(reg => console.log('✅ Service Worker registered.', reg))
             .catch(err => console.error('❌ Service Worker Error:', err));
         }
-        </script>        
-    <script>
-        let deferredPrompt;
-
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            // Zeige deinem User jetzt einen "App installieren"-Button!
-            document.getElementById('installBtn').style.display = 'block';
-
-            document.getElementById('installBtn').addEventListener('click', () => {
-                deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User hat Installation akzeptiert');
-                    } else {
-                        console.log('User hat Installation abgelehnt');
-                    }
-                    deferredPrompt = null;
-                });
-            });
-        });
     </script>
 </body>
 </html>
