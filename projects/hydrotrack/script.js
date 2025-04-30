@@ -122,8 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    loadData();
-    
     setInterval(() => {
         const now = new Date();
         if (now.getHours() === 0 && now.getMinutes() === 0) {
@@ -132,4 +130,5 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 60000);
 
     setInterval(updateHistory, 5000);
+    loadData();
 });
