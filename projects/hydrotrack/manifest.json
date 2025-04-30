@@ -1,0 +1,17 @@
+{
+    "name": "Hydro Tracker",
+    "short_name": "HydroTrack",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#f8f9fa",
+    "theme_color": "#2A9D8F",
+    "description": "Behalte deinen Wasserhaushalt im Blick!",
+    "icons": [
+      {
+        "src": "favicon.png",
+        "sizes": "538x538",
+        "type": "image/png"
+      }
+    ]
+  }
+  

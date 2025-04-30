@@ -20,12 +20,15 @@
     <meta property="og:image" content="http://itsmarianmc.github.io/projects/hydrotrack/favicon.png">
     <meta property="og:url" content="http://itsmarianmc.github.io/projects/hydrotrack/">
     <meta property="og:type" content="website">
+    <!-- App -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2A9D8F">
 </head>
 <body>
     <div class="container">
         <div style="display: flex; align-items: center; gap: 7.5px;">
             <img height="66px" src="favicon.png" width="66px">
-            <div>
+            <div style="width: 100%">
                 <h1>HydroTrack</h1>
                 <a>A simple, powerful and secure drink tracker, to help you live a better life!</a>
             </div>
@@ -69,7 +72,40 @@
                 <a>History</a></h2>
             <div id="history-list"></div>
         </div>
+        <button onclick="sendNotification()">Send Notification</button>
+        <button id="installBtn" style="display: block;">App installieren</button>
     </div>
     <script src="script.js"></script>
+    <script src="push.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('✅ Service Worker registered.', reg))
+            .catch(err => console.error('❌ Service Worker Error:', err));
+        }
+        </script>        
+    <script>
+        let deferredPrompt;
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            // Zeige deinem User jetzt einen "App installieren"-Button!
+            document.getElementById('installBtn').style.display = 'block';
+
+            document.getElementById('installBtn').addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User hat Installation akzeptiert');
+                    } else {
+                        console.log('User hat Installation abgelehnt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        });
+
+    </script>
 </body>
 </html>
