@@ -8,7 +8,8 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--background);
-    margin: 0;
+    margin: 10px auto !important;
+    padding: 0 !important;
     color: var(--secondary);
     min-height: 100vh;
 }
@@ -18,12 +19,17 @@ h1 {
     margin-block-end: 0.0em;
 }
 
+.nodecoration-light {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
 .container {
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     max-width: 800px;
-    margin: 0px 10px;
+    margin: 0px auto;
     left: 50%;
     padding: 1rem;
 }
