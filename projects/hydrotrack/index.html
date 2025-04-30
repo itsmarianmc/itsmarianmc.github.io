@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HydroTrack - Drink Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- META -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="itsmarian">
+    <meta name="description" content="HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your progress in a bar. HydroDrink helps you to stay hydrated and follow a healthier lifestyle.">
+    <meta name="keywords" content="water tracker, drink tracker, HydroTrack, hydrotrack, lifestyle, safe drink tracker">
+    <meta name="referrer" content="no-referrer">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="HydroTrack - Drink Tracker">
+    <meta property="og:description" content="HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your progress in a bar. HydroDrink helps you to stay hydrated and follow a healthier lifestyle.">
+    <meta property="og:image" content="http://itsmarianmc.github.io/projects/hydrotrack/favicon.png">
+    <meta property="og:url" content="http://itsmarianmc.github.io/projects/hydrotrack/">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <div class="container">
+        <h1>💧 HydroTrack</h1>
+        <div class="goal-section">
+            <input type="number" id="goalInput" placeholder="Tagesziel (ml)">
+            <button class="add-btn" onclick="updateGoal()">Ziel setzen</button>
+        </div>
+        <div class="progress-circle" id="progressCircle">
+            <div class="progress-inner">
+                <div class="progress-text" id="progressText">0%</div>
+                <div class="progress-goal">
+                    <span id="currentProgress">0</span>ml / 
+                    <span id="currentGoal">3000</span>ml
+                </div>
+            </div>
+        </div>
+        <div class="controls">
+            <button class="preset-btn" data-add-value="250">
+                <i class="fas fa-tint"></i>
+                <a>250ml</a>
+            </button>
+            <button class="preset-btn" data-add-value="330">
+                <i class="fas fa-beer"></i>
+                <a>330ml</a>
+            </button>
+            <button class="preset-btn" data-add-value="500">
+                <i class="fas fa-tint"></i>
+                <a>500ml</a>
+            </button>
+            <div class="custom-input">
+                <input type="number" id="amount" placeholder="Eigene Menge" step="50">
+            </div>
+            <div class="custom-input">
+                <button class="add-btn" id="addCustomValue" onclick="addDrink()">Hinzufügen</button>
+            </div>
+        </div>
+        <div class="history-section">
+            <h2>
+                <i class="fas fa-history"></i>
+                <a>Verlauf</a></h2>
+            <div id="history-list"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

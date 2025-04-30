@@ -1,0 +1,195 @@
+:root {
+    --primary: #2A9D8F;
+    --secondary: #264653;
+    --accent: #E9C46A;
+    --background: #f8f9fa;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--background);
+    margin: 0;
+    padding: 2rem;
+    color: var(--secondary);
+    min-height: 100vh;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.goal-section {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#goalInput {
+    padding: 0.8rem;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    width: 120px;
+}
+
+#goalInput:focus {
+    outline: none;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 5px var(--accent);
+}
+
+#addCustomValue {
+    width: 100%;
+}
+
+.progress-circle {
+    width: 200px;
+    height: 200px;
+    margin: 2rem auto;
+    position: relative;
+    border-radius: 50%;
+    background: conic-gradient(var(--primary) 0%, #e9ecef 0%);
+    transition: background 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.progress-inner {
+    width: 170px;
+    height: 170px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.progress-text {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+.progress-goal {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+}
+
+.preset-btn {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.preset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42,157,143,0.3);
+}
+
+.custom-input {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+#addCustomValue {
+    width: 100%;
+}
+
+#amount {
+    appearance: none;
+    padding: 1rem;
+    outline: 0;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+#amount:focus {
+    outline: none;
+    border: 2px solid var(--accent);
+    box-shadow: 0 0 5px var(--accent);
+}
+
+.add-btn {
+    background: var(--secondary);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background 0.2s;
+}
+
+.add-btn:hover {
+    background: #1d3440;
+}
+
+.history-section {
+    margin-top: 3rem;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: white;
+    margin: 0.5rem 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+@keyframes floatUp {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-50px); }
+}
+
+@media (max-width: 720px) {
+    .goal-section {
+        flex-direction: column;
+    }
+
+    .controls {
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
+    }
+
+    #goalInput, #amount {
+        width: calc(100% - 1.6rem) !important;
+        max-width: 100% !important;
+    }
+
+    .add-btn {
+        width: 100% !important;
+    }
+}
