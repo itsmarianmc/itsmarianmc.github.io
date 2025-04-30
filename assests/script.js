@@ -78,4 +78,15 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(`get-userbrowser=${browser}`);
         console.log(`placeholder-stylesheet-count=${styles.split('\n').length}`);  
     }, 10);
+
+    if (localStorage.getItem('cookiesAccepted')) {
+        document.querySelector(".cookie-notice").style.display = "none";
+    } else {
+        document.querySelector(".cookie-notice").style.display = "block";
+    }
+});
+
+document.querySelector('.cookie-notice-button').addEventListener('click', function() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    document.querySelector(".cookie-notice").style.display = "none";
 });
