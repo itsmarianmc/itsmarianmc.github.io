@@ -204,6 +204,7 @@ h3 {
     }
 
     .cookie-notice-button {
+        margin-bottom: 20px;
         margin-top: 20px;
         justify-content: center;
         text-align: center;
