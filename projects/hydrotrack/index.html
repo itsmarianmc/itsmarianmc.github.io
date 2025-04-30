@@ -22,10 +22,16 @@
 </head>
 <body>
     <div class="container">
-        <h1>💧 HydroTrack</h1>
+        <div style="display: flex; align-items: center; gap: 7.5px;">
+            <img height="66px" src="favicon.png" width="66px">
+            <div>
+                <h1>HydroTrack</h1>
+                <a>A simple, powerful and secure drink tracker, to help you live a better life!</a>
+            </div>
+        </div>        
         <div class="goal-section">
             <input type="number" id="goalInput" placeholder="Tagesziel (ml)">
-            <button class="add-btn" onclick="updateGoal()">Ziel setzen</button>
+            <button class="add-btn" id="setGoal">Set goal</button>
         </div>
         <div class="progress-circle" id="progressCircle">
             <div class="progress-inner">
@@ -50,16 +56,16 @@
                 <a>500ml</a>
             </button>
             <div class="custom-input">
-                <input type="number" id="amount" placeholder="Eigene Menge" step="50">
+                <input type="number" id="amount" placeholder="Set ownn amount" step="50">
             </div>
             <div class="custom-input">
-                <button class="add-btn" id="addCustomValue" onclick="addDrink()">Hinzufügen</button>
+                <button class="add-btn" id="addCustomValue">Hinzufügen</button>
             </div>
         </div>
         <div class="history-section">
             <h2>
                 <i class="fas fa-history"></i>
-                <a>Verlauf</a></h2>
+                <a>History</a></h2>
             <div id="history-list"></div>
         </div>
     </div>

@@ -14,6 +14,11 @@ body {
     min-height: 100vh;
 }
 
+h1 {
+    margin-block-start: 0.0em;
+    margin-block-end: 0.0em;
+}
+
 .container {
     background: white;
     border-radius: 20px;
@@ -27,6 +32,7 @@ body {
     gap: 1rem;
     align-items: center;
     margin-bottom: 2rem;
+    margin-top: 2rem;
 }
 
 #goalInput {

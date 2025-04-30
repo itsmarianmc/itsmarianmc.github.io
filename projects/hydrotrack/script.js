@@ -1,12 +1,12 @@
-// Globale Variablen
 let currentAmount = 0;
 let goal = 3000;
 let history = [];
 
-// Allgemeine Hilfsfunktionen
+document.getElementById("setGoal").addEventListener("click", updateGoal);
+document.getElementById("addCustomValue").addEventListener("click", addDrink);
+
 const getColor = (percentage) => `hsl(${(120 * (percentage / 100))}, 70%, 45%)`;
 
-// Funktionen die vom HTML aufgerufen werden
 function addPreset(amount) {
     addAmount(amount);
 }
@@ -23,7 +23,6 @@ function addDrink() {
     if (amount > 0) addAmount(amount);
 }
 
-// Kernfunktionen
 const addAmount = (amount) => {
     currentAmount += amount;
     saveData();
@@ -76,7 +75,6 @@ document.querySelectorAll('[data-add-value]').forEach(button => {
     });
 });
 
-// Hauptinitialisierung
 document.addEventListener('DOMContentLoaded', () => {
     const loadData = () => {
         const today = new Date().toISOString().slice(0, 10);
@@ -124,10 +122,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Initialisierung
     loadData();
     
-    // Täglicher Reset-Check
     setInterval(() => {
         const now = new Date();
         if (now.getHours() === 0 && now.getMinutes() === 0) {
@@ -135,6 +131,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, 60000);
 
-    // Automatischer History-Update
     setInterval(updateHistory, 5000);
 });
