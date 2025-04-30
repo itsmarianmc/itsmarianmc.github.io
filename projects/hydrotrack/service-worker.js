@@ -1,5 +1,6 @@
 const CACHE_NAME = 'hydrotracker-v1';
 const ASSETS_TO_CACHE = [
+    '/assets/style.css',
     'index.html',
     'script.js',
     'style.css',
