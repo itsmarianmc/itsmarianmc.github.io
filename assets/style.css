@@ -82,6 +82,11 @@ h3 {
     text-decoration: none !important;
 }
 
+.nodecoration-light {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
 .nodecoration:hover {
     text-decoration: underline !important;
 }
