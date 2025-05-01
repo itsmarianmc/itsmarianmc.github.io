@@ -216,10 +216,14 @@ h1 {
 
 /* App Design */
 .app-container {
+    background-color: #fff;
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     height: 66px;
+    margin-bottom: 7.5px;
+    margin-top: -7.5px;
 }
 
 .flex-container {
