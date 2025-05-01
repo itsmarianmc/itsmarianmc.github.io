@@ -124,5 +124,15 @@
             .catch(err => console.error('❌ Service Worker Error:', err));
         }
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const appContainer = document.querySelector('.app-container');
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+            if (appContainer) {
+                appContainer.style.display = isStandalone ? 'none' : 'block';
+            }
+        });
+    </script>
 </body>
 </html>
