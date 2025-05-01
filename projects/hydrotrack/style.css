@@ -218,6 +218,8 @@ h1 {
 .app-container {
     background-color: #fff;
     border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: block;
     font-size: 15px;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     height: 85px;
@@ -228,7 +230,6 @@ h1 {
 .flex-container {
     align-items: center;
     display: flex;
-    flex: 1;
     gap: 2.5px;
     height: 85px;
     margin: 0 auto;
