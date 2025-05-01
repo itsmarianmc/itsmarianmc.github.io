@@ -210,3 +210,10 @@ h3 {
         width: calc(100% - 10px - 2px);
     }
 }
+
+
+@media (min-width: 2400px) {
+    .cookie-notice {
+        width: calc(100% - 20px);
+    }
+}

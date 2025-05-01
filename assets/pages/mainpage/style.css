@@ -93,6 +93,8 @@
     height: 492px;
     width: 300px;
     min-width: 300px;
+    flex: 0 0 auto;
+    margin: 0 1rem;
 }
 
 .carousel-item-inner {
@@ -148,13 +150,6 @@
     flex-direction: column;
     justify-content: center;
 }
-
-.carousel-item {
-    flex: 0 0 auto;
-    width: 300px;
-    margin: 0 1rem;
-}
-
 
 @keyframes scroll-to-left {
     0% {
