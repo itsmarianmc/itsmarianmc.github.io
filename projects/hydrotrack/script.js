@@ -25,7 +25,6 @@ function loadData() {
         history: []
     };
 
-    // Wenn Datum gewechselt ist
     if (saved.date !== today) {
         if (saved.current > 0) {
             history = saved.history;
@@ -45,6 +44,7 @@ function loadData() {
     goal = saved.goal || 3000;
 
     if (firstTimeSettingGoal) {
+        document.getElementById('setup-overlay').style.display = 'block';
         document.getElementById('firstGoalInput').style.display = 'block';
     } else {
         document.getElementById('setup-overlay').remove();
@@ -71,9 +71,18 @@ function saveData() {
 
 function updateGoal() {
     const newGoal = parseInt(document.getElementById('goalInput').value) || 3000;
+    const element = document.getElementById("event-action-tooltip");
+    
     goal = Math.max(newGoal, 500);
     saveData();
     updateDisplay();
+
+    element.innerText = `Updated successfully`;
+    element.style.color = '#28a745';
+    setTimeout(() => {
+        element.innerText = ``;
+        element.style = '';
+    }, 3000);
 }
 
 function firstUpdateGoal() {
@@ -143,11 +152,9 @@ function updateHistory() {
         `).join('');
 }
 
-// Prüfe jede Minute auf Tageswechsel
 setInterval(() => {
     const todayStr = new Date().toISOString().slice(0,10);
     if (todayStr !== lastDate) {
-        // Push alten Tag in Historie
         if (currentAmount > 0) {
             history.push({
                 date: lastDate,
@@ -155,7 +162,6 @@ setInterval(() => {
                 goal: goal
             });
         }
-        // Reset
         currentAmount = 0;
         lastDate = todayStr;
         saveData();
@@ -164,8 +170,6 @@ setInterval(() => {
     }
 }, 60 * 1000);
 
-// Optional: Update History regelmäßig (falls sich Historie ändert)
 setInterval(updateHistory, 5000);
 
-// Initial laden
 document.addEventListener('DOMContentLoaded', loadData);

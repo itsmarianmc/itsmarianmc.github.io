@@ -60,11 +60,7 @@
                 <h1>HydroTrack - Drink Tracker</h1>
                 <a>A simple, powerful and secure drink tracker, to help you live a better life!</a>
             </div>
-        </div>        
-        <div class="goal-section">
-            <input type="number" id="goalInput" placeholder="Tagesziel (ml)">
-            <button class="add-btn" id="setGoal">Set goal</button>
-        </div>
+        </div>      
         <div class="progress-circle" id="progressCircle">
             <div class="progress-inner">
                 <div class="progress-text" id="progressText">0%</div>
@@ -91,9 +87,11 @@
                 <input type="number" id="amount" placeholder="Set own amount" step="50">
             </div>
             <div class="custom-input">
-                <button class="add-btn" id="addCustomValue">Add</button>
+                <button class="add-btn" id="addCustomValue" onclick="addCustomValue()">Add</button>
+                
             </div>
         </div>
+        <button class="add-btn" id="changeGoalOpener">Change goal</button>
         <div class="history-section">
             <h2>
                 <i class="fas fa-history"></i>
@@ -108,11 +106,9 @@
                 <div class="flex-container" style="justify-content: center;">
                     <div class="app-image"></div>
                     <div style="width: calc(100% - 65px - 2.5px);">
-                        <a>Welcome to HydroTrack</a>
+                        <a>Welcome to HydroTrack!</a>
                         <br>
                         <a>Before tracking, we must first set up the app.</a>
-                        <br>
-                        <a></a>
                     </div>
                 </div>
             </div>
@@ -186,9 +182,97 @@
                     <input type="number" id="firstGoalInput" placeholder="Daily goal (ml)">
                     <button class="add-btn" id="setFirstGoal">Set goal</button>
                 </div>
+                <div style="font-size: 7px; line-height: 10px; margin-bottom: 10px; margin-top: 10px;">
+                    <a>These values are for information purposes only. Each person needs different amounts of fluid.</a>
+                    <br>
+                    <a>Other factors such as body weight, height, activity, age and gender influence the values. Average values; may vary or change at any time. If you have any questions, contact a doctor!</a>
+                </div>
             </div>
         </div>
     </setup-overlay>
+    <event id="event-changer">
+        <div class="event-content">
+            <div style="margin: 15px 0px 0px 0px">
+                <a style="color: #fff !important; font-size: 35px;">Change your daily goal</a>
+            </div>
+            <div class="goal-section">
+                <div id="goal-flex" style="display: flex; gap: 1rem;align-items: center;">
+                    <input type="number" id="goalInput" placeholder="Set goal (ml)">
+                    <button class="add-btn" id="setGoal">Set goal</button>
+                </div>
+                <a id="event-action-tooltip"></a>
+            </div>
+            <div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Age</th>
+                            <th>Fluid requirement</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="1" data-label="Alter">Babies</td>
+                            <td data-label="Alter">0 - 12 Month</td>
+                            <td data-label="Fluid requirement">680ml - 1000ml</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2" data-label="Alter">Children</td>
+                            <td data-label="Alter">1 - 7 Years</td>
+                            <td data-label="Fluid requirement">1.300ml - 1.600ml</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Alter">7 - 15 Years</td>
+                            <td data-label="Fluid requirement">1.800ml - 2.450ml</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Alter">Teenagers</td>
+                            <td data-label="Alter">15 - 19 Years</td>
+                            <td data-label="Fluid requirement">2800ml</td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4" data-label="Alter">Adults</td>
+                            <td data-label="Alter">19 - 25 Years</td>
+                            <td data-label="Fluid requirement">2700ml</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Alter">25 - 51 Years</td>
+                            <td data-label="Fluid requirement">2600ml</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Alter">51 - 65 Years</td>
+                            <td data-label="Fluid requirement">2250ml</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Alter">Ab 65 Years</td>
+                            <td data-label="Fluid requirement">2250ml</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Alter">Pregnant Women</td>
+                            <td data-label="Alter">—</td>
+                            <td data-label="Fluid requirement">2700ml</td>
+                        </tr>
+                        <tr>
+                            <td data-label="Alter">Breastfeeding mothers</td>
+                            <td data-label="Alter">—</td>
+                            <td data-label="Fluid requirement">3100ml</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div style="font-size: 7px; line-height: 10px; margin-bottom: 10px; margin-top: 10px;">
+                <a>These values are for information purposes only. Each person needs different amounts of fluid.</a>
+                <br>
+                <a>Other factors such as body weight, height, activity, age and gender influence the values. Average values; may vary or change at any time. If you have any questions, contact a doctor!</a>
+            </div>
+        </div>
+        <div class="event-controls">
+            <div class="event-close-btn">
+                <a>Close</a>
+            </div>
+        </div>
+    </event>
     <div class="cookie-notice">
         <div class="cookie-notice-inner">
             <div>
@@ -293,57 +377,13 @@
     <script src="script.js"></script>
     <script src="/assets/script.js"></script>
     <script src="push.js"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            if (localStorage.getItem('skipSetup')) {
-                console.log("Skipping setup!");
-            } else {
-                console.log("Showing setup!");
-            }
-        })
-        
-    </script>
+    <script src="settings.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
             .then(reg => console.log('✅ Service Worker registered.', reg))
             .catch(err => console.error('❌ Service Worker Error:', err));
         }
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const appContainer = document.querySelector('.app-container');
-            const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
-
-            if (appContainer) {
-                appContainer.style.display = isStandalone ? 'none' : 'block';
-            }
-        });
-    </script>
-    <script>
-        document.getElementById("getApp").addEventListener("click", function(){
-            document.documentElement.style.overflowY = "hidden";
-            document.documentElement.style.overflowX = "hidden";
-            document.getElementById("overlay").style.display = "block";
-            
-            setTimeout(function() {
-                document.getElementById("overlay").style.top = "calc(50% + 10px)";
-                document.getElementById("overlay").style.height = "calc(100% - 10px)";
-                document.getElementById("overlay").style.transform = "translate(-50%, -50%)";
-            }, 10);
-        });
-
-        document.getElementById("done-btn").addEventListener("click", function(){
-            document.getElementById("overlay").style.top = "100%";
-            document.getElementById("overlay").style.height = "100%";
-            document.getElementById("overlay").style.transform = "translate(-50%, 0%)";
-            document.documentElement.style.overflowY = "auto";
-            document.documentElement.style.overflowX = "hidden";
-
-            setTimeout(function() {
-                document.getElementById("overlay").style.display = "none";
-            }, 150);
-        });
     </script>
 </body>
 </html>

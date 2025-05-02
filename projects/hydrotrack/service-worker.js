@@ -1,11 +1,14 @@
 const CACHE_NAME = 'hydrotracker-v1';
 const ASSETS_TO_CACHE = [
     '/assets/style.css',
-    'index.html',
-    'script.js',
-    'style.css',
-    'manifest.json',
     'favicon.png',
+    'index.html',
+    'manifest.json',
+    'notifications.json',
+    'phone.png',
+    'script.js',
+    'settings.js',
+    'style.css',
     'https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap',
     'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css'
 ];

@@ -1,0 +1,56 @@
+// Change goal
+document.getElementById("changeGoalOpener").addEventListener("click", function() {
+    document.querySelector(".setup-background").style.display = "block";
+    document.getElementById("event-changer").style.display = "block";
+})
+
+document.querySelector(".event-close-btn").addEventListener("click", function() {
+    document.querySelector(".setup-background").style.display = "none";
+    document.getElementById("event-changer").style.display = "none";
+})
+
+// Input values
+function addCustomValue() {
+    const amountInput = document.getElementById('amount');
+    const value = parseFloat(amountInput.value);
+    if (value > 0) {
+        console.log(`Added ${value}ml`);
+    } else {
+        lert('Please enter a positive number.');
+    }
+}
+
+// App detector
+document.addEventListener('DOMContentLoaded', () => {
+    const appContainer = document.querySelector('.app-container');
+    const isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+    if (appContainer) {
+        appContainer.style.display = isStandalone ? 'none' : 'block';
+    }
+});
+
+// App
+document.getElementById("getApp").addEventListener("click", function(){
+    document.documentElement.style.overflowY = "hidden";
+    document.documentElement.style.overflowX = "hidden";
+    document.getElementById("overlay").style.display = "block";
+    
+    setTimeout(function() {
+        document.getElementById("overlay").style.top = "calc(50% + 10px)";
+        document.getElementById("overlay").style.height = "calc(100% - 10px)";
+        document.getElementById("overlay").style.transform = "translate(-50%, -50%)";
+    }, 10);
+});
+
+document.getElementById("done-btn").addEventListener("click", function(){
+    document.getElementById("overlay").style.top = "100%";
+    document.getElementById("overlay").style.height = "100%";
+    document.getElementById("overlay").style.transform = "translate(-50%, 0%)";
+    document.documentElement.style.overflowY = "auto";
+    document.documentElement.style.overflowX = "hidden";
+
+    setTimeout(function() {
+        document.getElementById("overlay").style.display = "none";
+    }, 150);
+});
