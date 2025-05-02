@@ -222,7 +222,7 @@ h1 {
     }
 
     .controls {
-        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)) !important;
     }
 
     #goalInput {
@@ -243,6 +243,11 @@ h1 {
         display: block !important;
         gap: 1rem !important;
         align-items: center !important;
+    }
+
+    .borderOnSmall {
+        border-top: 1px solid #000;
+        padding-top: 1rem;
     }
 }
 
@@ -524,7 +529,7 @@ input[readonly] {
     box-shadow: var(--shadow);
     max-height: 200px;
     overflow-y: auto;
-    margin-top: -45px;
+    margin-top: -47px;
     z-index: 10;
     display: none;
 }

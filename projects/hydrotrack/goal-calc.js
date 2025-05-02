@@ -65,7 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function calculate() {
         const w = parseFloat(weightInput.value);
-        if (!w || w <= 0) {
+        if (isNaN(w)) {
+            alert('Please enter a valid number for weight.');
+            resultField.value = '';
+            weightInput.value = '';
+            return;
+        } if (!w || w <= 0) {
             resultField.value = '';
             return;
         }
