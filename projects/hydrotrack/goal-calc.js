@@ -86,5 +86,12 @@ document.addEventListener("DOMContentLoaded", () => {
         resultField.value = Math.round(base);
     }
 
-    document.getElementById("setGoal").addEventListener("click", updateGoal);
+    document.getElementById("setGoal").addEventListener("click", (e) => {
+        e.preventDefault();
+        updateGoal();
+        setTimeout(() => {
+            document.querySelector(".setup-background").style.display = "none";
+            document.getElementById("event-changer").style.display = "none";
+        }, 2000);
+    });
 });

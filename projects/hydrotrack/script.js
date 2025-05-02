@@ -4,7 +4,6 @@ let history = [];
 let lastDate = localStorage.getItem('lastDate') || new Date().toISOString().slice(0,10);
 let firstTimeSettingGoal = localStorage.getItem('firstTimeSettingGoal') !== 'false';
 
-document.getElementById("setGoal").addEventListener("click", updateGoal);
 document.getElementById("setFirstGoal").addEventListener("click", firstUpdateGoal);
 document.getElementById("addCustomValue").addEventListener("click", addDrink);
 document.querySelectorAll('[data-add-value]').forEach(button => {
