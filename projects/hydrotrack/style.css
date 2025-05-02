@@ -213,8 +213,13 @@ h1 {
         grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)) !important;
     }
 
-    #goalInput, #amount {
+    #goalInput {
         width: calc(100% - 3rem) !important;
+        max-width: 100% !important;
+    }
+
+    #amount {
+        width: calc(100% - 1rem) !important;
         max-width: 100% !important;
     }
 
@@ -378,7 +383,7 @@ h1 {
 
 @media (min-width: 425px) {
     .app-container {
-        display: none;
+        display: none !important;
     }
 }
 
