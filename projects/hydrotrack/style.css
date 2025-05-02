@@ -3,6 +3,7 @@
     --secondary: #264653;
     --accent: #E9C46A;
     --background: #f8f9fa;
+    --text-color: #fff;
 }
 
 body {
@@ -242,6 +243,46 @@ h1 {
     height: 85px;
     margin: 0 auto;
     width: calc(100%);
+}
+
+#overlay {
+    background-color: #2e2e2e;
+    border: 1px solid #383939;
+    border-radius: 20px;
+    box-sizing: border-box;
+    color: var(--text-color);
+    display: none;
+    height: 100%;
+    left: 50%;
+    max-width: 450px;
+    min-width: 300px;
+    position: fixed;
+    text-align: center;
+    top: 100%;  /* Startet unterhalb des Bildschirms */
+    transform: translate(-50%, 0%);
+    transition: top 0.1s ease-in, transform 0.1s ease-in;
+    z-index: 100001;
+    width: 100%;
+}
+
+.overlay-ui {
+    width: 100%;
+}
+
+#done-btn {
+    color: #0076DF;
+    cursor: pointer;
+}
+
+.overlay-content {
+    height: calc(100% - 60px);
+    overflow-y: scroll;
+    padding: 5px;
+    width: calc(100% - 10px);
+}
+
+.placeholder {
+    margin: 0 auto !important;
 }
 
 .overlay-card {
