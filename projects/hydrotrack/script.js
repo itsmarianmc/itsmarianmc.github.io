@@ -2,8 +2,10 @@ let currentAmount = 0;
 let goal = 3000;
 let history = [];
 let lastDate = localStorage.getItem('lastDate') || new Date().toISOString().slice(0,10);
+let firstTimeSettingGoal = localStorage.getItem('firstTimeSettingGoal') !== 'false';
 
 document.getElementById("setGoal").addEventListener("click", updateGoal);
+document.getElementById("setFirstGoal").addEventListener("click", firstUpdateGoal);
 document.getElementById("addCustomValue").addEventListener("click", addDrink);
 document.querySelectorAll('[data-add-value]').forEach(button => {
     button.addEventListener('click', () => {
@@ -22,6 +24,7 @@ function loadData() {
         date: today,
         history: []
     };
+
     // Wenn Datum gewechselt ist
     if (saved.date !== today) {
         if (saved.current > 0) {
@@ -38,23 +41,31 @@ function loadData() {
         currentAmount = saved.current;
         history = saved.history || [];
     }
+
     goal = saved.goal || 3000;
+
+    if (firstTimeSettingGoal) {
+        document.getElementById('firstGoalInput').style.display = 'block';
+    } else {
+        document.getElementById('setup-overlay').remove();
+        document.querySelector('.setup-background').style.display = 'none';
+    }
+
     document.getElementById('goalInput').value = goal;
-    saveData(); // speichert hydroData und lastDate
+    saveData();
     updateDisplay();
     updateHistory();
 }
 
 function saveData() {
     const today = new Date().toISOString().slice(0, 10);
-    // speichere hydroData
     localStorage.setItem('hydroData', JSON.stringify({
         current: currentAmount,
         goal: goal,
         date: today,
         history: history
     }));
-    // speichere lastDate
+
     localStorage.setItem('lastDate', lastDate);
 }
 
@@ -64,6 +75,19 @@ function updateGoal() {
     saveData();
     updateDisplay();
 }
+
+function firstUpdateGoal() {
+    const newGoal = parseInt(document.getElementById('firstGoalInput').value) || 3000;
+    goal = Math.max(newGoal, 500);
+    saveData();
+    updateDisplay();
+    
+    localStorage.setItem('firstTimeSettingGoal', 'false');
+    setTimeout(() => {
+        location.reload();
+    }, 200);
+}
+
 
 function addDrink() {
     const amount = parseInt(document.getElementById('amount').value) || 0;
