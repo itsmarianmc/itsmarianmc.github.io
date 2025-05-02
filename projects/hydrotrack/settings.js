@@ -10,15 +10,15 @@ document.querySelector(".event-close-btn").addEventListener("click", function() 
 })
 
 // Input values
-function addCustomValue() {
+document.getElementById("addCustomValue").addEventListener("click", function() {
     const amountInput = document.getElementById('amount');
     const value = parseFloat(amountInput.value);
     if (value > 0) {
         console.log(`Added ${value}ml`);
     } else {
-        lert('Please enter a positive number.');
+        alert('Please enter a positive/valid number.');
     }
-}
+});
 
 // App detector
 document.addEventListener('DOMContentLoaded', () => {

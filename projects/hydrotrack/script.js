@@ -87,16 +87,23 @@ function updateGoal() {
 
 function firstUpdateGoal() {
     const newGoal = parseInt(document.getElementById('firstGoalInput').value) || 3000;
-    goal = Math.max(newGoal, 500);
-    saveData();
-    updateDisplay();
-    
-    localStorage.setItem('firstTimeSettingGoal', 'false');
-    setTimeout(() => {
-        location.reload();
-    }, 200);
+    const amountInput = document.getElementById('firstGoalInput');
+    const value = parseFloat(amountInput.value);
+    if (!isNaN(value) && value > 0) {
+        console.log(`Added ${value}ml`);
+        goal = Math.max(newGoal, 500);
+        saveData();
+        updateDisplay();
+        
+        localStorage.setItem('firstTimeSettingGoal', 'false');
+        setTimeout(() => {
+            location.reload();
+        }, 200);
+    } else {
+        alert('Please enter a positive/valid number.');
+        return
+    } 
 }
-
 
 function addDrink() {
     const amount = parseInt(document.getElementById('amount').value) || 0;
