@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/projects/impostor/style.css">
     <link rel="stylesheet" href="/projects/hydrotrack/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- META -->
@@ -45,7 +46,7 @@
                 </div>
             </div>
             <div class="touch-action">
-                <div class="touch-button">
+                <div class="touch-button" id="getApp">
                     <div class="touch-button-inner">
                         <a>Get</a>
                     </div>
@@ -114,6 +115,96 @@
             </div>
         </div>
     </div>
+    <overlay id="overlay">
+        <div class="overlay-ui">
+            <div class="overlay-ui-done" id="done-btn">
+                <a>
+                    <b>Fertig</b>
+                </a>
+            </div>
+        </div>
+        <div class="overlay-content">
+            <div class="overlay-card">
+                <div class="overlay-card-head" style="display: flex; gap: 5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" width="22.5" height="22.5" >
+                        <g transform="matrix(.036771 0 0 .036771 3 0)" fill="#fff">
+                            <defs>
+                                <path id="A" d="M0 0h708.7v870.3H0z" />
+                                <path id="B" d="M591.8 462.4c-1-110.1 90-163 94.1-165.6-51.2-74.9-130.8-85.1-159.2-86.3-67.7-6.9-132.2 39.9-166.6 39.9s-87.4-38.9-143.6-37.8c-73.9 1.1-142 42.9-180.1 109.1-76.7 133-19.6 330.3 55.2 438.4 36.6 52.8 80.1 112.3 137.4 110.1 55.2-2.2 76-35.7 142.6-35.7s85.4 35.7 143.6 34.6c59.3-1.2 96.9-54 133.2-107 41.9-61.3 59.2-120.7 60.2-123.8-1.3-.5-115.6-44.3-116.8-175.9" />
+                            </defs>
+                            <clipPath id="C">
+                                <use xlink:href="#A" />
+                            </clipPath>
+                            <g clip-path="url(#C)">
+                                <use xlink:href="#B" />
+                            </g>
+                            <path d="M482.3 139c30.4-36.8 50.9-88 45.3-139-43.8 1.8-96.8 29.2-128.2 66-28.1 32.5-52.8 84.6-46.1 134.6 48.7 3.8 98.6-24.9 129-61.6" />
+                        </g>
+                        <g clip-path="url(#C)" transform="matrix(.098524 0 0 .098524 89.579758 -18.770519)">
+                            <use xlink:href="#B" />
+                        </g>
+                      </svg>                      
+                    <div style="margin-top: 0px;">
+                        <a>iOS</a>
+                    </div>
+                </div>
+                <div class="overlay-card-content">
+                    <div style="display: flex;">
+                        <p style="margin-block-start: 0em; margin-block-end: 0em;">
+                            on Safari: at the bottom center;
+                            <br>
+                            on Chrome: at the top right;
+                            <br>
+                            on Firefox: at the top left;
+                            <br>on Edge: at the bottom right on the
+                            <span style="display: inline-flex; align-items: center; transform: translateY(5px);">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="#fff">
+                                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                                </svg>
+                            </span>
+                            menu,
+                            <br>press on the
+                            <span style="display: inline-flex; align-items: center; transform: translateY(5px);">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="#fff" width="24" height="24" viewBox="0 0 50 50">
+                                    <path d="M30.3 13.7L25 8.4l-5.3 5.3-1.4-1.4L25 5.6l6.7 6.7z"/>
+                                    <path d="M24 7h2v21h-2z"/>
+                                    <path d="M35 40H15c-1.7 0-3-1.3-3-3V19c0-1.7 1.3-3 3-3h7v2h-7c-.6 0-1 .4-1 1v18c0 .6.4 1 1 1h20c.6 0 1-.4 1-1V19c0-.6-.4-1-1-1h-7v-2h7c1.7 0 3 1.3 3 3v18c0 1.7-1.3 3-3 3z"/>
+                                </svg>
+                            </span>
+                            icon and click on "Add to home screen". Now the app can be used as a regular app from your homescreen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="overlay-card">
+                <div class="overlay-card-head" style="display: flex; gap: 5px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#fff" width="22.5" height="22.5" viewBox="0 0 553.048 553.048" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path d="M76.774,179.141c-9.529,0-17.614,3.323-24.26,9.969c-6.646,6.646-9.97,14.621-9.97,23.929v142.914    c0,9.541,3.323,17.619,9.97,24.266c6.646,6.646,14.731,9.97,24.26,9.97c9.522,0,17.558-3.323,24.101-9.97    c6.53-6.646,9.804-14.725,9.804-24.266V213.039c0-9.309-3.323-17.283-9.97-23.929C94.062,182.464,86.082,179.141,76.774,179.141z"/>
+                                <path d="M351.972,50.847L375.57,7.315c1.549-2.882,0.998-5.092-1.658-6.646c-2.883-1.34-5.098-0.661-6.646,1.989l-23.928,43.88    c-21.055-9.309-43.324-13.972-66.807-13.972c-23.488,0-45.759,4.664-66.806,13.972l-23.929-43.88    c-1.555-2.65-3.77-3.323-6.646-1.989c-2.662,1.561-3.213,3.764-1.658,6.646l23.599,43.532    c-23.929,12.203-42.987,29.198-57.167,51.022c-14.18,21.836-21.273,45.698-21.273,71.628h307.426    c0-25.924-7.094-49.787-21.273-71.628C394.623,80.045,375.675,63.05,351.972,50.847z M215.539,114.165    c-2.552,2.558-5.6,3.831-9.143,3.831c-3.55,0-6.536-1.273-8.972-3.831c-2.436-2.546-3.654-5.582-3.654-9.137    c0-3.543,1.218-6.585,3.654-9.137c2.436-2.546,5.429-3.819,8.972-3.819s6.591,1.273,9.143,3.819    c2.546,2.558,3.825,5.594,3.825,9.137C219.357,108.577,218.079,111.619,215.539,114.165z M355.625,114.165    c-2.441,2.558-5.434,3.831-8.971,3.831c-3.551,0-6.598-1.273-9.145-3.831c-2.551-2.546-3.824-5.582-3.824-9.137    c0-3.543,1.273-6.585,3.824-9.137c2.547-2.546,5.594-3.819,9.145-3.819c3.543,0,6.529,1.273,8.971,3.819    c2.438,2.558,3.654,5.594,3.654,9.137C359.279,108.577,358.062,111.619,355.625,114.165z"/>
+                                <path d="M123.971,406.804c0,10.202,3.543,18.838,10.63,25.925c7.093,7.087,15.729,10.63,25.924,10.63h24.596l0.337,75.454    c0,9.528,3.323,17.619,9.969,24.266s14.627,9.97,23.929,9.97c9.523,0,17.613-3.323,24.26-9.97s9.97-14.737,9.97-24.266v-75.447    h45.864v75.447c0,9.528,3.322,17.619,9.969,24.266s14.73,9.97,24.26,9.97c9.523,0,17.613-3.323,24.26-9.97    s9.969-14.737,9.969-24.266v-75.447h24.928c9.969,0,18.494-3.544,25.594-10.631c7.086-7.087,10.631-15.723,10.631-25.924V185.45    H123.971V406.804z"/>
+                                <path d="M476.275,179.141c-9.309,0-17.283,3.274-23.93,9.804c-6.646,6.542-9.969,14.578-9.969,24.094v142.914    c0,9.541,3.322,17.619,9.969,24.266s14.627,9.97,23.93,9.97c9.523,0,17.613-3.323,24.26-9.97s9.969-14.725,9.969-24.266V213.039    c0-9.517-3.322-17.552-9.969-24.094C493.888,182.415,485.798,179.141,476.275,179.141z"/>
+                            </g>
+                        </g>
+                    </svg>              
+                    <div style="margin-top: 0px;">
+                        <a>Android</a>
+                    </div>
+                </div>
+                <div class="overlay-card-content">
+                    <div style="text-align: center;">
+                        <p style="margin-block-start: 0em; margin-block-end: 0em;">
+                            Tutorial not yet avaible!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="font-size: 7px; line-height: 10px;">
+                <a>These step-by-step tutorials are for demonstration purposes and simplicity only. The respective owners of the browsers may change or remove this functionality, its placement in the app or the features at any time. Tutorial is based on personal experience.</a>
+            </div>
+        </div>
+    </overlay>
     <script src="script.js"></script>
     <script src="/assets/script.js"></script>
     <script src="push.js"></script>
@@ -132,6 +223,31 @@
             if (appContainer) {
                 appContainer.style.display = isStandalone ? 'none' : 'block';
             }
+        });
+    </script>
+    <script>
+        document.getElementById("getApp").addEventListener("click", function(){
+            document.documentElement.style.overflowY = "hidden";
+            document.documentElement.style.overflowX = "hidden";
+            document.getElementById("overlay").style.display = "block";
+            
+            setTimeout(function() {
+                document.getElementById("overlay").style.top = "calc(50% + 10px)";
+                document.getElementById("overlay").style.height = "calc(100% - 10px)";
+                document.getElementById("overlay").style.transform = "translate(-50%, -50%)";
+            }, 10);
+        });
+
+        document.getElementById("done-btn").addEventListener("click", function(){
+            document.getElementById("overlay").style.top = "100%";
+            document.getElementById("overlay").style.height = "100%";
+            document.getElementById("overlay").style.transform = "translate(-50%, 0%)";
+            document.documentElement.style.overflowY = "auto";
+            document.documentElement.style.overflowX = "hidden";
+
+            setTimeout(function() {
+                document.getElementById("overlay").style.display = "none";
+            }, 150);
         });
     </script>
 </body>
