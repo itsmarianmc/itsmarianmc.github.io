@@ -73,26 +73,32 @@
         </div>
         <div class="controls">
             <button class="preset-btn" data-add-value="250">
-                <i class="fas fa-tint"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" height="20.67" viewBox="0 -960 960 960" width="20.67" fill="#fff">
+                    <path d="M607-520H393q-5 12-12 23.5T364-477l29 317h214l29-317q-10-9-17-20t-12-23ZM382-680l-11 44q7 8 12.5 17t9.5 19h214q4-10 9.5-19t12.5-17l-11-44H382Zm11 600q-31 0-54-20.5T313-152l-31-346q-1-10 3.5-18.5T299-530q8-5 14-12t6-17q0-9-4-16.5T303-588q-10-5-15-15.5t-2-21.5l26-105q3-14 14-22t25-8h109v-40h-60v-80h200v80h-60v40h109q14 0 24.5 8t13.5 22l27 105q3 11-2 21.5T697-588q-8 4-12.5 11t-4.5 16q0 11 5.5 18.5T700-530q9 5 14 13.5t4 18.5l-31 345q-3 31-26 52t-54 21H393Zm107-440Zm0-80Z"/>
+                </svg>
                 <a>250ml</a>
             </button>
             <button class="preset-btn" data-add-value="330">
-                <i class="fas fa-beer"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" height="20.67" viewBox="0 -960 960 960" width="20.67" fill="#fff">
+                    <path d="M508-218q8-1 14-7.5t6-16.5q0-11-8-18t-19-5q-58 8-106.5-27T337-387q-1-9-7.5-15t-15.5-6q-11 0-18.5 8t-5.5 19q11 78 74 126t144 37ZM480-96q-130 0-221-91t-91-221q0-97 74.5-205T480-864q166 150 239 257t73 199q0 130-91 221T480-96Zm0-72q100 0 170-70t70-170q0-68-54-149T480-769Q348-638 294-557t-54 149q0 100 70 170t170 70Zm0-312Z"/>
+                </svg>
                 <a>330ml</a>
             </button>
             <button class="preset-btn" data-add-value="500">
-                <i class="fas fa-tint"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" height="20.67" viewBox="0 -960 960 960" width="20.67" fill="#fff">
+                    <path d="M336-216h264v-384h-82q-27 0-47 18t-38 38q-26 29-50 45.5T336-474v258Zm-72 72v-327q-53-10-86.5-52.5T144-623q0-46 28.5-84t75.5-54q22-48 63.5-75.5T403-864q30 0 58 10t51 29q8-2 15-2.5t18-.5q65 0 110.5 45.5T701-672q0 20-4.5 38T683-600h61q30 0 51 21t21 51v240q0 30-21 51t-51 21h-72v72H264Zm-48-479q0 35 22.5 59t56.5 24q20 0 41-14t50-46q32-36 65-54t67-18h111q0-35-24.5-59.5T545-756q-13 0-26.5 3T488-742l-7-10q-14-20-33.5-30T403-792q-35 0-62.5 23.5T308-709l-1 7-30 8q-26 7-43.5 27.5T216-623Zm456 335h72v-240h-72v240Zm-336 72h264-264Z"/>
+                </svg>
                 <a>500ml</a>
             </button>
-            <div class="custom-input">
+            <div class="custom-input" style="border-top: 1px solid #000; padding-top: 1rem;">
                 <input type="number" id="amount" placeholder="Set own amount" step="50">
             </div>
             <div class="custom-input">
                 <button class="add-btn" id="addCustomValue">Add</button>
             </div>
-        </div>
-        <div style="border-top: 1px solid #000; padding-top: 1rem;">
-            <button class="add-btn" id="changeGoalOpener">Change goal</button>
+            <div class="custom-input" style="border-top: 1px solid #000; padding-top: 1rem;">
+                <button class="add-btn" id="changeGoalOpener" style="width: 100%;">Change goal</button>
+            </div>
         </div>
         <div class="history-section">
             <h2>
@@ -116,78 +122,59 @@
             </div>
             <div class="placeholder w200 h20"></div>
             <div class="setup-maincontent">
-                <a>Below you can see a table. Find your age group and estimate within the values whether you need the minimum or the maximum of the suggested amount of liquid. Also consider your weight, your gender, the current season and whether you are very active.</a>
+                <a>Now enter your body details and the recommended quantity will be suggested based on them. If you are not satisfied, you can adjust the amount. Your fluid intake is reset every day and can be viewed in the history. You can change and adjust your target at any time.</a>
                 <div class="placeholder w200 h10"></div>
-                <div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th>Age</th>
-                                <th>Fluid requirement</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td rowspan="1">Babies</td>
-                                <td>0 - 12 Months</td>
-                                <td data-label="Fluid requirement">680ml - 1,000ml</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="2">Children</td>
-                                <td>1 - 7 Years</td>
-                                <td data-label="Fluid requirement">1,300ml - 1,600ml</td>
-                            </tr>
-                            <tr>
-                                <td>7 - 15 Years</td>
-                                <td data-label="Fluid requirement">1,800ml - 2,400ml</td>
-                            </tr>
-                            <tr>
-                                <td>Teenagers</td>
-                                <td>15 - 19 Years</td>
-                                <td data-label="Fluid requirement">2400 - 2800ml</td>
-                            </tr>
-                            <tr>
-                                <td rowspan="4">Adults</td>
-                                <td>19 - 25 Years</td>
-                                <td data-label="Fluid requirement">2700ml</td>
-                            </tr>
-                            <tr>
-                                <td>25 - 51 Years</td>
-                                <td data-label="Fluid requirement">2600ml</td>
-                            </tr>
-                            <tr>
-                                <td>51 - 65 Years</td>
-                                <td data-label="Fluid requirement">2250ml</td>
-                            </tr>
-                            <tr>
-                                <td>From 65 Years</td>
-                                <td data-label="Fluid requirement">2250ml</td>
-                            </tr>
-                            <tr>
-                                <td>Pregnant Women</td>
-                                <td>—</td>
-                                <td data-label="Fluid requirement">2700ml</td>
-                            </tr>
-                            <tr>
-                                <td>Breastfeeding mothers</td>
-                                <td>—</td>
-                                <td data-label="Fluid requirement">3100ml</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="placeholder w200 h20"></div>
-                <a>Now set your daily drinking goal. Your amount of liquid is reset every day and can be viewed in the history. You can change and adjust your goal at any time.</a>
-                <div class="placeholder w200 h20"></div>
-                <div>
-                    <input type="number" id="firstGoalInput" placeholder="Daily goal (ml)">
-                    <button class="add-btn" id="setFirstGoal">Set goal</button>
-                </div>
-                <div style="font-size: 7px; line-height: 10px; margin-bottom: 10px; margin-top: 10px;">
-                    <a>These values are for information purposes only. Each person needs different amounts of fluid.</a>
-                    <br>
-                    <a>Other factors such as body weight, height, activity, age and gender influence the values. Average values; may vary or change at any time. If you have any questions, contact a doctor!</a>
+                <div id="calculator-form">
+                    <form>
+                        <label for="weight">Weight (kg)</label>
+                        <input type="number" id="weight" min="1" max="300" />
+                        <label>Gender</label>
+                        <div class="dropdown" data-value="male" id="dropdown-gender">
+                            <div class="dropdown__selected" tabindex="0">
+                                <span>Male</span>
+                                <span class="dropdown__arrow">▾</span>
+                            </div>
+                            <div class="dropdown__list">
+                                <div class="dropdown__item" data-value="male">Male</div>
+                                <div class="dropdown__item" data-value="female">Female</div>
+                            </div>
+                        </div>
+                        <label>Activity</label>
+                        <div class="dropdown" data-value="low" id="dropdown-activity">
+                            <div class="dropdown__selected" tabindex="0">
+                                <span>Low</span>
+                                <span class="dropdown__arrow">▾</span>
+                            </div>
+                            <div class="dropdown__list">
+                                <div class="dropdown__item" data-value="low">Low</div>
+                                <div class="dropdown__item" data-value="medium">Medium</div>
+                                <div class="dropdown__item" data-value="high">High</div>
+                            </div>
+                        </div>
+                        <label>Current Season</label>
+                        <div class="dropdown" data-value="cold" id="dropdown-season">
+                            <div class="dropdown__selected" tabindex="0">
+                                <span>Cold</span>
+                                <span class="dropdown__arrow">▾</span>
+                            </div>
+                            <div class="dropdown__list">
+                                <div class="dropdown__item" data-value="cold">Cold</div>
+                                <div class="dropdown__item" data-value="mild">Mild</div>
+                                <div class="dropdown__item" data-value="warm">Warm</div>
+                                <div class="dropdown__item" data-value="hot">Hot</div>
+                            </div>
+                        </div>
+                        <div class="placeholder w200 h20"></div>
+                        <label style="color: #fff;">Your recommended daily goal</label>
+                        <input type="number" id="firstGoalInput" placeholder="Daily goal (ml)">
+                        <button class="add-btn" id="setFirstGoal">Set goal</button>
+                    </form>
+                    </div>
+                    <div style="font-size: 7px; line-height: 10px; margin-bottom: 10px; margin-top: 10px;">
+                        <a>These values are for information purposes only and are based on a predefined script. Each person needs different amounts of fluid.</a>
+                        <br>
+                        <a>Other (changing) factors such as body weight, height, activity, age and gender can influence the values daily. Average values; may vary or change at any time. If you have any questions about your diet and the associated fluid intake, contact a doctor.</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -197,72 +184,60 @@
             <div style="margin: 15px 0px 0px 0px">
                 <a style="color: #fff !important; font-size: 35px;">Change your daily goal</a>
             </div>
-            <div class="goal-section">
-                <div id="goal-flex" style="display: flex; gap: 1rem;align-items: center;">
-                    <input type="number" id="goalInput" placeholder="Set goal (ml)">
+            <div id="calculator-form2">
+                <form>
+                    <label for="weight2">Weight (kg)</label>
+                    <input type="number" id="weight2" min="1" max="300" />
+                    <label>Gender</label>
+                    <div class="dropdown" data-value="male2" id="dropdown-gender2">
+                        <div class="dropdown__selected" tabindex="0">
+                            <span>Male</span>
+                            <span class="dropdown__arrow">▾</span>
+                        </div>
+                        <div class="dropdown__list">
+                            <div class="dropdown__item" data-value="male2">Male</div>
+                            <div class="dropdown__item" data-value="female2">Female</div>
+                        </div>
+                    </div>
+                    <label>Activity</label>
+                    <div class="dropdown" data-value="low2" id="dropdown-activity2">
+                        <div class="dropdown__selected" tabindex="0">
+                            <span>Low</span>
+                            <span class="dropdown__arrow">▾</span>
+                        </div>
+                        <div class="dropdown__list">
+                            <div class="dropdown__item" data-value="low2">Low</div>
+                            <div class="dropdown__item" data-value="medium2">Medium</div>
+                            <div class="dropdown__item" data-value="high2">High</div>
+                        </div>
+                    </div>
+                    <label>Current Season</label>
+                    <div class="dropdown" data-value="cold2" id="dropdown-season2">
+                        <div class="dropdown__selected" tabindex="0">
+                            <span>Cold</span>
+                            <span class="dropdown__arrow">▾</span>
+                        </div>
+                        <div class="dropdown__list">
+                            <div class="dropdown__item" data-value="cold2">Cold</div>
+                            <div class="dropdown__item" data-value="mild2">Mild</div>
+                            <div class="dropdown__item" data-value="warm2">Warm</div>
+                            <div class="dropdown__item" data-value="hot2">Hot</div>
+                        </div>
+                    </div>
+                    <div class="placeholder w200 h20"></div>
+                    <label style="color: #fff;">Your recommended daily goal</label>
+                    <input type="number" id="goalInput" placeholder="Daily goal (ml)">
                     <button class="add-btn" id="setGoal">Set goal</button>
+                    <a id="event-action-tooltip"></a>
+                </form>
                 </div>
-                <a id="event-action-tooltip"></a>
+                <div style="font-size: 7px; line-height: 10px; margin-bottom: 10px; margin-top: 10px;">
+                    <a>These values are for information purposes only and are based on a predefined script. Each person needs different amounts of fluid.</a>
+                    <br>
+                    <a>Other (changing) factors such as body weight, height, activity, age and gender can influence the values daily. Average values; may vary or change at any time. If you have any questions about your diet and the associated fluid intake, contact a doctor.</a>
+                </div>
             </div>
-            <div>
-                <table>
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>Age</th>
-                            <th>Fluid requirement</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td rowspan="1">Babies</td>
-                            <td>0 - 12 Months</td>
-                            <td data-label="Fluid requirement">680ml - 1,000ml</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="2">Children</td>
-                            <td>1 - 7 Years</td>
-                            <td data-label="Fluid requirement">1,300ml - 1,600ml</td>
-                        </tr>
-                        <tr>
-                            <td>7 - 15 Years</td>
-                            <td data-label="Fluid requirement">1,800ml - 2,400ml</td>
-                        </tr>
-                        <tr>
-                            <td>Teenagers</td>
-                            <td>15 - 19 Years</td>
-                            <td data-label="Fluid requirement">2400 - 2800ml</td>
-                        </tr>
-                        <tr>
-                            <td rowspan="4">Adults</td>
-                            <td>19 - 25 Years</td>
-                            <td data-label="Fluid requirement">2700ml</td>
-                        </tr>
-                        <tr>
-                            <td>25 - 51 Years</td>
-                            <td data-label="Fluid requirement">2600ml</td>
-                        </tr>
-                        <tr>
-                            <td>51 - 65 Years</td>
-                            <td data-label="Fluid requirement">2250ml</td>
-                        </tr>
-                        <tr>
-                            <td>From 65 Years</td>
-                            <td data-label="Fluid requirement">2250ml</td>
-                        </tr>
-                        <tr>
-                            <td>Pregnant Women</td>
-                            <td>—</td>
-                            <td data-label="Fluid requirement">2700ml</td>
-                        </tr>
-                        <tr>
-                            <td style="word-break: break-all;">Breastfeeding mothers</td>
-                            <td>—</td>
-                            <td data-label="Fluid requirement">3100ml</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        </div>
             <div style="font-size: 7px; line-height: 10px; margin-bottom: 10px; margin-top: 10px;">
                 <a>These values are for information purposes only. Each person needs different amounts of fluid.</a>
                 <br>
@@ -278,7 +253,7 @@
     <div class="cookie-notice">
         <div class="cookie-notice-inner">
             <div>
-                <a>This site uses cookies, including from Google LLC and Fonticons Inc, to provide you with fonts, symbols, emojis and other scripts and technologies and to save your game and other progress on the site. Anything beyond these cookies is not collected, stored or visible. By using the site, you agree to the</a>
+                <a>This website uses cookies, including from Google LLC and Fonticons Inc, to provide you with fonts, icons, emojis and other scripts and technologies and to operate the website, as well as to store and retrieve the data you enter at any time. Anything beyond these cookies is not collected, stored or visible to (internal) users. By using the site, you agree to the</a>
                 <a class="linkout nodecoration-light" href="/legal/privacy" target="_blank">Privacy Policy</a>
                 <a>and</a>
                 <a class="linkout nodecoration-light" href="/legal/terms" target="_blank">Terms of Use!</a>
@@ -376,16 +351,18 @@
             </div>
         </div>
     </overlay>
-    <script src="script.js"></script>
     <script src="/assets/script.js"></script>
+    <script src="script.js"></script>
     <script src="push.js"></script>
     <script src="settings.js"></script>
-    <script>
+    <script src="goal-calculator.js"></script>
+    <script src="goal-calc.js"></script>
+    <noscript>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
             .then(reg => console.log('✅ Service Worker registered.', reg))
             .catch(err => console.error('❌ Service Worker Error:', err));
         }
-    </script>
+    </noscript>
 </body>
 </html>

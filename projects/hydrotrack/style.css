@@ -5,6 +5,13 @@
     --background: #f8f9fa;
     --text-color: #fff;
     --success-color: #28a745;
+    --tertiary: #2d89ef;
+    --bg: #f7f9fb;
+    --card: #fff;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0,0,0,0.1);
+    --dropdown-bg: #fff;
+    --dropdown-hover: rgba(45, 137, 239, 0.5);
 }
 
 body {
@@ -145,9 +152,11 @@ h1 {
     width: 100%;
 }
 
-#amount, #firstGoalInput {
+
+
+#amount, #firstGoalInput, #weight, #weight2 {
     appearance: none;
-    padding: 1rem;
+    padding: 0.9rem;
     outline: 0;
     border: 2px solid var(--primary);
     border-radius: 10px;
@@ -155,9 +164,13 @@ h1 {
     width: 100%;
 }
 
-#firstGoalInput {
-    margin-bottom: 20px;
-    width: calc(100% - 2rem)
+#firstGoalInput, #weight, #weight2 {
+    margin: 10px 0px;
+    width: calc(100% - 1.8rem - 4px);
+}
+
+#weight, #weight2 {
+    margin: 0px 0px 10px 0px;
 }
 
 #amount:focus, #firstGoalInput:focus {
@@ -442,6 +455,104 @@ h1 {
     width: 100%;
 }
 
+form {
+    border-top: 1px solid rgba(243, 245, 247, 0.15);
+    padding-top: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+
+input[readonly] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--tertiary);
+    box-shadow: 0 0 0 3px rgba(45, 137, 239, 0.2);
+  }
+
+input[readonly] {
+    background: #f0f4f8;
+    font-weight: bold;
+    cursor: default;
+}
+
+.dropdown {
+    color: #000;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.dropdown__selected {
+    background: var(--card);
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dropdown__arrow {
+    transition: transform 0.2s ease;
+}
+
+.dropdown.open .dropdown__arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--dropdown-bg);
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-height: 200px;
+    overflow-y: auto;
+    margin-top: -45px;
+    z-index: 10;
+    display: none;
+}
+
+#dropdown-season .dropdown__list {
+}
+
+.dropdown.open .dropdown__list {
+    color: #000;
+    display: block;
+}
+
+.dropdown__item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dropdown__item:hover {
+    background: var(--dropdown-hover);
+}
+
+.dropdown__item.active {
+    background-color: var(--tertiary);
+    font-weight: bold;
+}
+
+/* Event Controls */
 .event-controls {
     border-top: 1px solid rgba(243, 245, 247, 0.15);
     padding: 10px;

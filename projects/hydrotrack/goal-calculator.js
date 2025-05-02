@@ -1,0 +1,81 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const weightInput = document.getElementById("weight");
+    const resultField = document.getElementById("firstGoalInput");
+
+    const fields = {
+      gender: 'male',
+      activity: 'low',
+      season: 'cold'
+    };
+
+    function setupDropdown(dropdownId, fieldKey) {
+        const dd = document.getElementById(dropdownId);
+        if (!dd) {
+            console.error(`Dropdown with ID "${dropdownId}" not found.`);
+            return;
+        }
+        const selected = dd.querySelector('.dropdown__selected');
+        const list = dd.querySelector('.dropdown__list');
+        const items = dd.querySelectorAll('.dropdown__item');
+
+        selected.addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.querySelectorAll('.dropdown').forEach(d => {
+            if (d !== dd) d.classList.remove('open');
+            });
+            dd.classList.toggle('open');
+        });
+
+        items.forEach(item => {
+            item.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const val = item.dataset.value;
+            const txt = item.textContent;
+
+            fields[fieldKey] = val;
+            selected.querySelector('span').textContent = txt;
+            dd.dataset.value = val;
+            dd.classList.remove('open');
+
+            items.forEach(i => i.classList.remove('active'));
+            item.classList.add('active');
+
+            calculate();
+            });
+
+            if (item.dataset.value === fields[fieldKey]) {
+            item.classList.add('active');
+            }
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!dd.contains(e.target)) {
+            dd.classList.remove('open');
+            }
+        });
+    }
+
+    setTimeout(() => {
+        if (document.getElementById('dropdown-gender')) setupDropdown('dropdown-gender', 'gender');
+        if (document.getElementById('dropdown-activity')) setupDropdown('dropdown-activity', 'activity');
+        if (document.getElementById('dropdown-season')) setupDropdown('dropdown-season', 'season');
+    }, 2000);
+
+    weightInput.addEventListener('input', calculate);
+
+    function calculate() {
+      const w = parseFloat(weightInput.value);
+      if (!w || w <= 0) {
+        resultField.value = '';
+        return;
+      }
+      let base = w * 30;
+      if (fields.gender === 'male') base += 200;
+      if (fields.activity === 'medium') base += 300;
+      if (fields.activity === 'high') base += 600;
+      if (fields.season === 'mild') base += 100;
+      if (fields.season === 'warm') base += 200;
+      if (fields.season === 'hot') base += 400;
+      resultField.value = Math.round(base);
+    }
+  });

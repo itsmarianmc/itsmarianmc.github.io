@@ -47,11 +47,12 @@ function loadData() {
         document.getElementById('setup-overlay').style.display = 'block';
         document.getElementById('firstGoalInput').style.display = 'block';
     } else {
-        document.getElementById('setup-overlay').remove();
         document.querySelector('.setup-background').style.display = 'none';
+        setTimeout(() => {
+            document.getElementById('setup-overlay').remove();
+        }, 2000);
     }
 
-    document.getElementById('goalInput').value = goal;
     saveData();
     updateDisplay();
     updateHistory();
@@ -126,7 +127,9 @@ const animateAdd = (amount) => {
         animation: floatUp 1s ease-out;
         font-weight: bold;
         pointer-events: none;
-        z-index: 1000;
+        left: 50%;
+        transform: translateY(-50%);
+        z-index: 10000;
     `;
     document.body.appendChild(anim);
     setTimeout(() => anim.remove(), 1000);
