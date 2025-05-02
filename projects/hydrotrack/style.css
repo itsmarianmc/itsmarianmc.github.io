@@ -222,7 +222,7 @@ h1 {
     }
 
     .add-btn {
-        width: calc(100% - 1rem) !important;
+        width: calc(100%) !important;
     }
 
     #goal-flex {
