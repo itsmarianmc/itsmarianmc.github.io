@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
         resultField.value = '';
         return;
       }
-      let base = w * 30;
+      let base = w * 27.7;
       if (fields.gender === 'male') base += 200;
       if (fields.activity === 'medium') base += 300;
       if (fields.activity === 'high') base += 600;
