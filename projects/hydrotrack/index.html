@@ -121,7 +121,6 @@
                 <a>History</a></h2>
             <div id="history-list"></div>
         </div>
-        <button id="subscribeButton">Push-Benachrichtigungen aktivieren</button>
     </div>
     <div class="setup-background"></div>
     <setup-overlay class="setup-overlay" id="setup-overlay">
@@ -379,13 +378,9 @@
     <script src="goal-editor.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/projects/hydrotrack/service-worker.js')
-                .then(function(registration) {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                })
-                .catch(function(error) {
-                    console.error('Service Worker registration failed:', error);
-                });
+            navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('✅ Service Worker registered.', reg))
+            .catch(err => console.error('❌ Service Worker Error:', err));
         }
     </script>
 </body>

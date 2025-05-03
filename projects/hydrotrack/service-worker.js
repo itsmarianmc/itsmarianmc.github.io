@@ -45,23 +45,10 @@ self.addEventListener('fetch', event => {
 
 self.addEventListener("push", function (event) {
     const data = event.data.json();
-    const title = data.title || "HydroTrack";
-    const body = data.body || "Trink Wasser!";
-    const icon = data.icon || "/projects/hydrotrack/favicon.png";
-    const url = data.url || "/";
-  
     event.waitUntil(
-        self.registration.showNotification(title, {
-            body: body,
-            icon: icon,
-            data: { url: url }
+        self.registration.showNotification(data.title, {
+            body: data.body,
+            icon: "/favicon.png",
         })
     );
-});
-  
-self.addEventListener("notificationclick", function (event) {
-    event.notification.close();
-    event.waitUntil(
-        clients.openWindow(event.notification.data.url)
-    );
-});
+});  
