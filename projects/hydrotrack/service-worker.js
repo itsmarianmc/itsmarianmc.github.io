@@ -5,7 +5,6 @@ const ASSETS_TO_CACHE = [
     'index.html',
     'manifest.json',
     'notifications.json',
-    'phone.png',
     'script.js',
     'settings.js',
     'style.css',
@@ -43,12 +42,17 @@ self.addEventListener('fetch', event => {
     );
 });
 
-self.addEventListener("push", function (event) {
-    const data = event.data.json();
+self.addEventListener('push', event => {
+    const data = event.data ? event.data.json() : {};
+
+    const title = data.title || 'Trinken nicht vergessen!';
+    const options = {
+        body: data.body || 'HydroTracker erinnert dich, mehr Wasser zu trinken.',
+        icon: '/logo.png',
+        badge: '/logo.png'
+    };
+
     event.waitUntil(
-        self.registration.showNotification(data.title, {
-            body: data.body,
-            icon: "/favicon.png",
-        })
+        self.registration.showNotification(title, options)
     );
-});  
+});
