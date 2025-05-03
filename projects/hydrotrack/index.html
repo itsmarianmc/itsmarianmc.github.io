@@ -137,6 +137,9 @@
                             <div class="dropdown__list">
                                 <div class="dropdown__item" data-value="male">Male</div>
                                 <div class="dropdown__item" data-value="female">Female</div>
+                                <div class="dropdown__item" data-value="pregnant">Pregnant</div>
+                                <div class="dropdown__item" data-value="breastfeeding">Breastfeeding</div>
+                                <div class="dropdown__item" data-value="nospecification">No specification</div>
                             </div>
                         </div>
                         <label>Activity</label>
@@ -197,6 +200,9 @@
                         <div class="dropdown__list">
                             <div class="dropdown__item" data-value="male2">Male</div>
                             <div class="dropdown__item" data-value="female2">Female</div>
+                            <div class="dropdown__item" data-value="pregnant2">Pregnant</div>
+                            <div class="dropdown__item" data-value="breastfeeding2">Breastfeeding</div>
+                            <div class="dropdown__item" data-value="nospecification2">No specification</div>
                         </div>
                     </div>
                     <label>Activity</label>
@@ -352,12 +358,12 @@
     <script src="settings.js"></script>
     <script src="goal-calculator.js"></script>
     <script src="goal-editor.js"></script>
-    <script>
+    <noscript>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
             .then(reg => console.log('✅ Service Worker registered.', reg))
             .catch(err => console.error('❌ Service Worker Error:', err));
         }
-    </script>
+    </noscript>
 </body>
 </html>

@@ -75,13 +75,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        let base = w * 27
-        if (fields.gender === 'male2') base += 200;
+        let base = w * 24.33333333333333;
+        if (fields.gender === 'male2') base += 150;
+        if (fields.gender === 'pregnant2') base += 300;
+        if (fields.gender === 'breastfeeding2') base += 700;
+        if (fields.gender === 'nospecification2') base += 80;
         if (fields.activity === 'medium2') base += 300;
-        if (fields.activity === 'high2') base += 600;
-        if (fields.season === 'mild2') base += 100;
-        if (fields.season === 'warm2') base += 200;
-        if (fields.season === 'hot2') base += 400;
+        if (fields.activity === 'high2') base += 700;
+        if (fields.season === 'mild2') base += 200;
+        if (fields.season === 'warm2') base += 450;
+        if (fields.season === 'hot2') base += 650;
 
         resultField.value = Math.round(base);
     }

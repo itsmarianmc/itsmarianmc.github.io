@@ -527,7 +527,7 @@ input[readonly] {
     border: 1px solid #ccc;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
-    max-height: 200px;
+    max-height: 250px;
     overflow-y: auto;
     margin-top: -47px;
     z-index: 10;
