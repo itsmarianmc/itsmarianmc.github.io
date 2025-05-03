@@ -20,7 +20,6 @@ body {
     margin: 10px auto !important;
     padding: 0 !important;
     color: var(--secondary);
-    min-height: 100vh;
 }
 
 h1 {

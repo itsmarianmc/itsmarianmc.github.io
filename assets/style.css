@@ -1,8 +1,9 @@
 body {
     font-family: "National Park", sans-serif;
-    font-weight: 200 !important;
+    font-weight: 200;
     margin: 0;
     padding: 0;
+    width: 100%;
 }
 
 main {

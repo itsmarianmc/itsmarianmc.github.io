@@ -1,0 +1,205 @@
+body {
+    background-color: #1B1D1E !important;
+    color: #fff !important;
+    font-family: 'Poppins';
+    font-weight: 200;
+}
+
+.placeholder {
+    margin: 0 auto;
+}
+
+.linkout {
+    color: #fff;
+}
+
+.nodecoration {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nodecoration:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: 300;
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+    text-decoration: underline;
+}
+
+main {
+    margin: 20px 0px;
+}
+
+.legal-header {
+    max-width: 1150px;
+    margin: 0 auto;
+    min-height: 50px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.legal-subheader {
+    width: auto;
+}
+
+.legal-text-section {
+    font-size: 1.56em;
+    line-height: 37.5px;
+    margin: 0 auto;
+    max-width: 1150px;
+    min-height: 40px;
+    min-width: 300px;
+    text-align: left;
+}
+
+.legal-text-enumerations {
+    text-align: left;
+}
+
+.legal-text-enumeration-line {
+    display: flex;
+}
+
+.legal-text-enumeration-left {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.legal-text-enumeration-right {
+    text-align: left;
+}
+
+.legal-contents {
+    width: 100%;
+}
+
+.legal-content {
+    display: flex;
+}
+
+.legal-content-l a, .legal-content-r a {
+    cursor: pointer;
+}
+
+.legal-content-l {
+    font-weight: 400;
+}
+
+.legal-content-r {
+    margin-left: 5px;
+    width: 100%;
+}
+
+.legal-h1 {
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.legal-h2 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.legal-ul {
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+}
+
+.btt-btn {
+    background-color: #24262B;
+    bottom: 25px;
+    border: 1px solid #32333C;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    height: 50px;
+    left: 50%;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    transform: translateX(-50%);
+    width: 277.79px;
+    z-index: 1000;
+}
+
+.btt-button {
+    display: flex;
+}
+
+.btt-svg {
+    height: 50px;
+    width: 50px;
+}
+
+.btt-text {
+    font-size: 29px;
+    height: 40px;
+    margin: 5px;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .legal-h1 {
+        font-size: 30px;
+    }
+
+    .legal-h2 {
+        font-size: 25px;
+    }
+
+    .legal-text-section {
+        font-size: 1.25em;
+        line-height: 30px;
+    }
+}
+
+footer {
+    border-top: 1px solid #fff;
+    text-align: center;
+    padding: 10px;
+    width: calc(100% - 20px);
+}
+
+.footer-content {
+}
+
+.footer-lines {
+
+}
+
+.footer-line {
+    font-size: 1em;
+    width: auto;
+}
+
+.footer-copy {
+    font-size: 2em;
+    font-weight: 400;
+    width: 100%;
+}
+
+/*  Every section: <div class="placeholder w1150 h30"></div>
+    Header to subheader: <div class="placeholder w1150 h20"></div>
+    Link ending: ?utm_src=projektcity_legal_information_link_linkout&utm_medium=projektcity&return_url=https%3A%2F%2Fprojektcity.github.io%2Flegal%2Fprivacy
+    X.X to X.XX --> 30px
+    X.XX to X.XXX --> 20px
+
+Enoumeration:
+<div class="legal-text-enumerations">
+    <div class="legal-text-enumeration-line">
+        <div class="legal-text-enumeration-left">
+            <a></a>
+        </div>
+        <div class="legal-text-enumeration-right">
+            <a></a>
+        </div>
+    </div>
+</div>
+
+<a class="linkout" href="" target="_blank"></a>
