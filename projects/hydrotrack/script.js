@@ -208,3 +208,32 @@ setInterval(() => {
 setInterval(updateHistory, 5000);
 
 document.addEventListener('DOMContentLoaded', loadData);
+
+// Push
+const publicVapidKey = "BOwAlCToiRJOEvjHPEYUdoKVYhJFJG7OcCSzwJ7Tli4NtEZ1NTLtsVxJvDPkUSgF5T9btIeLK5iIONRo4GM7PB4";
+
+async function subscribeUser() {
+  const register = await navigator.serviceWorker.register("/service-worker.js");
+
+  const subscription = await register.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: urlBase64ToUint8Array(publicVapidKey)
+  });
+
+  await fetch("https://push-backend-vercel.vercel.app/api/subscribe", {
+    method: "POST",
+    body: JSON.stringify(subscription),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  });
+
+  console.log("Subscription saved:", subscription);
+}
+
+function urlBase64ToUint8Array(base64String) {
+  const padding = "=".repeat((4 - base64String.length % 4) % 4);
+  const base64 = (base64String + padding).replace(/\-/g, "+").replace(/_/g, "/");
+  const rawData = atob(base64);
+  return new Uint8Array([...rawData].map(c => c.charCodeAt(0)));
+}
