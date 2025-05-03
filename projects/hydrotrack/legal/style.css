@@ -54,6 +54,7 @@ main {
     min-height: 40px;
     min-width: 300px;
     text-align: left;
+    word-break: break-word;
 }
 
 .legal-text-enumerations {
@@ -184,22 +185,74 @@ footer {
     width: 100%;
 }
 
-/*  Every section: <div class="placeholder w1150 h30"></div>
-    Header to subheader: <div class="placeholder w1150 h20"></div>
-    Link ending: ?utm_src=projektcity_legal_information_link_linkout&utm_medium=projektcity&return_url=https%3A%2F%2Fprojektcity.github.io%2Flegal%2Fprivacy
-    X.X to X.XX --> 30px
-    X.XX to X.XXX --> 20px
+/* Cookie Notice */
+.cookie-notice {
+    animation: cn-fade-in 0.5s forwards;
+    animation-delay: 0s;
+    background-color: rgba(36, 38, 43, 0.33);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border-top: 2px solid rgba(255, 255, 255, 0.33);;
+    bottom: -100%;
+    color: #fff;
+    padding: 10px;
+    position: fixed;
+    z-index: 9999;
+}
 
-Enoumeration:
-<div class="legal-text-enumerations">
-    <div class="legal-text-enumeration-line">
-        <div class="legal-text-enumeration-left">
-            <a></a>
-        </div>
-        <div class="legal-text-enumeration-right">
-            <a></a>
-        </div>
-    </div>
-</div>
+@keyframes cn-fade-in {
+    0% {
+        bottom: -100%;
+    } 100% {
+        bottom: 0;
+    }
+}
 
-<a class="linkout" href="" target="_blank"></a>
+.cookie-notice-inner {
+    color: #fff !important;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.cookie-notice-button {
+    border: 1px solid #fff;
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    float: right;
+    gap: 5px;
+    padding: 5px;
+    position: relative;
+    right: 0;
+}
+
+.cookie-notice-check {
+
+}
+
+.cookie-notice-text {
+
+}
+
+@media (max-width: 700px) {
+    .cookie-notice-inner {
+        flex-direction: column;
+    }
+
+    .cookie-notice-button {
+        margin-bottom: 20px;
+        margin-top: 20px;
+        justify-content: center;
+        text-align: center;
+        width: calc(100% - 10px - 2px);
+    }
+}
+
+
+@media (min-width: 2400px) {
+    .cookie-notice {
+        width: calc(100% - 20px);
+    }
+}
