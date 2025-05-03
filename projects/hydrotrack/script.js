@@ -3,6 +3,7 @@ let goal = 3000;
 let history = [];
 let lastDate = localStorage.getItem('lastDate') || new Date().toISOString().slice(0,10);
 let firstTimeSettingGoal = localStorage.getItem('firstTimeSettingGoal') !== 'false';
+let animatedProgress = 0;
 
 document.getElementById("setFirstGoal").addEventListener("click", firstUpdateGoal);
 document.getElementById("addCustomValue").addEventListener("click", addDrink);
@@ -135,17 +136,42 @@ const animateAdd = (amount) => {
 };
 
 function updateDisplay() {
+    const targetProgress = Math.min((currentAmount / goal) * 100, 100);
+
     document.getElementById('currentProgress').textContent = currentAmount;
     document.getElementById('currentGoal').textContent = goal;
-    const progress = Math.min((currentAmount / goal) * 100, 100);
-    document.getElementById('progressText').textContent = `${progress.toFixed(1)}%`;
-    const circle = document.getElementById('progressCircle');
-    if (circle) {
-        circle.style.background = `conic-gradient(
-            ${getColor(progress)} ${progress}%,
-            #e9ecef ${progress}% 100%
-        )`;
+    document.getElementById('progressText').textContent = `${targetProgress.toFixed(1)}%`;
+    animateProgress(animatedProgress, targetProgress);
+}
+
+function animateProgress(start, end) {
+    const duration = 500;
+    const startTime = performance.now();
+
+    function step(timestamp) {
+        const elapsed = timestamp - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const current = start + (end - start) * progress;
+        const circle = document.getElementById('progressCircle');
+
+        if (circle) {
+            const color = getColor(current);
+            const knob = document.getElementById('progressKnob');
+
+            circle.style.background = `conic-gradient(${color} ${current}%, #e9ecef ${current}% 100%)`;
+            if (knob) {
+                knob.style.transform = `translate(-50%, -100%) rotate(${(current / 100) * 360}deg) translateY(-100px)`;
+            }
+        }
+        
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            animatedProgress = end;
+        }
     }
+
+    requestAnimationFrame(step);
 }
 
 function updateHistory() {
