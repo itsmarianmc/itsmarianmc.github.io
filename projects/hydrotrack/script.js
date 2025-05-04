@@ -86,7 +86,8 @@ function updateGoal() {
     }, 3000);
 }
 
-function firstUpdateGoal() {
+function firstUpdateGoal(event) {
+    event.preventDefault();
     const newGoal = parseInt(document.getElementById('firstGoalInput').value) || 3000;
     const amountInput = document.getElementById('firstGoalInput');
     const value = parseFloat(amountInput.value);
@@ -102,7 +103,7 @@ function firstUpdateGoal() {
         }, 200);
     } else {
         alert('Please enter a positive/valid number.');
-        return
+        return;
     } 
 }
 
@@ -216,3 +217,15 @@ setInterval(() => {
 setInterval(updateHistory, 5000);
 
 document.addEventListener('DOMContentLoaded', loadData);
+
+// Aktuelle URL abrufen
+const currentUrl = window.location.href;
+
+// Prüfen, ob die URL mit nur einem "?" oder "/?" endet
+if (currentUrl.endsWith("?") || currentUrl.endsWith("/?")) {
+  // Entferne das Fragezeichen am Ende
+  const cleanedUrl = currentUrl.replace(/\?$/, "");
+
+  // Zur bereinigten URL weiterleiten
+  window.location.replace(cleanedUrl);
+}
