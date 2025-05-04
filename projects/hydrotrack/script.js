@@ -177,10 +177,18 @@ function animateProgress(start, end) {
 function updateHistory() {
     const historyList = document.getElementById('history-list');
     if (!historyList) return;
-    historyList.innerHTML = history
+
+    const uniqueHistory = new Map();
+    history.forEach(entry => {
+        if (!uniqueHistory.has(entry.date)) {
+            uniqueHistory.set(entry.date, entry);
+        }
+    });
+
+    historyList.innerHTML = Array.from(uniqueHistory.values())
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .map(entry => `
-            <div class="history-item">
+            <div class="history-item" data-date="${entry.date}">
                 <div>${entry.date}</div>
                 <div>${entry.amount}ml / ${entry.goal}ml</div>
             </div>
