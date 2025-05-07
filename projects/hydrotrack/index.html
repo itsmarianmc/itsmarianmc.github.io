@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/style.css">
-    <link rel="stylesheet" href="/projects/hydrotrack/style.css">
+    <link rel="stylesheet" href="/projects/hydrotrack/style.css?v=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- META -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -66,8 +66,8 @@
             <div class="progress-inner">
                 <div class="progress-text" id="progressText">0%</div>
                 <div class="progress-goal">
-                    <span id="currentProgress">0</span>ml / 
-                    <span id="currentGoal">3000</span>ml
+                    <span id="currentProgress">LOADING</span><span>ml / </span>
+                    <span id="currentGoal">LOADING</span><span>ml</span>
                 </div>
             </div>
         </div>               
@@ -106,23 +106,127 @@
         </div>
         <div class="controls">
             <div class="custom-input borderOnSmall">
-                <input type="number" id="amount" placeholder="Set own amount" step="50">
+                <input type="number" id="amount" placeholder="Set own amount to add" step="50">
             </div>
             <div class="custom-input">
                 <button class="add-btn" id="addCustomValue">Add</button>
             </div>
+            <div class="controlsPlaceholder" style="height: 100%; width: 100%;"></div>
+        </div>
+        <div class="controls">
+            <div class="custom-input borderOnSmall">
+                <input type="number" id="removeAmount" placeholder="Set own amount to remove" />
+            </div>
+            <div class="custom-input">
+                <button class="add-btn" id="removeCustomValue">Remove</button>
+            </div>
+            <div class="controlsPlaceholder" style="height: 100%; width: 100%;"></div>
+        </div>
+        <div class="controls">
             <div class="custom-input borderOnSmall">
                 <button class="add-btn" id="changeGoalOpener" style="width: 100%;">Change goal</button>
             </div>
-        </div>
-        <div class="history-section">
-            <h2>
-                <i class="fas fa-history"></i>
-                <a>History</a></h2>
-            <div id="history-list"></div>
+            <div class="custom-input">
+                <div class="history-section" style="font-size: 1.1rem;">
+                    <button class="add-btn" id="historyOpener">
+                        <a>
+                            <i class="fas fa-history"></i>
+                            <a>History</a>
+                        </a>
+                    </button>
+                </div>
+            </div>
+            <div class="controlsPlaceholder" style="height: 100%; width: 100%;"></div>
         </div>
     </div>
-    <div class="setup-background"></div>
+    <div class="version-information">
+        <div class="version-header">
+            <h3>
+                <i class="fas fa-sync-alt"></i>
+                <a>New version avaible!</a>
+            </h3>
+        </div>
+        <div class="version-maincontent">
+            <div id="version-information">
+                <a style="font-weight: 400;">Current Version:</a>
+                <a id="version-update-current"></a>
+                <div class="placeholder w100 h5"></div>
+                <a style="font-weight: 400;">Newest Version:</a>
+                <a id="version-update-newest"></a>
+                <div class="placeholder w100 h15"></div>
+                <a id="version-update-log"></a>
+            </div>
+            <div class="placeholder w100 h30"></div>
+            <div>
+                <a>To transfer your progress to the new version, you can now download your data and import it again in the new version under “History” > “Import”!</a>
+            </div>
+            <div class="placeholder w100 h20"></div>
+            <button class="history-action-button" id="versionFileExport">
+                <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                        <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+                    </svg>
+                </div>
+                <div>
+                    <a>Export</a>
+                </div>
+            </button>
+        </div>
+        <div>
+
+        </div>
+    </div>
+    <history class="history-list">
+        <div class="history-list-inner">
+            <div class="history-list-head">
+                <div style="width: 100%;">
+                    <h2>
+                        <i class="fas fa-history"></i>
+                        <a>History</a>
+                    </h2>
+                </div>
+                <div style="cursor: pointer;" id="historyCloser">
+                    <div style="height: 48.67px; position: relative; top: 50%; transform: translateY(-50%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="48.67" viewBox="0 -960 960 960" width="48.67" fill="#ccc">
+                            <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="history-list-main">
+                <div id="history-list"></div>
+            </div>
+            <div class="history-list-footer">
+                <button class="history-action-button" id="fileExport">
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                            <path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <a>Export</a>
+                    </div>
+                </button>
+                <label style="margin-bottom: 0px;">
+                    <input type="file" accept="application/json" onchange="importData(event)" style="display: none;" id="importFile">
+                    <button id="fileImport" class="history-action-button">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 -960 960 960" width="30" fill="#fff">
+                                <path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <a>Import</a>
+                        </div>
+                    </button>
+                    <div id="importAction" style="color: #000; display: none; font-weight: 200; margin: 5px 0px;">
+                        <a id="import-action"></a>
+                    </div>
+                </label>
+            </div>
+        </div>
+    </history>
+    <background class="bg-blur"></background>
     <setup-overlay class="setup-overlay" id="setup-overlay">
         <div class="setup-container">
             <div class="setup-header">
@@ -359,9 +463,7 @@
                 </div>
                 <div class="overlay-card-content">
                     <div style="text-align: center;">
-                        <p style="margin-block-start: 0em; margin-block-end: 0em;">
-                            Tutorial not yet avaible!
-                        </p>
+                        <p style="margin-block-start: 0em; margin-block-end: 0em;">Tutorial not yet avaible!</p>
                     </div>
                 </div>
             </div>
@@ -371,11 +473,12 @@
         </div>
     </overlay>
     <script src="/assets/script.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js?v=1.0"></script>
     <script src="push.js"></script>
-    <script src="settings.js"></script>
+    <script src="settings.js?v=1.0"></script>
     <script src="goal-calculator.js"></script>
     <script src="goal-editor.js"></script>
+    <script src="version.js"></script>
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')

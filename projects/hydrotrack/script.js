@@ -4,6 +4,7 @@ let history = [];
 let lastDate = localStorage.getItem('lastDate') || new Date().toISOString().slice(0,10);
 let firstTimeSettingGoal = localStorage.getItem('firstTimeSettingGoal') !== 'false';
 let animatedProgress = 0;
+const currentUrl = window.location.href;
 
 document.getElementById("setFirstGoal").addEventListener("click", firstUpdateGoal);
 document.getElementById("addCustomValue").addEventListener("click", addDrink);
@@ -47,7 +48,7 @@ function loadData() {
         document.getElementById('setup-overlay').style.display = 'block';
         document.getElementById('firstGoalInput').style.display = 'block';
     } else {
-        document.querySelector('.setup-background').style.display = 'none';
+        document.querySelector('.bg-blur').style.display = 'none';
         setTimeout(() => {
             document.getElementById('setup-overlay').remove();
         }, 2000);
@@ -218,14 +219,73 @@ setInterval(updateHistory, 5000);
 
 document.addEventListener('DOMContentLoaded', loadData);
 
-// Aktuelle URL abrufen
-const currentUrl = window.location.href;
-
-// Prüfen, ob die URL mit nur einem "?" oder "/?" endet
 if (currentUrl.endsWith("?") || currentUrl.endsWith("/?")) {
-  // Entferne das Fragezeichen am Ende
-  const cleanedUrl = currentUrl.replace(/\?$/, "");
+    const cleanedUrl = currentUrl.replace(/\?$/, "");
+    window.location.replace(cleanedUrl);
+}
 
-  // Zur bereinigten URL weiterleiten
-  window.location.replace(cleanedUrl);
+// Import and Export
+document.getElementById("fileExport").addEventListener("click", function() {
+    exportData();
+})
+document.getElementById("versionFileExport").addEventListener("click", function() {
+    exportData();
+})
+
+document.getElementById("fileImport").addEventListener("click", function() {
+    document.getElementById("importAction").style.display = "block";
+    document.getElementById("import-action").innerText = `Your current data will be overwritten when importing!`;
+    setTimeout(() => {
+        document.getElementById('importFile').click()
+        setTimeout(() => {
+            document.getElementById("importAction").style.display = "none";
+            document.getElementById("import-action").innerText = ``;
+        }, 2500);
+    }, 500);
+})
+
+function exportData() {
+    const data = localStorage.getItem('hydroData');
+    if (!data) return;
+
+    const today = new Date().toISOString().slice(0, 10);
+    const fileName = `HydroTrack_Data_${today}.json`;
+
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    URL.revokeObjectURL(url);
+}
+
+function importData(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        try {
+            const importedData = JSON.parse(e.target.result);
+            if (
+                typeof importedData.current === 'number' &&
+                typeof importedData.goal === 'number' &&
+                typeof importedData.date === 'string' &&
+                Array.isArray(importedData.history)
+            ) {
+                localStorage.setItem('hydroData', JSON.stringify(importedData));
+                location.reload();
+            } else {
+                alert('Ungültiges Datenformat.');
+            }
+        } catch (error) {
+            alert('Fehler beim Importieren der Datei.');
+        }
+    };
+    reader.readAsText(file);
 }

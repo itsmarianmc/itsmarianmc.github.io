@@ -1,11 +1,11 @@
 // Change goal
 document.getElementById("changeGoalOpener").addEventListener("click", function() {
-    document.querySelector(".setup-background").style.display = "block";
+    document.querySelector(".bg-blur").style.display = "block";
     document.getElementById("event-changer").style.display = "block";
 })
 
 document.querySelector(".event-close-btn").addEventListener("click", function() {
-    document.querySelector(".setup-background").style.display = "none";
+    document.querySelector(".bg-blur").style.display = "none";
     document.getElementById("event-changer").style.display = "none";
 })
 
@@ -53,4 +53,17 @@ document.getElementById("done-btn").addEventListener("click", function(){
     setTimeout(function() {
         document.getElementById("overlay").style.display = "none";
     }, 150);
+});
+
+// History
+document.getElementById("historyOpener").addEventListener("click", function(){
+    document.querySelector(".history-list").style.display = "block";
+    document.querySelector(".bg-blur").style.display = "block";
+    document.documentElement.style.overflowY = "hidden";
+});
+
+document.getElementById("historyCloser").addEventListener("click", function(){
+    document.querySelector(".history-list").style.display = "none";
+    document.querySelector(".bg-blur").style.display = "none";
+    document.documentElement.style.overflowY = "scroll";
 });
