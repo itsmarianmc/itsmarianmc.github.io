@@ -4,7 +4,7 @@ document.getElementById("changeGoalOpener").addEventListener("click", function()
     document.getElementById("event-changer").style.display = "block";
 })
 
-document.querySelector(".event-close-btn").addEventListener("click", function() {
+document.getElementById("closeEventChanger").addEventListener("click", function() {
     document.querySelector(".bg-blur").style.display = "none";
     document.getElementById("event-changer").style.display = "none";
 })

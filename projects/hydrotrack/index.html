@@ -287,9 +287,9 @@
                             </div>
                         </div>
                         <div class="placeholder w200 h20"></div>
-                        <label style="color: #fff;">Your recommended daily goal</label>
+                        <label style="color: #000;">Your recommended daily goal</label>
                         <input type="number" id="firstGoalInput" placeholder="Daily goal (ml)">
-                        <button class="add-btn" id="setFirstGoal">Set goal</button>
+                        <button class="history-action-button" id="setFirstGoal">Set goal</button>
                     </form>
                     </div>
                     <div style="font-size: 7px; line-height: 10px; margin-bottom: 10px; margin-top: 10px;">
@@ -304,7 +304,7 @@
     <event id="event-changer">
         <div class="event-content">
             <div style="margin: 15px 0px 15px 0px">
-                <a style="color: #fff !important; font-size: 35px;">Change your daily goal</a>
+                <a style="color: #000 !important; font-size: 35px;">Change your daily goal</a>
             </div>
             <div id="calculator-form2">
                 <form>
@@ -350,9 +350,9 @@
                         </div>
                     </div>
                     <div class="placeholder w200 h20"></div>
-                    <label style="color: #fff;">Your recommended daily goal</label>
+                    <label style="color: #000;">Your recommended daily goal</label>
                     <input type="number" id="goalInput" placeholder="Daily goal (ml)">
-                    <button class="add-btn" id="setGoal" type="button">Set goal</button>
+                    <button class="action-button" id="setGoal" type="button">Set goal</button>
                     <a id="event-action-tooltip"></a>
                 </form>
                 </div>
@@ -365,7 +365,7 @@
         </div>
         </div>
         <div class="event-controls">
-            <div class="event-close-btn">
+            <div class="action-button" id="closeEventChanger" style="width: calc(100% - 20px - 20px);">
                 <a>Close</a>
             </div>
         </div>

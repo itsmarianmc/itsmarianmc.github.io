@@ -5,6 +5,7 @@ let lastDate = localStorage.getItem('lastDate') || new Date().toISOString().slic
 let firstTimeSettingGoal = localStorage.getItem('firstTimeSettingGoal') !== 'false';
 let animatedProgress = 0;
 const currentUrl = window.location.href;
+const getColor = (percentage) => `hsl(${120 * (percentage / 100)}, 70%, 45%)`;
 
 document.getElementById("setFirstGoal").addEventListener("click", firstUpdateGoal);
 document.getElementById("addCustomValue").addEventListener("click", addDrink);
@@ -15,7 +16,48 @@ document.querySelectorAll('[data-add-value]').forEach(button => {
     });
 });
 
-const getColor = (percentage) => `hsl(${120 * (percentage / 100)}, 70%, 45%)`;
+document.getElementById("removeCustomValue").addEventListener("click", removeDrink);
+
+function removeDrink() {
+    const amountInput = document.getElementById('removeAmount');
+    const amount = parseInt(amountInput.value) || 0;
+    if (amount > 0) {
+        subtractAmount(amount);
+        amountInput.value = "";
+    }
+}
+
+
+const subtractAmount = (amount) => {
+    if (currentAmount <= 0) return;
+    if (amount <= 0) return;
+
+    const newAmount = currentAmount - amount;
+    if (newAmount < 0) return;
+
+    currentAmount = newAmount;
+    saveData();
+    updateDisplay();
+    animateSubtract(amount);
+};
+
+
+const animateSubtract = (amount) => {
+    const anim = document.createElement('div');
+    anim.textContent = `-${amount}ml`;
+    anim.style.cssText = `
+        position: absolute;
+        color: #ff0000;
+        animation: floatUp 1s ease-out;
+        font-weight: bold;
+        pointer-events: none;
+        left: 50%;
+        transform: translateY(-50%);
+        z-index: 10000;
+    `;
+    document.body.appendChild(anim);
+    setTimeout(() => anim.remove(), 1000);
+};
 
 function loadData() {
     const today = new Date().toISOString().slice(0, 10);
@@ -130,7 +172,6 @@ const animateAdd = (amount) => {
         font-weight: bold;
         pointer-events: none;
         left: 50%;
-        transform: translateY(-50%);
         z-index: 10000;
     `;
     document.body.appendChild(anim);
@@ -187,14 +228,20 @@ function updateHistory() {
         }
     });
 
-    historyList.innerHTML = Array.from(uniqueHistory.values())
-        .sort((a, b) => new Date(b.date) - new Date(a.date))
-        .map(entry => `
-            <div class="history-item" data-date="${entry.date}">
-                <div>${entry.date}</div>
-                <div>${entry.amount}ml / ${entry.goal}ml</div>
-            </div>
-        `).join('');
+    const entries = Array.from(uniqueHistory.values())
+        .sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    if (entries.length === 0) {
+        historyList.innerHTML = `<a>No history yet!</a><br><a>Keep tracking your drinks to get a list, or import an existing one below.</a>`;
+        return;
+    }
+
+    historyList.innerHTML = entries.map(entry => `
+        <div class="history-item" data-date="${entry.date}">
+            <div>${entry.date}</div>
+            <div>${entry.amount}ml / ${entry.goal}ml</div>
+        </div>
+    `).join('');
 }
 
 setInterval(() => {
