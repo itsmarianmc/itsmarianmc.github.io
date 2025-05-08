@@ -828,7 +828,7 @@ input[readonly] {
     background: linear-gradient(135deg, var(--primary), var(--tertiary));
     border: none;
     border-radius: var(--radius);
-    color: var(--text-color);
+    color: #fff;
     cursor: pointer;
     display: flex;
     font-size: 16px;
