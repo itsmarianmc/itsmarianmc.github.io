@@ -86,7 +86,7 @@ h1 {
 
 .navbar-title {
     align-items: center;
-    color: var(--text-color);
+    color: #fff;
     display: flex;
     font-size: 1.5rem;
     font-weight: 500;
