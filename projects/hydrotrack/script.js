@@ -1,14 +1,18 @@
+// hydration-tracker.js
 let currentAmount = 0;
 let goal = 3000;
 let history = [];
-let lastDate = localStorage.getItem('lastDate') || new Date().toISOString().slice(0,10);
+let lastDate = localStorage.getItem('lastDate') || new Date().toISOString().slice(0, 10);
 let firstTimeSettingGoal = localStorage.getItem('firstTimeSettingGoal') !== 'false';
 let animatedProgress = 0;
 const currentUrl = window.location.href;
+
 const getColor = (percentage) => `hsl(${120 * (percentage / 100)}, 70%, 45%)`;
 
+// Event bindings
 document.getElementById("setFirstGoal").addEventListener("click", firstUpdateGoal);
 document.getElementById("addCustomValue").addEventListener("click", addDrink);
+document.getElementById("removeCustomValue").addEventListener("click", removeDrink);
 document.querySelectorAll('[data-add-value]').forEach(button => {
     button.addEventListener('click', () => {
         const value = parseInt(button.getAttribute('data-add-value')) || 0;
@@ -16,48 +20,51 @@ document.querySelectorAll('[data-add-value]').forEach(button => {
     });
 });
 
-document.getElementById("removeCustomValue").addEventListener("click", removeDrink);
-
 function removeDrink() {
-    const amountInput = document.getElementById('removeAmount');
-    const amount = parseInt(amountInput.value) || 0;
-    if (amount > 0) {
-        subtractAmount(amount);
-        amountInput.value = "";
-    }
+    const amount = parseInt(document.getElementById('removeAmount').value) || 0;
+    if (amount > 0) subtractAmount(amount);
+    document.getElementById('removeAmount').value = "";
 }
 
-
-const subtractAmount = (amount) => {
-    if (currentAmount <= 0) return;
-    if (amount <= 0) return;
-
+function subtractAmount(amount) {
+    if (currentAmount <= 0 || amount <= 0) return;
     const newAmount = currentAmount - amount;
     if (newAmount < 0) return;
 
     currentAmount = newAmount;
     saveData();
     updateDisplay();
-    animateSubtract(amount);
-};
+    animateChange(-amount);
+}
 
+function addDrink() {
+    const amount = parseInt(document.getElementById('amount').value) || 0;
+    if (amount > 0) addAmount(amount);
+}
 
-const animateSubtract = (amount) => {
+function addAmount(amount) {
+    currentAmount += amount;
+    saveData();
+    updateDisplay();
+    animateChange(amount);
+}
+
+function animateChange(amount) {
     const anim = document.createElement('div');
-    anim.textContent = `-${amount}ml`;
+    anim.textContent = `${amount > 0 ? '+' : ''}${amount}ml`;
     anim.style.cssText = `
         position: absolute;
-        color: #ff0000;
+        color: ${amount > 0 ? getColor((currentAmount / goal) * 100) : '#ff0000'};
         animation: floatUp 1s ease-out;
         font-weight: bold;
         pointer-events: none;
         left: 50%;
-        transform: translateY(-50%);
+        transform: translateX(-50%);
         z-index: 10000;
     `;
     document.body.appendChild(anim);
     setTimeout(() => anim.remove(), 1000);
-};
+}
 
 function loadData() {
     const today = new Date().toISOString().slice(0, 10);
@@ -70,12 +77,8 @@ function loadData() {
 
     if (saved.date !== today) {
         if (saved.current > 0) {
-            history = saved.history;
-            history.push({
-                date: saved.date,
-                amount: saved.current,
-                goal: saved.goal
-            });
+            history = saved.history || [];
+            history.push({ date: saved.date, amount: saved.current, goal: saved.goal });
         }
         currentAmount = 0;
         saved.date = today;
@@ -92,7 +95,7 @@ function loadData() {
     } else {
         document.querySelector('.bg-blur').style.display = 'none';
         setTimeout(() => {
-            document.getElementById('setup-overlay').remove();
+            document.getElementById('setup-overlay')?.remove();
         }, 2000);
     }
 
@@ -115,12 +118,11 @@ function saveData() {
 
 function updateGoal() {
     const newGoal = parseInt(document.getElementById('goalInput').value) || 3000;
-    const element = document.getElementById("event-action-tooltip");
-    
     goal = Math.max(newGoal, 500);
     saveData();
     updateDisplay();
 
+    const element = document.getElementById("event-action-tooltip");
     element.innerText = `Updated successfully`;
     element.style.color = '#28a745';
     setTimeout(() => {
@@ -131,56 +133,20 @@ function updateGoal() {
 
 function firstUpdateGoal(event) {
     event.preventDefault();
-    const newGoal = parseInt(document.getElementById('firstGoalInput').value) || 3000;
-    const amountInput = document.getElementById('firstGoalInput');
-    const value = parseFloat(amountInput.value);
+    const value = parseInt(document.getElementById('firstGoalInput').value);
     if (!isNaN(value) && value > 0) {
-        console.log(`Added ${value}ml`);
-        goal = Math.max(newGoal, 500);
+        goal = Math.max(value, 500);
+        localStorage.setItem('firstTimeSettingGoal', 'false');
         saveData();
         updateDisplay();
-        
-        localStorage.setItem('firstTimeSettingGoal', 'false');
-        setTimeout(() => {
-            location.reload();
-        }, 200);
+        setTimeout(() => location.reload(), 200);
     } else {
         alert('Please enter a positive/valid number.');
-        return;
-    } 
+    }
 }
-
-function addDrink() {
-    const amount = parseInt(document.getElementById('amount').value) || 0;
-    if (amount > 0) addAmount(amount);
-}
-
-const addAmount = (amount) => {
-    currentAmount += amount;
-    saveData();
-    updateDisplay();
-    animateAdd(amount);
-};
-
-const animateAdd = (amount) => {
-    const anim = document.createElement('div');
-    anim.textContent = `+${amount}ml`;
-    anim.style.cssText = `
-        position: absolute;
-        color: ${getColor((currentAmount / goal) * 100)};
-        animation: floatUp 1s ease-out;
-        font-weight: bold;
-        pointer-events: none;
-        left: 50%;
-        z-index: 10000;
-    `;
-    document.body.appendChild(anim);
-    setTimeout(() => anim.remove(), 1000);
-};
 
 function updateDisplay() {
     const targetProgress = Math.min((currentAmount / goal) * 100, 100);
-
     document.getElementById('currentProgress').textContent = currentAmount;
     document.getElementById('currentGoal').textContent = goal;
     document.getElementById('progressText').textContent = `${targetProgress.toFixed(1)}%`;
@@ -199,14 +165,9 @@ function animateProgress(start, end) {
 
         if (circle) {
             const color = getColor(current);
-            const knob = document.getElementById('progressKnob');
-
             circle.style.background = `conic-gradient(${color} ${current}%, #e9ecef ${current}% 100%)`;
-            if (knob) {
-                knob.style.transform = `translate(-50%, -100%) rotate(${(current / 100) * 360}deg) translateY(-100px)`;
-            }
         }
-        
+
         if (progress < 1) {
             requestAnimationFrame(step);
         } else {
@@ -231,38 +192,19 @@ function updateHistory() {
     const entries = Array.from(uniqueHistory.values())
         .sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    if (entries.length === 0) {
-        historyList.innerHTML = `<a>No history yet!</a><br><a>Keep tracking your drinks to get a list, or import an existing one below.</a>`;
-        return;
-    }
-
-    historyList.innerHTML = entries.map(entry => `
-        <div class="history-item" data-date="${entry.date}">
-            <div>${entry.date}</div>
-            <div>${entry.amount}ml / ${entry.goal}ml</div>
-        </div>
-    `).join('');
+    historyList.innerHTML = entries.length > 0
+        ? entries.map(entry => `
+            <div class="history-item" data-date="${entry.date}">
+                <div>${entry.date}</div>
+                <div>${entry.amount}ml / ${entry.goal}ml</div>
+            </div>
+        `).join('')
+        : `<a>No history yet!</a><br><a>Keep tracking your drinks to get a list, or import an existing one below.</a>`;
 }
 
-setInterval(() => {
-    const todayStr = new Date().toISOString().slice(0,10);
-    if (todayStr !== lastDate) {
-        if (currentAmount > 0) {
-            history.push({
-                date: lastDate,
-                amount: currentAmount,
-                goal: goal
-            });
-        }
-        currentAmount = 0;
-        lastDate = todayStr;
-        saveData();
-        updateDisplay();
-        updateHistory();
-    }
-}, 60 * 1000);
-
-setInterval(updateHistory, 5000);
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) loadData();
+});
 
 document.addEventListener('DOMContentLoaded', loadData);
 

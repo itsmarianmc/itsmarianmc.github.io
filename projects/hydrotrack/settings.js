@@ -60,10 +60,12 @@ document.getElementById("historyOpener").addEventListener("click", function(){
     document.querySelector(".history-list").style.display = "block";
     document.querySelector(".bg-blur").style.display = "block";
     document.documentElement.style.overflowY = "hidden";
+    document.body.style.overflowY = "hidden";
 });
 
 document.getElementById("historyCloser").addEventListener("click", function(){
     document.querySelector(".history-list").style.display = "none";
     document.querySelector(".bg-blur").style.display = "none";
     document.documentElement.style.overflowY = "scroll";
+    document.body.style.overflowY = "auto";
 });
