@@ -261,7 +261,7 @@ h1 {
 
 .preset-btn {
     background: var(--primary);
-    color: var(--text-color);
+    color: #fff;
     border: none;
     padding: 1.5rem;
     border-radius: 15px;
