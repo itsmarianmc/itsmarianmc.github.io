@@ -6,18 +6,18 @@
     <link rel="icon" href="favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="/assets/style.css?v=1.0">
     <link rel="stylesheet" href="/projects/hydrotrack/style.css?v=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- META -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="itsmarian">
-    <meta name="description" content="HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your progress in a bar. HydroDrink helps you to stay hydrated and follow a healthier lifestyle.">
+    <meta name="description" content="HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.">
     <meta name="keywords" content="water tracker, drink tracker, HydroTrack, hydrotrack, lifestyle, safe drink tracker">
     <meta name="referrer" content="no-referrer">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="HydroTrack - Drink Tracker">
-    <meta property="og:description" content="HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your progress in a bar. HydroDrink helps you to stay hydrated and follow a healthier lifestyle.">
+    <meta property="og:description" content="HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.">
     <meta property="og:image" content="http://itsmarianmc.github.io/projects/hydrotrack/favicon.png">
     <meta property="og:url" content="http://itsmarianmc.github.io/projects/hydrotrack/">
     <meta property="og:type" content="website">
@@ -40,7 +40,7 @@
                         <a>HydroTrack - Drink Tracker</a>
                     </div>
                     <div class="app-content-information">
-                        <a>HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your progress in a bar. HydroDrink helps you to stay hydrated and follow a healthier lifestyle.</a>
+                        <a>HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.</a>
                     </div>
                 </div>
             </div>
@@ -53,6 +53,31 @@
             </div>
         </div>
     </app-container>
+    <nav class="navbar">
+        <div class="navbar-logo-text">
+            <div class="navbar-logo">
+                <img src="favicon.png" alt="HydroTrack Logo" width="40" height="40">
+            </div>
+            <div class="navbar-title">
+                <a>HydroTrack</a>
+            </div>
+        </div>
+        <div class="navbar-links">
+            <a href="#home">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <div class="navbar-darkmode">
+            <div id="themeToggle" class="theme-toggle light" title="Toggle Theme">
+                <div class="toggle-knob">
+                    <div class="icon sun"></div>
+                    <div class="icon moon"></div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="placeholder w100 h20"></div>
     <div class="container">
         <div style="display: flex; align-items: center; gap: 7.5px;">
             <img height="66px" src="favicon.png" width="66px">
@@ -219,7 +244,7 @@
                             <a>Import</a>
                         </div>
                     </button>
-                    <div id="importAction" style="color: #000; display: none; font-weight: 200; margin: 5px 0px;">
+                    <div id="importAction" style="color: var(--text-color); display: none; font-weight: 200; margin: 5px 0px;">
                         <a id="import-action"></a>
                     </div>
                 </label>
@@ -287,7 +312,7 @@
                             </div>
                         </div>
                         <div class="placeholder w200 h20"></div>
-                        <label style="color: #000;">Your recommended daily goal</label>
+                        <label style="color: var(--text-color);">Your recommended daily goal</label>
                         <input type="number" id="firstGoalInput" placeholder="Daily goal (ml)">
                         <button class="history-action-button" id="setFirstGoal">Set goal</button>
                     </form>
@@ -304,7 +329,7 @@
     <event id="event-changer">
         <div class="event-content">
             <div style="margin: 15px 0px 15px 0px">
-                <a style="color: #000 !important; font-size: 35px;">Change your daily goal</a>
+                <a style="color: var(--text-color) !important; font-size: 35px;">Change your daily goal</a>
             </div>
             <div id="calculator-form2">
                 <form>
@@ -350,7 +375,7 @@
                         </div>
                     </div>
                     <div class="placeholder w200 h20"></div>
-                    <label style="color: #000;">Your recommended daily goal</label>
+                    <label style="color: var(--text-color);">Your recommended daily goal</label>
                     <input type="number" id="goalInput" placeholder="Daily goal (ml)">
                     <button class="action-button" id="setGoal" type="button">Set goal</button>
                     <a id="event-action-tooltip"></a>
@@ -374,9 +399,9 @@
         <div class="cookie-notice-inner">
             <div>
                 <a>HydroTrack and its associated app and website use cookies, including from third-party providers to provide you with fonts, icons, emojis and other scripts and technologies and to operate the website and to use, store and retrieve the data you enter for computing purposes. Anything beyond these cookies is not collected, stored or visible to (internal) users. By using the site, you agree to the use of your data in accordance with the</a>
-                <a class="linkout nodecoration-light" href="legal/privacy" target="_blank">Privacy Policy</a>
+                <a class="linkout nodecoration" href="legal/privacy" target="_blank">Privacy Policy</a>
                 <a>and ensure that you use the Services in accordance with the</a>
-                <a class="linkout nodecoration-light" href="legal/terms" target="_blank">Terms of Use!</a>
+                <a class="linkout nodecoration" href="legal/terms" target="_blank">Terms of Use!</a>
             </div>
             <div class="cookie-notice-button">
                 <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
@@ -473,9 +498,9 @@
         </div>
     </overlay>
     <script src="/assets/script.js"></script>
-    <script src="script.js?v=1.0"></script>
+    <script src="script.js"></script>
     <script src="push.js"></script>
-    <script src="settings.js?v=1.0"></script>
+    <script src="settings.js"></script>
     <script src="goal-calculator.js"></script>
     <script src="goal-editor.js"></script>
     <script src="version.js"></script>

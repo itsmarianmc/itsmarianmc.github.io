@@ -1,4 +1,4 @@
-const CURRENT_VERSION = "1.2.1";
+const CURRENT_VERSION = "1.3.0";
 const VERSION_URL = "https://hydrotrack-three.vercel.app/api/version.json";
 
 function compareVersions(v1, v2) {

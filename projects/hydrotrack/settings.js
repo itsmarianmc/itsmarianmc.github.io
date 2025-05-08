@@ -69,3 +69,9 @@ document.getElementById("historyCloser").addEventListener("click", function(){
     document.documentElement.style.overflowY = "scroll";
     document.body.style.overflowY = "auto";
 });
+
+// App Container
+document.querySelector(".app-action-menu").addEventListener("click", function() {
+    document.querySelector(".app-container").style.display = "none";
+    document.querySelector(".app-container").remove();
+});

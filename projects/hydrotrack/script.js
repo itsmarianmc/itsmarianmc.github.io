@@ -1,4 +1,4 @@
-// hydration-tracker.js
+// script.js
 let currentAmount = 0;
 let goal = 3000;
 let history = [];
@@ -278,3 +278,45 @@ function importData(event) {
     };
     reader.readAsText(file);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const root = document.documentElement;
+
+    // Set saved theme
+    const darkModePreference = localStorage.getItem('darkMode');
+    if (darkModePreference === 'enabled') {
+        root.classList.add('dark-mode');
+        root.classList.remove('light-mode');
+        themeToggle.classList.remove('light');
+        themeToggle.classList.add('dark');
+    } else {
+        root.classList.add('light-mode');
+        root.classList.remove('dark-mode');
+        themeToggle.classList.remove('dark');
+        themeToggle.classList.add('light');
+    }
+
+    updateDisplay(); // Update display based on theme
+
+    // Toggle handler
+    themeToggle.addEventListener('click', () => {
+        const isDark = root.classList.contains('dark-mode');
+
+        if (isDark) {
+            root.classList.remove('dark-mode');
+            root.classList.add('light-mode');
+            themeToggle.classList.remove('dark');
+            themeToggle.classList.add('light');
+            localStorage.setItem('darkMode', 'disabled');
+        } else {
+            root.classList.add('dark-mode');
+            root.classList.remove('light-mode');
+            themeToggle.classList.remove('light');
+            themeToggle.classList.add('dark');
+            localStorage.setItem('darkMode', 'enabled');
+        }
+
+        updateDisplay();
+    });
+});
