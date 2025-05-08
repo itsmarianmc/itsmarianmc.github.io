@@ -2,11 +2,12 @@
     --primary: #2A9D8F;
     --secondary: #264653;
     --secondary-hover: #1d3440;
-    --tertiary: #2d89ef;
+    --tertiary: hsl(212, 86%, 56%);
     --accent: #E9C46A;
     --background: #f8f9fa;
     --background-body: #f8f9fa;
     --bg: #f7f9fb;
+    --borderOnTop: #000;
     --card: #fff;
     --dropdown-bg: #fff;
     --dropdown-hover: rgba(45, 137, 239, 0.5);
@@ -23,23 +24,22 @@
     --primary: #1E88E5;
     --secondary: #E0E0E0;
     --secondary-hover: #b4b4b4;
-    --accent: #FFC107;
-    --text-color: #E0E0E0;
-    --text-color-light: #000;
-    --success-color: #66BB6A;
     --tertiary: #BB86FC;
-    --bg: #1B1D1E;
-    --card: #1F1F1F;
-    --radius: 12px;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-    --dropdown-bg: #1F1F1F;
-    --dropdown-hover: rgba(30, 136, 229, 0.2);
-    /* Custom */
+    --accent: #FFC107;
     --background: #1B1D1E;
     --background-body: #272829;
-    --text-color: #fff;
-    --toggle-bg: #444;
+    --bg: #1B1D1E;
+    --borderOnTop: #ccc;
+    --card: #1F1F1F;
+    --dropdown-bg: #1F1F1F;
+    --dropdown-hover: rgba(30, 136, 229, 0.2);
     --knob-color: #222;
+    --radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --success-color: #66BB6A;
+    --text-color: #fff;
+    --text-color-light: #000;
+    --toggle-bg: #444;
 }
 
 body {
@@ -72,7 +72,7 @@ h1 {
     justify-content: space-between;
     padding: 10px 20px;
     background-color: #2A9D8F;
-    color: var(--text-color);
+    color: #fff;
 }
 
 .navbar-logo-text {
@@ -86,7 +86,6 @@ h1 {
 
 .navbar-title {
     align-items: center;
-    color: #fff;
     display: flex;
     font-size: 1.5rem;
     font-weight: 500;
@@ -95,7 +94,7 @@ h1 {
 
 .navbar-links a {
     margin: 0 10px;
-    color: var(--text-color);
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
 }
@@ -377,7 +376,7 @@ h1 {
     }
 
     .borderOnSmall {
-        border-top: 1px solid #000 !important;
+        border-top: 1px solid var(--borderOnTop) !important;
         padding-top: 1rem !important;
     }
 
