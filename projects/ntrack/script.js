@@ -164,7 +164,7 @@ function renderSubjects() {
         deleteBtn.classList.add('subject-action-remove');
         deleteBtn.onclick = (e) => {
             e.stopPropagation();
-            if (confirm(`Fach "${name}" wirklich löschen?`)) {
+            if (confirm(`Do you want to delete "${name}"?`)) {
                 delete subjects[name];
                 if (currentSubject === name) {
                     currentSubject = '';
