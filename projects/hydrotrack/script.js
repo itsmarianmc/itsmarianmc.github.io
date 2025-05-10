@@ -283,35 +283,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeToggle = document.getElementById('themeToggle');
     const root = document.documentElement;
 
-    // Set saved theme
     const darkModePreference = localStorage.getItem('darkMode');
     if (darkModePreference === 'enabled') {
-        root.classList.add('dark-mode');
-        root.classList.remove('light-mode');
+        root.classList.add('dark');
+        root.classList.remove('light');
         themeToggle.classList.remove('light');
         themeToggle.classList.add('dark');
     } else {
-        root.classList.add('light-mode');
-        root.classList.remove('dark-mode');
+        root.classList.add('light');
+        root.classList.remove('dark');
         themeToggle.classList.remove('dark');
         themeToggle.classList.add('light');
     }
 
-    updateDisplay(); // Update display based on theme
+    updateDisplay();
 
-    // Toggle handler
     themeToggle.addEventListener('click', () => {
-        const isDark = root.classList.contains('dark-mode');
+        const isDark = root.classList.contains('dark');
 
         if (isDark) {
-            root.classList.remove('dark-mode');
-            root.classList.add('light-mode');
+            root.classList.remove('dark');
+            root.classList.add('light');
             themeToggle.classList.remove('dark');
             themeToggle.classList.add('light');
             localStorage.setItem('darkMode', 'disabled');
         } else {
-            root.classList.add('dark-mode');
-            root.classList.remove('light-mode');
+            root.classList.add('dark');
+            root.classList.remove('light');
             themeToggle.classList.remove('light');
             themeToggle.classList.add('dark');
             localStorage.setItem('darkMode', 'enabled');
