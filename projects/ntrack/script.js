@@ -164,7 +164,7 @@ function renderSubjects() {
         deleteBtn.classList.add('subject-action-remove');
         deleteBtn.onclick = (e) => {
             e.stopPropagation();
-            if (confirm(`Do you want to delete "${name}"?`)) {
+            if (confirm(`Do you want to delete "${name}"?\nAll notes entered will be deleted. This action cannot be undone unless you have downloaded a backup. Do you want to proceed?`)) {
                 delete subjects[name];
                 if (currentSubject === name) {
                     currentSubject = '';
@@ -205,9 +205,11 @@ function selectSubject(name) {
 // Handle new grade entry submission
 addNoteForm.addEventListener('submit', e => {
     e.preventDefault();
+
     const type = noteTypeSelect.value;
     const g = parseFloat(gradeInput.value);
-    const d = new Date().toISOString().split('T')[0];
+    const d = document.getElementById('dateInput').value || new Date().toISOString().split('T')[0];
+
     if (type && !isNaN(g)) {
         subjects[currentSubject].push({
             type,
@@ -215,7 +217,9 @@ addNoteForm.addEventListener('submit', e => {
             grade: g,
             date: d
         });
+
         gradeInput.value = '';
+        document.getElementById('dateInput').value = '';
         saveData();
         renderNotes();
         updateOverall();
@@ -267,18 +271,31 @@ window.editGrade = i => {
 
 // Edit entry date with validation
 window.editDate = i => {
-    const e = subjects[currentSubject][i];
-    let d;
-    const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
-    do {
-        d = prompt('New date (YYYY-MM-DD):', e.date || '');
-        if (d === null) return;
-        if (!dateRegex.test(d)) alert('Invalid format. Use YYYY-MM-DD.');
-    } while (!dateRegex.test(d));
-    e.date = d;
-    saveData();
-    renderNotes();
+    const entry = subjects[currentSubject][i];
+    const overlay = document.getElementById('dateOverlay');
+
+    document.getElementById('overlaySubject').textContent = currentSubject;
+    document.getElementById('overlayType').textContent = `Type: ${entry.type} (Wt. ${entry.weight})`;
+    document.getElementById('overlayGrade').textContent = `Grade: ${entry.grade.toFixed(1)}`;
+    document.getElementById('overlayDate').value = entry.date || '';
+
+    overlay.classList.remove('hidden');
+
+    document.getElementById('overlayCancel').onclick = () => {
+        overlay.classList.add('hidden');
+    };
+
+    document.getElementById('overlaySave').onclick = () => {
+        const newDate = document.getElementById('overlayDate').value;
+        if (newDate) {
+            entry.date = newDate;
+            saveData();
+            renderNotes();
+        }
+        overlay.classList.add('hidden');
+    };
 };
+
 
 // Delete grade entry
 window.deleteEntry = i => {
@@ -443,7 +460,7 @@ document.getElementById('importInput').addEventListener('change', e => {
                 populateTypeSelect();
                 renderSettingsTypeList();
                 alert("Your backup has been successfully imported! Press \"Ok\" to continue");
-
+                location.reload();
             } else {
                 alert("Invalid file");
             }
@@ -498,7 +515,7 @@ function renderSettingsSubjectList() {
 
 // Delete subject from settings
 window.deleteSubjectFromSettings = name => {
-    if (confirm(`Do you want to delete "${name}"?`)) {
+    if (confirm(`Do you want to delete "${name}"?\nAll notes entered will be deleted. This action cannot be undone unless you have downloaded a backup. Do you want to proceed?`)) {
         delete subjects[name];
         if (currentSubject === name) {
             currentSubject = '';

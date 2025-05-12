@@ -13,7 +13,9 @@
 	--transition: 0.4s;
 	--shadow: rgba(0, 0, 0, 0.05);
 	--hr-line: #ccc;
+	/* Root Style */
 	overflow-x: hidden;
+	height: 100%;
 }
 
 * {
@@ -30,7 +32,7 @@ body {
 	height: 100vh;
 	min-width: 240px;
 	overflow-x: hidden;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 
 .hidden {
@@ -41,8 +43,13 @@ button {
   	width: 100%;
 }
 
-.actions button {
-  	width: auto;
+.actions {
+	align-items: center;
+  	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 0 auto;
+	width: 100%;
 }
 
 form .field select {
@@ -96,7 +103,8 @@ form .field select {
 
 #setupScreen input,
 #setupScreen button,
-#subjectInput {
+#subjectInput,
+#overlayDate {
 	flex: 1;
 	padding: 0.75rem;
 	border-radius: var(--radius);
@@ -106,7 +114,8 @@ form .field select {
 }
 
 #setupScreen input:focus,
-#subjectInput:focus {
+#subjectInput:focus,
+#overlayDate {
 	outline: none;
 	border: 1px solid var(--primary);
 }
@@ -304,7 +313,7 @@ form .field select {
 	flex-direction: column;
 	gap: var(--spacing);
 	padding: var(--spacing);
-	overflow: visible;
+	overflow: unset;
 }
 
 .card {
@@ -324,16 +333,56 @@ form .field select {
 	margin-bottom: 0.5rem;
 	text-align: center;
 }
-
-#notesTable tr {
-  	height: auto;
+table {
+	width: auto;
+	max-width: 100%;
+	border-collapse: collapse;
+	margin: 0.5rem 0;
+	font-size: 0.95rem;
+	background-color: white;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+	table-layout: auto;
 }
 
-#notesTable td,
-#notesTable th {
-	padding: 0.5rem 0rem;
+th, td {
+	padding: 0.4rem;
 	text-align: center;
+	word-break: break-word;
+	white-space: normal;
+	max-width: 150px;
 }
+
+thead {
+	background-color: #f5f5f5;
+	font-weight: bold;
+}
+
+.actions button {
+	margin: 0 2px;
+	font-size: 1rem;
+	padding: 0.2rem 0.4rem;
+	background: none;
+	border: none;
+	cursor: pointer;
+	transition: transform 0.1s ease-in-out;
+}
+
+.actions button:hover {
+  	transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+	table {
+		font-size: 0.85rem;
+		width: 100%;
+	}
+
+	th, td {
+		padding: 0.3rem;
+		max-width: 100px;
+	}
+}
+
 
 form .field {
 	display: flex;
@@ -357,6 +406,12 @@ form .field input:focus,
 #gradeInput:focus {
 	outline: none;
 	border-color: var(--primary);
+}
+
+#noteTypeSelect,
+#dateInput,
+#gradeInput {
+	width: 100%;
 }
 
 form .field button {
@@ -447,7 +502,8 @@ tr:nth-child(even) {
 		flex-direction: column;
 	}
 }
-@media (max-width: 768px) {
+
+@media (max-width: 909px) {
 	body {
 		flex-direction: column;
 		overflow-y: scroll;
@@ -492,7 +548,22 @@ tr:nth-child(even) {
 	}
 }
 
+@media (max-width: 668px) {
+	.actions {
+		flex-direction: column;
+		padding: 0;
+	}
+}
+
 @media (max-width: 480px) {
+	table {
+		font-size: 12.5px;
+	}
+
+	th {
+		padding: 0.75rem 0.25rem;
+	}
+
 	:root {
 		--spacing: 0.75rem;
 		--radius: 8px;

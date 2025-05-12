@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>N'Track - A simple and reliable grade tracker</title>
-    <link rel="icon" type="image/png" href="/projects/ntrack/favicon-light.png">
+    <link rel="icon" type="image/png" href="favicon-light.png">
     <link rel="stylesheet" href="styles.css?v=1.0">
     <!-- META -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,7 +64,7 @@
     </div>
     <aside id="sidebar" class="hidden">
         <div style="display: flex; height: auto">
-            <img alt="Vector graphic logo consisting of a black, stylized letter 'N' and an orange circle on top of it, which contains a centered checkmark symbol." draggable="false" src="favicon-dark.png" height="30px" style="position: relative; top: 50%; transform: translateY(-50%);">
+            <img alt="Vector graphic logo consisting of a black, stylized letter 'N' and an orange circle on top of it, which contains a centered checkmark symbol." draggable="false" src="favicon-dark.png" height="30px">
             <div style="text-align: right; width: 100%;">
                 <h2>Your Subjects</h2>
             </div>
@@ -102,6 +102,7 @@
                 <h4>How does this site/app work?</h4>
                 <div style="margin-top: 10px;">
                     <a style="font-weight: bold;">First of you have to setup the app</a>
+                    <br>
                     <a>Tutorial coming soon...</a>
                 </div>
             </div>
@@ -113,7 +114,7 @@
                     <select id="noteTypeSelect" required>
                         <option value="" disabled selected>Select type</option>
                     </select>
-                    <input type="date" id="dateInput" required />
+                    <input id="dateInput" onfocus="(this.type='date', this.style.padding='calc(0.75rem + 1px)')" onblur="(this.type='text', this.style.padding='calc(0.75rem + 2px)')" style="padding: calc(0.75rem + 2px);" placeholder="tt-mm-yyyy" type="text" />
                     <input type="number" id="gradeInput" placeholder="Grade" min="1" max="6" step="0.1" required />
                     <button type="submit">Add</button>
                 </div>
@@ -204,6 +205,21 @@
         <li id="renameSubject">✏️ Rename Subject</li>
         <li id="deleteSubject">🗑️ Remove Subject</li>
     </ul>
+    <div id="dateOverlay" class="hidden" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;">
+    <div style="background: white; padding: 20px; border-radius: 10px; font-size: 20px; max-width: 400px; text-align: center; width: 90%;">
+        <h3>Edit Entry for subject <a id="overlaySubject"></a></h3>
+        <p id="overlayType"></p>
+        <p id="overlayGrade"></p>
+        <div style="height: 10px; width: 100%;"></div>
+        <label for="overlayDate">Date:</label><br>
+        <div style="height: 10px; width: 100%;"></div>
+        <input type="date" id="overlayDate"><br><br>
+        <div style="display: flex; justify-content: flex-end; gap: 10px;">
+        <button class="action-button" id="overlayCancel">Cancel</button>
+        <button class="action-button" id="overlaySave">Save</button>
+        </div>
+    </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
