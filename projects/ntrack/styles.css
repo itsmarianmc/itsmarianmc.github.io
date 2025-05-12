@@ -29,10 +29,10 @@ body {
 	background: var(--tertiary);
 	color: var(--text);
 	display: flex;
-	height: 100vh;
+	height: 100%;
 	min-width: 240px;
 	overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: hidden;
 }
 
 .hidden {
@@ -506,7 +506,7 @@ tr:nth-child(even) {
 @media (max-width: 909px) {
 	body {
 		flex-direction: column;
-		overflow-y: scroll;
+		overflow-y: unset;
 	}
 
 	#sidebar {
