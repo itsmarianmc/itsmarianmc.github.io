@@ -32,7 +32,6 @@ body {
 	height: 100%;
 	min-width: 240px;
 	overflow-x: hidden;
-	overflow-y: hidden;
 }
 
 .hidden {
@@ -138,7 +137,6 @@ form .field select {
 	list-style: none;
 	margin-bottom: var(--spacing);
 	max-height: 160px;
-	overflow-y: auto;
 }
 
 #setupSubjectList li,
@@ -191,7 +189,6 @@ form .field select {
 	gap: 0.5rem;
 	list-style: none;
 	overflow-x: hidden;
-	overflow-y: auto;
 }
 
 .subject-name {
@@ -486,7 +483,6 @@ tr:nth-child(even) {
 
 #settingsScreen {
 	left: 15px;
-	overflow-y: scroll;
 	position: relative;
 	width: calc(100% - 1rem);
 }
@@ -506,7 +502,6 @@ tr:nth-child(even) {
 @media (max-width: 909px) {
 	body {
 		flex-direction: column;
-		overflow-y: unset;
 	}
 
 	#sidebar {
