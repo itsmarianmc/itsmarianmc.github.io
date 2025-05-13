@@ -18,8 +18,17 @@
     <meta property="og:image" content="http://itsmarianmc.github.io/projects/ntrack/favicon.png">
     <meta property="og:url" content="http://itsmarianmc.github.io/projects/ntrack/">
     <meta property="og:type" content="website">
+    <!-- App -->
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2A9D8F">
+    <meta name="theme-color" content="#e2e8f0" />
+    <link rel="apple-touch-icon" href="favicon-light.png" />
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('✅ Service Worker registered.\n', reg))
+            .catch(err => console.error('❌ Service Worker Error:', err));
+        }
+    </script>
 </head>
 <body>
     <div id="setupScreen">
@@ -113,6 +122,11 @@
                     <select id="noteTypeSelect" required>
                         <option value="" disabled selected>Select type</option>
                     </select>
+                    <select id="halfyearSelect" required>
+                        <option value="" disabled selected>Select year</option>
+                        <option value="Y1">First half year</option>
+                        <option value="Y2">Second half year</option>
+                    </select>
                     <input id="dateInput" onfocus="(this.type='date', this.style.padding='calc(0.75rem + 1px)')" onblur="(this.type='text', this.style.padding='calc(0.75rem + 2px)')" style="padding: calc(0.75rem + 2px);" placeholder="tt-mm-yyyy" type="text" />
                     <input type="number" id="gradeInput" placeholder="Grade" min="1" max="6" step="0.1" required />
                     <button type="submit">Add</button>
@@ -205,19 +219,19 @@
         <li id="deleteSubject">🗑️ Remove Subject</li>
     </ul>
     <div id="dateOverlay" class="hidden" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; z-index: 9999;">
-    <div style="background: white; padding: 20px; border-radius: 10px; font-size: 20px; max-width: 400px; text-align: center; width: 90%;">
-        <h3>Edit Entry for subject <a id="overlaySubject"></a></h3>
-        <p id="overlayType"></p>
-        <p id="overlayGrade"></p>
-        <div style="height: 10px; width: 100%;"></div>
-        <label for="overlayDate">Date:</label><br>
-        <div style="height: 10px; width: 100%;"></div>
-        <input type="date" id="overlayDate"><br><br>
-        <div style="display: flex; justify-content: flex-end; gap: 10px;">
-        <button class="action-button" id="overlayCancel">Cancel</button>
-        <button class="action-button" id="overlaySave">Save</button>
+        <div style="background: white; padding: 20px; border-radius: 10px; font-size: 20px; max-width: 400px; text-align: center; width: 90%;">
+            <h3>Edit Entry for subject <a id="overlaySubject"></a></h3>
+            <p id="overlayType"></p>
+            <p id="overlayGrade"></p>
+            <div style="height: 10px; width: 100%;"></div>
+            <label for="overlayDate">Date:</label><br>
+            <div style="height: 10px; width: 100%;"></div>
+            <input type="date" id="overlayDate"><br><br>
+            <div style="display: flex; justify-content: flex-end; gap: 10px;">
+            <button class="action-button" id="overlayCancel">Cancel</button>
+            <button class="action-button" id="overlaySave">Save</button>
+            </div>
         </div>
-    </div>
     </div>
     <script src="script.js"></script>
     <script>

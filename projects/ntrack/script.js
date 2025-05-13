@@ -122,7 +122,7 @@ startBtn.onclick = () => {
         main.classList.remove('hidden');
         renderSubjects();
         populateTypeSelect();
-        welcome.querySelector('h3').textContent = `Welcome back to N'Track!`;
+        welcome.querySelector('h3').textContent = 'Welcome back to N\'Track!';
         welcome.querySelector('p').textContent = 'Select a subject and enter grades or manage your subjects.';
     }
 };
@@ -149,7 +149,6 @@ function renderSubjects() {
             showContextMenu(e.pageX, e.pageY);
         };
 
-
         const editBtn = document.createElement('button');
         editBtn.textContent = '🖊️';
         editBtn.classList.add('subject-action-edit');
@@ -157,7 +156,6 @@ function renderSubjects() {
             contextSubjectName = name;
             editSubject();
         };
-
 
         const deleteBtn = document.createElement('button');
         deleteBtn.textContent = '🗑️';
@@ -208,18 +206,20 @@ addNoteForm.addEventListener('submit', e => {
 
     const type = noteTypeSelect.value;
     const g = parseFloat(gradeInput.value);
-    const d = document.getElementById('dateInput').value || new Date().toISOString().split('T')[0];
+    const d = new Date().toISOString().split('T')[0];
+    const year = document.getElementById('halfyearSelect').value;
 
-    if (type && !isNaN(g)) {
+    if (type && !isNaN(g) && year) {
         subjects[currentSubject].push({
             type,
             weight: types[type],
             grade: g,
-            date: d
+            date: d,
+            year
         });
 
         gradeInput.value = '';
-        document.getElementById('dateInput').value = '';
+        document.getElementById('halfyearSelect').value = '';
         saveData();
         renderNotes();
         updateOverall();
@@ -237,13 +237,60 @@ function populateTypeSelect() {
     });
 }
 
-// Render grade entries table and calculate subject average
-function renderNotes() {
-    notesTable.innerHTML = '';
-    subjects[currentSubject].forEach((e, i) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-        <td>${e.type}</td>
+function updateSubjectAverage() {
+    const entries = subjects[currentSubject];
+    if (!entries || entries.length === 0) {
+        subjectAverage.textContent = "Ø -";
+        return;
+    }
+
+    // Group entries by year
+    const grouped = {
+        Y1: [],
+        Y2: [],
+        unknown: []
+    };
+
+    entries.forEach(e => {
+        const group = e.year === 'Y1' ? 'Y1' : e.year === 'Y2' ? 'Y2' : 'unknown';
+        grouped[group].push(e);
+    });
+
+    // Calculate averages
+    const overallAvg = calcWeighted(entries);
+    const y1Avg = grouped.Y1.length ? calcWeighted(grouped.Y1) : null;
+    const y2Avg = grouped.Y2.length ? calcWeighted(grouped.Y2) : null;
+
+    // Build display text
+    let displayText = `Ø ${overallAvg.toFixed(2)}`;
+    
+    if (y1Avg !== null || y2Avg !== null) {
+        displayText += " (";
+        if (y1Avg !== null) {
+            displayText += `Y1: ${y1Avg.toFixed(2)}`;
+            if (y2Avg !== null) {
+                displayText += ", ";
+            }
+        }
+        if (y2Avg !== null) {
+            displayText += `Y2: ${y2Avg.toFixed(2)}`;
+        }
+        displayText += ")";
+    }
+
+    subjectAverage.textContent = displayText;
+}
+
+function addYearSeparator(label) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td colspan="6" style="text-align: center; font-weight: bold; border-top: 2px solid #999; padding-top: 8px;">${label}</td>`;
+    notesTable.appendChild(tr);
+}
+
+function createNoteRow(e, i) {
+    const row = document.createElement('tr');
+    row.innerHTML = 
+        `<td>${e.type}</td>
         <td>${e.grade.toFixed(1)}</td>
         <td>${e.weight.toFixed(1)}</td>
         <td>${e.date || '–'}</td>
@@ -252,39 +299,79 @@ function renderNotes() {
             <button onclick="editDate(${i})">📅</button>
             <button onclick="deleteEntry(${i})">🗑️</button>
         </td>`;
-        notesTable.appendChild(row);
+    return row;
+}
+
+// Render grade entries table and calculate subject average
+function renderNotes() {
+    notesTable.innerHTML = '';
+
+    const entries = subjects[currentSubject];
+
+    const grouped = {
+        Y1: [],
+        Y2: [],
+        unknown: []
+    };
+
+    entries.forEach((e, realIndex) => {
+        const group = e.year === 'Y1' ? 'Y1' : e.year === 'Y2' ? 'Y2' : 'unknown';
+        grouped[group].push({ entry: e, index: realIndex });
     });
-    subjectAverage.textContent = `Ø ${calcWeighted(subjects[currentSubject]).toFixed(2)}`;
+
+    let allDisplayed = [];
+
+    if (grouped.Y1.length) {
+        addYearSeparator("Year 1");
+        grouped.Y1.forEach(({ entry, index }) => {
+            notesTable.appendChild(createNoteRow(entry, index));
+            allDisplayed.push(entry);
+        });
+    }
+
+    if (grouped.Y2.length) {
+        addYearSeparator("Year 2");
+        grouped.Y2.forEach(({ entry, index }) => {
+            notesTable.appendChild(createNoteRow(entry, index));
+            allDisplayed.push(entry);
+        });
+    }
+
+    if (grouped.unknown.length) {
+        addYearSeparator("Unknown period");
+        grouped.unknown.forEach(({ entry, index }) => {
+            notesTable.appendChild(createNoteRow(entry, index));
+            allDisplayed.push(entry);
+        });
+    }
+
+    updateSubjectAverage();
 }
 
 // Edit existing grade entry
 window.editGrade = i => {
     const e = subjects[currentSubject][i];
-    const g = parseFloat(prompt('New grade:', e.grade));
-    if (!isNaN(g)) {
-        e.grade = g;
-        saveData();
-        renderNotes();
-        updateOverall();
-    }
+    const newGrade = parseFloat(prompt('Edit grade/mark:', e.grade));
+    if (isNaN(newGrade)) return;
+
+    e.grade = newGrade;
+    saveData();
+    renderNotes();
+    updateOverall();
 };
 
 // Edit entry date with validation
 window.editDate = i => {
     const entry = subjects[currentSubject][i];
     const overlay = document.getElementById('dateOverlay');
-
     document.getElementById('overlaySubject').textContent = currentSubject;
     document.getElementById('overlayType').textContent = `Type: ${entry.type} (Wt. ${entry.weight})`;
     document.getElementById('overlayGrade').textContent = `Grade: ${entry.grade.toFixed(1)}`;
     document.getElementById('overlayDate').value = entry.date || '';
-
     overlay.classList.remove('hidden');
-
     document.getElementById('overlayCancel').onclick = () => {
         overlay.classList.add('hidden');
     };
-
     document.getElementById('overlaySave').onclick = () => {
         const newDate = document.getElementById('overlayDate').value;
         if (newDate) {
@@ -295,7 +382,6 @@ window.editDate = i => {
         overlay.classList.add('hidden');
     };
 };
-
 
 // Delete grade entry
 window.deleteEntry = i => {
@@ -365,15 +451,6 @@ document.addEventListener('click', e => {
     }
 });
 
-// Initial state check for showing setup/main screen
-if (Object.keys(subjects).length && Object.keys(types).length) {
-    setupScreen.classList.add('hidden');
-    sidebar.classList.remove('hidden');
-    main.classList.remove('hidden');
-    renderSubjects();
-    populateTypeSelect();
-}
-
 // Settings screen management functions
 document.getElementById('openSettingsBtn').onclick = () => {
     document.getElementById('settingsScreen').classList.remove('hidden');
@@ -383,7 +460,6 @@ document.getElementById('openSettingsBtn').onclick = () => {
     sidebar.classList.add('hidden');
     renderSettingsTypeList();
     renderSettingsSubjectList();
-
 };
 
 document.getElementById('closeSettingsBtn').onclick = () => {
@@ -488,7 +564,7 @@ function renderSettingsTypeList() {
 
 // Delete type from settings
 window.deleteType = type => {
-    if (confirm(`Typ "${type}" löschen?`)) {
+    if (confirm(`Delete type "${type}"?`)) {
         delete types[type];
         saveData();
         populateTypeSelect();
@@ -502,12 +578,16 @@ window.deleteType = type => {
 function renderSettingsSubjectList() {
     const list = document.getElementById('settingsSubjectListDisplay');
     list.innerHTML = '';
+    list.style.display = 'flex';
+    list.style.flexDirection = 'column';
+    list.style.gap = '5px';
+    list.style.width = "100%";
     Object.keys(subjects).forEach(subject => {
         const li = document.createElement('li');
         li.style.display = 'flex';
         li.style.justifyContent = 'space-between';
+        li.style.flexDirection = 'row';
         li.style.alignItems = 'center';
-        li.style.padding = '4px 0';
         li.innerHTML = `<div style="width: 100%; word-break: break-all;">${subject}</div><button class="settings-subject-delete-btn" onclick="deleteSubjectFromSettings('${subject}')">✖</button>`;
         list.appendChild(li);
     });
@@ -541,24 +621,6 @@ document.getElementById('settingsAddSubjectForm').addEventListener('submit', e =
         renderSettingsSubjectList();
     }
 });
-
-function renderSettingsSubjectList() {
-    const list = document.getElementById('settingsSubjectListDisplay');
-    list.innerHTML = '';
-    list.style.display = 'flex';
-    list.style.flexDirection = 'column';
-    list.style.gap = '5px';
-    list.style.width = "100%"
-    Object.keys(subjects).forEach(subject => {
-        const li = document.createElement('li');
-        li.style.display = 'flex';
-        li.style.justifyContent = 'space-between';
-        li.style.flexDirection = 'row';
-        li.style.alignItems = 'center';
-        li.innerHTML = `<div style="width: 100%; word-break: break-all;">${subject}</div><button class="settings-subject-delete-btn" onclick="deleteSubjectFromSettings('${subject}')">✖</button>`;
-        list.appendChild(li);
-    });
-}
 
 function checkInitialState() {
     if (Object.keys(subjects).length > 0 && Object.keys(types).length > 0) {
