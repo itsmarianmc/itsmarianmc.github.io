@@ -1,17 +1,4 @@
 {
-<<<<<<< HEAD
-    "name": "N'Track",
-    "short_name": "N'Track",
-    "start_url": "/projects/ntrack/",
-    "display": "standalone",
-    "icons": [
-        {
-            "src": "/projects/ntrack/favicon-light.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        }
-    ]
-=======
   "name": "N'Track",
   "short_name": "N'Track",
   "start_url": "/projects/ntrack/",
@@ -23,5 +10,4 @@
       "type": "image/png"
     }
   ]
->>>>>>> 57163ad933027b893072ef6b397171de20102ca6
 }

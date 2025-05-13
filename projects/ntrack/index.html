@@ -22,13 +22,6 @@
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#e2e8f0" />
     <link rel="apple-touch-icon" href="favicon-light.png" />
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('service-worker.js')
-            .then(reg => console.log('✅ Service Worker registered.\n', reg))
-            .catch(err => console.error('❌ Service Worker Error:', err));
-        }
-    </script>
 </head>
 <body>
     <div id="setupScreen">
@@ -237,7 +230,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('service-worker.js')
-            .then(reg => console.log('✅ Service Worker registered.', reg))
+            .then(reg => console.log('✅ Service Worker registered.\n', reg))
             .catch(err => console.error('❌ Service Worker Error:', err));
         }
     </script>
