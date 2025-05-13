@@ -160,6 +160,11 @@ form .field select {
 	cursor: pointer;
 }
 
+#setupSubjectList,
+#setupTypeList {
+	overflow: scroll;
+}
+
 #setupSubjectList button {
 	text-align: right;
 	width: auto;

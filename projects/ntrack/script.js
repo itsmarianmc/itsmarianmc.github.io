@@ -206,7 +206,7 @@ addNoteForm.addEventListener('submit', e => {
 
     const type = noteTypeSelect.value;
     const g = parseFloat(gradeInput.value);
-    const d = new Date().toISOString().split('T')[0];
+    const d = document.getElementById('dateInput').value || new Date().toISOString().split('T')[0];
     const year = document.getElementById('halfyearSelect').value;
 
     if (type && !isNaN(g) && year) {
@@ -244,46 +244,17 @@ function updateSubjectAverage() {
         return;
     }
 
-    // Group entries by year
-    const grouped = {
-        Y1: [],
-        Y2: [],
-        unknown: []
-    };
-
-    entries.forEach(e => {
-        const group = e.year === 'Y1' ? 'Y1' : e.year === 'Y2' ? 'Y2' : 'unknown';
-        grouped[group].push(e);
-    });
-
-    // Calculate averages
     const overallAvg = calcWeighted(entries);
-    const y1Avg = grouped.Y1.length ? calcWeighted(grouped.Y1) : null;
-    const y2Avg = grouped.Y2.length ? calcWeighted(grouped.Y2) : null;
-
-    // Build display text
-    let displayText = `Ø ${overallAvg.toFixed(2)}`;
-    
-    if (y1Avg !== null || y2Avg !== null) {
-        displayText += " (";
-        if (y1Avg !== null) {
-            displayText += `Y1: ${y1Avg.toFixed(2)}`;
-            if (y2Avg !== null) {
-                displayText += ", ";
-            }
-        }
-        if (y2Avg !== null) {
-            displayText += `Y2: ${y2Avg.toFixed(2)}`;
-        }
-        displayText += ")";
-    }
-
-    subjectAverage.textContent = displayText;
+    subjectAverage.textContent = `Ø ${overallAvg.toFixed(2)}`;
 }
 
-function addYearSeparator(label) {
+
+function addYearSeparator(label, average) {
     const tr = document.createElement('tr');
-    tr.innerHTML = `<td colspan="6" style="text-align: center; font-weight: bold; border-top: 2px solid #999; padding-top: 8px;">${label}</td>`;
+    const avgText = average !== null ? ` (Ø ${average.toFixed(2)})` : '';
+    tr.innerHTML = `<td colspan="6" style="text-align: center; font-weight: bold; border-top: 2px solid #999; padding-top: 8px;">
+        ${label}${avgText}
+    </td>`;
     notesTable.appendChild(tr);
 }
 
@@ -322,7 +293,8 @@ function renderNotes() {
     let allDisplayed = [];
 
     if (grouped.Y1.length) {
-        addYearSeparator("Year 1");
+        const y1Avg = calcWeighted(grouped.Y1.map(e => e.entry));
+        addYearSeparator("Year 1", y1Avg);
         grouped.Y1.forEach(({ entry, index }) => {
             notesTable.appendChild(createNoteRow(entry, index));
             allDisplayed.push(entry);
@@ -330,7 +302,8 @@ function renderNotes() {
     }
 
     if (grouped.Y2.length) {
-        addYearSeparator("Year 2");
+        const y2Avg = calcWeighted(grouped.Y2.map(e => e.entry));
+        addYearSeparator("Year 2", y2Avg);
         grouped.Y2.forEach(({ entry, index }) => {
             notesTable.appendChild(createNoteRow(entry, index));
             allDisplayed.push(entry);
@@ -338,14 +311,15 @@ function renderNotes() {
     }
 
     if (grouped.unknown.length) {
-        addYearSeparator("Unknown period");
+        const unkAvg = calcWeighted(grouped.unknown.map(e => e.entry));
+        addYearSeparator("Unknown period", unkAvg);
         grouped.unknown.forEach(({ entry, index }) => {
             notesTable.appendChild(createNoteRow(entry, index));
             allDisplayed.push(entry);
         });
     }
 
-    updateSubjectAverage();
+    updateSubjectAverage(); // Diese zeigt dann nur noch den Gesamtdurchschnitt
 }
 
 // Edit existing grade entry
