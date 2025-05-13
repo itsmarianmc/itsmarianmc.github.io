@@ -18,9 +18,8 @@
     <meta property="og:image" content="http://itsmarianmc.github.io/projects/ntrack/favicon.png">
     <meta property="og:url" content="http://itsmarianmc.github.io/projects/ntrack/">
     <meta property="og:type" content="website">
-    <!-- App 
     <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2A9D8F">-->
+    <meta name="theme-color" content="#2A9D8F">
 </head>
 <body>
     <div id="setupScreen">
@@ -221,5 +220,12 @@
     </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js')
+            .then(reg => console.log('✅ Service Worker registered.', reg))
+            .catch(err => console.error('❌ Service Worker Error:', err));
+        }
+    </script>
 </body>
 </html>
