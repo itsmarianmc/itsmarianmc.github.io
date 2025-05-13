@@ -319,7 +319,7 @@ function renderNotes() {
         });
     }
 
-    updateSubjectAverage(); // Diese zeigt dann nur noch den Gesamtdurchschnitt
+    updateSubjectAverage();
 }
 
 // Edit existing grade entry
