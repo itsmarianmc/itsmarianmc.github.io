@@ -75,9 +75,13 @@
 /* Scroll Container */
 .project-scroller {
     overflow: hidden;
-    width: 100%;
-    position: relative;
     padding: 1rem 0;
+    position: relative;
+    width: 100%;
+}
+
+.project-scroller:hover .project-carousel {
+    animation-play-state: paused;
 }
 
 .project-carousel {
