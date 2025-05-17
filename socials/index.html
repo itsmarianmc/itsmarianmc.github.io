@@ -68,6 +68,16 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="st-element" id="linkid=d4bR55E9">
+                            <div class="st-element-container">
+                                <div class="st-logo">
+                                    <img height="48" src="https://img1.wsimg.com/isteam/ip/dd77a658-7e12-4564-943f-e7a1347b5464/small_logo.png" width="48">
+                                </div>
+                                <div class="st-application">
+                                    <a>Dilemaa</a>
+                                </div>
+                            </div>
+                        </div>
                         <div class="st-element" id="linkid=gn3Wdalz">
                             <div class="st-element-container">
                                 <div class="st-logo">
@@ -345,6 +355,22 @@
             window.open("http://bere.al/itsmarian.mc", "_parent")
         });
 
+        document.getElementById("linkid=d4bR55E9").addEventListener("click", function() {
+            document.body.style.overflowY = "hidden";
+            document.documentElement.overflowY = "hidden";
+            document.querySelector(".popup").style.display = "block";
+            document.querySelector(".popup").innerHTML = `<iframe height="424px" src="../assets/iframes/dilemaa/dilemaa.html" style="border-radius: 10px; border-width: 0px; overflow: hidden; width: 100%;"></iframe><div style="background-color: #ccc; height: 0.5px; width: 100%; margin-top: 10px; margin-bottom: 10px;"></div><div style="margin-left: 10px; margin-right: 10px;"><div class="sc-bdfBwQ gYzXwr" id="close-banner"><a class="sc-bdfBwQ izHhhY sc-gsTCUz iKuzMk" href="#">Close Preview</a></div></div>`;document.querySelector(".popup-background").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("close-banner")?.addEventListener("click", function() {
+                    document.querySelector(".popup").style.display = "none";
+                    document.querySelector(".popup").innerHTML = '';
+                    document.querySelector(".popup-background").style.display = "none";
+                    document.body.style.overflowY = "unset";
+                    document.documentElement.overflowY = "unset";
+                });
+            }, 100);
+        });
+
         document.getElementById("linkid=gn3Wdalz").addEventListener("click", function() {
             window.open("https://discord.com/users/860122608682795028", "_parent")
         });
@@ -362,6 +388,8 @@
         })
 
         document.getElementById("linkid=Xuz0niaI").addEventListener("click", function() {
+            document.body.style.overflowY = "hidden";
+            document.documentElement.overflowY = "hidden";
             document.querySelector(".popup").style.display = "block";
             document.querySelector(".popup").innerHTML = `<iframe height="424px" src="../assets/iframes/reddit/reddit.html" style="border-radius: 10px; border-width: 0px; overflow: hidden; width: 100%;"></iframe><div style="background-color: #ccc; height: 0.5px; width: 100%; margin-top: 10px; margin-bottom: 10px;"></div><div style="margin-left: 10px; margin-right: 10px;"><div class="sc-bdfBwQ gYzXwr" id="close-banner"><a class="sc-bdfBwQ izHhhY sc-gsTCUz iKuzMk" href="#">Close Preview</a></div></div>`;document.querySelector(".popup-background").style.display = "block";
             setTimeout(() => {
@@ -369,6 +397,8 @@
                     document.querySelector(".popup").style.display = "none";
                     document.querySelector(".popup").innerHTML = '';
                     document.querySelector(".popup-background").style.display = "none";
+                    document.body.style.overflowY = "unset";
+                    document.documentElement.overflowY = "unset";
                 });
             }, 100);
         });
