@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/header.css">
     <link rel="stylesheet" href="assets/pages/mainpage/style.css">
-    <link rel="stylesheet" href="assets/iframes/reddit/style.css">
 </head>
 <body>
     <header class="header-frame">
@@ -57,7 +56,7 @@
     <main>
         <section class="section">
             <div class="mainpage-header">
-                <h1 style="font-size: 1.5em;">Hey, welcome to my page!</h1>
+                <h1>Hey, welcome to my page!</h1>
             </div>
         </section>
         <div class="placeholder w300 h20"></div>
@@ -670,7 +669,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- Template -->
                     <!--
                     <div class="carousel-item">
@@ -754,39 +752,11 @@
             </div>
         </div>
     </div>
-    <div class="popup-background"></div>
-    <div class="popup"></div>
     <script src="assets/header.js"></script>
     <script src="assets/script.js"></script>
     <script>
         document.getElementById("githubLinkout").addEventListener("click", function() {
-            document.body.style.overflowY = "hidden";
-            document.documentElement.overflowY = "hidden";
-            document.querySelector(".popup").style.background = "#0D1117";
-            document.querySelector(".popup").style.display = "block";
-            document.querySelector(".popup").innerHTML = `<iframe height="364px" src="https://github.com/itsmarianmc" style="border-radius: 10px; border-width: 0px; overflow: hidden; width: 100%;"></iframe><div style="background-color: #ccc; height: 0.5px; width: 100%; margin-top: 10px; margin-bottom: 10px;"></div><div style="margin-left: 10px; margin-right: 10px;">
-                <div class="sc-bdfBwQ gYzXwr" id="openlink">
-                    <a class="sc-bdfBwQ izHhhY sc-gsTCUz iKuzMk" style="background: #fff; color: #000; font-family: 'Inter', sans-serif !important; font-size: 18px">Open</a>
-                    </div>
-                </div>
-                <div style="margin: 10px 10px 0px 10px;">
-                <div class="sc-bdfBwQ gYzXwr" id="close-banner">
-                    <a class="sc-bdfBwQ izHhhY sc-gsTCUz iKuzMk" style="background: #fff; color: #000; font-family: 'Inter', sans-serif !important; font-size: 18px">Close Preview</a>
-                    </div>
-                </div>`;
-                    document.querySelector(".popup-background").style.display = "block";
-            setTimeout(() => {
-                document.getElementById("close-banner").addEventListener("click", function() {
-                    document.querySelector(".popup").style.display = "none";
-                    document.querySelector(".popup").innerHTML = '';
-                    document.querySelector(".popup-background").style.display = "none";
-                    document.body.style.overflowY = "unset";
-                    document.documentElement.overflowY = "unset";
-                });
-                document.getElementById("openlink").addEventListener("click", function() {
-                    window.open("https://github.com/itsmarianmc")
-                });
-            }, 100);
+            window.open("https://github.com/itsmarianmc")
         });
 
         document.getElementById("project-id=BB9S44zr").addEventListener("click", function() {
