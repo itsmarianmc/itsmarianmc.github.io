@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="assets/header.css">
     <link rel="stylesheet" href="assets/pages/mainpage/style.css">
+    <link rel="stylesheet" href="assets/iframes/reddit/style.css">
 </head>
 <body>
     <header class="header-frame">
@@ -66,16 +67,18 @@
                     <b>About me</b>
                 </a>
                 <br>
-                <a>I am itsmarian, I'm a frontend website developer and active Minecraft player and I have my own Minecraft project in which I invest a lot of time. For this project I also run, manage and design a website as a hobby and for learning purposes. I create the websites to develop myself and to constantly expand my knowledge about websites, HTML, CSS, JavaScript in fields of frontend and backend. Among other things, I use artificial intelligence to test its limits and to help myself in tough situations in which I do not know further. </a>
+                <a>Hey,</a>
+                <br>
+                <a>I'm itmarian, I'm a German front- and backend website developer and I create websites as a hobby, both for myself and for friends and acquaintances. I also have my own theme for BetterDiscord* and Vencord*, which I update regularly. In addition, I have my own Minecraft project with a friend, where we set ourselves the goal of building a large map with a city, an airport, etc., all for free.</a>
+                <br>
+                <a>If you are interested in one of my projects, feel free to use and share it ;-]</a>
                 <br>
                 <a>All the projects I make are open source and can be viewed on</a>
-                <a class="linkout" href="https://github.com/itsmarianmc/itsmarianmc.github.io" target="_blank">GitHub</a><a>.</a>
-                <a>You can use all of my games on this site to play by yourself or with your friends (for further information about Projekt City, please contact</a>
-                <a class="linkout nodecoration" href="mailto:projektcityofficial@gmail.com" target="_blank">projektcityofficial@gmail.com</a>
-                <a>or</a>
-                <a class="linkout nodecoration" href="mailto:business.itsmarian@gmail.com" target="_blank">business.itsmarian@gmail.com</a>).</a>
+                <a id="githubLinkout" style="cursor: pointer; text-decoration: underline;">GitHub</a><a>.</a>
                 <br>
-                <a style="font-size: 22.5px;">Take a look around and maybe you'll be interested in one of my projects 😊</a>
+                <div style="font-size: 22.5px; margin-top: 2.5px;">
+                    <a>Take a look around and maybe you'll be interested in one of my projects 😊</a>
+                </div>
             </div>
         </section>
         <div class="placeholder w300 h20"></div>
@@ -699,6 +702,8 @@
     <footer>
         <div class="footer-lines">
             <div class="footer-special-information">
+                <a>*Vencord, as well as BetterDiscord are against Discord's Terms of Service and can potentially ban your Discord account. I do not endorse Vencord or BetterDiscord and disassociate myself from these services and am merely providing a service and am not affiliated with these services.</a>
+                <br>
                 <a>All trademarks and their logos, names, content and files shown on these websites are the content and property of their respective owners. Itsmarian and Projekt City Ltd. are not affiliated with and do not cooperate with them and have no rights to these trademarks. These projects are for demonstration purposes only and are not intended to compete in any way with these brands. For questions regarding these games/brands or to request removal if you are the owner, please contact</a>
                 <a class="linkout" href="mailto:projektcityofficial@gmail.com" target="_blank">projektcityofficial@gmail.com</a>
                 <a>or</a>
@@ -749,9 +754,41 @@
             </div>
         </div>
     </div>
+    <div class="popup-background"></div>
+    <div class="popup"></div>
     <script src="assets/header.js"></script>
     <script src="assets/script.js"></script>
     <script>
+        document.getElementById("githubLinkout").addEventListener("click", function() {
+            document.body.style.overflowY = "hidden";
+            document.documentElement.overflowY = "hidden";
+            document.querySelector(".popup").style.background = "#0D1117";
+            document.querySelector(".popup").style.display = "block";
+            document.querySelector(".popup").innerHTML = `<iframe height="364px" src="https://github.com/itsmarianmc" style="border-radius: 10px; border-width: 0px; overflow: hidden; width: 100%;"></iframe><div style="background-color: #ccc; height: 0.5px; width: 100%; margin-top: 10px; margin-bottom: 10px;"></div><div style="margin-left: 10px; margin-right: 10px;">
+                <div class="sc-bdfBwQ gYzXwr" id="openlink">
+                    <a class="sc-bdfBwQ izHhhY sc-gsTCUz iKuzMk" style="background: #fff; color: #000; font-family: 'Inter', sans-serif !important; font-size: 18px">Open</a>
+                    </div>
+                </div>
+                <div style="margin: 10px 10px 0px 10px;">
+                <div class="sc-bdfBwQ gYzXwr" id="close-banner">
+                    <a class="sc-bdfBwQ izHhhY sc-gsTCUz iKuzMk" style="background: #fff; color: #000; font-family: 'Inter', sans-serif !important; font-size: 18px">Close Preview</a>
+                    </div>
+                </div>`;
+                    document.querySelector(".popup-background").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("close-banner").addEventListener("click", function() {
+                    document.querySelector(".popup").style.display = "none";
+                    document.querySelector(".popup").innerHTML = '';
+                    document.querySelector(".popup-background").style.display = "none";
+                    document.body.style.overflowY = "unset";
+                    document.documentElement.overflowY = "unset";
+                });
+                document.getElementById("openlink").addEventListener("click", function() {
+                    window.open("https://github.com/itsmarianmc")
+                });
+            }, 100);
+        });
+
         document.getElementById("project-id=BB9S44zr").addEventListener("click", function() {
             window.open("https://projektcity.github.io?utm_src=itsmarian_mainpage_project_overview_linkout-open-btn&utm_medium=itsmarian", "blank")
         });

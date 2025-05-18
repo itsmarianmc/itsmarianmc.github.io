@@ -139,7 +139,7 @@
 .carousel-item-maincontent {
     display: flex;
     flex-direction: column;
-    height: calc(100% - 115.5px);
+    height: calc(100% - 100px);
     padding: 7.5px;
 }
 
@@ -161,4 +161,39 @@
     } 100% {
         transform: translateX(-50%);
     }
+}
+
+.popup-background {
+    backdrop-filter: blur(10px);
+    bottom: 0;
+    color: #fff;
+    display: none;
+    left: 0;
+    height: 100%;
+    padding: 15px;
+    position: fixed;
+    text-align: center;
+    width: 100%;
+    z-index: 1000;
+}
+
+.popup {
+    background-color: #fff;
+    border: 1px solid #383939;
+    border-radius: 20px;
+    bottom: 0;
+    box-sizing: border-box;
+    color: #fff;
+    display: none;
+    height: 506.5px;
+    max-width: 530px;
+    min-width: 300px;
+    position: fixed;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: calc(100% - 20px);
+    left: 50%;
+    overflow: hidden;
 }
