@@ -28,7 +28,7 @@ const projectInfos = {
 const commands = {
 	"/help": `
         Available commands:
-        - /help
+    	- /help
         - /about
         - /projects
         - /project [1-3]
@@ -36,7 +36,7 @@ const commands = {
         `.trim(),
 	"/about": `I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.`,
 	"/projects": Object.entries(projectInfos)
-		.map(([id, p]) => `/project ${id}: ${p.title}`)
+		.map(([id, p]) => `${id}: ${p.title}`)
 		.join("\n"),
 	"/clear": 'CLEAR_SCREEN'
 };
@@ -44,6 +44,7 @@ const commands = {
 const preloadedText = `
 > Hey there, I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.
 Use the console to navigate around this page. Here are a few helpful commands:
+ㅤ
   - /help > shows a list of all available commands on this page
   - /about > shows all information about me and my projects
   - /projects > shows all projects I made/make
@@ -154,7 +155,7 @@ input.addEventListener("keydown", function(e) {
 			printAnimatedOutput(commands[command], userOutputEl, false, null, 30);
 		} else {
 			printAnimatedOutput(
-				`'${command}' is an unknown command. Try '/help'.`,
+				`'${command}' is an unknown command. Try '/help' for a list of commands.`,
 				userOutputEl,
 				true
 			);

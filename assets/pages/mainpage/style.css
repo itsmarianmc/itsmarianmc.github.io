@@ -12,7 +12,6 @@ html,
 body {
 	height: 100%;
 	margin: 0;
-	overflow: hidden;
 }
 
 body {
@@ -21,7 +20,6 @@ body {
 	font-family: 'Space Mono', monospace;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }
 
 h1, h2, h3, h4 {
@@ -45,8 +43,6 @@ main {
 .console {
 	padding: 1rem;
 	border-radius: 8px;
-	max-height: 80vh;
-	overflow: hidden;
 	display: flex;
 	flex-direction: column;
 }
@@ -58,16 +54,6 @@ main {
 
 .output {
     margin-top: 10px;
-}
-
-.scroll-container {
-	overflow-y: auto;
-	scrollbar-width: none;
-	-ms-overflow-style: none;
-	}
-
-	.scroll-container::-webkit-scrollbar {
-		display: none;
 }
 
 .input-line {
