@@ -45,7 +45,6 @@ main {
 .console {
 	padding: 1rem;
 	border-radius: 8px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	max-height: 80vh;
 	overflow: hidden;
 	display: flex;
@@ -61,13 +60,13 @@ main {
     margin-top: 10px;
 }
 
-#user-output {
+.scroll-container {
 	overflow-y: auto;
 	scrollbar-width: none;
 	-ms-overflow-style: none;
 	}
 
-	#user-output::-webkit-scrollbar {
+	.scroll-container::-webkit-scrollbar {
 		display: none;
 }
 
