@@ -95,6 +95,30 @@ input#commandInput.invalid {
     display: none;
 }
 
+.blink {
+    animation: blink 0.5s step-end infinite;
+    margin-left: 2px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+.output-link {
+    color: #56c6ff;
+    text-decoration: underline;
+    cursor: pointer;
+    word-break: break-word;
+}
+
+.output-link:hover {
+    color: #6effdc;
+}
+
+.valid { box-shadow: 0 0 3px #00ff00; }
+.invalid { box-shadow: 0 0 3px #ff0000; }
+
 .logo {
 	background-image: url('/assets/logos/favicon.png');
 	background-size: cover;

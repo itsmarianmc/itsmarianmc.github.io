@@ -1,0 +1,26 @@
+{
+    "projectInfos": {
+        "1": {
+            "title": "Projekt City",
+            "desc": "Projekt City is a unique and expansive Minecraft project that operates without funding and is entirely free to play for everyone. Our mission is to develop an easily navigable Minecraft world for everyone, while paying a lot of attention to details and flawless work. Within Projekt City, we are constructing a large map that features a city, an airport, a hotel, and much more, with meticulous attention to detail and precision. We enhance the gameplay through intricate redstone creations and commands.",
+            "link": "https://www.curseforge.com/minecraft/worlds/projekt-city"
+        },
+        "2": {
+            "title": "N'Track",
+            "desc": "N'Track is a simple, modern, reliable and completely free grade tracker to give you a better overview of your grades and show you which subjects you should try harder in. \nAll this, without ads and without premium features, because the app is already ✨PREMIUM ✨ enough and we think that everyone should be able to monitor their grades well and easily without having to spend money on it. Since we also have no server or other costs, we are not dependent on money and do not want to earn any.",
+            "link": "https://itsmarianmc.github.io/projects/ntrack/"
+        },
+        "3": {
+            "title": "HydroTrack",
+            "desc": "HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.",
+            "link": "https://itsmarianmc.github.io/projects/hydrotrack/"
+            }
+    },
+    "commands": {
+        "/help": "Available commands:\n\t- /help\n\t- /about\n\t- /projects\n\t- /project [id]\n\t- /clear",
+        "/about": "I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.",
+        "/clear": "CLEAR_SCREEN"
+    },
+    "preloadedText": "> Hey there, I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.\nUse the console to navigate around this page. Here are a few helpful commands:\n\n - /about > shows all information about me and my projects \n- /clear > clears the console\n- /help > shows a list of all available commands on this page\n  - /projects > shows all projects I made/make",
+    "projectsHelpText": "Use '/project [id]' to select a project for more details.\nAvailable projects:"
+}
