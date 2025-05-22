@@ -1,26 +1,53 @@
 {
     "projectInfos": {
         "1": {
-            "title": "Projekt City",
-            "desc": "Projekt City is a unique and expansive Minecraft project that operates without funding and is entirely free to play for everyone. Our mission is to develop an easily navigable Minecraft world for everyone, while paying a lot of attention to details and flawless work. Within Projekt City, we are constructing a large map that features a city, an airport, a hotel, and much more, with meticulous attention to detail and precision. We enhance the gameplay through intricate redstone creations and commands.",
-            "link": "https://www.curseforge.com/minecraft/worlds/projekt-city"
+            "title":"BlockBlast",
+            "desc": "Block Blast is a relaxing puzzle game where you try to connect rows of blocks by placing them to fill a row. Try to make room for each piece so that you don't run out of space, otherwise the game is over.",
+            "link": "https://itsmarianmc.github.io/projects/blockblast"
         },
         "2": {
+            "title":"CodeMatic",
+            "desc": "CodeMatic is a modern, secure and simple code formatter that formats your code with the click of a button. No advertising, no tracking, no premium!",
+            "link": "https://itsmarianmc.github.io/projects/codematic"
+        },
+        "3": {
+            "title":"CookieClicker",
+            "desc": "Cookie clicker is a very simple game where you get a cookie by pressing on a cookie! From this you can get upgrades, robots and other automations. If you have enough cookies, you can reset your progress to gain prestige and continue playing with a higher number of cookies per click.",
+            "link": "https://itsmarianmc.github.io/projects/cookieclicker"
+        },
+        "4": {
+            "title": "HydroTrack",
+            "desc": "HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.",
+            "link": "https://itsmarianmc.github.io/projects/hydrotrack/"
+        },
+        "5": {
+            "title":"Impostor",
+            "desc": "The aim of “Find The impostor” is to expose a secret impostor in the group. All players are given a secret role: most are normal players, but one or more participants are impostors. A random word is chosen and each player must name a word for the word. The impostor must try to guess the word, while the innocents try to guess the impostor.",
+            "link": "https://itsmarianmc.github.io/projects/impostor"
+        },
+        "6": {
             "title": "N'Track",
             "desc": "N'Track is a simple, modern, reliable and completely free grade tracker to give you a better overview of your grades and show you which subjects you should try harder in. \nAll this, without ads and without premium features, because the app is already ✨PREMIUM ✨ enough and we think that everyone should be able to monitor their grades well and easily without having to spend money on it. Since we also have no server or other costs, we are not dependent on money and do not want to earn any.",
             "link": "https://itsmarianmc.github.io/projects/ntrack/"
         },
-        "3": {
-            "title": "HydroTrack",
-            "desc": "HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.",
-            "link": "https://itsmarianmc.github.io/projects/hydrotrack/"
-            }
+        "7": {
+            "title": "Projekt City",
+            "desc": "Projekt City is a unique and expansive Minecraft project that operates without funding and is entirely free to play for everyone. Our mission is to develop an easily navigable Minecraft world for everyone, while paying a lot of attention to details and flawless work. Within Projekt City, we are constructing a large map that features a city, an airport, a hotel, and much more, with meticulous attention to detail and precision. We enhance the gameplay through intricate redstone creations and commands.",
+            "link": "https://projektcity.github.io/"
+        },
+        "8": {
+            "title":"Timer and Watch Tools",
+            "desc": "Many useful functions inspired by the iOS 'Clock' app. There is a world clock that displays different times around the world live. A stopwatch with a start/stop, delete and lap system, all with an appealing and modern UI.",
+            "link": "https://itsmarianmc.github.io/projects/timer-watch-worldtime"
+        }
     },
     "commands": {
-        "/help": "Available commands:\n\t- /help\n\t- /about\n\t- /projects\n\t- /project [id]\n\t- /clear",
         "/about": "I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.",
-        "/clear": "CLEAR_SCREEN"
+        "/clear": "CLEAR_SCREEN",
+        "/copyright": "Copyright (C) 2025 itsmarian | All rights reserved \nCopright (C) 2025 Projekt City Ltd. | All rights reserved \nThis site is related and operated by Projekt City Ltd (members). The following conditions, guidelines, policies and terms apply: \n - Privacy for GitHub Pages: https://projektcity.github.io/legal/github-privacy \n - Privacy Policy: https://projektcity.github.io/legal/privacy \n - Terms of Use: https://projektcity.github.io/legal/terms",
+        "/help": "Available commands:\n\t- /about\n\t- /clear\n\t- /help\n\t- /projects\n\t- /project [id]\n\t- socials  \n---------- \n - /copyright > All Copyright information about this site",
+        "/socials": "My Socials: \n- Discord: https://discord.com/users/860122608682795028 \n- GitHub: https://github.com/itsmarianmc \n- Instagram: https://www.instagram.com/itsmarian.mc/ \n- Spotify: https://open.spotify.com/user/31emgez4ghqgfkx2fuyrsh3frutu \n- Threads: https://www.threads.net/@itsmarian.mc \n- TikTok: https://www.tiktok.com/@itsmarian.mc \nYou can find all my other socials and other sites I make here: https://itsmarianmc.github.io/socials"
     },
-    "preloadedText": "> Hey there, I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.\nUse the console to navigate around this page. Here are a few helpful commands:\n\n - /about > shows all information about me and my projects \n- /clear > clears the console\n- /help > shows a list of all available commands on this page\n  - /projects > shows all projects I made/make",
+    "preloadedText": "> Hey there, I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.\nUse the console to navigate around this page. Here are a few helpful commands:\n\n - /about > shows all information about me and my projects \n - /clear > clears the console \n - /help > shows a list of all available commands on this page \n - /projects > shows all projects I made/make \n - /socials > lists all my socials",
     "projectsHelpText": "Use '/project [id]' to select a project for more details.\nAvailable projects:"
 }

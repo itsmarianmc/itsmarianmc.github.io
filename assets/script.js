@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    console.log("[BUILD INFO] Release Channel: stable, Build Number: #232, Update date: 05/20/2025");
+    console.log("[BUILD INFO] Release Channel: stable, Build Number: #237, Update date: 05/22/2025");
     setTimeout(() => {
         console.log('%cWARNING!', 'color: red; font-size: 30px; font-weight: bold;');
         console.log('%cThis is a browser feature intended for developers and debuggers only and may contain sensitive links and information about you, your data and private information, account/s, device, browser and current session. \nScammers have been known to encourage people to copy and/or paste information or run commands on the command line to hack accounts or access sensitive data. If you do not know what you are doing, do not proceed and close the debug menu! \nThe information that is/will be visible above and below this text is only for the development and improvement of the site and helps to find and fix bugs and other problems in JavaScript faster. \nAs this is a website related to Projekt City, please visit the following address, for more information about this message and what you can do if you have been taken in by a scam: https://projektcity.github.io/helpcenter/debug-menu', 'color: red; font-size: 12.5px;');  

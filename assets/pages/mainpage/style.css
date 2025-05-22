@@ -106,7 +106,7 @@ input#commandInput.invalid {
 }
 
 .output-link {
-    color: #56c6ff;
+    color: var(--txt);
     text-decoration: underline;
     cursor: pointer;
     word-break: break-word;
@@ -125,8 +125,14 @@ input#commandInput.invalid {
 	background-position: center;
 	background-repeat: no-repeat;
 	border-radius: 50%;
-	width: 70px;
+	cursor: pointer;
 	height: 70px;
+	transition: transform 2.5s ease-in-out;
+	width: 70px;
+}
+
+.logo:hover {
+	transform: rotate(360deg);
 }
 
 @media (max-width: 600px) {

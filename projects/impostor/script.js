@@ -1,4 +1,3 @@
-// Script für Splash mit Multi-Select-Kategorien
 const storage = localStorage;
 const setupScreen = document.getElementById('setup-screen');
 const cardScreen = document.getElementById('card-screen');
@@ -17,7 +16,6 @@ const nextBtn = document.getElementById('next-btn');
 const pauseBtn = document.getElementById('pause-btn');
 const revealImpostorBtn = document.getElementById('reveal-impostors');
 
-// Spiel-Variablen
 let players = [],
     impostors = [],
     word = '',
@@ -27,10 +25,8 @@ let isPaused = false;
 let startY;
 const threshold = 80;
 
-// Hilfsfunktion: alle möglichen Kategorien (ohne "all")
 const allCategories = ['entertainment', 'daily', 'animalsnature', 'sports', 'school', 'festivals', 'stars', 'fruits', 'countries'];
 
-// Liest die angehakten Kategorien aus und behandelt "all"-Auswahl
 function getSelectedCategories() {
     const checked = Array.from(document.querySelectorAll('input[name="category"]:checked')).map(el => el.value);
     if (checked.includes('all')) {
@@ -39,7 +35,6 @@ function getSelectedCategories() {
     return checked;
 }
 
-// Lädt gespeicherte Settings aus localStorage und setzt Formularwerte.
 function loadSettings() {
     if (storage.names) namesInput.value = storage.names;
     if (storage.impostors) impostorCount.value = storage.impostors;
@@ -53,7 +48,6 @@ function loadSettings() {
 }
 loadSettings();
 
-// Initialisierungstext und Loader
 document.addEventListener("DOMContentLoaded", function() {
     function generateStyles() {
         const elements = document.querySelectorAll('*');
@@ -75,7 +69,6 @@ document.addEventListener("DOMContentLoaded", function() {
     styleTag.appendChild(document.createTextNode(generateStyles()));
     document.head.appendChild(styleTag);
 
-    // Loader-Animation
     document.querySelector(".initialision").style.display = "block";
     document.getElementById("setup-screen").classList.add("hidden");
     setTimeout(() => {
@@ -87,7 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("initialision-text").style.display = "block";
     }, 6000);
 
-    // Fortschrittswörter
     const words = [ "Verbinde zu Server",
                     "Verbinde zu Server",
                     "Verbinde zu Server",
@@ -150,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function() {
     impostorCount.addEventListener('input', checkImpostorInput);
 });
 
-// Start-Button-Logik: Spieler-, Impostor- und Kategorien-Setup
 startBtn.addEventListener('click', async () => {
     players = namesInput.value.split('\n').map(n => n.trim()).filter(n => n);
     const impCount = parseInt(impostorCount.value, 10);
@@ -176,8 +167,6 @@ startBtn.addEventListener('click', async () => {
     showCard();
 });
 
-
-// Karten-Interaktionen
 card.addEventListener('pointerdown', e => startY = e.clientY);
 card.addEventListener('pointerup', e => {
     const dy = startY - e.clientY;
@@ -190,13 +179,11 @@ nextBtn.addEventListener('click', () => {
     else startTimerPhase();
 });
 
-// Aktualisiert das Impostor-Label
 function checkImpostorInput() {
     const v = parseInt(impostorCount.value, 10);
     document.getElementById("impostor-sp").innerText = v === 1 ? 'Der Impostor ist: ' : 'Die Impostoren sind: ';
 }
 
-// Zeigt die nächste Karte (Name)
 function showCard() {
     card.classList.remove('revealed');
     cardBack.textContent = '';
@@ -204,7 +191,6 @@ function showCard() {
     nextBtn.disabled = true;
 }
 
-// Dreht Karte um und zeigt Rolle/Wort
 function revealCard() {
     const isImp = impostors.includes(current);
     cardBack.innerHTML = isImp ?
@@ -214,18 +200,17 @@ function revealCard() {
     nextBtn.disabled = false;
 }
 
-// Verbirgt Karte wieder
 function hideCard() {
     card.classList.remove('revealed');
     nextBtn.disabled = false;
 }
 
-// Wechsel zur Timer-Phase */
 function startTimerPhase() {
     const displayContainer = document.getElementById('randomplayer');
 
     cardScreen.classList.add('hidden');
     timerScreen.classList.remove('hidden');
+    document.querySelector(".timer-controls").classList.remove('hidden');
     startTimer(parseInt(timerMinutes.value, 10));
 
 
