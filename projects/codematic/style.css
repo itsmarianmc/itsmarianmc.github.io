@@ -17,8 +17,8 @@
 }
 
 :root.dark {
-    --bg-card: #333;
-    --bg-main: #222;
+    --bg-card: #222;
+    --bg-main: #121416;
     --label-color: #ccc;
     --knob-color: #222;
     --text-clr: #eee;

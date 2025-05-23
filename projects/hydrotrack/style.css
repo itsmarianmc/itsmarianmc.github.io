@@ -27,12 +27,12 @@
     --tertiary: #BB86FC;
     --accent: #FFC107;
     --background: #1B1D1E;
-    --background-body: #272829;
+    --background-body: #121416;
     --bg: #1B1D1E;
     --borderOnTop: #ccc;
     --card: #1F1F1F;
     --dropdown-bg: #1F1F1F;
-    --dropdown-hover: rgba(30, 136, 229, 0.2);
+    --dropdown-hover: rgba(187, 134, 252, 0.5);
     --knob-color: #222;
     --radius: 12px;
     --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
