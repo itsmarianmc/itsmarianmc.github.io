@@ -116,11 +116,16 @@ input#commandInput.invalid {
     color: #6effdc;
 }
 
-.valid { box-shadow: 0 0 3px #00ff00; }
-.invalid { box-shadow: 0 0 3px #ff0000; }
+.valid {
+	box-shadow: 0 0 3px #00ff00;
+};
+
+.invalid {
+	box-shadow: 0 0 3px #ff0000;
+};
 
 .logo {
-	background-image: url('/assets/logos/favicon.png');
+	background-image: url('/assets/logos/favicon.webp');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
