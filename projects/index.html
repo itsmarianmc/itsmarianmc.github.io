@@ -1,28 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=/">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Projects</title>
+  <style>
+    :root {
+        --bg: #121416;
+        --text: #ffffff;
+        --accent: #ffffff;
+        --card-bg: #1e1e1e;
+        --border: #333;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: system-ui, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        padding: 2rem;
+    }
+
+    header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        color: #c1c1c1;
+    }
+
+    .grid {
+        display: grid;
+        gap: 1.5rem;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        max-width: 1100px;
+        margin: 0 auto;
+    }
+
+    @media (min-width: 1024px) {
+        .grid {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    .card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 220px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card h2 {
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card p {
+        flex-grow: 1;
+    }
+
+    .card a {
+        display: inline-block;
+        margin-top: 1rem;
+        background: var(--border);
+        color: var(--text);
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        text-align: center;
+        text-decoration: none;
+        font-weight: 500;
+        transition: background 0.2s;
+    }
+
+    .card a:hover {
+        background: var(--accent);
+        color: var(--bg);
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 4rem;
+        font-size: 0.875rem;
+        color: #aaa;
+    }
+  </style>
 </head>
 <body>
-    <div class="cookie-notice">
-        <div class="cookie-notice-inner">
-            <div>
-                <a>This site uses cookies, including from Google LLC and Fonticons Inc, to provide you with fonts, symbols, emojis and other scripts and technologies and to save your game and other progress on the site. Anything beyond these cookies is not collected, stored or visible. By using the site, you agree to the</a>
-                <a class="linkout nodecoration-light" href="/legal/privacy" target="_blank">Privacy Policy</a>
-                <a>and</a>
-                <a class="linkout nodecoration-light" href="/legal/terms" target="_blank">Terms of Use!</a>
-            </div>
-            <div class="cookie-notice-button">
-                <svg xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25" fill="#fff">
-                    <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
-                </svg>
-                <a>Understand</a>
-            </div>
+    <header>
+        <h1>My Projects</h1>
+    </header>
+    <main class="grid">
+        <div class="card">
+            <h2>BlockBlast</h2>
+            <p>Block Blast is a relaxing puzzle game where you try to connect rows of blocks by placing them to fill a row. Try to make room for each piece so that you don't run out of space, otherwise the game is over.</p>
+            <a href="/projects/blockblast/">View project →</a>
         </div>
-    </div>
-    <script src="/assets/script.js"></script>
+        <div class="card">
+            <h2>CodeMatic</h2>
+            <p>CodeMatic is an innovative coding platform that helps you learn programming through interactive lessons and real-world projects.CodeMatic is a modern, secure and simple code formatter that formats your code with the click of a button. No advertising, no tracking, no premium!</p>
+            <a href="/projects/codematic/">View project →</a>
+        </div>
+        <div class="card">
+            <h2>CookieClicker</h2>
+            <p>Cookie clicker is a very simple game where you get a cookie by pressing on a cookie! From this you can get upgrades, robots and other automations. If you have enough cookies, you can reset your progress to gain prestige and continue playing with a higher number of cookies per click.</p>
+            <a href="/projects/cookieclicker/">View project →</a>
+        </div>
+        <div class="card">
+            <h2>HydroTrack</h2>
+            <p>HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.</p>
+            <a href="/projects/hydrotrack/">View project →</a>
+        </div>
+        <div class="card">
+            <h2>Impostor</h2>
+            <p>The aim of “Find The impostor” is to expose a secret impostor in the group. All players are given a secret role: most are normal players, but one or more participants are impostors. A random word is chosen and each player must name a word for the word. The impostor must try to guess the word, while the innocents try to guess the impostor.</p>
+            <a href="/projects/impostor/">View project →</a>
+        </div>
+        <div class="card">
+            <h2>N'Track</h2>
+            <p>N'Track is a simple, modern, reliable and completely free grade tracker to give you a better overview of your grades and show you which subjects you should try harder in. \nAll this, without ads and without premium features, because the app is already ✨PREMIUM ✨ enough and we think that everyone should be able to monitor their grades well and easily without having to spend money on it. Since we also have no server or other costs, we are not dependent on money and do not want to earn any.</p>
+            <a href="/projects/ntrack/">View project →</a>
+        </div>
+        <div class="card">
+            <h2>Projekt City</h2>
+            <p>Projekt City is a unique and expansive Minecraft project that operates without funding and is entirely free to play for everyone. Our mission is to develop an easily navigable Minecraft world for everyone, while paying a lot of attention to details and flawless work. Within Projekt City, we are constructing a large map that features a city, an airport, a hotel, and much more, with meticulous attention to detail and precision. We enhance the gameplay through intricate redstone creations and commands.</p>
+            <a href="https://www.curseforge.com/minecraft/worlds/projekt-city" target="_blank">View project →</a>
+            <a href="https://projektcity.github.io/">View website →</a>
+        </div>
+        <div class="card">
+            <h2>Timer and Watch Tools</h2>
+            <p>Many useful functions inspired by the iOS 'Clock' app. There is a world clock that displays different times around the world live. A stopwatch with a start/stop, delete and lap system, all with an appealing and modern UI.</p>
+            <a href="/projects/timer-watch-worldtime/">View project →</a>
+        </div>
+
+    </main>
+
+    <footer>
+        <a>&copy; 2025 itsmarian.is-a.dev & itsmarian | All rights reserved!</a>
+    </footer>
 </body>
 </html>
