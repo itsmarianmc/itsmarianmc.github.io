@@ -5,240 +5,221 @@ inputDiv.style.display = "none";
 const userOutputEl = document.getElementById("user-output");
 const preloadedTextDiv = document.getElementById("preloaded-text");
 
-// Geschwindigkeitseinstellungen
-const INITIAL_SPEED = 10;   // Starttext
-const TYPING_SPEED = 20;    // Normale Geschwindigkeit
-const ERROR_SPEED = 30;     // Fehlermeldungen
+const INITIAL_SPEED = 10;
+const TYPING_SPEED = 20;
+const ERROR_SPEED = 30;
 
 let history = [];
 let historyIndex = -1;
-let projectInfos = {};
-let commands = {};
-let preloadedText = "";
+
+let commandsConfig = {};
+let preloadedConfig = {};
 
 function splitTextWithUrls(text) {
-    const urlRegex = /(\b(https?|ftp):\/\/[-\w+&@#\/%?=~|!:,.;]*[-\w+&@#\/%=~|]|www\.[^\s]+)/gi;
-    const parts = [];
-    let lastIndex = 0;
-    let match;
-
-    while ((match = urlRegex.exec(text)) !== null) {
-        if (match.index > lastIndex) {
-            parts.push({
-                type: 'text',
-                content: text.substring(lastIndex, match.index)
-            });
-        }
-
-        const url = match[0];
-        parts.push({
-            type: 'link',
-            href: url.startsWith("www.") ? `https://${url}` : url,
-            display: url
-        });
-
-        lastIndex = urlRegex.lastIndex;
-    }
-
-    if (lastIndex < text.length) {
-        parts.push({
-            type: 'text',
-            content: text.substring(lastIndex)
-        });
-    }
-
-    return parts;
+	const urlRegex = /(\b(https?|ftp):\/\/[\-\w+&@#\/\%?=~|!:,.;]*[-\w+&@#\/%=~|]|www\.[^\s]+)/gi;
+	const parts = [];
+	let lastIndex = 0,
+		match;
+	while ((match = urlRegex.exec(text)) !== null) {
+		if (match.index > lastIndex) parts.push({
+			type: 'text',
+			content: text.slice(lastIndex, match.index)
+		});
+		const url = match[0];
+		parts.push({
+			type: 'link',
+			href: url.startsWith('www.') ? `https://${url}` : url,
+			display: url
+		});
+		lastIndex = urlRegex.lastIndex;
+	}
+	if (lastIndex < text.length) parts.push({
+		type: 'text',
+		content: text.slice(lastIndex)
+	});
+	return parts;
 }
 
 function printAnimatedLine(line, container, callback, speed = TYPING_SPEED) {
-    speed = Math.max(2, Math.min(100, speed));
-    const parts = splitTextWithUrls(line);
-    const lineContainer = document.createElement("div");
-    container.appendChild(lineContainer);
-    
-    let currentPart = 0;
-    let currentIndex = 0;
-    const blink = document.createElement("span");
-    blink.className = "blink";
-    blink.textContent = "█";
-    lineContainer.appendChild(blink);
+	speed = Math.max(2, Math.min(100, speed));
+	const parts = splitTextWithUrls(line);
+	const lineContainer = document.createElement("div");
+	container.appendChild(lineContainer);
+	let partIndex = 0,
+		charIndex = 0;
+	const blink = document.createElement("span");
+	blink.className = "blink";
+	blink.textContent = "█";
+	lineContainer.appendChild(blink);
 
-    function process() {
-        if (currentPart >= parts.length) {
-            blink.remove();
-            if (callback) callback();
-            return;
-        }
-
-        const part = parts[currentPart];
-        
-        if (part.type === 'link') {
-            const link = document.createElement('a');
-            link.href = part.href;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.className = 'output-link';
-            link.textContent = part.display;
-            lineContainer.insertBefore(link, blink);
-            currentPart++;
-            requestAnimationFrame(process);
-        } else {
-            if (currentIndex < part.content.length) {
-                const textNode = document.createTextNode(
-                    part.content[currentIndex]
-                );
-                lineContainer.insertBefore(textNode, blink);
-                currentIndex++;
-                setTimeout(process, speed);
-            } else {
-                currentPart++;
-                currentIndex = 0;
-                requestAnimationFrame(process);
-            }
-        }
-        
-        container.scrollTop = container.scrollHeight;
-    }
-
-    process();
+	function step() {
+		if (partIndex >= parts.length) {
+			blink.remove();
+			if (callback) callback();
+			return;
+		}
+		const part = parts[partIndex];
+		if (part.type === 'link') {
+			const a = document.createElement("a");
+			a.href = part.href;
+			a.target = "_blank";
+			a.rel = "noopener noreferrer";
+			a.className = "output-link";
+			a.textContent = part.display;
+			lineContainer.insertBefore(a, blink);
+			partIndex++;
+			requestAnimationFrame(step);
+		} else {
+			if (charIndex < part.content.length) {
+				const txt = document.createTextNode(part.content[charIndex++]);
+				lineContainer.insertBefore(txt, blink);
+				setTimeout(step, speed);
+			} else {
+				partIndex++;
+				charIndex = 0;
+				requestAnimationFrame(step);
+			}
+		}
+		container.scrollTop = container.scrollHeight;
+	}
+	step();
 }
 
 function printAnimatedOutput(text, container, isError = false, callback = null, speed = TYPING_SPEED) {
-    if (text === 'CLEAR_SCREEN') {
-        location.reload();
-        return;
-    }
+	if (text === 'CLEAR_SCREEN') {
+		document.getElementById("user-output").innerHTML = '<div class="output"><a>Console LOG cleared!</a></div>';
+		setTimeout(() => {
+			document.getElementById("user-output").innerHTML = '';
+			inputDiv.style.display = "flex";
+			input.disabled = false;
+			input.focus();
+		}, 2000);
+		return;
+	}
+	const lines = text.split('\n');
+	let i = 0;
 
-    const lines = text.split('\n').filter(l => l.trim());
-    let i = 0;
-
-    function next() {
-        if (i < lines.length) {
-            printAnimatedLine(lines[i], container, () => {
-                i++;
-                next();
-            }, isError ? ERROR_SPEED : speed);
-        } else if (callback) {
-            callback();
-        }
-    }
-    next();
+	function next() {
+		if (i < lines.length) {
+			const line = lines[i++];
+			if (line.trim() === '') return next();
+			printAnimatedLine(line, container, next, isError ? ERROR_SPEED : speed);
+		} else if (callback) callback();
+	}
+	next();
 }
 
+function normalizeCommand(cmd) {
+	let c = cmd.trim();
+	if (!c.startsWith('/')) c = '/' + c;
+	return c.toLowerCase();
+}
+
+function handleCommand(rawCmd, done) {
+	const cmd = normalizeCommand(rawCmd);
+	const cfg = commandsConfig[cmd];
+
+	if (!cfg && cmd.startsWith("/project ")) {
+		const id = cmd.split(" ")[1];
+		const projCmd = commandsConfig["/projects"];
+		if (projCmd && projCmd["list-data"] && projCmd["list-data"][id]) {
+			const p = projCmd["list-data"][id];
+			printAnimatedOutput(
+				`» ${p.title}\n${p.desc}\nProject link: ${p.link}`,
+				userOutputEl,
+				false,
+				done
+			);
+			return;
+		}
+	}
+
+	if (!cfg) {
+		printAnimatedOutput(`Unknown command: '${rawCmd}'. Try /help.`, userOutputEl, true, done);
+	}
+
+	switch (cfg["js-action"]) {
+		case "CLEAR_SCREEN":
+			printAnimatedOutput("CLEAR_SCREEN");
+			break;
+
+		case "CreateList":
+			printAnimatedOutput(cfg["print-text"] || "", userOutputEl, false, () => {
+				const list = cfg["list-data"];
+				const ids = Object.keys(list);
+				(function loop(i) {
+					if (i >= ids.length) return done();
+					const item = list[ids[i]];
+					printAnimatedOutput(`${ids[i]}. ${item.title}`, userOutputEl, false, () => loop(i + 1));
+				})(0);
+			});
+			break;
+
+		case "CreateLink":
+			printAnimatedOutput(cfg["print-text"] || "", userOutputEl, false, () => {
+				printAnimatedLine(cfg["link"], userOutputEl, done);
+			});
+			break;
+
+		default:
+			printAnimatedOutput(cfg["print-text"] || "", userOutputEl, false, done);
+	}
+}
 async function loadData() {
-    try {
-        const response = await fetch('/assets/pages/mainpage/data.json');
-        const data = await response.json();
-        
-        projectInfos = data.projectInfos;
-        commands = data.commands;
-        preloadedText = data.preloadedText;
-
-        commands["/projects"] = `My projects (use /project [id] for more detail):\n${
-            Object.entries(projectInfos)
-                .map(([id, p]) => `  ${id}: ${p.title}`)
-                .join("\n")
-        }`;
-
-        initApplication();
-    } catch (error) {
-        console.error('Loading error:', error);
-        projectInfos = { 1: { title: "Error", desc: "Data load failed", link: "#" } };
-        commands = { 
-            "/help": "Available commands:\n/help\n/error",
-            "/error": "Data loading error" 
-        };
-        preloadedText = "> System error - basic commands available";
-        initApplication();
-    }
-}
-
-function validateCommand(cmd) {
-    if (commands[cmd]) return true;
-    if (cmd.startsWith("/project ")) {
-        const id = cmd.split(" ")[1];
-        return !!projectInfos[id];
-    }
-    return false;
+	try {
+		const resp = await fetch('/assets/pages/mainpage/data.json');
+		const data = await resp.json();
+		commandsConfig = {};
+		for (const key in data.commands) {
+			commandsConfig[key.toLowerCase()] = data.commands[key];
+		}
+		preloadedConfig = data.preloadedText;
+	} catch (err) {}
+	initApplication();
 }
 
 function initApplication() {
-    input.addEventListener('input', () => {
-        input.classList.remove('valid', 'invalid');
-        if (!input.value.trim()) return;
-        validateCommand(input.value.trim()) 
-            ? input.classList.add('valid')
-            : input.classList.add('invalid');
-    });
+	printAnimatedOutput(preloadedConfig.text, preloadedTextDiv, false, () => {
+		inputDiv.style.display = "flex";
+		input.focus();
+	}, INITIAL_SPEED);
 
-    input.addEventListener("keydown", (e) => {
-        if (input.disabled) return;
-        
-        if (e.key === "Enter") {
-            const cmd = input.value.trim();
-            if (!cmd) return;
+	input.addEventListener("keydown", e => {
+		if (e.key !== "Enter") return;
+		const raw = input.value.trim();
+		if (!raw) return;
+		input.disabled = true;
+		history.push(raw);
+		historyIndex = history.length;
+		const echo = document.createElement("div");
+		echo.className = "output";
+		echo.textContent = `> GH C:\\Users\\itsmarian> ${raw}`;
+		userOutputEl.appendChild(echo);
+		handleCommand(raw, () => {
+			input.disabled = false;
+			input.focus();
+		});
+		input.value = "";
+	});
 
-            input.disabled = true;
+	input.addEventListener("keydown", e => {
+		if (e.key === "ArrowUp" && historyIndex > 0) input.value = history[--historyIndex];
+		if (e.key === "ArrowDown" && historyIndex < history.length - 1) input.value = history[++historyIndex];
+	});
 
-            history.push(cmd);
-            historyIndex = history.length;
-
-            const outputDiv = document.createElement("div");
-            outputDiv.className = "output";
-            outputDiv.textContent = `> GH C:\\Users\\Marian> ${cmd}`;
-            userOutputEl.appendChild(outputDiv);
-
-            const onComplete = () => {
-                input.disabled = false;
-                input.focus();
-            };
-
-            if (cmd.startsWith("/project ")) {
-                const id = cmd.split(" ")[1];
-                const project = projectInfos[id];
-                if (project) {
-                    const output = [
-                        `» ${project.title}`,
-                        project.desc,
-                        `Link: ${project.link}`
-                    ].join("\n");
-                    printAnimatedOutput(output, userOutputEl, false, onComplete);
-                } else {
-                    printAnimatedOutput(
-                        `Project ${id} not found. Use /projects.`,
-                        userOutputEl,
-                        true,
-                        onComplete,
-                        ERROR_SPEED
-                    );
-                }
-            } else if (commands[cmd]) {
-                printAnimatedOutput(commands[cmd], userOutputEl, false, onComplete);
-            } else {
-                printAnimatedOutput(
-                    `Unknown command: '${cmd}'. Try /help.`,
-                    userOutputEl,
-                    true,
-                    onComplete,
-                    ERROR_SPEED
-                );
-            }
-
-            input.value = "";
-            input.classList.remove("valid", "invalid");
-        } else if (e.key === "ArrowUp") {
-            if (historyIndex > 0) input.value = history[--historyIndex];
-        } else if (e.key === "ArrowDown") {
-            input.value = historyIndex < history.length - 1 
-                ? history[++historyIndex] 
-                : "";
-        }
-    });
-
-    printAnimatedOutput(preloadedText, preloadedTextDiv, false, () => {
-        inputDiv.style.display = 'flex';
-        input.focus();
-    }, INITIAL_SPEED);
+	input.addEventListener("input", () => {
+		const raw = input.value.trim();
+		const cmd = normalizeCommand(raw);
+		let isValid = false;
+		if (commandsConfig[cmd]) isValid = true;
+		else if (cmd.startsWith("/project ")) {
+			const id = cmd.split(" ")[1];
+			const projCfg = commandsConfig["/projects"];
+			if (projCfg && projCfg["list-data"] && projCfg["list-data"][id]) isValid = true;
+		}
+		input.classList.toggle("valid", isValid);
+		input.classList.toggle("invalid", !isValid);
+	});
 }
 
 loadData();

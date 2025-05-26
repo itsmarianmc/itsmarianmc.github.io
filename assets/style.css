@@ -1,231 +1,227 @@
 body {
-    font-family: "National Park", sans-serif;
-    font-weight: 200;
-    margin: 0;
-    padding: 0;
-    width: 100%;
+	font-family: "National Park", sans-serif;
+	font-weight: 200;
+	margin: 0;
+	padding: 0;
+	width: 100%;
 }
 
 main {
-    margin: 10px;
+	margin: 10px;
 }
 
 section {
-    margin: 0 auto;
-    max-width: 1000px;
-    min-width: 300px;
+	margin: 0 auto;
+	max-width: 1000px;
+	min-width: 300px;
 }
 
 footer {
-    margin: 0 auto;
-    text-align: center;
-    width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	width: 100%;
 }
 
 h1 {
-    font-size: 40px;
-    margin-block-start: 0.2em;
-    margin-block-end: 0.2em;
+	font-size: 40px;
+	margin-block-start: 0.2em;
+	margin-block-end: 0.2em;
 }
 
 h2 {
-    font-size: 35px;
-    margin-block-start: 0.15em;
-    margin-block-end: 0.15em;
+	font-size: 35px;
+	margin-block-start: 0.15em;
+	margin-block-end: 0.15em;
 }
 
 h3 {
-    font-size: 30px;
-    margin-block-start: 0.1em;
-    margin-block-end: 0.1em;
+	font-size: 30px;
+	margin-block-start: 0.1em;
+	margin-block-end: 0.1em;
 }
 
 .bold {
-    text-decoration: double;
+	text-decoration: double;
 }
 
 .hidden {
-    display: none !important;
+	display: none !important;
 }
 
 .btn {
-    background-color: #545454;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    height: 40px;
-    width: 220px;
+	background-color: #545454;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+	height: 40px;
+	width: 220px;
 }
 
 .btn-inner {
-    padding: 5px;
-    width: 210px;
-    display: flex;
+	padding: 5px;
+	width: 210px;
+	display: flex;
 }
 
 .btn-svg {
-    height: 30px;
-    width: 30px;
+	height: 30px;
+	width: 30px;
 }
 
 .btntext {
-    color: #fff;
-    font-size: 26px;
-    width: 180px;
+	color: #fff;
+	font-size: 26px;
+	width: 180px;
 }
 
 .placeholder {
-    margin: 0 auto;
+	margin: 0 auto;
 }
 
 .nodecoration {
-    color: var(--text-color-light);
-    text-decoration: none !important;
+	color: var(--text-color-light);
+	text-decoration: none !important;
 }
 
 .nodecoration-light {
-    color: #fff !important;
-    text-decoration: none !important;
+	color: #fff !important;
+	text-decoration: none !important;
 }
 
 .nodecoration:hover {
-    text-decoration: underline !important;
+	text-decoration: underline !important;
 }
 
 .linkout {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 .footer-lines {
-    padding-bottom: 15px;
-    padding-top: 15px;
-    padding-left: 5px;
-    padding-right: 5px;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .footer-line {
-    margin: 0 auto;
-    max-width: 1000px;
-    text-align: center;
+	margin: 0 auto;
+	max-width: 1000px;
+	text-align: center;
 }
 
 .footer-special-information {
-    font-size: 10px;
-    margin: 0 auto;
-    max-width: 1000px;
+	font-size: 10px;
+	margin: 0 auto;
+	max-width: 1000px;
 }
 
 .footer-copy {
-    font-size: 2em;
-    font-weight: 400;
-    text-align: center;
-    width: 100%;
+	font-size: 2em;
+	font-weight: 400;
+	text-align: center;
+	width: 100%;
 }
 
-
 /* Scrollbar / Source: https://community.hubspot.com/t5/CMS-Development/CSS-for-Scrollbar-in-iOS-devices/m-p/293889 [03/20/2024]*/
-::-webkit-scrollbar{
-    -webkit-appearance: none;
-    width: 7px;
+::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
 }
 
 ::-webkit-scrollbar-thumb {
-    border-radius: 4px;
-    background-color: transparent; 
-    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+	border-radius: 4px;
+	background-color: transparent;
+	-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
 ::-webkit-scrollbar {
-    width: 5px;
+	width: 5px;
 }
 
 ::-webkit-scrollbar-track {
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    background: transparent;
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #707070;
+	background: #707070;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #646464;
+	background: #646464;
 }
 
 ::-webkit-overflow-scrolling:touch {
-    background: #707070;
-    width: 5px;
+	background: #707070;
+	width: 5px;
 }
 
 /* Cookie Notice */
 .cookie-notice {
-    animation: cn-fade-in 0.5s forwards;
-    animation-delay: 0s;
-    background-color: rgba(36, 38, 43, 0.33);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border-top: 2px solid rgba(255, 255, 255, 0.33);;
-    bottom: -100%;
-    color: #fff;
-    padding: 10px;
-    position: fixed;
-    z-index: 99999;
+	animation: cn-fade-in 0.5s forwards;
+	animation-delay: 0s;
+	background-color: rgba(36, 38, 43, 0.33);
+	backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+	border-top: 2px solid rgba(255, 255, 255, 0.33);
+	;
+	bottom: -100%;
+	color: #fff;
+	padding: 10px;
+	position: fixed;
+	z-index: 99999;
 }
 
 @keyframes cn-fade-in {
-    0% {
-        bottom: -100%;
-    } 100% {
-        bottom: 0;
-    }
+	0% {
+		bottom: -100%;
+	}
+
+	100% {
+		bottom: 0;
+	}
 }
 
 .cookie-notice-inner {
-    color: #fff !important;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	color: #fff !important;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
-
 
 .cookie-notice-button {
-    border: 1px solid #fff;
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    float: right;
-    gap: 5px;
-    padding: 5px;
-    position: relative;
-    right: 0;
+	border: 1px solid #fff;
+	border-radius: 10px;
+	cursor: pointer;
+	display: flex;
+	float: right;
+	gap: 5px;
+	padding: 5px;
+	position: relative;
+	right: 0;
 }
 
-.cookie-notice-check {
+.cookie-notice-check {}
 
-}
-
-.cookie-notice-text {
-
-}
+.cookie-notice-text {}
 
 @media (max-width: 700px) {
-    .cookie-notice-inner {
-        flex-direction: column;
-    }
+	.cookie-notice-inner {
+		flex-direction: column;
+	}
 
-    .cookie-notice-button {
-        margin-bottom: 20px;
-        margin-top: 20px;
-        justify-content: center;
-        text-align: center;
-        width: calc(100% - 10px - 2px);
-    }
+	.cookie-notice-button {
+		margin-bottom: 20px;
+		margin-top: 20px;
+		justify-content: center;
+		text-align: center;
+		width: calc(100% - 10px - 2px);
+	}
 }
 
-
 @media (min-width: 2400px) {
-    .cookie-notice {
-        width: calc(100% - 20px);
-    }
+	.cookie-notice {
+		width: calc(100% - 20px);
+	}
 }

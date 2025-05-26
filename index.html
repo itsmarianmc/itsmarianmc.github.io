@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>itsmarian</title>
     <link rel="icon" type="image/png" href="/assets/logos/favicon.webp">
-    <link rel="apple-touch-icon" href="/assets/logos/favicon.png">
-    <meta property="og:image" content="/assets/logos/favicon.png">
+    <link rel="apple-touch-icon" href="/assets/logos/favicon.webp">
     <link rel="stylesheet" href="/assets/pages/mainpage/style.css">
     <!-- META -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,21 +22,43 @@
 </head>
 <body>
     <main>
-        <div class="console" id="console">
-        <div class="flex-container" style="gap: 20px; margin: 20px 0px;">
-            <h1 style="font-size: 45px;">itsmarian</h1>
-            <div class="logo"></div>
+        <div class="content-area" id="usaction-console">
+            <div class="content-head">
+                <div>
+                    <img alt="Logo" class="logo" height="50" src="/assets/logos/favicon-transparent.png" width="50">
+                </div>
+                <div>
+                    <a class="box" id="name" style="opacity: 0;">itsmarian</a>
+                    <a class="box" id="url">itsmarian.is-a.dev</a>
+                </div>
+                <div id="usaction-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50" fill="#fff">
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="content-body">
+                <div class="content-area-head">
+                    <h1 id="welcome-text">Welcome</h1>
+                    <h1 id="cursor">|</h1>
+                </div>
+                <div class="content-interactive-user-element">
+                    <div class="preloaded-output" id="preloaded-text"></div>
+                    <div id="user-output"></div>
+                    <div class="input-line">
+                        <span id="mobileInput">>&nbsp;</span>
+                        <span id="desktopInput">> GH C:\Users\itsmarian&gt</span>
+                        <label for="commandInput" style="display: none; opacity: 0; visibility: hidden;">Enter the command you want to run</label>
+                        <input type="text" id="commandInput" autocomplete="off" />
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="preloaded-output" id="preloaded-text"></div>
-        <div id="user-output"></div>
-        <div class="input-line">
-            <span id="mobileInput">>&nbsp;</span>
-            <span id="desktopInput">> GH C:\Users\itsmarian&gt</span>
-            <label for="commandInput" style="display: none; opacity: 0; visibility: hidden;">Enter the command you want to run</label>
-            <input type="text" id="commandInput" autocomplete="off" />
-        </div>
+        <div class="interactive-section">
+             
         </div>
     </main>
+    <script src="/assets/pages/mainpage/min.js"></script>
     <script src="/assets/pages/mainpage/script.js"></script>
 </body>
 </html>
