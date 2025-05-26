@@ -217,16 +217,9 @@ input#commandInput.invalid {
     #mobileInput {
         display: block;
     }
-    .content-head div:nth-child(2) {
-        font-size: 18px; 
-        flex-direction: column;
-    }
-    
-    #name {
-        line-height: 1.2; /* Bessere Lesbarkeit */
-    }
 }
 
 .box {
+    position: absolute;
     transition: opacity 0.5s ease-in-out;
 }
