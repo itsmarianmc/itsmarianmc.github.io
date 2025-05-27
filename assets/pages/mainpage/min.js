@@ -1,5 +1,11 @@
 document.getElementById("usaction-close").addEventListener("click", function() {
 	document.getElementById("usaction-console").style.display = "none";
+	document.getElementById("closed-action").style.display = "block";
+});
+
+document.getElementById("closed-action").addEventListener("click", function() {
+	document.getElementById("usaction-console").style.display = "block";
+	document.getElementById("closed-action").style.display = "none";
 });
 
 const box1 = document.getElementById('name');

@@ -43,9 +43,8 @@
 
     .grid {
         display: grid;
-        gap: 1.5rem;
+        gap: 2.5rem;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        max-width: 1100px;
         margin: 0 auto;
     }
 
@@ -59,12 +58,16 @@
         background: var(--card-bg);
         border: 1px solid var(--border);
         border-radius: 12px;
-        padding: 1.5rem;
+        padding: 1.25rem;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         min-height: 220px;
         transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .card:hover {
+        transform: scale(1.025);
     }
 
     .card h2 {
@@ -94,6 +97,19 @@
         color: var(--bg);
     }
 
+    .linkout-span {
+        display: inline-block;
+        opacity: 0;
+        transform: translate(-.6em);
+        transition: .2s;
+        white-space: nowrap;
+    }
+
+    .card a:hover span {
+        transform: translate(0);
+        opacity: 1;
+    }
+
     footer {
         text-align: center;
         margin-top: 4rem;
@@ -108,45 +124,53 @@
     </header>
     <main class="grid">
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=BlockBlast" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>BlockBlast</h2>
             <p>Block Blast is a relaxing puzzle game where you try to connect rows of blocks by placing them to fill a row. Try to make room for each piece so that you don't run out of space, otherwise the game is over.</p>
-            <a href="/projects/blockblast/">View project →</a>
+            <a href="/projects/blockblast/">View project <span class="linkout-span">→</span></a>
         </div>
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=CodeMatic" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>CodeMatic</h2>
             <p>CodeMatic is an innovative coding platform that helps you learn programming through interactive lessons and real-world projects.CodeMatic is a modern, secure and simple code formatter that formats your code with the click of a button. No advertising, no tracking, no premium!</p>
-            <a href="/projects/codematic/">View project →</a>
+            <a href="/projects/codematic/">View project <span class="linkout-span">→</span></a>
         </div>
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=CookieClicker" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>CookieClicker</h2>
             <p>Cookie clicker is a very simple game where you get a cookie by pressing on a cookie! From this you can get upgrades, robots and other automations. If you have enough cookies, you can reset your progress to gain prestige and continue playing with a higher number of cookies per click.</p>
-            <a href="/projects/cookieclicker/">View project →</a>
+            <a href="/projects/cookieclicker/">View project <span class="linkout-span">→</span></a>
         </div>
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=HydroTrack" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>HydroTrack</h2>
             <p>HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress  in a circle bar and watch your history. HydroDrink helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.</p>
-            <a href="/projects/hydrotrack/">View project →</a>
+            <a href="/projects/hydrotrack/">View project <span class="linkout-span">→</span></a>
         </div>
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=Impostor" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>Impostor</h2>
             <p>The aim of “Find The impostor” is to expose a secret impostor in the group. All players are given a secret role: most are normal players, but one or more participants are impostors. A random word is chosen and each player must name a word for the word. The impostor must try to guess the word, while the innocents try to guess the impostor.</p>
-            <a href="/projects/impostor/">View project →</a>
+            <a href="/projects/impostor/">View project <span class="linkout-span">→</span></a>
         </div>
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=N'Track" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>N'Track</h2>
             <p>N'Track is a simple, modern, reliable and completely free grade tracker to give you a better overview of your grades and show you which subjects you should try harder in. \nAll this, without ads and without premium features, because the app is already ✨PREMIUM ✨ enough and we think that everyone should be able to monitor their grades well and easily without having to spend money on it. Since we also have no server or other costs, we are not dependent on money and do not want to earn any.</p>
-            <a href="/projects/ntrack/">View project →</a>
+            <a href="/projects/ntrack/">View project <span class="linkout-span">→</span></a>
         </div>
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=Projekt City" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>Projekt City</h2>
             <p>Projekt City is a unique and expansive Minecraft project that operates without funding and is entirely free to play for everyone. Our mission is to develop an easily navigable Minecraft world for everyone, while paying a lot of attention to details and flawless work. Within Projekt City, we are constructing a large map that features a city, an airport, a hotel, and much more, with meticulous attention to detail and precision. We enhance the gameplay through intricate redstone creations and commands.</p>
-            <a href="https://www.curseforge.com/minecraft/worlds/projekt-city" target="_blank">View project →</a>
-            <a href="https://projektcity.github.io/">View website →</a>
+            <a href="https://www.curseforge.com/minecraft/worlds/projekt-city" target="_blank">View project <span class="linkout-span">→</span></a>
+            <a href="https://projektcity.github.io/">View website <span class="linkout-span">→</span></a>
         </div>
         <div class="card">
+            <img src="https://dummyimage.com/400x225.png?text=Timer and Watch Tools" style="aspect-ratio: 16/9; border-radius: 8px; margin-bottom: 1rem; object-fit: cover; width: 100%;">
             <h2>Timer and Watch Tools</h2>
             <p>Many useful functions inspired by the iOS 'Clock' app. There is a world clock that displays different times around the world live. A stopwatch with a start/stop, delete and lap system, all with an appealing and modern UI.</p>
-            <a href="/projects/timer-watch-worldtime/">View project →</a>
+            <a href="/projects/timer-watch-worldtime/">View project <span class="linkout-span">→</span></a>
         </div>
 
     </main>

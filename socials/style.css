@@ -1,9 +1,33 @@
+:root {
+	--bg: hsl(220, 10%, 8%);
+	--bg-2: hsl(220, 10%, 17%);
+	--bg-3: hsl(220, 10%, 11%);
+	--bg-4: hsl(220, 10%, 16%);
+	--txt: hsl(220, 30%, 80%);
+	--txt-1: hsl(220, 45%, 90%);
+	--txt-2: hsl(220, 14%, 55%);
+	--txt-3: hsl(220, 11%, 35%);
+    --border: hsl(0, 0%, 100%);
+    /* Accent colors */
+    --accent: #f9e2af;
+    --success: #a6e3a1;
+    --error: #f38ba8;
+}
+
+body {
+    font-weight: 200;
+}
+
 .social-tree-container {
     min-width: none;
 }
 
-.social-tree-header {
+.nodecoration {
+    text-decoration: none;
+}
 
+.nodecoration:hover {
+    text-decoration: underline;
 }
 
 .header-container {
@@ -66,7 +90,7 @@
 }
 
 .st-element {
-    background-color: #000;
+    background-color: var(--bg-3);
     border: 1px solid #000;
     border-radius: 7.5px;
     cursor: pointer;
@@ -115,8 +139,9 @@
 }
 
 .st-application a {
-    position: relative;
     bottom: 12px;
+    font-weight: 200;
+    position: relative;
     top: 12px;
 }
 

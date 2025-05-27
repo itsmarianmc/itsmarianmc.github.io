@@ -34,10 +34,19 @@ h1, h2, h3, h4 {
     font-family: "Source Code Pro", monospace;
     font-variant-ligatures: no-common-ligatures;
     font-weight: 400;
-    margin-block-start: 5.1px;
     margin-block-end: 5.1px;
-    margin-inline-start: 0px;
+    margin-block-start: 5.1px;
     margin-inline-end: 0px;
+    margin-inline-start: 0px;
+}
+
+.linkout, .nodecoration {
+    color: var(--txt);
+    text-decoration: none;
+}
+
+.nodecoration:hover {
+    text-decoration: underline;
 }
 
 main {
@@ -65,6 +74,7 @@ main {
     max-width: 90rem;
     transition: all 0.3s ease-in-out;
     width: 100%;
+    z-index: 2;
 }
 
 .content-head {
@@ -195,10 +205,21 @@ input#commandInput.invalid {
 }
 
 .interactive-section {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+}
+
+#closed-action {
+    background-image: url('/assets/logos/favicon.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(0,0,0,0.4);
+    cursor: pointer;
+    display: none;
+    height: 100px;
+    z-index: 1;
+    width: 100px;
 }
 
 @media (max-width: 750px) {
