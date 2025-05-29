@@ -40,15 +40,6 @@ h1, h2, h3, h4 {
     margin-inline-start: 0px;
 }
 
-.linkout, .nodecoration {
-    color: var(--txt);
-    text-decoration: none;
-}
-
-.nodecoration:hover {
-    text-decoration: underline;
-}
-
 main {
     align-items: center;
     background-position: top;
@@ -112,9 +103,20 @@ main {
     display: none;
 }
 .content-area-head {
-    display: flex;
-    flex-direction: row;
-    height: 51.78px;
+    min-height: 51.78px;
+}
+
+.content-area-head a {
+    color: var(--txt-1);
+    line-height: 1.3;
+    font-family: "Source Code Pro", monospace;
+    font-variant-ligatures: no-common-ligatures;
+    font-weight: 400;
+    font-size: 32px;
+    margin-block-end: 5.1px;
+    margin-block-start: 5.1px;
+    margin-inline-end: 0px;
+    margin-inline-start: 0px;
 }
 
 @keyframes cursorBlink {
