@@ -7,7 +7,8 @@
     <link rel="icon" type="image/png" href="/assets/logos/favicon.webp">
     <link rel="apple-touch-icon" href="/assets/logos/favicon.webp">
     <link rel="stylesheet" href="/assets/style.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assets/variables.css">
+    <link rel="stylesheet" href="style.css">
     <!-- META -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="author" content="itsmarian">
@@ -27,40 +28,109 @@
         <a style="font-size: 19px;">Just some random photos. Those photos were taken on an iPhone 15 Pro. All lens information can be seen under every photo.</a>
     </header>
     <main>
-        <div class="image-container">
-            <div class="image">
-                <img src="https://dummyimage.com/400x225.png?text=Dummy Image by itsmarian">
+        <div class="flex-container gap-0_5rem alignitems-center justifycontent-center" style="margin-bottom: 1rem;">
+            <label for="filter-year">Year:</label>
+            <select id="filter-year">
+                <option value="">All</option>
+                <option value="2025">2025</option>
+                <option value="2024">2024</option>
+                <option value="2023">2023</option>
+                <option value="2022">2022</option>
+                <option value="2021">2021</option>
+                <option value="2020">2020</option>
+            </select>
+            <label for="filter-month">Month:</label>
+            <select id="filter-month">
+                <option value="">All</option>
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+        <div class="flex-container flex-column gap-0_5rem">
+            <div class="image-container" img-y="2025" img-m="05" img-d="30" img-t="14-23">
+                <div class="image">
+                    <img class="lazy-image" loading="lazy" src="https://res.cloudinary.com/dra0r7ofp/image/upload/f_auto,q_auto/v1748707040/20250530_1423_x4xwee.jpg" alt="">
+                </div>
+                <button class="toggle-button" data-js-action="expandInfo">Show Information</button>
+                <div class="description">
+                    <div>
+                        <a>Date</a>
+                        <a></a>
+                    </div>
+                    <div>
+                        <a>Location:</a>
+                        <a>Chiemsee - Bayern - Germany</a>
+                    </div>
+                    <div>
+                        <a>Resolution:</a>
+                        <a>8064 x 6048</a>
+                    </div>
+                    <div>
+                        <a>Lens information:</a>
+                        <a>24 mm ƒ1.78 | ISO 100 | 1/15385s</a>
+                    </div>
+                    <div>
+                        <a>Shot on:</a>
+                        <a>Apple iPhone 15 Pro</a>
+                    </div>
+                    <div>
+                        <a>Size:</a>
+                        <a>65.3 MB</a>
+                    </div>
+                </div>
             </div>
-            <div class="description">
-                <div>
-                    <a>Date</a>
-                    <a>29/05/2025 20:47 (8:47 p.m.)</a>
+            <div class="image-container" img-y="2024" img-m="01" img-d="29" img-t="11-57">
+                <div class="image">
+                    <img loading="lazy" src="https://res.cloudinary.com/dra0r7ofp/image/upload/f_auto,q_auto/v1748707051/20250531_1157_xz3d0q.jpg" alt="Dummy Image">
                 </div>
-                <div>
-                    <a>Location:</a>
-                    <a>Grassau - Rottau - Germany</a>
-                </div>
-                <div>
-                    <a>Resolution:</a>
-                    <a>4032 x 2268</a>
-                </div>
-                <div>
-                    <a>Lens information:</a>
-                    <a>77 mm ƒ2.8 | ISO 160 | 1/99s</a>
-                </div>
-                <div>
-                    <a>Shot on:</a>
-                    <a>Apple iPhone 15 Pro</a>
-                </div>
-                <div>
-                    <a>Size:</a>
-                    <a>22 MB</a>
+                <button class="toggle-button" data-js-action="expandInfo">Show Information</button>
+                <div class="description">
+                    <div>
+                        <a>Date</a>
+                        <a></a>
+                    </div>
+                    <div>
+                        <a>Location:</a>
+                        <a>Hochfelln - Bayern - Germany</a>
+                    </div>
+                    <div>
+                        <a>Resolution:</a>
+                        <a>8064 x 6048</a>
+                    </div>
+                    <div>
+                        <a>Lens information:</a>
+                        <a>24 mm ƒ1.78 | ISO 100 | 1/9434s</a>
+                    </div>
+                    <div>
+                        <a>Shot on:</a>
+                        <a>Apple iPhone 15 Pro</a>
+                    </div>
+                    <div>
+                        <a>Size:</a>
+                        <a>65.8 MB</a>
+                    </div>
                 </div>
             </div>
+        </div>
+        <div id="no-results" style="display: none; text-align: center; padding: 1rem;">
+            <a>No images found for the selected filter.</a>
+            <br>
+            <a>Remove the filter or try with a different one.</a>
         </div>
     </main>
     <footer>
         <a>&copy; 2025 itsmarian.is-a.dev & itsmarian | All rights reserved!</a>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

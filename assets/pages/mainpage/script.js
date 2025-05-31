@@ -223,3 +223,5 @@ function initApplication() {
 }
 
 loadData();
+
+/* Code formatted with CodeMatic: https://itsmarian.is-a.dev/projects/codematic/ */

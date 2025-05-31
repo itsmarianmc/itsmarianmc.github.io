@@ -84,3 +84,5 @@ window.addEventListener('DOMContentLoaded', async () => {
 		console.error(err);
 	}
 });
+
+/* Code formatted with CodeMatic: https://itsmarian.is-a.dev/projects/codematic/ */
