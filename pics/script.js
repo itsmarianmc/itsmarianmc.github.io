@@ -112,16 +112,18 @@ document.addEventListener("DOMContentLoaded", () => {
 window.addEventListener("load", () => {
 	const lazyImages = document.querySelectorAll("img.lazy-image");
 
-	lazyImages.forEach(img => {
-		const realSrc = img.getAttribute("data-src");
-		if (!realSrc) return;
+	setTimeout(() => {
+		lazyImages.forEach(img => {
+			const realSrc = img.getAttribute("data-src");
+			if (!realSrc) return;
 
-		const highResImg = new Image();
-		highResImg.src = realSrc;
+			const highResImg = new Image();
+			highResImg.src = realSrc;
 
-		highResImg.onload = () => {
-		img.src = realSrc;
-		img.classList.add("loaded");
-		};
-	});
+			highResImg.onload = () => {
+			img.src = realSrc;
+			img.classList.add("loaded");
+			};
+		});
+	}, 3000);
 });
