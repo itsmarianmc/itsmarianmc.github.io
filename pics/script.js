@@ -125,5 +125,5 @@ window.addEventListener("load", () => {
 			img.classList.add("loaded");
 			};
 		});
-	}, 3000);
+	}, 2000);
 });
