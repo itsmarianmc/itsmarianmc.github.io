@@ -15,7 +15,9 @@ select {
     cursor: pointer;
     font-size: 1rem;
     font-family: "Source Code Pro", monospace;
+    min-width: 125px;
     padding: 0.5rem 1rem;
+    text-align: left;
     transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
@@ -29,9 +31,9 @@ option:disabled {
 
 select:hover,
 select:focus {
-  border-color: var(--accent, #00aaff);
-  outline: none;
-  background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--accent, #00aaff);
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 select:disabled {
@@ -43,8 +45,15 @@ select:disabled {
     border-radius: 10px;
     padding: 10px;
     margin: auto;
-    max-width: 600px;
+    max-width: 750px;
     width: 100%;
+}
+
+.image-date-head {
+    border: none;
+    font-size: 30px;
+    font-weight: 400;
+    text-align: center;
 }
 
 img {
@@ -102,10 +111,14 @@ img {
 }
 
 .lazy-image {
-    opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: filter 0.5s ease, opacity 0.3s ease;
 }
 
-.lazy-image.loaded {
-    opacity: 1;
+.location-linkout {
+    color: var(--txt);
+    text-decoration: none;
+}
+
+.location-linkout:hover {
+    text-decoration: underline;
 }

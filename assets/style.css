@@ -73,6 +73,7 @@ h1, h2, h3, h4 {
 
 .linkout, .nodecoration {
     color: var(--txt);
+    cursor: pointer;
     text-decoration: none;
 }
 
