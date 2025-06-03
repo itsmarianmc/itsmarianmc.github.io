@@ -34,7 +34,7 @@ h1, h2, h3, h4 {
 }
 
 .bold {
-	text-decoration: double;
+    font-weight: 800;
 }
 
 .hidden {
@@ -90,10 +90,14 @@ footer {
 	text-align: center;
 	margin-top: 4rem;
 	font-size: 0.875rem;
-	color: #aaa;
+	color: #aaa !important;
 }
 
-/* Scrollbar / Source: https://community.hubspot.com/t5/CMS-Development/CSS-for-Scrollbar-in-iOS-devices/m-p/293889 [03/20/2024]*/
+footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
+    color: #aaa;
+}
+
+/* Scrollbar / Source: https://community.hubspot.com/t5/CMS-Development/CSS-for-Scrollbar-in-iOS-devices/m-p/293889 */
 ::-webkit-scrollbar {
 	-webkit-appearance: none;
 	width: 7px;

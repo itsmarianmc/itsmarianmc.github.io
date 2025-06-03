@@ -220,8 +220,13 @@ input#commandInput.invalid {
     cursor: pointer;
     display: none;
     height: 100px;
+    transition: all 0.25s ease-in-out;
     z-index: 1;
     width: 100px;
+}
+
+#closed-action:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 750px) {
