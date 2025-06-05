@@ -1,65 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>itsmarian</title>
-    <link rel="icon" type="image/png" href="/assets/logos/favicon.webp">
-    <link rel="apple-touch-icon" href="/assets/logos/favicon.webp">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/assets/logos/favicon.webp" type="image/x-icon">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>itsmarian's Portfolio</title>
     <link rel="stylesheet" href="/assets/pages/mainpage/style.css">
     <link rel="stylesheet" href="/assets/variables.css">
-    <!-- META -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="itsmarian">
-    <meta name="description" content="I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.">
-    <meta name="keywords" content="itsmarian, itsmarianmc, itsmarian.mc, ProjektCity, Projekt City, Projekt City Ltd">
-    <meta name="referrer" content="no-referrer">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="itsmarian">
-    <meta property="og:description" content="I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.">
-    <meta property="og:image" content="https://itsmarian.is-a.dev/assets/logos/favicon.png">
-    <meta property="og:url" content="https://itsmarian.is-a.dev/">
-    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
-    <main>
-        <div class="content-area" id="usaction-console">
-            <div class="content-head">
-                <div>
-                    <img alt="Logo" class="logo" height="50" src="/assets/logos/favicon-transparent.png" width="50">
-                </div>
-                <div>
-                    <a class="box" id="name" style="opacity: 0;">itsmarian</a>
-                    <a class="box" id="url">itsmarian.is-a.dev</a>
-                </div>
-                <div id="usaction-close">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="50" viewBox="0 -960 960 960" width="50" fill="#fff">
-                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+   <div class="background-wrapper">
+        <object
+        type="image/svg+xml"
+        data="/assets/pages/mainpage/background.svg"
+        class="background-svg"
+        aria-hidden="true"
+        ></object>
+    </div>
+    <nav class="navbar" id="navbar">
+        <div class="navbar__logo">itsmarian</div>
+        <button class="navbar__toggle" id="navbarToggle" aria-label="Menü umschalten">
+        <svg viewBox="0 0 24 24">
+            <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
+        </svg>
+        </button>
+        <ul class="navbar__list">
+            <li>
+                <a href="/" class="nav-link active" data-section="hero">
+                    <svg class="icon">
+                        <use xlink:href="/assets/pages/mainpage/icons.svg#icon-home"/>
                     </svg>
-                </div>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="/#about" class="nav-link" data-section="about">
+                <svg class="icon">
+                    <use xlink:href="/assets/pages/mainpage/icons.svg#icon-user"/>
+                </svg>
+                About
+                </a>
+            </li>
+            <li>
+                <a href="/#projects" class="nav-link" data-section="projects">
+                <svg class="icon">
+                    <use xlink:href="/assets/pages/mainpage/icons.svg#icon-briefcase"/>
+                </svg>
+                Projects
+                </a>
+            </li>
+            <li>
+                <a href="/#blog" class="nav-link"  data-section="blog">
+                <svg class="icon">
+                    <use xlink:href="/assets/pages/mainpage/icons.svg#icon-book"/>
+                </svg>
+                Blog
+                </a>
+            </li>
+            <li>
+                <a href="/#contact" class="nav-link"  data-section="contact">
+                <svg class="icon">
+                    <use xlink:href="/assets/pages/mainpage/icons.svg#icon-mail"/>
+                </svg>
+                Contact
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <header class="hero" id="hero">
+        <div class="hero__title" style="padding: 0px 10px;">
+            <span id="heroWelcome">Hey, I'm itsmarian</span>
+        </div>
+        <ul class="hero__roles">
+            <li>Creator for BetterDiscord Themes and Plugins</li>
+            <li>Discord Bot Maker</li>
+            <li>Owner and holder of Projekt City Ltd.</li>
+            <li>Python Developer</li>
+            <li>UI/UX Designer</li>
+            <li>Website Developer</li>
+        </ul>
+        <div class="hero__buttons">
+            <a href="https://projects.itsmarian.is-a.dev/" target="_parent" class="btn btn--primary">
+                View My Projects
+                <svg class="btn__icon"><use xlink:href="/assets/pages/mainpage/icons.svg#icon-external-link"/></svg>
+            </a>
+            <a href="https://github.com/itsmarianmc" target="_blank" rel="noopener" class="btn btn--secondary">
+                <svg class="btn__icon"><use xlink:href="/assets/pages/mainpage/icons.svg#icon-github"/></svg>
+                GitHub
+            </a>
             </div>
-            <div class="content-body">
-                <div class="content-area-head">
-                    <a id="welcome-text">Welcome</a>
-                    <a id="cursor">|</a>
+            <a href="/#about" class="hero__arrow" aria-label="Scroll down">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m6 9 6 6 6-6"></path>
+            </svg>
+        </a>
+    </header>
+    <section id="about">
+        <div class="content">
+            <div class="hero__title textalign-center width-100p">
+                <h1>About Me</h1>
+            </div>
+            <div class="about-content">
+                <p>I'm a developer and designer with a versatile skill set across several disciplines. My journey began at age 12, building simple websites and forms in HTML. From there, I started crafting custom code snippets for various WIX sites, which honed my UX and UI design abilities. Eventually, I challenged myself to design and build a website entirely from scratch—without any site builders — igniting my passion for creating immersive digital experiences which make a difference and mark a new era in my career.</p>
+                <p>Over the years, I've broadened my expertise to encompass UI/UX design, Discord bots, and custom BetterDiscord CSS snippets. I thrive on transforming complex concepts into elegant, user-friendly, and modern solutions.</p>
+                <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, working on my Minecraft project or having fun with friends.</p>
+            </div>
+        </div>
+    </section>
+    <section id="projects">
+        <div class="content">
+            <div class="hero__title textalign-center width-100p">
+                <h2>My Projects</h2>
+            </div>
+            <div class="display-grid">
+                <div class="project-card">
+                    <div class="project-card__header">
+                        <h2><div class="card-icon"><i class="fas fa-code"></i></div> CodeMatic</h2>
+                    </div>
+                    <div class="project-card__content">
+                        <p>CodeMatic is a modern, secure and simple code formatter that formats your code with the click of a button. No advertising, no tracking, no premium!</p>
+                    </div>
+                    <div class="project-card__hashtags">
+                        <a class="hashtag">
+                            <span>#coding</span>
+                        </a>
+                        <a class="hashtag">
+                            <span>#tool</span>
+                        </a>
+                        <a class="hashtag">
+                            <span>#webdevelopment</span>
+                        </a>
+                    </div>
+                    <div class="project-card__links">
+                        <div class="project-card__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                                <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                            </svg>
+                            <a href="https://projects.itsmarian.is-a.dev/codematic" target="_blank">Visit project</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="content-interactive-user-element">
-                    <div class="preloaded-output" id="preloaded-text"></div>
-                    <div id="user-output"></div>
-                    <div class="input-line">
-                        <span id="mobileInput">>&nbsp;</span>
-                        <span id="desktopInput">> GH C:\Users\itsmarian&gt</span>
-                        <label for="commandInput" style="opacity: 0; position: absolute; visibility: hidden;">Enter the command you want to run</label>
-                        <input type="text" id="commandInput" autocomplete="off" />
+                <div class="project-card">
+                    <div class="project-card__header">
+                        <h2><div class="card-icon"><i class="fas fa-cookie-bite"></i></div> CookieClicker</h2>
+                    </div>
+                    <div class="project-card__content">
+                        <p>Cookie clicker is a very simple game where you get a cookie by pressing on a cookie! From this you can get upgrades, robots and other automations. If you have enough cookies, you can reset your progress to gain prestige and continue playing with a higher number of cookies per click.</p>
+                    </div>
+                    <div class="project-card__hashtags">
+                        <a class="hashtag">
+                            <span>#browsergame</span>
+                        </a>
+                        <a class="hashtag">
+                            <span>#game</span>
+                        </a>
+                        <a class="hashtag">
+                            <span>#multiplayer</span>
+                        </a>
+                    </div>
+                    <div class="project-card__links">
+                        <div class="project-card__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                                <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                            </svg>
+                            <a href="https://projects.itsmarian.is-a.dev/cookieclicker" target="_blank">Visit project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card__header">
+                        <h2>
+                            <div class="card-icon">
+                                <i class="fas fa-tint"></i>
+                            </div>
+                            HydroTrack
+                        </h2>
+                    </div>
+                    <div class="project-card__content">
+                        <p>HydroTrack is a simple, reliable and safe drink tracker. You can easily set your goal and see your daily progress in a circle bar and watch your history. HydroTrack helps you to stay hydrated and follow a healthier lifestyle, for free and with a modern look.</p>
+                    </div>
+                    <div class="project-card__hashtags">
+                        <a class="hashtag">
+                            <span>#drinktracker</span>
+                        </a>
+                        <a class="hashtag">
+                            <span>#lifestyle</span>
+                        </a>
+                    </div>
+                    <div class="project-card__links">
+                        <div class="project-card__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                                <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                            </svg>
+                            <a href="https://projects.itsmarian.is-a.dev/hydrotrack" target="_blank">Visit project</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-card__header">
+                        <h2>
+                            <div class="card-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            Find The Impostor
+                        </h2>
+                    </div>
+                    <div class="project-card__content">
+                        <p>The aim of “Find The Impostor is to expose a secret impostor in the group. All players are given a secret role: most are normal players, but one or more participants are impostors. A random word is chosen and each player must name a word for the word. The impostor must try to guess the word, while the innocents try to guess the impostor.</p>
+                    </div>
+                    <div class="project-card__hashtags">
+                        <a class="hashtag">
+                            <span>#games</span>
+                        </a>
+                        <a class="hashtag">
+                            <span>#groupgames</span>
+                        </a>
+                        <a class="hashtag">
+                            <span>#multiplayer</span>
+                        </a>
+                    </div>
+                    <div class="project-card__links">
+                        <div class="project-card__link">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                                <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                            </svg>
+                            <a href="https://projects.itsmarian.is-a.dev/hydrotrack" target="_blank">Visit project</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="interactive-section">
-            <div id="closed-action"></div>
+    </section>
+    <section id="blog">
+        <div class="content">
+            <div class="hero__title textalign-center width-100p">
+                <h2>My Blog</h2>
+            </div>
+            <div class="about-content">
+                <p>Blog is coming soon...</p>
+            </div>
         </div>
-    </main>
-    <script src="/assets/pages/mainpage/min.js"></script>
+    </section>
+    <section id="contact" class="section">
+        <div class="content">
+            <div class="hero__title textalign-center width-100p">
+                <h2>Contact me</h2>
+            </div>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div style="text-align: center; width: 100%;">
+                    <a style="color: var(--txt);">By clicking on send you agree to the</a>
+                    <a class="linkout nodecoration" href="/legal/cookies" target="_blank">Cookie Policy</a><a>, the</a>
+                    <a class="linkout nodecoration" href="/legal/privacy" target="_blank">Privacy Policy</a><a> and the</a>
+                    <a class="linkout nodecoration" href="/legal/terms" target="_blank">Terms of Use</a>
+                </div>
+                <button type="submit" class="btn-submit">
+                    <a class="btn btn--primary" style="align-items: center; justify-content: center; width: 100%;">
+                    Send
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="var(--txt-1)" height="20" width="20" version="1.1" id="Icons" viewBox="0 0 32 32" xml:space="preserve">
+                        <path d="M29.3,2.6c-0.3-0.2-0.7-0.3-1-0.2L3,11.7c-0.4,0.1-0.7,0.5-0.7,0.9c0,0.4,0.3,0.8,0.7,0.9l10.2,3.8l10-10  c0.4-0.4,1-0.4,1.4,0s0.4,1,0,1.4l-9.8,9.8l6.6,10.6c0.2,0.3,0.5,0.5,0.8,0.5c0.1,0,0.1,0,0.2,0c0.4-0.1,0.7-0.4,0.8-0.7l6.2-25.2  C29.7,3.3,29.6,2.9,29.3,2.6z"/>
+                    </svg>
+                </a>
+                </button>
+                <div style="text-align: center; width: 100%;">
+                    <a id="formStatus" class="form-status"></a>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2025 itsmarian.is-a.dev | All rights reserved!</p>
+        <p>Made with <span class="heart">&hearts;</span> by itsmarian</p>
+    </footer>
     <script src="/assets/pages/mainpage/script.js"></script>
+    <script src="/assets/pages/mainpage/contact-form.js" defer></script>
 </body>
 </html>

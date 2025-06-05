@@ -6,6 +6,10 @@
     display: block !important;
 }
 
+.display-grid {
+    display: grid;
+}
+
 .flex-column {
     flex-direction: column;
 }
@@ -24,6 +28,10 @@
 
 .gap-10px {
     gap: 10px;
+}
+
+.gap-15px {
+    gap: 15px;
 }
 
 .gap-20px {
