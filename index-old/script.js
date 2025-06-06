@@ -167,7 +167,7 @@ function handleCommand(rawCmd, done) {
 }
 async function loadData() {
 	try {
-		const resp = await fetch('/assets/pages/mainpage/data.json');
+		const resp = await fetch('data.json');
 		const data = await resp.json();
 		commandsConfig = {};
 		for (const key in data.commands) {

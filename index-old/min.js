@@ -76,7 +76,7 @@ async function showWelcomeLoop(messages) {
 
 window.addEventListener('DOMContentLoaded', async () => {
 	try {
-		const response = await fetch('/assets/pages/mainpage/lang.json');
+		const response = await fetch('lang.json');
 		if (!response.ok) throw new Error('Failed to load language data');
 		const messages = await response.json();
 		showWelcomeLoop(messages);

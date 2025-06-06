@@ -1,0 +1,8 @@
+{
+    "homepage": "https://example.com",
+    "blog": "/news/index.html",
+    "shop": "https://shop.example.com",
+    "contact": "/kontakt.html",
+    "specials": "https://promotion.example.com/summer-deals",
+    "client-portal": "https://secure.example.com/login"
+}
