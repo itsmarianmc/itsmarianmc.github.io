@@ -115,7 +115,7 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
     padding: 0.5rem;
     position: fixed;
     text-align: center;
-    z-index: 100;
+    z-index: 10000;
     width: 100%;
     animation: float-in-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }

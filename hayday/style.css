@@ -47,7 +47,8 @@ h1, h2, h3, h4 {
 .container {
 	max-width: 1400px;
 	margin: 0 auto;
-	padding: 2rem;
+	padding: 1rem;
+	width: 100%;
 }
 
 header {
@@ -73,11 +74,13 @@ header {
 .farm-hero {
 	border-radius: 16px;
 	box-shadow: 0 10px 25px var(--shadow);
-	height: 70vh;
+	height: 50vh;
+	min-height: 250px;
 	max-height: 700px;
 	overflow: hidden;
 	position: relative;
 	transition: height 0.5s ease-in;
+	width: 100%;
 }
 
 .farm-image {
@@ -97,12 +100,12 @@ header {
 	bottom: 0;
 	left: 0;
 	right: 0;
-	padding: 2rem;
+	padding: 1.5rem;
 	background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
 }
 
 .farm-name {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	margin-bottom: 0.5rem;
 	color: white;
 }
@@ -114,14 +117,14 @@ header {
 	padding: 0.3rem 1rem;
 	border-radius: 20px;
 	font-weight: 600;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	margin-bottom: 1rem;
 }
 
 .account-details-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
-	gap: 2rem;
+	grid-template-columns: 1fr;
+	gap: 1.5rem;
 	margin-top: 2rem;
 }
 
@@ -132,6 +135,7 @@ header {
 	padding: 1.5rem;
 	box-shadow: 0 5px 15px var(--shadow);
 	transition: all 0.3s ease;
+	width: 100%;
 }
 
 .detail-card:hover {
@@ -156,19 +160,20 @@ header {
 }
 
 .card-icon {
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	border-radius: 12px;
 	background: rgba(52, 211, 153, 0.15);
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	color: var(--accent-farm);
+	flex-shrink: 0;
 }
 
 .card-title {
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	color: var(--text-primary);
 }
 
@@ -181,8 +186,10 @@ header {
 .info-item {
 	display: flex;
 	justify-content: space-between;
+	align-items: flex-start;
 	padding: 0.8rem 0;
 	border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+	gap: 1rem;
 }
 
 .info-item:last-child {
@@ -192,6 +199,7 @@ header {
 .info-label {
 	color: var(--text-secondary);
 	font-weight: 500;
+	flex-shrink: 0;
 }
 
 .info-value {
@@ -201,11 +209,15 @@ header {
 	display: flex;
 	align-items: center;
 	gap: 8px;
+	word-break: break-word;
+	flex: 1;
+	justify-content: flex-end;
 }
 
 .stats-grid {
 	display: grid;
-	gap: 1.5rem;
+	grid-template-columns: 1fr;
+	gap: 1rem;
 	margin-top: 1.5rem;
 }
 
@@ -218,7 +230,7 @@ header {
 }
 
 .stat-value {
-	font-size: 2.2rem;
+	font-size: 1.8rem;
 	font-weight: 700;
 	color: var(--accent-farm);
 	margin-bottom: 0.5rem;
@@ -226,7 +238,7 @@ header {
 
 .stat-label {
 	color: var(--text-secondary);
-	font-size: 0.95rem;
+	font-size: 0.9rem;
 }
 
 .achievements {
@@ -235,7 +247,7 @@ header {
 
 .achievements-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	grid-template-columns: 1fr;
 	gap: 1.5rem;
 	margin-top: 1.5rem;
 }
@@ -249,6 +261,7 @@ header {
 	padding: 1.2rem;
 	position: relative;
 	transition: all 0.3s ease;
+	width: 100%;
 }
 
 .achievement:hover {
@@ -264,15 +277,16 @@ header {
 }
 
 .achievement-icon {
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 	border-radius: 12px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	margin-right: 15px;
-	font-size: 1.3rem;
+	font-size: 1.1rem;
 	color: white;
+	flex-shrink: 0;
 }
 
 .achievement-content {
@@ -280,7 +294,7 @@ header {
 }
 
 .achievement-name {
-	font-size: 1.1rem;
+	font-size: 1rem;
 	font-weight: 700;
 	color: var(--text-primary);
 	margin-bottom: 5px;
@@ -288,7 +302,7 @@ header {
 
 .achievement-description {
 	color: var(--text-secondary);
-	font-size: 0.9rem;
+	font-size: 0.85rem;
 	line-height: 1.4;
 }
 
@@ -311,7 +325,7 @@ header {
 }
 
 .progress-text {
-	font-size: 0.8rem;
+	font-size: 0.75rem;
 	color: var(--text-secondary);
 	text-align: right;
 }
@@ -323,13 +337,13 @@ header {
 }
 
 .badge {
-	width: 30px;
-	height: 30px;
+	width: 25px;
+	height: 25px;
 	border-radius: 50%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 0.8rem;
+	font-size: 0.7rem;
 	font-weight: bold;
 	color: white;
 	position: relative;
@@ -376,74 +390,172 @@ header {
 	background: linear-gradient(90deg, #f86767, #f86767);
 }
 
+/* Tablet Breakpoint */
+@media (min-width: 768px) {
+	.container {
+		padding: 1.5rem;
+	}
+	
+	.account-details-grid {
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	}
+	
+	.achievements-grid {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+	
+	.stats-grid {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	}
+	
+	.farm-hero {
+		height: 60vh;
+	}
+	
+	.farm-name {
+		font-size: 2.2rem;
+	}
+	
+	.card-icon {
+		width: 45px;
+		height: 45px;
+		font-size: 1.3rem;
+	}
+	
+	.card-title {
+		font-size: 1.4rem;
+	}
+}
+
+/* Desktop Breakpoint */
 @media (min-width: 1024px) {
+	.container {
+		padding: 2rem;
+	}
+	
+	.account-details-grid {
+		grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+	}
+	
+	.achievements-grid {
+		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+	}
+	
+	.stats-grid {
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	}
+	
+	.farm-hero {
+		height: 70vh;
+	}
+	
+	.farm-name {
+		font-size: 2.5rem;
+	}
+	
+	.farm-level {
+		font-size: 1.1rem;
+	}
+	
+	.farm-overlay {
+		padding: 2rem;
+	}
+	
+	.card-icon {
+		width: 50px;
+		height: 50px;
+		font-size: 1.5rem;
+	}
+	
+	.card-title {
+		font-size: 1.5rem;
+	}
+	
+	.achievement-icon {
+		width: 50px;
+		height: 50px;
+		font-size: 1.3rem;
+	}
+	
+	.achievement-name {
+		font-size: 1.1rem;
+	}
+	
+	.achievement-description {
+		font-size: 0.9rem;
+	}
+	
+	.stat-value {
+		font-size: 2.2rem;
+	}
+	
+	.stat-label {
+		font-size: 0.95rem;
+	}
+	
+	.badge {
+		width: 30px;
+		height: 30px;
+		font-size: 0.8rem;
+	}
+	
+	.progress-text {
+		font-size: 0.8rem;
+	}
+}
+
+/* Large Desktop */
+@media (min-width: 1400px) {
 	.stats-grid {
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	}
 }
 
-@media (max-width: 1024px) {
-	.farm-hero {
-		height: 60vh;
-	}
-
-	.account-details-grid {
-		grid-template-columns: 1fr;
-	}
-}
-
-@media (max-width: 768px) {
+/* Very small mobile devices */
+@media (max-width: 320px) {
 	.container {
-		padding: 1.5rem;
+		padding: 0.75rem;
 	}
-
-	header h1 {
-		font-size: 2.4rem;
-	}
-
-	.subtitle {
-		font-size: 1.1rem;
-	}
-
+	
 	.farm-hero {
-		height: 40vh;
+		height: 35vh;
+		min-height: 200px;
 	}
-
-	.farm-overlay {
-		padding: 1.5rem;
-	}
-
+	
 	.farm-name {
-		font-size: 2rem;
+		font-size: 1.5rem;
 	}
-
-	.achievements-grid {
-		grid-template-columns: 1fr;
-	}
-}
-
-@media (max-width: 480px) {
-	.container {
+	
+	.farm-overlay {
 		padding: 1rem;
 	}
-
-	header h1 {
-		font-size: 2rem;
+	
+	.detail-card {
+		padding: 1rem;
 	}
-
-	.subtitle {
+	
+	.card-header {
+		gap: 0.75rem;
+	}
+	
+	.card-icon {
+		width: 35px;
+		height: 35px;
 		font-size: 1rem;
 	}
-
-	.farm-hero {
-		height: 30vh;
+	
+	.card-title {
+		font-size: 1.1rem;
 	}
-
-	.farm-name {
-		font-size: 1.7rem;
+	
+	.achievement {
+		padding: 1rem;
 	}
-
-	.stats-grid {
-		grid-template-columns: repeat(auto-fit, minmax(368px, 1fr));
+	
+	.achievement-icon {
+		width: 35px;
+		height: 35px;
+		font-size: 1rem;
+		margin-right: 10px;
 	}
 }
