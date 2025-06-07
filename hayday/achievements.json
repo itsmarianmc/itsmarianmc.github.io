@@ -1,0 +1,463 @@
+{
+    "stats": [
+        {
+            "completed-tasks": "95",
+            "total-tasks": "150",
+            "farm-score": "2590425"
+        }
+    ],
+    "achievements": [
+        {
+            "icon": "fas fa-truck",
+            "name": "BEEP BEEP! III",
+            "description": "Complete 2.000 truck deliveries",
+            "progress": "1594",
+            "max_progress": "2000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-handshake",
+            "name": "PATRONAGE! III",
+            "description": "Sell goods to visiting customers 2.500 times",
+            "progress": "1456",
+            "max_progress": "2500",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-coins",
+            "name": "CHA-CHING! III",
+            "description": "Make 25.000 coins in sales at your roadside shop",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-ship",
+            "name": "STEVEDORE III",
+            "description": "Make 100.000 coins in revenue from loading YOUR River Boat",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-egg",
+            "name": "EGGHEAD III",
+            "description": "Collect 3.600 eggs",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-glass-water",
+            "name": "GOT MILK? III",
+            "description": "Collect 2.150 jugs of milk",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-bacon",
+            "name": "BACONATOR III",
+            "description": "Collect 1.500 strips of bacon",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-scissors",
+            "name": "SHEEP SHEARER III",
+            "description": "Collect 1.800 wool",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+            
+        },
+        {
+            "icon": "fas fa-mountain",
+            "name": "GOAT GOADER III",
+            "description": "Collect 1.800 goat milk",
+            "progress": "1100",
+            "max_progress": "1800",
+            "achievement": "23",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-seedling",
+            "name": "HYPER HARVESTER III",
+            "description": "Harvest 200 fields in 10 minutes",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-tachometer-alt",
+            "name": "TRUBO TRUCKER II",
+            "description": "Deliver 20 truck deliveries in 30 minutes",
+            "progress": "0",
+            "max_progress": "20",
+            "achievement": "1",
+            "max_achievement": "3"
+            
+        },
+        {
+            "icon": "fas fa-paw",
+            "name": "HYPER HERDER III",
+            "description": "Collect 60 animal products in 30 minutes",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-anchor",
+            "name": "CAPTAIN III",
+            "description": "Completely load 12 consecutive River Boats",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-newspaper",
+            "name": "CITIZEN KANE III",
+            "description": "Place an ad in the newspaper 2.000 times",
+            "progress": "1800",
+            "max_progress": "2000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-industry",
+            "name": "FARM TYCOON III",
+            "description": "Build 20 production buildings",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-home",
+            "name": "DREAM FARM III",
+            "description": "Invest 50.000 coins in decorating your farm",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-apple-alt",
+            "name": "FRUIT FARMER III",
+            "description": "Pick 3.600 fruits",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-circle",
+            "name": "BERRY PICKER III",
+            "description": "Pick 2.150 berries",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-leaf",
+            "name": "GREEN THUMB III",
+            "description": "Revive 2.000 fruit trees or berry bushes",
+            "progress": "943",
+            "max_progress": "2000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-gem",
+            "name": "GOLD MINER III",
+            "description": "Excavate 2.000 gold ore",
+            "progress": "566",
+            "max_progress": "2000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-fire",
+            "name": "HELTER SMELTER III",
+            "description": "Produrce 3.800 bars of precious metals",
+            "progress": "690",
+            "max_progress": "3000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-dog",
+            "name": "BEST FRIENDS III",
+            "description": "Buy 6 pets",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-bone",
+            "name": "TASTY TREATS III",
+            "description": "Feed your pets 3.800 times",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-box",
+            "name": "CO-OP III",
+            "description": "Fill 500 crates for other players' boat orders",
+            "progress": "370",
+            "max_progress": "500",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-expand-arrows-alt",
+            "name": "LAND OWNER III",
+            "description": "Expand your farm 17 times",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-dice",
+            "name": "HIGH ROLLER III",
+            "description": "Spin the wheel of fortune 28 days in a row",
+            "progress": "0",
+            "max_progress": "0",
+            "achievement": "3",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-trophy",
+            "name": "BOAT SCORE HUNTER III",
+            "description": "Achieve 15.000 boat leaderboard points",
+            "progress": "6403",
+            "max_progress": "15000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-fish",
+            "name": "SPORT FISHER III",
+            "description": "Fish a total of 1.000 fish with lures",
+            "progress": "262",
+            "max_progress": "1000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-weight-hanging",
+            "name": "BIG GAME FISHER III",
+            "description": "Catch a total weight of 6.000 lbs with lures",
+            "progress": "952",
+            "max_progress": "6000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-water",
+            "name": "FISH FARMER III",
+            "description": "Expand the fishing area 6 times",
+            "progress": "4",
+            "max_progress": "6",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-calendar-day",
+            "name": "FISHERMAN'S FRIEND III",
+            "description": "Fish every day for 28 days in a row",
+            "progress": "2",
+            "max_progress": "28",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-spider",
+            "name": "LOBSTER GOURMAND II",
+            "description": "Harvest 50 lobster tails",
+            "progress": "33",
+            "max_progress": "50",
+            "achievement": "1",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-swimming-pool",
+            "name": "POOL PARTY ",
+            "description": "Have 2 lobsters in the pool at the same time",
+            "progress": "1",
+            "max_progress": "2",
+            "achievement": "0",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-users",
+            "name": "HAPPY TOWN VISITORS III",
+            "description": "Serve 2.000 visitors in your Town",
+            "progress": "187",
+            "max_progress": "2000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-building",
+            "name": "MASTER OF SERVICE III",
+            "description": "Build 6 service buildings",
+            "progress": "4",
+            "max_progress": "6",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-city",
+            "name": "TOWN EXPLORER III",
+            "description": "Expand the Town 18 times",
+            "progress": "8",
+            "max_progress": "18",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-feather-alt",
+            "name": "DUCK COIFFEUR II",
+            "description": "Harvest 100 duck feathers",
+            "progress": "12",
+            "max_progress": "100",
+            "achievement": "1",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-cut",
+            "name": "BEATUY SALON",
+            "description": "Have 2 ducks in the salon at the same time",
+            "progress": "1",
+            "max_progress": "2",
+            "achievement": "0",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-honey-pot",
+            "name": "SWEET TREAT III",
+            "description": "Harvest 4.500 honeycombs",
+            "progress": "1799",
+            "max_progress": "4500",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-bug",
+            "name": "ALL ABUZZ III",
+            "description": "Have 12 bees",
+            "progress": "9",
+            "max_progress": "12",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-medal",
+            "name": "DELIGENT NEIGHBOR II",
+            "description": "Collect 2.000 neighborhood derby points",
+            "progress": "852",
+            "max_progress": "2000",
+            "achievement": "1",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-tasks",
+            "name": "TASKMASTER II",
+            "description": "Complete 20 neighborhood derby tasks",
+            "progress": "7",
+            "max_progress": "20",
+            "achievement": "1",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-crown",
+            "name": "DERBY CHAMP",
+            "description": "Participate in 3 Champions League derbies",
+            "progress": "0",
+            "max_progress": "3",
+            "achievement": "0",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-gift",
+            "name": "GENEROUS NEIGHBOR III",
+            "description": "Donate 4.000 items",
+            "progress": "1054",
+            "max_progress": "4000",
+            "achievement": "2",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-tree",
+            "name": "SAVANNAH SANCTUARY",
+            "description": "Collect 2 savannah animals in your sanctuary",
+            "progress": "1",
+            "max_progress": "2",
+            "achievement": "0",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-utensils",
+            "name": "BIG APPETITES II",
+            "description": "Feed sanctuary animals 40 times",
+            "progress": "12",
+            "max_progress": "40",
+            "achievement": "1",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-th",
+            "name": "BINGO BINANZA",
+            "description": "Get 2 lines in Bindo Derbie",
+            "progress": "0",
+            "max_progress": "2",
+            "achievement": "0",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-baby",
+            "name": "SAVVANAH BABIES",
+            "description": "Collect 2 savannah baby animals in your sanctuary",
+            "progress": "0",
+            "max_progress": "2",
+            "achievement": "0",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-circle-notch",
+            "name": "GO NUTS!",
+            "description": "Harvest 4 peanuts",
+            "progress": "0",
+            "max_progress": "4",
+            "achievement": "0",
+            "max_achievement": "3"
+        },
+        {
+            "icon": "fas fa-cat",
+            "name": "FURRY FRIENDS",
+            "description": "Have 2 squirrels",
+            "progress": "0",
+            "max_progress": "2",
+            "achievement": "0",
+            "max_achievement": "3"
+        }
+    ]
+}
