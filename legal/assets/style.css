@@ -14,17 +14,23 @@
     --error: #f38ba8;
 }
 
+html,
 body {
-	background-color: var(--bg);
-	color: var(--txt);
-	display: flex;
+    background-color: var(--bg);
+	color: var(--txt-1);
 	font-family: "Source Code Pro", monospace;
-	justify-content: center;
-    margin: 10px;
+	height: 100%;
+    margin: 0px;
+	overflow-x: hidden;
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+	width: 100%;
 }
 
 main {
     max-width: 1150px;
+    padding: 10px;
     width: 100%;
 }
 
@@ -68,86 +74,4 @@ ul {
 
 .header-section {
     margin-top: 20px;
-}
-
-.cb {
-    background-color: var(--bg-2);
-    border: 1px solid #383939;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    bottom: 0;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0.5rem;
-    position: fixed;
-    text-align: center;
-    z-index: 100;
-    width: 100%;
-    animation: float-in-bottom 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-@keyframes float-in-bottom {
-    from {
-        transform: translateY(100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-.cb-head h2 {
-    margin-block-start: 0px;
-    margin-block-end: 0px;
-}
-
-.cb-footer {
-    align-items: center;
-    justify-content: center;
-    background-color: var(--bg-3);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    cursor: pointer;
-    display: flex;
-    margin: 0 auto;
-    font-size: 20px;
-    gap: 5px;
-    max-width: 300px;
-    padding: 5px;
-    width: 100%;
-}
-
-.cb-footer div {
-    height: 23px;
-}
-
-.cb-footer:hover #check {
-    display: block;
-}
-
-.cb-footer:hover > div:first-child {
-    display: block !important;
-}
-
-.cb-footer > div:first-child {
-    display: none;
-}
-
-#check {
-    display: none;
-    fill: none;
-    stroke: #fff;
-    stroke-width: 20;
-    stroke-linecap: round;
-    stroke-dasharray: 180;
-    stroke-dashoffset: 180;
-    animation: draw 0.5s ease-in-out forwards;
-}
-@keyframes draw {
-    to {
-        stroke-dashoffset: 0;
-    }
 }

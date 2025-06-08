@@ -3,19 +3,24 @@
 	--bg-2: hsl(220, 10%, 17%);
 	--bg-3: hsl(220, 10%, 11%);
 	--bg-4: hsl(220, 10%, 16%);
+	--bg-t: hsla(220, 12%, 5%, 0.25);
+	--bg-t-2: hsla(220, 12%, 5%, 0.5);
 	--txt: hsl(220, 30%, 80%);
 	--txt-1: hsl(220, 45%, 90%);
 	--txt-2: hsl(220, 14%, 55%);
 	--txt-3: hsl(220, 11%, 35%);
-    --border: hsl(0, 0%, 100%);
-    /* Accent colors */
-    --accent: #f9e2af;
-    --success: #a6e3a1;
-    --error: #f38ba8;
+	--txt-4: #000000;
+	--border: hsl(0, 0%, 100%);
+    --border-d: #334155;
+	--accent: #f9e2af;
+	--success: #a6e3a1;
+	--error: #f38ba8;
+	--gradient-primary: linear-gradient(90deg, #CF5DEB 0%, #9F3DFA 100%);
+	--gradient-secondary: linear-gradient(90deg, var(--txt-1) 0%, var(--txt) 100%);
 }
 
-body {
-    font-weight: 200;
+main {
+    padding: 10px;
 }
 
 .social-tree-container {
@@ -91,7 +96,7 @@ body {
 
 .st-element {
     background-color: var(--bg-3);
-    border: 1px solid #000;
+    border: 1px solid var(--border);
     border-radius: 7.5px;
     cursor: pointer;
     font-size: 20px;

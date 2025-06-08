@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
 	localStorage.setItem('theme', 'dark');
 	document.documentElement.style.background = "var(--bg)";
-	document.querySelector(".footer-lines").style.color = "#fff"
 	document.querySelectorAll(".linkout").forEach(el => {
 		el.style.color = "#fff";
 	});
