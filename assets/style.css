@@ -1,28 +1,28 @@
-:root {
-	--bg: hsl(220, 10%, 8%);
+root {
+	--accent: #f9e2af;
 	--bg-2: hsl(220, 10%, 17%);
 	--bg-3: hsl(220, 10%, 11%);
 	--bg-4: hsl(220, 10%, 16%);
-	--bg-t: hsla(220, 12%, 5%, 0.25);
 	--bg-t-2: hsla(220, 12%, 5%, 0.5);
-	--txt: hsl(220, 30%, 80%);
+	--bg-t: hsla(220, 12%, 5%, 0.25);
+	--bg: hsl(220, 10%, 8%);
+	--border-d: #334155;
+	--border: hsl(0, 0%, 100%);
+	--error: #f38ba8;
+	--gradient-primary: linear-gradient(90deg, #CF5DEB 0%, #9F3DFA 100%);
+	--gradient-secondary: linear-gradient(90deg, var(--txt-1) 0%, var(--txt) 100%);
+	--success: #a6e3a1;
 	--txt-1: hsl(220, 45%, 90%);
 	--txt-2: hsl(220, 14%, 55%);
 	--txt-3: hsl(220, 11%, 35%);
 	--txt-4: #000000;
-	--border: hsl(0, 0%, 100%);
-    --border-d: #334155;
-	--accent: #f9e2af;
-	--success: #a6e3a1;
-	--error: #f38ba8;
-	--gradient-primary: linear-gradient(90deg, #CF5DEB 0%, #9F3DFA 100%);
-	--gradient-secondary: linear-gradient(90deg, var(--txt-1) 0%, var(--txt) 100%);
+	--txt: hsl(220, 30%, 80%);
 }
 
 * {
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
 }
 
 html,
@@ -30,12 +30,12 @@ body {
 	color: var(--txt-1);
 	font-family: "Source Code Pro", monospace;
 	height: 100%;
-    margin: 0px;
+	margin: 0px;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
 	scrollbar-width: none;
-	-ms-overflow-style: none;
 	width: 100%;
+	-ms-overflow-style: none;
 }
 
 /* Disabled Scroll Bars */
@@ -45,20 +45,23 @@ body {
 	-ms-overflow-style: none;
 }
 
-h1, h2, h3, h4 {
-    color: var(--txt-1);
-    line-height: 1.3;
-    font-family: "Source Code Pro", monospace;
-    font-variant-ligatures: no-common-ligatures;
-    font-weight: 400;
-    margin-block-end: 5.1px;
-    margin-block-start: 5.1px;
-    margin-inline-end: 0px;
-    margin-inline-start: 0px;
+h1,
+h2,
+h3,
+h4 {
+	color: var(--txt-1);
+	font-family: "Source Code Pro", monospace;
+	font-variant-ligatures: no-common-ligatures;
+	font-weight: 400;
+	line-height: 1.3;
+	margin-block-end: 5.1px;
+	margin-block-start: 5.1px;
+	margin-inline-end: 0px;
+	margin-inline-start: 0px;
 }
 
 .bold {
-    font-weight: 800;
+	font-weight: 800;
 }
 
 .hidden {
@@ -69,26 +72,29 @@ h1, h2, h3, h4 {
 	margin: 0 auto;
 }
 
-.linkout, .nodecoration {
-    color: var(--txt-1);
-    cursor: pointer;
-    text-decoration: none;
+.linkout,
+.nodecoration {
+	color: var(--txt-1);
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .nodecoration:hover {
-    text-decoration: underline;
+	text-decoration: underline;
 }
 
 footer {
-	text-align: center;
-	margin: 4rem 0rem 1rem 0rem;
-	font-size: 1.25rem;
 	color: var(--txt-2);
-    width: 100%;
+	font-size: 1.25rem;
+	margin: 4rem 0rem 1rem 0rem;
+	text-align: center;
+	width: 100%;
 }
 
-footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
-    color: #aaa;
+footer .linkout,
+footer .nodecoration,
+footer .linkout.nodecoration {
+	color: #aaa;
 }
 
 /* Scrollbar / Source: https://community.hubspot.com/t5/CMS-Development/CSS-for-Scrollbar-in-iOS-devices/m-p/293889 */
@@ -98,8 +104,8 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
 }
 
 ::-webkit-scrollbar-thumb {
-	border-radius: 4px;
 	background-color: transparent;
+	border-radius: 4px;
 	-webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
 }
 
@@ -108,9 +114,9 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
 }
 
 ::-webkit-scrollbar-track {
+	background: transparent;
 	border-bottom-right-radius: 5px;
 	border-top-right-radius: 5px;
-	background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -127,72 +133,72 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
 }
 
 .cookie-banner {
+	animation: slideUp 0.5s ease-out;
 	background: var(--bg);
 	border: 1px solid var(--border);
 	border-radius: 16px;
-	padding: 2rem;
-	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-	position: fixed;
 	bottom: 1rem;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
 	left: 50%;
+	max-width: 800px;
+	padding: 2rem;
+	position: fixed;
 	transform: translateX(-50%);
 	width: calc(100% - 5px);
-	max-width: 800px;
 	z-index: 9998;
-	animation: slideUp 0.5s ease-out;
 }
 
 .cookie-header {
-	display: flex;
 	align-items: flex-start;
+	display: flex;
 	gap: 1rem;
 	margin-bottom: 1.5rem;
 }
 
 .cookie-icon {
 	align-items: center;
-	border-radius: 12px;
 	background: rgba(159, 61, 250, 0.15);
+	border-radius: 12px;
 	display: flex;
 	font-size: 1.8rem;
 	height: 50px;
 	justify-content: center;
-    padding: 10px;
+	padding: 10px;
 	width: 50px;
 }
 
 .cookie-title {
-	font-size: 1.8rem;
-	margin-bottom: 0.5rem;
 	background: var(--gradient-primary);
-	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
+	font-size: 1.8rem;
+	margin-bottom: 0.5rem;
+	-webkit-background-clip: text;
 }
 
 .cookie-description {
 	color: var(--txt-1);
-	margin-bottom: 1.5rem;
 	line-height: 1.7;
+	margin-bottom: 1.5rem;
 }
 
 .cookie-buttons {
 	display: flex;
-	gap: 1rem;
 	flex-wrap: wrap;
+	gap: 1rem;
 }
 
 .cookie-btn {
-	padding: 0.8rem 1.8rem;
-	border-radius: 50px;
-	font-weight: 500;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	font-size: 1rem;
-	border: none;
-	display: flex;
 	align-items: center;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	display: flex;
+	font-size: 1rem;
+	font-weight: 500;
 	gap: 0.5rem;
+	padding: 0.8rem 1.8rem;
+	transition: all 0.3s ease;
 }
 
 .btn-primary {
@@ -201,8 +207,8 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
 }
 
 .btn-primary:hover {
-	transform: translateY(-3px);
 	box-shadow: 0 5px 15px rgba(159, 61, 250, 0.4);
+	transform: translateY(-3px);
 }
 
 .btn-secondary {
@@ -217,45 +223,45 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
 }
 
 .settings-panel {
+	animation: fadeIn 0.4s ease-out;
 	background: var(--bg);
 	border: 1px solid var(--border);
 	border-radius: 16px;
-	padding: 2rem;
 	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+	display: none;
+	left: 50%;
+	max-width: 700px;
+	padding: 2rem;
 	position: fixed;
 	top: 50%;
-	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 90%;
-	max-width: 700px;
 	z-index: 9999;
-	display: none;
-	animation: fadeIn 0.4s ease-out;
 }
 
 .settings-header {
+	align-items: center;
+	border-bottom: 1px solid var(--border);
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	margin-bottom: 1.5rem;
 	padding-bottom: 1rem;
-	border-bottom: 1px solid var(--border);
 }
 
 .settings-title {
-	font-size: 1.8rem;
 	background: var(--gradient-primary);
-	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
+	font-size: 1.8rem;
+	-webkit-background-clip: text;
 }
 
 .close-btn {
 	background: transparent;
 	border: none;
 	color: var(--txt-1);
-	font-size: 1.5rem;
 	cursor: pointer;
+	font-size: 1.5rem;
 	transition: color 0.3s ease;
 }
 
@@ -270,39 +276,39 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
 
 .cookie-category {
 	background: rgba(255, 255, 255, 0.05);
-	border-radius: 12px;
-	padding: 1.5rem;
-	margin-bottom: 1.5rem;
 	border: 1px solid var(--border);
+	border-radius: 12px;
+	margin-bottom: 1.5rem;
+	padding: 1.5rem;
 }
 
-.cookie-category-bottom, .cookie-header-bottom {
-    margin-bottom: 0px;
+.cookie-category-bottom,
+.cookie-header-bottom {
+	margin-bottom: 0px;
 }
 
 .category-header {
+	align-items: center;
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
 	margin-bottom: 1rem;
 }
 
 .category-title {
-	font-size: 1.3rem;
-	display: flex;
 	align-items: center;
+	display: flex;
+	font-size: 1.3rem;
 	gap: 0.8rem;
 }
 
 .category-icon {
-	width: 40px !important;
-	height: 40px !important;
 	border-radius: 8px;
 	display: flex;
-	align-items: center;
-	justify-content: center;
-    padding: 5px;
 	font-size: 1.2rem;
+	height: 40px !important;
+	justify-content: center;
+	padding: 5px;
+	width: 40px !important;
 }
 
 .category-description {
@@ -322,37 +328,37 @@ footer .linkout, footer .nodecoration, footer .linkout.nodecoration {
 	display: inline-block;
 	height: 30px;
 	position: relative;
-    top: 50%;
+	top: 50%;
 	width: 60px;
 }
 
 .toggle-switch input {
+	height: 0;
 	opacity: 0;
 	width: 0;
-	height: 0;
 }
 
 .slider {
-	position: absolute;
-	cursor: pointer;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
 	background-color: var(--border-d);
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
 	transition: all 0.4s ease;
 	border-radius: 34px;
 }
 
 .slider:before {
-	position: absolute;
+	background-color: white;
+	bottom: 4px;
 	content: "";
 	height: 22px;
-	width: 22px;
 	left: 4px;
-	bottom: 4px;
-	background-color: white;
+	position: absolute;
 	transition: .4s;
+	width: 22px;
 	border-radius: 50%;
 }
 
@@ -378,46 +384,46 @@ input:checked+.slider:before {
 }
 
 .settings-footer {
+	border-top: 1px solid var(--border);
 	display: flex;
-	justify-content: flex-end;
 	gap: 1rem;
+	justify-content: flex-end;
 	margin-top: 1.5rem;
 	padding-top: 1.5rem;
-	border-top: 1px solid var(--border);
 }
 
 .btn-save {
 	background: var(--gradient-primary);
-	color: white;
-	padding: 0.8rem 1.8rem;
-	border-radius: 50px;
-	font-weight: 500;
-	cursor: pointer;
-	transition: all 0.3s ease;
-	font-size: 1rem;
 	border: none;
+	border-radius: 50px;
+	color: white;
+	cursor: pointer;
+	font-size: 1rem;
+	font-weight: 500;
+	padding: 0.8rem 1.8rem;
+	transition: all 0.3s ease;
 }
 
 .btn-save:hover {
-	transform: translateY(-3px);
 	box-shadow: 0 5px 15px rgba(159, 61, 250, 0.4);
+	transform: translateY(-3px);
 }
 
 .overlay {
+	backdrop-filter: blur(5px);
+	background: rgba(0, 0, 0, 0.7);
+	display: none;
+	height: 100%;
+	left: 0;
 	position: fixed;
 	top: 0;
-	left: 0;
 	width: 100%;
-	height: 100%;
-	background: rgba(0, 0, 0, 0.7);
-	backdrop-filter: blur(5px);
 	z-index: 9998;
-	display: none;
 }
 
 #settingsPannelOpener {
-	cursor: pointer;
 	color: var(--txt-2);
+	cursor: pointer;
 }
 
 /* Animations */
@@ -468,8 +474,8 @@ input:checked+.slider:before {
 	}
 
 	.cookie-btn {
-		width: 100%;
 		justify-content: center;
+		width: 100%;
 	}
 
 	.settings-footer {
@@ -483,23 +489,23 @@ input:checked+.slider:before {
 
 @media (max-width: 480px) {
 	.cookie-header {
-		flex-direction: column;
 		align-items: center;
+		flex-direction: column;
 		text-align: center;
 	}
 
 	.category-header {
-		flex-direction: row;
 		align-items: center;
+		flex-direction: row;
 		gap: 0.8rem;
 	}
 
-    .settings-panel {
-        padding: 1rem;
-        width: 95%;
-    }
+	.settings-panel {
+		padding: 1rem;
+		width: 95%;
+	}
 
 	.cookie-category {
-		padding: 1rem;	
+		padding: 1rem;
 	}
 }
