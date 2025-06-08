@@ -27,7 +27,6 @@
 
 html,
 body {
-    background-color: var(--bg);
 	color: var(--txt-1);
 	font-family: "Source Code Pro", monospace;
 	height: 100%;
