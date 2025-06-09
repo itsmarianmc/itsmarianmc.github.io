@@ -342,7 +342,7 @@ footer .linkout.nodecoration {
 }
 
 .slider {
-	background-color: var(--border-d);
+	background-color: var(--bg-2);
 	bottom: 0;
 	cursor: pointer;
 	left: 0;
