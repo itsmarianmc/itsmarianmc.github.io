@@ -36,6 +36,10 @@ body {
 	-ms-overflow-style: none;
 }
 
+footer {
+	background-color: transparent !important;
+}
+
 a {
 	color: var(--txt-1);
 	text-decoration: none;
