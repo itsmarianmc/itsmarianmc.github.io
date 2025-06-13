@@ -312,8 +312,9 @@ a {
 
 .btn--secondary {
 	background: transparent;
-	color: #CF5DEB;
 	border-color: #CF5DEB;
+	color: #CF5DEB;
+	position: relative;
 }
 
 .btn--secondary:hover {

@@ -105,6 +105,26 @@ footer .linkout.nodecoration {
 	color: #aaa;
 }
 
+.ripple {
+	position: absolute;
+	border-radius: 50%;
+	transform: scale(0);
+	animation: ripple-effect 600ms linear;
+	background-color: rgba(255, 255, 255, 0.7);
+}
+
+.ripple-btn {
+	position: relative;
+    overflow: hidden;
+}
+
+@keyframes ripple-effect {
+	to {
+	  transform: scale(4);
+	  opacity: 0;
+	}
+}
+
 /* Scrollbar / Source: https://community.hubspot.com/t5/CMS-Development/CSS-for-Scrollbar-in-iOS-devices/m-p/293889 */
 ::-webkit-scrollbar {
 	-webkit-appearance: none;
@@ -226,6 +246,7 @@ footer .linkout.nodecoration {
 	background: transparent;
 	border: 1px solid var(--border);
 	color: var(--txt-1);
+	position: relative;
 	width: auto !important;
 }
 
