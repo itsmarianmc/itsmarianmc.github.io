@@ -26,7 +26,7 @@
 }
 
 body {
-	background: linear-gradient(135deg, var(--bg), #0c1427);
+	background: linear-gradient(135deg, var(--bg), #0c1427) !important;
 	color: var(--txt-1);
 	min-height: 100vh;
 	line-height: 1.6;
@@ -55,6 +55,10 @@ header {
 	text-align: center;
 	margin-bottom: 2rem;
 	padding: 0 1rem;
+}
+
+footer {
+	background-color: transparent !important;
 }
 
 .subtitle {
@@ -212,6 +216,11 @@ header {
 	word-break: break-word;
 	flex: 1;
 	justify-content: flex-end;
+}
+
+.info-copy, .info-copy div {
+	cursor: pointer;
+	height: 25.6px;
 }
 
 .stats-grid {
@@ -397,15 +406,11 @@ header {
 	}
 	
 	.account-details-grid {
-		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(430px, 1fr));
 	}
 	
 	.achievements-grid {
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	}
-	
-	.stats-grid {
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 	}
 	
 	.farm-hero {

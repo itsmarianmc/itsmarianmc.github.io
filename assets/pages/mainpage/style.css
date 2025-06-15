@@ -161,8 +161,8 @@ a {
 }
 
 .icon {
-	width: 16px;
-	height: 16px;
+	width: 18px;
+	height: 18px;
 	fill: var(--txt-1);
 	transition: all 0.3s ease;
 }
@@ -173,31 +173,6 @@ a {
 	flex-direction: column;
 	gap: 12px;
 	width: 100%;
-}
-
-@keyframes fadeInDown {
-	from {
-		opacity: 0;
-		transform: translateY(-10px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes fadeOutUp {
-	0% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-
-	100% {
-		opacity: 0;
-		transform: translateY(-10px);
-		height: 0px !important;
-	}
 }
 
 .navbar--closing .navbar__list {
@@ -330,7 +305,7 @@ a {
 	bottom: 40px;
 	left: 50%;
 	transform: translateX(-50%);
-	animation: bounce 2s infinite;
+	animation: bounce 1s infinite;
 	cursor: pointer;
 	opacity: 0.8;
 	transition: opacity 0.3s ease;
@@ -338,30 +313,6 @@ a {
 
 .hero__arrow:hover {
 	opacity: 1;
-}
-
-@keyframes bounce {
-
-	0%,
-	100% {
-		transform: translate(-50%, 0);
-	}
-
-	50% {
-		transform: translate(-50%, 15px);
-	}
-}
-
-@keyframes fadeInUp {
-	from {
-		opacity: 0;
-		transform: translateY(20px);
-	}
-
-	to {
-		opacity: 1;
-		transform: translateY(0);
-	}
 }
 
 section {
@@ -666,6 +617,54 @@ section {
 	font-size: 0.9rem;
 	margin-top: 0.5rem;
 	color: var(--txt-2);
+}
+
+@keyframes bounce {
+	0%, 100% {
+		transform: translateY(-25%);
+		animation-timing-function: cubic-bezier(.8,0,1,1);
+	}
+	50% {
+		transform: none;
+		animation-timing-function: cubic-bezier(0,0,.2,1);
+	}
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeInDown {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeOutUp {
+	0% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(-10px);
+		height: 0px !important;
+	}
 }
 
 @media (max-width: 1024px) {

@@ -409,9 +409,9 @@
             "icon": "fas fa-tree",
             "name": "SAVANNAH SANCTUARY",
             "description": "Collect 2 savannah animals in your sanctuary",
-            "progress": "1",
-            "max_progress": "2",
-            "achievement": "0",
+            "progress": "2",
+            "max_progress": "4",
+            "achievement": "1",
             "max_achievement": "3"
         },
         {

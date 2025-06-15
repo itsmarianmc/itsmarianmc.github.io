@@ -29,6 +29,7 @@ body {
 }
 
 main {
+    margin: 0 auto;
     max-width: 1150px;
     padding: 10px;
     width: 100%;
