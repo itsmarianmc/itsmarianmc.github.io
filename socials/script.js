@@ -1,18 +1,8 @@
-document.addEventListener("DOMContentLoaded", function() {
-	localStorage.setItem('theme', 'dark');
-	document.documentElement.style.background = "var(--bg)";
-	document.querySelectorAll(".linkout").forEach(el => {
-		el.style.color = "#fff";
-	});
-	document.querySelectorAll(".header-a").forEach(el => {
-		el.style.color = "#fff";
-	});
-	document.querySelectorAll(".section").forEach(el => {
-		el.style.minWidth = "0";
-		el.style.color = "#fff";
-	});
-	document.querySelectorAll(".nodecoration").forEach(el => {
-		el.style.color = "#fff";
+document.addEventListener("DOMContentLoaded", () => {
+	document.querySelectorAll('.fadeIn').forEach(el => {
+		el.addEventListener('animationend', () => {
+			el.classList.remove('fadeIn');
+		});
 	});
 });
 
