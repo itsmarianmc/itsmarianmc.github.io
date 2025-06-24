@@ -11,7 +11,7 @@
             "icon": "fas fa-truck",
             "name": "BEEP BEEP! III",
             "description": "Complete 2.000 truck deliveries",
-            "progress": "1594",
+            "progress": "1616",
             "max_progress": "2000",
             "achievement": "2",
             "max_achievement": "3"
@@ -20,7 +20,7 @@
             "icon": "fas fa-handshake",
             "name": "PATRONAGE! III",
             "description": "Sell goods to visiting customers 2.500 times",
-            "progress": "1456",
+            "progress": "1496",
             "max_progress": "2500",
             "achievement": "2",
             "max_achievement": "3"
@@ -84,9 +84,9 @@
             "icon": "fas fa-mountain",
             "name": "GOAT GOADER III",
             "description": "Collect 1.800 goat milk",
-            "progress": "1100",
+            "progress": "1137",
             "max_progress": "1800",
-            "achievement": "23",
+            "achievement": "2",
             "max_achievement": "3"
         },
         {
@@ -381,10 +381,10 @@
         {
             "icon": "fas fa-tasks",
             "name": "TASKMASTER II",
-            "description": "Complete 20 neighborhood derby tasks",
-            "progress": "7",
-            "max_progress": "20",
-            "achievement": "1",
+            "description": "Complete 225 neighborhood derby tasks",
+            "progress": "22",
+            "max_progress": "225",
+            "achievement": "2",
             "max_achievement": "3"
         },
         {
