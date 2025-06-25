@@ -19,7 +19,7 @@ body {
     background-color: var(--bg);
 	color: var(--txt-1);
 	font-family: "Source Code Pro", monospace;
-	height: 100%;
+	height: auto !important;
     margin: 0px;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
@@ -30,7 +30,7 @@ body {
 
 main {
     margin: 0 auto;
-    max-width: 1150px;
+    max-width: 1225px;
     padding: 10px;
     width: 100%;
 }
@@ -56,8 +56,8 @@ ul {
     unicode-bidi: isolate;
 }
 
-.linkout, .nodecoration {
-    color: var(--txt);
+main .linkout, main .nodecoration {
+    color: var(--txt-1) !important;
     text-decoration: none;
 }
 
@@ -75,4 +75,130 @@ ul {
 
 .header-section {
     margin-top: 20px;
+}
+
+.legal-header {
+    max-width: 1225px;
+    margin: 0 auto;
+    min-height: 50px;
+    min-width: 300px;
+    text-align: center;
+}
+
+.legal-subheader {
+    width: auto;
+}
+
+.legal-text-section {
+    font-size: 1.56em;
+    line-height: 37.5px;
+    margin: 0 auto;
+    max-width: 1225px;
+    min-height: 40px;
+    min-width: 300px;
+    text-align: left;
+}
+
+.legal-text-enumerations {
+    text-align: left;
+}
+
+.legal-text-enumeration-line {
+    display: flex;
+}
+
+.legal-text-enumeration-left {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.legal-text-enumeration-right {
+    text-align: left;
+}
+
+.legal-contents {
+    width: 100%;
+}
+
+.legal-content {
+    display: flex;
+    gap: 5px;
+}
+
+.legal-content-l a, .legal-content-r a {
+    cursor: pointer;
+}
+
+.legal-content-l {
+    font-weight: 400;
+}
+
+.legal-content-r {
+    margin-left: 5px;
+    width: 100%;
+}
+
+.legal-h1 {
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.legal-h2 {
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.legal-ul {
+    margin-block-end: 0em;
+    margin-block-start: 0em;
+}
+
+.btt-btn {
+    background-color: #24262B;
+    bottom: 25px;
+    border: 1px solid #32333C;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    left: 50%;
+    padding: 10px;
+    position: fixed;
+    text-align: center;
+    transform: translateX(-50%);
+    width: 277.79px;
+    z-index: 1000;
+}
+
+.btt-button {
+    align-items: center;
+    display: flex;
+}
+
+.btt-svg {
+    height: 50px;
+    width: 50px;
+}
+
+.btt-text {
+    font-size: 29px;
+    height: 40px;
+    margin: 5px 0px 0px 0px;
+    text-align: center;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    .legal-h1 {
+        font-size: 30px;
+    }
+
+    .legal-h2 {
+        font-size: 25px;
+    }
+
+    .legal-text-section {
+        font-size: 1.25em;
+        line-height: 30px;
+    }
 }
