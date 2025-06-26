@@ -70,4 +70,32 @@ document.addEventListener("DOMContentLoaded", function() {
 		console.log(`get-userbrowser=${browser}`);
 		console.log(`placeholder-stylesheet-count=${styles.split('\n').length}`);
 	}, 10);
+	
+    const switcher = document.getElementById('scrollBarSwitcher');
+    const html = document.documentElement;
+    const body = document.body;
+    
+    const scrollState = localStorage.getItem('scrollbarState');
+    const isHidden = scrollState === null || scrollState === 'hidden';
+    
+    if (isHidden) {
+        html.classList.add('scrollbar-hidden');
+        body.classList.add('scrollbar-hidden');
+        switcher.textContent = 'Show ScrollBar';
+    } else {
+        html.classList.remove('scrollbar-hidden');
+        body.classList.remove('scrollbar-hidden');
+        switcher.textContent = 'Hide ScrollBar';
+    }
+
+    switcher.addEventListener('click', () => {
+        const isNowHidden = !html.classList.contains('scrollbar-hidden');
+        
+        html.classList.toggle('scrollbar-hidden');
+        body.classList.toggle('scrollbar-hidden');
+        
+        switcher.textContent = isNowHidden ? 'Show ScrollBar' : 'Hide ScrollBar';
+        
+        localStorage.setItem('scrollbarState', isNowHidden ? 'hidden' : 'visible');
+    });
 });

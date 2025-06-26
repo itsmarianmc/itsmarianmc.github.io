@@ -33,7 +33,6 @@ body {
 	margin: 0px;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
-	scrollbar-width: none;
 	width: 100%;
 	-ms-overflow-style: none;
 }
@@ -87,7 +86,10 @@ footer {
 	border-radius: 10px;
 	bottom: 0;
 	color: var(--txt-2) !important;
+	display: flex;
+	flex-direction: column;
 	font-size: 1rem;
+	gap: 7.5px;
 	margin-top: auto;
 	padding: 1rem 0;
 	position: relative;
@@ -566,4 +568,49 @@ input:checked+.slider:before {
 	footer {
 		font-size: 0.75rem;
 	}
+}
+
+::-webkit-scrollbar {
+	width: 7.5px;
+	-webkit-appearance: none;
+	z-index: 1000000;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: transparent;
+	border-radius: 4px;
+	-webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+::-webkit-scrollbar-track {
+	border-bottom-right-radius: 5px;
+	border-top-right-radius: 5px;
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #707070;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #a0a0a0;
+}
+
+.scrollbar-hidden::-webkit-scrollbar {
+	width: 0 !important;
+	height: 0 !important;
+	background: transparent !important;
+	display: none !important;
+}
+
+.scrollbar-hidden::-webkit-scrollbar-thumb {
+	background: transparent !important;
+}
+
+.scrollbar-hidden::-webkit-scrollbar-track {
+	background: transparent !important;
+}
+
+.scrollbar-hidden {
+	scrollbar-width: none !important;
 }

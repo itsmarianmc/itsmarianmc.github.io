@@ -23,7 +23,6 @@ body {
     margin: 0px;
 	overflow-x: hidden;
 	scroll-behavior: smooth;
-	scrollbar-width: none;
 	-ms-overflow-style: none;
 	width: 100%;
 }
@@ -69,10 +68,6 @@ main .linkout, main .nodecoration {
     font-weight: bold;
 }
 
-.legal-header {
-    text-align: center;
-}
-
 .header-section {
     margin-top: 20px;
 }
@@ -83,6 +78,11 @@ main .linkout, main .nodecoration {
     min-height: 50px;
     min-width: 300px;
     text-align: center;
+}
+
+.legal-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
 }
 
 .legal-subheader {
