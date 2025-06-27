@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio-Aktivierung mit Reliable Detection</title>
+    <style>
+        /* Unsichtbares Overlay mit höchster Priorität */
+        #audioActivationOverlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 2147483647; /* Maximaler z-index */
+        }
+        
+        /* Play/Pause Button */
+        #playPauseButton {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border: none;
+            font-size: 24px;
+            display: none;
+            z-index: 1000;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        #playPauseButton:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.9);
+        }
+        
+        /* Seiteninhalte - nur für Beispielzwecke */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            min-height: 200vh;
+        }
+    </style>
+</head>
+<body>
+    <!-- Unsichtbares Aktivierungs-Overlay -->
+    <div id="audioActivationOverlay"></div>
+    
+    <!-- Audio-Element -->
+    <audio id="pageAudio" loop>
+        <source src="/hayday/hayday_maintheme.mp3" type="audio/mpeg">
+        Ihr Browser unterstützt keine Audiodateien.
+    </audio>
+    
+    <!-- Play/Pause Button -->
+    <button id="playPauseButton">▶️</button>
+    
+    <h1>Seite mit Hintergrundaudio</h1>
+    <p>Interagieren Sie mit der Seite (klicken, scrollen, etc.) um Audio zu starten</p>
+    <p>Das unsichtbare Overlay bleibt aktiv, bis die Wiedergabe erfolgreich gestartet wurde</p>
+    
+    <script>
+        const overlay = document.getElementById('audioActivationOverlay');
+        const audio = document.getElementById('pageAudio');
+        const playPauseButton = document.getElementById('playPauseButton');
+        
+        // Initiale Lautstärke
+        audio.volume = 0.5;
+        
+        // Liste aller relevanten Events
+        const interactionEvents = [
+            'mousedown', 'mouseup', 'mousemove', 'wheel',
+            'touchstart', 'touchend', 'touchmove', 
+            'keydown', 'keyup',
+            'scroll'
+        ];
+        
+        // Statusvariablen
+        let isAudioPlaying = false;
+        let eventListenersAttached = false;
+        
+        // Funktion zum Anhängen der Event-Listener
+        function attachInteractionListeners() {
+            if (eventListenersAttached) return;
+            
+            interactionEvents.forEach(event => {
+                overlay.addEventListener(event, handleInteraction);
+            });
+            
+            eventListenersAttached = true;
+        }
+        
+        // Interaktions-Handler
+        function handleInteraction() {
+            // Versuche Audio zu starten
+            startAudio()
+                .then(() => {
+                    // Erfolg: Overlay entfernen
+                    overlay.remove();
+                    playPauseButton.style.display = 'block';
+                    playPauseButton.textContent = '⏸️';
+                    isAudioPlaying = true;
+                    
+                    // Event-Listener entfernen
+                    removeInteractionListeners();
+                })
+                .catch(error => {
+                    console.log("Audio konnte nicht gestartet werden:", error.message);
+                    // Overlay bleibt aktiv für weitere Versuche
+                });
+        }
+        
+        // Audio-Startfunktion mit Promise
+        function startAudio() {
+            return new Promise((resolve, reject) => {
+                const playPromise = audio.play();
+                
+                if (playPromise !== undefined) {
+                    playPromise
+                        .then(() => resolve())
+                        .catch(error => reject(error));
+                } else {
+                    // Für ältere Browser
+                    setTimeout(() => {
+                        if (!audio.paused) {
+                            resolve();
+                        } else {
+                            reject(new Error("Autoplay blockiert"));
+                        }
+                    }, 100);
+                }
+            });
+        }
+        
+        // Event-Listener entfernen
+        function removeInteractionListeners() {
+            interactionEvents.forEach(event => {
+                overlay.removeEventListener(event, handleInteraction);
+            });
+            eventListenersAttached = false;
+        }
+        
+        // Play/Pause-Funktionalität
+        playPauseButton.addEventListener('click', () => {
+            if (audio.paused) {
+                audio.play()
+                    .then(() => {
+                        playPauseButton.textContent = '⏸️';
+                        isAudioPlaying = true;
+                    });
+            } else {
+                audio.pause();
+                playPauseButton.textContent = '▶️';
+                isAudioPlaying = false;
+            }
+        });
+        
+        // Initiale Event-Listener anhängen
+        attachInteractionListeners();
+        
+        // Automatischen Startversuch beim Laden (wird meist blockiert)
+        window.addEventListener('DOMContentLoaded', () => {
+            startAudio()
+                .then(() => {
+                    overlay.remove();
+                    playPauseButton.style.display = 'block';
+                    playPauseButton.textContent = '⏸️';
+                    isAudioPlaying = true;
+                    removeInteractionListeners();
+                })
+                .catch(() => {
+                    console.log("Warte auf Nutzerinteraktion...");
+                });
+        });
+    </script>
+</body>
+</html>
