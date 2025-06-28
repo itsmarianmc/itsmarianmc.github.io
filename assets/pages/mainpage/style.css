@@ -858,6 +858,10 @@ section {
 	.project-card__link {
 		font-size: 0.95rem;
 	}
+	.blog-grid {
+		grid-template-columns: 1fr;
+		gap: 2rem;
+	}
 }
 
 @media (max-width: 768px) {
