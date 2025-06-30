@@ -107,6 +107,53 @@ footer .linkout.nodecoration {
 	color: #aaa;
 }
 
+.btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 14px 28px;
+	font-size: 1rem;
+	font-weight: 500;
+	border-radius: 32px;
+	border: 2px solid transparent;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+	outline: none;
+}
+
+.btn__icon {
+	width: 20px;
+	height: 20px;
+	fill: currentColor;
+	transition: transform 0.3s ease;
+}
+
+.btn--primary {
+	background: var(--gradient-primary);
+	color: var(--txt-1);
+	position: relative;
+	overflow: hidden;
+}
+
+.btn--primary:hover {
+	transform: scale(1.05);
+}
+
+.btn--secondary {
+	background: transparent;
+	border-color: #CF5DEB;
+	color: #CF5DEB;
+	position: relative;
+}
+
+.btn--secondary:hover {
+	background-color: hsla(0, 0%, 100%, 0.1);
+}
+
+.btn--secondary:hover .btn__icon {
+	transform: rotate(5deg) scale(1.1);
+}
+
 .ripple {
 	position: absolute;
 	border-radius: 50%;
