@@ -217,15 +217,6 @@ a {
 	-webkit-text-fill-color: transparent !important;
 }
 
-h1, h2, h3, h4, h5 {
-	animation: fadeInUp 0.8s ease-out;
-	background: var(--gradient-primary);
-	display: inline-block;
-	margin-bottom: 32px;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-}
-
 .hero__roles {
 	list-style: none;
 	display: inline-block;
