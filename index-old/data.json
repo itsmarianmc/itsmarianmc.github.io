@@ -3,7 +3,7 @@
 		"/about": {
 			"description": "I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.",
 			"help-context": "Shows information about me",
-			"print-text": "Hey there, I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.",
+			"print-text": "Hey there, I'm itsmarian, I'm a developer and designer with a versatile skill set across several disciplines. My journey began at age 12, building simple websites and forms in HTML. From there, I started crafting custom code snippets for various WIX sites, which honed my UX and UI design abilities. Eventually, I challenged myself to design and build a website entirely from scratch—without any site builders — igniting my passion for creating immersive digital experiences which make a difference and mark a new era in my career.",
 			"js-action": "none"
 		},
 		"/clear": {
@@ -116,7 +116,7 @@
 		}
 	},
 	"preloadedText": {
-		"text": "> Hey there, I am itsmarian. I'm a student and I am interested in web development, web design, front-end and back-end connections.\nUse the console to navigate around this page. Here are a few helpful commands:\n\n - /about > shows all information about me and my projects \n - /clear > clears the console \n - /help > shows a list of all available commands on this page \n - /pics > An overview of random photos that I took and find beautiful \n - /projects > shows all projects I have \n - /socials > lists all my socials",
+		"text": "> Hey there, I'm itsmarian, I'm a developer and designer with a versatile skill set across several disciplines. My journey began at age 12, building simple websites and forms in HTML. From there, I started crafting custom code snippets for various WIX sites, which honed my UX and UI design abilities. Eventually, I challenged myself to design and build a website entirely from scratch—without any site builders — igniting my passion for creating immersive digital experiences which make a difference and mark a new era in my career.\nUse the console to navigate around this page. Here are a few helpful commands:\n\n - /about > shows all information about me and my projects \n - /clear > clears the console \n - /help > shows a list of all available commands on this page \n - /pics > An overview of random photos that I took and find beautiful \n - /projects > shows all projects I have \n - /socials > lists all my socials",
 		"js-action": "none"
 	}
 }
