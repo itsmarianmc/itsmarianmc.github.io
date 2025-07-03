@@ -209,12 +209,15 @@ a {
 	animation: fadeInUp 0.8s ease-out !important;
 	background: var(--gradient-primary) !important;
 	display: inline-block !important;
-	font-size: 4rem !important;
-	font-weight: 700 !important;
-	line-height: 1.1 !important;
 	margin-bottom: 32px !important;
 	-webkit-background-clip: text !important;
 	-webkit-text-fill-color: transparent !important;
+}
+
+.hero__title h1, h2, h3, span {
+	font-size: 4rem !important;
+	font-weight: 700 !important;
+	line-height: 1.1 !important;
 }
 
 .hero__roles {
