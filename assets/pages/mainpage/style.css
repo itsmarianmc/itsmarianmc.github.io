@@ -806,7 +806,7 @@ section {
 		gap: 24px;
 	}
 
-	.hero__title h1, h2, h3, span {
+	.hero__title h1, .hero__title h2, .hero__title h3, .hero__title span {
 		font-size: 3.5rem;
 	}
 
@@ -899,7 +899,7 @@ section {
 		border-top: 1px solid var(--border);
 	}
 
-	.hero__title h1, h2, h3, span {
+	.hero__title h1, .hero__title h2, .hero__title h3, .hero__title span {
 		font-size: 2rem !important;
 	}
 
@@ -989,7 +989,7 @@ section {
 		display: none;
 	}
 
-	.hero__title h1, h2, h3, span {
+	.hero__title h1, .hero__title h2, .hero__title h3, .hero__title span {
 		font-size: 1.75rem !important;
 	}
 
