@@ -214,7 +214,7 @@ a {
 	-webkit-text-fill-color: transparent !important;
 }
 
-.hero__title h1, h2, h3, span {
+.hero__title h1, .hero__title h2, .hero__title h3, .hero__title span {
 	font-size: 4rem !important;
 	font-weight: 700 !important;
 	line-height: 1.1 !important;
