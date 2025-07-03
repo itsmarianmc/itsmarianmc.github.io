@@ -45,6 +45,13 @@ a {
 	transition: all 0.3s ease;
 }
 
+/* Disabled Scrollbars */
+.cookie-banner {
+	scroll-behavior: smooth;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
 .background-wrapper {
 	position: fixed;
 	top: 0;
