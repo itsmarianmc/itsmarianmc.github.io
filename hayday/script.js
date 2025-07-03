@@ -200,3 +200,26 @@ document.getElementById("copyText--type-text--content-#L08QQU2JG").addEventListe
 		console.error('Failed to copy text: ', err);
 	});
 });
+
+document.getElementById("copyText--type-text--content-#QGUCLR8Q").addEventListener("click", function () {
+	const element = document.getElementById("copyText--type-text--content-#QGUCLR8Q");
+	const infoText = document.getElementById("copyText--type-text--content-#QGUCLR8Q-info-text");
+	const infoSVG = document.getElementById("copyText--type-text--content-#QGUCLR8Q-svg");
+	const preText = document.getElementById("copyText--type-text--content-#QGUCLR8Q-pretext");
+	navigator.clipboard.writeText('#QGUCLR8Q')
+	.then(() => {
+		element.title = `Text copied to clipboard`;
+		infoText.innerText = `Text copied to clipboard`;
+		infoSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="25.6" viewBox="0 -960 960 960" width="25.6" fill="#fff"><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>`;
+		preText.innerText = ``;
+		setTimeout(() => {
+			element.title = `Copy to clipboard`;
+			infoText.innerText = `#QGUCLR8Q`;
+			infoSVG.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="25.6" viewBox="0 -960 960 960" width="25.6" fill="#fff"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Z"/></svg>`;
+			preText.innerText = `Farm Code`;
+		}, 3000);
+	})
+	.catch(err => {
+		console.error('Failed to copy text: ', err);
+	});
+});
