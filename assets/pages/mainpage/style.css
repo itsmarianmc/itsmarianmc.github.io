@@ -987,7 +987,7 @@ section {
 	}
 
 	.hero__title h1, h2, h3, span {
-		font-size: 2.5rem;
+		font-size: 1.75rem !important;
 	}
 
 	.hero__roles li {
