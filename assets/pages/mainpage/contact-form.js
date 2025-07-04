@@ -1,42 +1,44 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const form = document.getElementById('contactForm');
-  const statusEl = document.getElementById('formStatus');
+	const form = document.getElementById('contactForm');
+	const statusEl = document.getElementById('formStatus');
 
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const formData = {
-      name: form.name.value,
-      email: form.email.value,
-      message: form.message.value
-    };
+	form.addEventListener('submit', async (e) => {
+		e.preventDefault();
 
-    const submitBtn = form.querySelector('button[type="submit"]');
-    submitBtn.disabled = true;
-    statusEl.textContent = 'Sending...';
-    statusEl.style.color = 'gray';
+		const formData = {
+			name: form.name.value,
+			email: form.email.value,
+			message: form.message.value
+		};
 
-    try {
-      const response = await fetch('https://itsmarianmc-github.vercel.app/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+		const submitBtn = form.querySelector('button[type="submit"]');
+		submitBtn.disabled = true;
+		statusEl.textContent = 'Sending...';
+		statusEl.style.color = 'gray';
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Server error: ${response.status}`);
-      }
+		try {
+			const response = await fetch('https://itsmarianmc-github.vercel.app/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify(formData)
+			});
 
-      statusEl.textContent = 'Message sent successfully!';
-      statusEl.style.color = 'green';
-      form.reset();
-    } catch (error) {
-      console.error('Error:', error);
-      statusEl.textContent = `Error: ${error.message}`;
-      statusEl.style.color = 'red';
-    } finally {
-      submitBtn.disabled = false;
-    }
-  });
+			if (!response.ok) {
+				const errorData = await response.json();
+				throw new Error(errorData.error || `Server error: ${response.status}`);
+			}
+
+			statusEl.textContent = 'Message sent successfully!';
+			statusEl.style.color = 'green';
+			form.reset();
+		} catch (error) {
+			console.error('Error:', error);
+			statusEl.textContent = `Error: ${error.message}`;
+			statusEl.style.color = 'red';
+		} finally {
+			submitBtn.disabled = false;
+		}
+	});
 });
