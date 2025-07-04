@@ -112,6 +112,10 @@ a {
 	fill: var(--txt-1);
 }
 
+.mobileHeadText {
+	display: none !important;
+}
+
 .navbar__list {
 	list-style: none;
 	display: flex;
@@ -897,6 +901,11 @@ section {
 	.navbar__list li a {
 		padding: 0px 0;
 		border-top: 1px solid var(--border);
+		justify-content: center;
+	}
+
+	.mobileHeadText {
+		display: block !important;
 	}
 
 	.hero__title h1, .hero__title h2, .hero__title h3, .hero__title span {
