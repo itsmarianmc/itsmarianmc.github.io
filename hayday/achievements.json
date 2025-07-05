@@ -290,10 +290,10 @@
         },
         {
             "icon": "fas fa-spider",
-            "name": "LOBSTER GOURMAND II",
-            "description": "Harvest 50 lobster tails",
-            "progress": "33",
-            "max_progress": "50",
+            "name": "LOBSTER GOURMAND III",
+            "description": "Harvest 550 lobster tails",
+            "progress": "50",
+            "max_progress": "500",
             "achievement": "1",
             "max_achievement": "3"
         },

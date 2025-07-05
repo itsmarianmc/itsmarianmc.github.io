@@ -176,6 +176,14 @@ document.addEventListener('DOMContentLoaded', async function() {
 			el.classList.remove('fadeIn');
 		});
 	});
+	
+	const xpText = document.getElementById('xp-value').textContent;
+	const [currentStr, targetStr] = xpText.split('/');
+	const currentXP = parseFloat(currentStr.replace(/\./g, '').replace(',', '.'));
+	const targetXP = parseFloat(targetStr.replace(/\./g, '').replace(',', '.'));
+	const percentage = (currentXP / targetXP * 100).toFixed(2);
+
+	document.getElementById('xp-progress').textContent = percentage + '%';
 });
 
 document.getElementById("copyText--type-text--content-#L08QQU2JG").addEventListener("click", function () {
