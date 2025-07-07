@@ -24,34 +24,31 @@
 	box-sizing: border-box;
 }
 
-html,
-body {
-	width:100%;
-	margin:0;
-	padding:0;
-	height:100dvh;
-	height:-webkit-fill-available;
-	font-family:"Source Code Pro",monospace;
-	color:var(--txt-1);
-	overflow-x:hidden;
-	scroll-behavior:smooth;
-	-ms-overflow-style:none;
-	transform:translate3d(0,0,0);
-	-webkit-transform:translate3d(0,0,0);
+html, body {
+	height: 100%; /* Fallback für ältere Browser */
+	min-height: 100vh; /* Basis-Viewport-Höhe */
+	min-height: -webkit-fill-available; /* Safari-spezifische dynamische Höhe */
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
 }
 
 .background-wrapper {
-	position:fixed;
-	top:0; left:0;
-	width:100%;
-	height:100dvh;
-	height:-webkit-fill-available;
-	backface-visibility:hidden;
-	-webkit-backface-visibility:hidden;
-	transform:translate3d(0,0,0);
-	-webkit-transform:translate3d(0,0,0);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh; /* Statische Höhe als Fallback */
+	height: -webkit-fill-available; /* Dynamische Höhe für Safari */
+	height: 100dvh; /* Moderner Standard (wird priorisiert) */
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
+	transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
+	/* Sicherstellen, dass SVG den gesamten Raum füllt */
+	object-fit: cover; /* Falls SVG als <img> oder <object> */
 }
-
 
 footer {
 	background-color: transparent !important;
