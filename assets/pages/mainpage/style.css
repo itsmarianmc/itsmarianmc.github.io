@@ -45,19 +45,19 @@ body {
 }
 
 .background-wrapper {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  /* auch hier dynamische Höhe */
-  height: 100dvh;
-  height: -webkit-fill-available;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/* auch hier dynamische Höhe */
+	height: 100dvh;
+	height: -webkit-fill-available;
 
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-backface-visibility: hidden;
 
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+	-webkit-transform: translate3d(0, 0, 0);
 }
 
 
