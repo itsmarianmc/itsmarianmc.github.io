@@ -153,7 +153,7 @@ function showErrorMessage(message) {
 
 document.addEventListener('DOMContentLoaded', async function() {
 	gameData = await loadGameDataFromFile();
-    const cards = document.querySelectorAll('.detail-card, .achievement');
+    const cards = document.querySelectorAll('.detail-card, .achievement, .event-card');
 
 	if (gameData) {
 		updateStats();
