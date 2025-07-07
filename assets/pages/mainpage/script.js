@@ -124,11 +124,3 @@ document.querySelectorAll('.ripple-btn').forEach(el => {
         circle.addEventListener('animationend', () => circle.remove());
     });
 });
-
-function resizeBackground() {
-	const wrapper = document.querySelector('.background-wrapper');
-	wrapper.style.height = window.innerHeight + 'px';
-}
-
-window.addEventListener('resize', resizeBackground);
-window.addEventListener('DOMContentLoaded', resizeBackground);
