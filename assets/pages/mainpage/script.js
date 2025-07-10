@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener("DOMContentLoaded", function() {
 	const navbar = document.getElementById('navbar');
 	const toggle = document.getElementById('navbarToggle');
 	const navLinks = document.querySelectorAll('.nav-link');
@@ -14,7 +14,20 @@
 		}, ANIMATION_DURATION);
 	}
 
-	toggle.addEventListener('click', function () {
+	function scrollToSection(targetId) {
+		if (!targetId || targetId === '#') return;
+
+		const targetElement = document.querySelector(targetId);
+		if (targetElement) {
+			const navbarHeight = navbar.offsetHeight;
+			window.scrollTo({
+				top: targetElement.offsetTop - navbarHeight,
+				behavior: 'smooth'
+			});
+		}
+	}
+
+	toggle.addEventListener('click', function() {
 		if (navbar.classList.contains('navbar--open')) {
 			closeNavbar();
 		} else {
@@ -23,23 +36,17 @@
 	});
 
 	navLinks.forEach(link => {
-		link.addEventListener('click', function () {
+		link.addEventListener('click', function() {
 			closeNavbar();
 		});
 	});
 
 	document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-		anchor.addEventListener('click', function (e) {
+		anchor.addEventListener('click', function(e) {
 			e.preventDefault();
 			const targetId = this.getAttribute('href');
-			if (targetId === '#') return;
-			const targetElement = document.querySelector(targetId);
-			if (targetElement) {
-				window.scrollTo({
-					top: targetElement.offsetTop - 80,
-					behavior: 'smooth'
-				});
-			}
+			history.pushState(null, null, targetId);
+			scrollToSection(targetId);
 		});
 	});
 
@@ -53,7 +60,8 @@
 			}
 		});
 	}, {
-		threshold: 0.5
+		threshold: 0.1,
+		rootMargin: '-80px 0px -20% 0px'
 	});
 
 	sections.forEach(section => {
@@ -70,57 +78,74 @@
 		}
 	}
 
+	window.addEventListener('hashchange', function() {
+		scrollToSection(window.location.hash);
+	});
+
 	window.addEventListener('scroll', handleNavbarScroll);
 	handleNavbarScroll();
 })();
 
-document.addEventListener("DOMContentLoaded", function () {
-	const el = document.getElementById("heroWelcome");
-	const text = el.textContent;
-	el.textContent = "";
-	let index = 0;
+document.addEventListener("DOMContentLoaded", function() {
+	const navbar = document.getElementById('navbar');
 
-	function typeNext() {
-		if (index < text.length) {
-			el.textContent += text.charAt(index);
-			index++;
-			setTimeout(typeNext, 100);
+	const el = document.getElementById("heroWelcome");
+	if (el) {
+		const text = el.textContent;
+		el.textContent = "";
+		let index = 0;
+
+		function typeNext() {
+			if (index < text.length) {
+				el.textContent += text.charAt(index);
+				index++;
+				setTimeout(typeNext, 100);
+			}
+		}
+		typeNext();
+	}
+
+	function handleInitialHash() {
+		const hash = window.location.hash;
+		if (hash) {
+			setTimeout(() => scrollToSection(hash), 300);
 		}
 	}
-	typeNext();
 
-	const hash = window.location.hash;
-	if (hash && document.querySelector(hash)) {
-		setTimeout(() => {
-			const target = document.querySelector(hash);
-			if (target) {
-				window.scrollTo({
-					top: target.offsetTop - 80,
-					behavior: 'smooth'
-				});
-			}
-		}, 100);
-	}
+	window.scrollToSection = function(targetId) {
+		if (!targetId || targetId === '#') return;
+
+		const targetElement = document.querySelector(targetId);
+		if (targetElement) {
+			const navbarHeight = navbar.offsetHeight;
+			window.scrollTo({
+				top: targetElement.offsetTop - navbarHeight,
+				behavior: 'smooth'
+			});
+		}
+	};
+
+	handleInitialHash();
 });
 
 document.querySelectorAll('.ripple-btn').forEach(el => {
 	el.addEventListener('click', function(e) {
-        const oldRipple = el.querySelector('.ripple');
-        if (oldRipple) oldRipple.remove();
+		const oldRipple = el.querySelector('.ripple');
+		if (oldRipple) oldRipple.remove();
 
-        const rect = el.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+		const rect = el.getBoundingClientRect();
+		const x = e.clientX - rect.left;
+		const y = e.clientY - rect.top;
 
-        const circle = document.createElement('span');
-        const diameter = Math.max(el.clientWidth, el.clientHeight);
-        const radius = diameter / 2;
-        circle.style.width = circle.style.height = diameter + 'px';
-        circle.style.left = (x - radius) + 'px';
-        circle.style.top = (y - radius) + 'px';
-        circle.classList.add('ripple');
+		const circle = document.createElement('span');
+		const diameter = Math.max(el.clientWidth, el.clientHeight);
+		const radius = diameter / 2;
+		circle.style.width = circle.style.height = diameter + 'px';
+		circle.style.left = (x - radius) + 'px';
+		circle.style.top = (y - radius) + 'px';
+		circle.classList.add('ripple');
 
-        el.appendChild(circle);
-        circle.addEventListener('animationend', () => circle.remove());
-    });
+		el.appendChild(circle);
+		circle.addEventListener('animationend', () => circle.remove());
+	});
 });
