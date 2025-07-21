@@ -361,12 +361,13 @@ section {
 }
 
 #about,
-#blog {
+#snippets,
+#contact {
 	background: var(--bg-t);
 }
 
 #projects,
-#contact {
+#blog {
 	background: transparent;
 }
 
@@ -523,6 +524,7 @@ section {
 	border-radius: 12px;
 	background: rgba(159, 61, 250, 0.25);
 	color: var(--txt-1);
+	min-width: 50px;
 	font-size: 1.5rem;
 }
 

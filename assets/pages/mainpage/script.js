@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	window.addEventListener('scroll', handleNavbarScroll);
 	handleNavbarScroll();
-})();
+});
 
 document.addEventListener("DOMContentLoaded", function() {
 	const navbar = document.getElementById('navbar');
