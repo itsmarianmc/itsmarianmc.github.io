@@ -7,8 +7,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function closeNavbar() {
 		if (!navbar.classList.contains('navbar--open')) return;
-		navbar.classList.remove('navbar--open');
-		navbar.classList.add('navbar--closing');
+			toggle.innerHTML = `<svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>`;
+			navbar.classList.remove('navbar--open');
+			navbar.classList.add('navbar--closing');
 		setTimeout(() => {
 			navbar.classList.remove('navbar--closing');
 		}, ANIMATION_DURATION);
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
 			closeNavbar();
 		} else {
 			navbar.classList.add('navbar--open');
+			toggle.innerHTML = `<svg viewBox="0 -960 960 960"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>`;
 		}
 	});
 

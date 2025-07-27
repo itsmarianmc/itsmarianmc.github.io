@@ -42,10 +42,10 @@
     </div>
     <nav class="navbar" id="navbar">
         <div class="navbar__logo">itsmarian</div>
-        <button class="navbar__toggle" id="navbarToggle" aria-label="Menü umschalten">
-        <svg viewBox="0 0 24 24">
-            <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
-        </svg>
+        <button class="navbar__toggle" id="navbarToggle" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24">
+                <path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z" />
+            </svg>
         </button>
         <ul class="navbar__list">
             <li>
@@ -78,6 +78,14 @@
                         <path d="M200-200h560v-367L567-760H200v560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h400l240 240v400q0 33-23.5 56.5T760-120H200Zm80-160h400v-80H280v80Zm0-160h400v-80H280v80Zm0-160h280v-80H280v80Zm-80 400v-560 560Z"/>
                     </svg>
                     Snippets
+                </a>
+            </li>
+            <li>
+                <a href="/#pictures" class="nav-link" data-section="pictures">
+                    <svg class="icon" viewBox="0 -960 960 960">
+                        <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560H200v560Zm40-80h480L570-480 450-320l-90-120-120 160Zm-40 80v-560 560Z"/>
+                    </svg>
+                    Pictures
                 </a>
             </li>
             <li>
@@ -489,6 +497,37 @@
                         </a>
                     </div>
                     <i class="fas fa-th-large project-grid-icon"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="pictures">
+        <div class="content">
+            <div class="hero__title textalign-center width-100p">
+                <h2>My Pictures</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card all-projects">
+                    <div class="project-card__header">
+                        <h2>
+                            <div class="card-icon">
+                                <i class="fas fa-images"></i>
+                            </div>
+                            Photo Gallery
+                        </h2>
+                    </div>
+                    <div class="project-card__content">
+                        <p>Explore my visual journey through curated photography collections. From nature landscapes to digital art, discover the world through my lens.</p>
+                    </div>
+                    <div class="project-card__links">
+                        <a class="project-card__link ripple-btn" href="/pictures" target="_parent">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
+                                <path d="m560-240-56-58 142-142H160v-80h486L504-662l56-58 240 240-240 240Z"/>
+                            </svg>
+                            <span>View Gallery</span>
+                        </a>
+                    </div>
+                    <i class="fas fa-images project-grid-icon"></i>
                 </div>
             </div>
         </div>
