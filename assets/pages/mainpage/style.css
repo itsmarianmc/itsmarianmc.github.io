@@ -240,7 +240,7 @@ a {
 	flex-direction: column;
 	height: 100vh;
 	justify-content: center;
-	padding-top: 120px;
+	padding: 120px 24px 120px 24px;
 	position: relative;
 	text-align: center;
 	width: 100%;
@@ -973,7 +973,7 @@ section {
 	}
 
 	.hero__arrow {
-		bottom: 20px;
+		bottom: 30px;
 	}
 
 	.navbar {
@@ -1079,7 +1079,7 @@ section {
 	}
 
 	.hero__arrow {
-		bottom: 10px;
+		bottom: 44px;
 	}
 
 	.section-title {
