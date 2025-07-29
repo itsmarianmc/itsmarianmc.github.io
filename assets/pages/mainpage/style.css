@@ -45,6 +45,10 @@ a {
 	transition: all 0.3s ease;
 }
 
+.linkout, .nodecoration {
+	cursor: none;
+}
+
 .background-wrapper {
 	height: 100%;
 	left: 0;
@@ -109,6 +113,7 @@ a {
 	background: rgba(255, 255, 255, 0.1);
 	border: 1px solid rgba(255, 255, 255, 0.1);
 	border-radius: 8px;
+	cursor: none;
 	display: none;
 	height: 46px;
 	padding: 10px;
@@ -144,6 +149,7 @@ a {
 	align-items: center;
 	border-radius: 8px;
 	color: var(--txt-1);
+	cursor: none;
 	display: flex;
 	font-size: 0.95rem;
 	font-weight: 500;
@@ -305,7 +311,7 @@ a {
 	align-items: center;
 	border: 2px solid transparent;
 	border-radius: 32px;
-	cursor: pointer;
+	cursor: none;
 	display: inline-flex;
 	font-size: 1rem;
 	font-weight: 500;
@@ -351,12 +357,14 @@ a {
 .hero__arrow {
 	animation: bounce 1s infinite;
 	bottom: 20px;
-	cursor: pointer;
+	cursor: none;
+	height: 32px;
 	left: 50%;
 	opacity: 0.8;
 	position: absolute;
 	transform: translateX(-50%);
 	transition: opacity 0.3s ease;
+	width: 32px;
 }
 
 .hero__arrow:hover {
@@ -506,7 +514,7 @@ section {
 	border: 1px solid rgba(159, 61, 250, 0.3);
 	border-radius: 20px;
 	color: var(--txt-1);
-	cursor: pointer;
+	cursor: none;
 	display: inline-block;
 	font-size: 0.9rem;
 	padding: 0.4rem 1rem;
@@ -534,6 +542,7 @@ section {
 	border: 1px solid rgba(207, 93, 235, 0.3);
 	border-radius: 12px;
 	color: var(--txt-1);
+	cursor: none;
 	display: flex;
 	font-weight: 500;
 	gap: 1rem;
@@ -832,16 +841,14 @@ section {
 }
 
 @keyframes bounce {
-
 	0%,
 	100% {
 		animation-timing-function: cubic-bezier(.8, 0, 1, 1);
-		transform: translateY(-25%);
+		transform: translate(-50%, -25%);
 	}
-
 	50% {
 		animation-timing-function: cubic-bezier(0, 0, .2, 1);
-		transform: none;
+		transform: translate(-50%, 0%);
 	}
 }
 
@@ -1017,6 +1024,10 @@ section {
 }
 
 @media (max-width: 480px) {
+	.navbar__toggle, .navbar__list li a, .linkout, .nodecoration {
+		cursor: pointer !important;
+	}
+
 	.contact-form {
 		gap: 1rem;
 		padding: 1.5rem 1rem;
