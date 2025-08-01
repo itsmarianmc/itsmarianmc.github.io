@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
 	const toggle = document.getElementById('navbarToggle');
 	const navLinks = document.querySelectorAll('.nav-link');
 	const sections = document.querySelectorAll('section, header');
-	const ANIMATION_DURATION = 300;
+	const ANIMATION_DURATION = 400;
 
 	function closeNavbar() {
 		if (!navbar.classList.contains('navbar--open')) return;
