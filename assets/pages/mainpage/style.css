@@ -240,19 +240,6 @@ a {
 	display: none;
 }
 
-.hero {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-	justify-content: center;
-	padding: 120px 24px 120px 24px;
-	position: relative;
-	text-align: center;
-	width: 100%;
-	z-index: 999;
-}
-
 .hero__title {
 	animation: fadeInUp 0.8s ease-out !important;
 	background: var(--gradient-primary) !important;
@@ -371,7 +358,7 @@ a {
 	opacity: 1;
 }
 
-section {
+section, .hero {
 	align-items: center;
 	background-color: var(--bg-4);
 	display: flex;
@@ -415,6 +402,7 @@ section {
 	background: var(--bg-t);
 }
 
+#hero,
 #projects,
 #pictures,
 #contact {
@@ -951,7 +939,7 @@ section {
 }
 
 @media (max-width: 768px) {
-	section {
+	section, .hero {
     	padding: 120px 24px 80px;
 	}
 
