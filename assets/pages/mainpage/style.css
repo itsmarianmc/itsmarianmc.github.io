@@ -943,6 +943,10 @@ section, .hero {
     	padding: 120px 24px 80px;
 	}
 
+	.hero {
+		padding: 80px 24px 80px;
+	}
+
 	.hero__title h1,
 	.hero__title h2,
 	.hero__title h3,
