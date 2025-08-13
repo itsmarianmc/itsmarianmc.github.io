@@ -345,13 +345,13 @@ a {
 	animation: bounce 1s infinite;
 	bottom: 20px;
 	cursor: none;
-	height: 32px;
+	height: 64px;
 	left: 50%;
 	opacity: 0.8;
 	position: absolute;
 	transform: translateX(-50%);
 	transition: opacity 0.3s ease;
-	width: 32px;
+	width: 64px;
 }
 
 .hero__arrow:hover {
@@ -400,6 +400,7 @@ section, .hero {
 #snippets,
 #blog {
 	background: var(--bg-t);
+	position: relative;
 }
 
 #hero,
@@ -407,6 +408,7 @@ section, .hero {
 #pictures,
 #contact {
 	background: transparent;
+	position: relative;
 }
 
 .projects-grid, .blog-grid {
@@ -973,6 +975,8 @@ section, .hero {
 
 	.hero__arrow {
 		bottom: 30px;
+		height: 48px;
+		width: 48px;
 	}
 
 	.navbar {
@@ -1083,6 +1087,8 @@ section, .hero {
 
 	.hero__arrow {
 		bottom: 44px;
+		height: 32px;
+		width: 32px;
 	}
 
 	.section-title {
