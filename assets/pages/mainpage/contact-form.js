@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 
 			statusEl.textContent = 'Message sent successfully!';
-			statusEl.style.color = 'green';
+			statusEl.style.color = 'var(--success)';
 			form.reset();
 		} catch (error) {
 			console.error('Error:', error);
