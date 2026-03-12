@@ -8,7 +8,7 @@ function onClick(e) {
     const token = await grecaptcha.enterprise.execute('6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw', {action: 'submit'});
     
     // 3. Token an Vercel senden
-    const response = await fetch('https://deine-api.vercel.app/api/verify', {
+    const response = await fetch('http://itsmarianmc-github.vercel.app/api/verify', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ token: token })
