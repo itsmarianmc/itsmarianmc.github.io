@@ -2,8 +2,10 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>reCAPTCHA Test</title>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>reCAPTCHA Test</title><head>
+    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw"></script>
+    <!-- Your code -->
+    </head>
 </head>
 <body>
     <h1>reCAPTCHA v2 Testseite</h1>
@@ -17,45 +19,12 @@
     <p id="status"></p>
 
     <script>
-        document.getElementById('captcha-form').addEventListener('submit', async (e) => {
+        function onClick(e) {
             e.preventDefault();
-            const statusElement = document.getElementById('status');
-            
-            // 3. Den Token von Google abrufen
-            const captchaResponse = grecaptcha.getResponse();
-
-            if (!captchaResponse) {
-                statusElement.innerText = "Bitte löse zuerst das CAPTCHA!";
-                return;
-            }
-
-            statusElement.innerText = "Wird geprüft...";
-
-            try {
-                // 4. Den Token an DEINE Vercel-URL senden
-                // Wichtig: Content-Type und JSON.stringify nutzen
-                const response = await fetch('http://itsmarianmc-github.vercel.app/api/verify', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({ token: captchaResponse })
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    statusElement.style.color = "green";
-                    statusElement.innerText = "Erfolg! Google sagt, du bist ein Mensch.";
-                } else {
-                    statusElement.style.color = "red";
-                    statusElement.innerText = "Fehler: " + (result.error || "Verifizierung fehlgeschlagen.");
-                }
-            } catch (err) {
-                statusElement.innerText = "Verbindungsfehler zur Vercel-API.";
-                console.error(err);
-            }
-        });
+            grecaptcha.enterprise.ready(async () => {
+            const token = await grecaptcha.enterprise.execute('6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw', {action: 'LOGIN'});
+            });
+        }
     </script>
 </body>
 </html>
