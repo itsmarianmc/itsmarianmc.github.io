@@ -1,30 +1,23 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <title>reCAPTCHA Test</title><head>
-    <script src="https://www.google.com/recaptcha/enterprise.js?render=6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw"></script>
-    <!-- Your code -->
-    </head>
-</head>
-<body>
-    <h1>reCAPTCHA v2 Testseite</h1>
+<script src="https://www.google.com/recaptcha/enterprise.js?render=6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw"></script>
+
+<script>
+function onClick(e) {
+  e.preventDefault();
+  grecaptcha.enterprise.ready(async () => {
+    // 2. Token generieren für die Aktion 'login' oder 'submit'
+    const token = await grecaptcha.enterprise.execute('6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw', {action: 'submit'});
     
-    <form id="captcha-form">
-        <div class="g-recaptcha" data-sitekey="6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw"></div>
-        <br/>
-        <button type="submit">Prüfen</button>
-    </form>
+    // 3. Token an Vercel senden
+    const response = await fetch('https://deine-api.vercel.app/api/verify', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ token: token })
+    });
+    
+    const result = await response.json();
+    console.log("Ergebnis vom Server:", result);
+  });
+}
+</script>
 
-    <p id="status"></p>
-
-    <script>
-        function onClick(e) {
-            e.preventDefault();
-            grecaptcha.enterprise.ready(async () => {
-            const token = await grecaptcha.enterprise.execute('6LeXL4gsAAAAAGIrW5eB5zdLiOHOamAN8QaG7Fqw', {action: 'LOGIN'});
-            });
-        }
-    </script>
-</body>
-</html>
+<button onclick="onClick(event)">Formular absenden</button>
